@@ -1,0 +1,153 @@
+Index: plugins/idRepositoryPlugin/lib/fileHandler/DiffFileHandler.php
+===================================================================
+--- plugins/idRepositoryPlugin/lib/fileHandler/DiffFileHandler.php	(revision 69)
++++ plugins/idRepositoryPlugin/lib/fileHandler/DiffFileHandler.php	(working copy)
+@@ -29,6 +29,7 @@
+   private function unsetSummaryInformation($lines)
+   {
+     unset($lines[0], $lines[1], $lines[2], $lines[3]);
++    return $lines;
+   }
+ 
+   private function newDiffBlock($line)
+@@ -65,89 +66,78 @@
+     $this->right_line_number++;
+   }
+ 
+-  private function insertLeftLine($line)
++  private function insertLine($direction, $params = array())
+   {
+-    if (!isset($this->matrix[$this->matrix_line_number_left]))
+-    if (!isset($this->matrix[$this->matrix_line_number_left]))
++    $matrix_line_number = 'matrix_line_number_' . $direction;
++    $matrix_line_number = 'matrix_line_number_' . $direction;
++    $line_number = $direction . '_line_number';
++    $line = $direction . '_line';
++
++    if(isset($this->matrix[$this->$matrix_line_number]) && $this->matrix[$this->$matrix_line_number][$line_number] != '')
+     {
+-      $this->matrix[$this->matrix_line_number_left]['status'] = 'd';
+-      $this->matrix[$this->matrix_line_number_left]['left_line_number'] = $this->left_line_number;
+-      $this->matrix[$this->matrix_line_number_left]['left_line'] = substr($line, 1);
+-      $this->matrix[$this->matrix_line_number_left]['right_line_number'] = '';
+-      $this->matrix[$this->matrix_line_number_left]['right_line'] = '';
++      throw new Exception('Cannot set again the same line : '.$this->$line_number);
+     }
+-    else if ($this->matrix[$this->matrix_line_number_left]['left_line_number'] == '' && $this->matrix[$this->matrix_line_number_left]['left_line'] == '')
++
++    if (!isset($this->matrix[$this->$matrix_line_number]))
+     {
+-      $this->matrix[$this->matrix_line_number_left]['left_line_number'] = $this->left_line_number;
+-      $this->matrix[$this->matrix_line_number_left]['left_line'] = substr($line, 1);
++      $this->matrix[$this->$matrix_line_number] = $params;
+     }
+     else
+     {
+-      throw new Exception('Cnnot set again the same line : '.$this->left_line_number);
++      $this->matrix[$this->$matrix_line_number][$line_number] = $params[$line_number];
++      $this->matrix[$this->$matrix_line_number][$line] = $params[$line];
+     }
++    
++    $this->$matrix_line_number++;
++    $this->$line_number++;
+ 
+-    $this->matrix_line_number_left++;
+-    $this->left_line_number++;
+   }
+ 
+-  private function insertRightLine($line)
++
++  public function readDiffFile($file_path)
+   {
+-    if (!isset($this->matrix[$this->matrix_line_number_right]))
++    if(is_null($file_path) || !is_file($file_path))
+     {
+-      $this->matrix[$this->matrix_line_number_right]['status'] = 'd';
+-      $this->matrix[$this->matrix_line_number_right]['left_line_number'] = '';
+-      $this->matrix[$this->matrix_line_number_right]['left_line'] = '';
+-      $this->matrix[$this->matrix_line_number_right]['right_line_number'] = $this->right_line_number;
+-      $this->matrix[$this->matrix_line_number_right]['right_line'] = substr($line, 1);
++      throw new Exception('DiffFileHandler cannot read file path ['.$file_path.'] .');
+     }
+-    else if ($this->matrix[$this->matrix_line_number_right]['right_line_number'] == '' && $this->matrix[$this->matrix_line_number_right]['right_line'] == '')
+-    {
+-      $this->matrix[$this->matrix_line_number_right]['right_line_number'] = $this->right_line_number;
+-      $this->matrix[$this->matrix_line_number_right]['right_line'] = substr($line, 1);
+-    }
+-    else
+-    {
+-      throw new Exception('Cnnot set again the same line : '.$this->left_line_number);
+-    }
+ 
+-    $this->matrix_line_number_right++;
+-    $this->right_line_number++;
+-  }
++    $lines = $this->unsetSummaryInformation(file($file_path));
+ 
+-  public function readDiffFile($file_path)
+-  {
+-    if(!is_null($file_path) && is_file($file_path)){
+-      $lines = file($file_path);
++    foreach ($lines as $line)
++    {
++      $line = str_replace("\n", '', $line);
++      if(strpos($line, '@@') !== false && strpos($line, '@@') == 0)
++      {
++        $this->newDiffBlock($line);
++        continue;
++      }
+ 
+-      $this->unsetSummaryInformation(&$lines);
++      if ($line[0] == ' '){
++        $this->newEqualLine($line);
++        continue;
++      }
+ 
+-      foreach ($lines as $line)
++      if ($line[0] == '-')
+       {
+-        $line = str_replace("\n", '', $line);
+-        if(strpos($line, '@@') !== false && strpos($line, '@@') == 0)
+-        {
+-          $this->newDiffBlock($line);
+-        }
+-        else
+-        {
+-          if ($line[0] == ' '){
+-            $this->newEqualLine($line);
+-          }
+-          else if ($line[0] == '-')
+-          {
+-            $this->insertLeftLine($line);
+-          }
+-          else if ($line[0] == '+')
+-          {
+-            $this->insertRightLine($line);
+-          }
+-        }
++        $this->insertLine('left', array('status' => 'd',
++                                        'left_line_number' => $this->left_line_number,
++                                        'left_line' =>  substr($line, 1),
++                                        'right_line_number' => '',
++                                        'right_line' => ''));
++        continue;
+       }
++
++      if ($line[0] == '+')
++      {
++        $this->insertLine('right', array('status' => 'd',
++                                         'left_line_number' => '',
++                                         'left_line' =>  '',
++                                         'right_line_number' => $this->right_line_number,
++                                         'right_line' => substr($line, 1)));
++      }
+     }
+-    else
+-    {
+-      throw new Exception('DiffFileHandler cannot read file path ['.$file_path.'] .');
+-    }
++
++    
+     return $this->matrix;
+   }
+ }

@@ -1,0 +1,295 @@
+DELTA
+SVNENDREP
+id: 0-115.0.r115/17
+type: file
+count: 0
+text: 115 0 4 0 d41d8cd98f00b204e9800998ecf8427e
+cpath: /newProject/file113.php
+copyroot: 0 /
+
+PLAIN
+K 9
+file0.php
+V 16
+file 0-2.0.r2/17
+K 9
+file1.php
+V 16
+file 0-3.0.r3/17
+K 10
+file10.php
+V 18
+file 0-12.0.r12/17
+K 11
+file100.php
+V 20
+file 0-102.0.r102/17
+K 11
+file101.php
+V 20
+file 0-103.0.r103/17
+K 11
+file102.php
+V 20
+file 0-104.0.r104/17
+K 11
+file103.php
+V 20
+file 0-105.0.r105/17
+K 11
+file104.php
+V 20
+file 0-106.0.r106/17
+K 11
+file105.php
+V 20
+file 0-107.0.r107/17
+K 11
+file106.php
+V 20
+file 0-108.0.r108/17
+K 11
+file107.php
+V 20
+file 0-109.0.r109/17
+K 11
+file108.php
+V 20
+file 0-110.0.r110/17
+K 11
+file109.php
+V 20
+file 0-111.0.r111/17
+K 10
+file11.php
+V 18
+file 0-13.0.r13/17
+K 11
+file110.php
+V 20
+file 0-112.0.r112/17
+K 11
+file111.php
+V 20
+file 0-113.0.r113/17
+K 11
+file112.php
+V 20
+file 0-114.0.r114/17
+K 11
+file113.php
+V 20
+file 0-115.0.r115/17
+K 10
+file12.php
+V 18
+file 0-14.0.r14/17
+K 10
+file13.php
+V 18
+file 0-15.0.r15/17
+K 10
+file14.php
+V 18
+file 0-16.0.r16/17
+K 10
+file15.php
+V 18
+file 0-17.0.r17/17
+K 10
+file16.php
+V 18
+file 0-18.0.r18/17
+K 10
+file17.php
+V 18
+file 0-19.0.r19/17
+K 10
+file18.php
+V 18
+file 0-20.0.r20/17
+K 10
+file19.php
+V 18
+file 0-21.0.r21/17
+K 9
+file2.php
+V 16
+file 0-4.0.r4/17
+K 10
+file20.php
+V 18
+file 0-22.0.r22/17
+K 10
+file21.php
+V 18
+file 0-23.0.r23/17
+K 10
+file22.php
+V 18
+file 0-24.0.r24/17
+K 10
+file23.php
+V 18
+file 0-25.0.r25/17
+K 10
+file24.php
+V 18
+file 0-26.0.r26/17
+K 10
+file25.php
+V 18
+file 0-27.0.r27/17
+K 10
+file26.php
+V 18
+file 0-28.0.r28/17
+K 10
+file27.php
+V 18
+file 0-29.0.r29/17
+K 10
+file28.php
+V 18
+file 0-30.0.r30/17
+K 10
+file29.php
+V 18
+file 0-31.0.r31/17
+K 9
+file3.php
+V 16
+file 0-5.0.r5/17
+K 10
+file30.php
+V 18
+file 0-32.0.r32/17
+K 10
+file31.php
+V 18
+file 0-33.0.r33/17
+K 10
+file32.php
+V 18
+file 0-34.0.r34/17
+K 10
+file33.php
+V 18
+file 0-35.0.r35/17
+K 10
+file34.php
+V 18
+file 0-36.0.r36/17
+K 10
+file35.php
+V 18
+file 0-37.0.r37/17
+K 10
+file36.php
+V 18
+file 0-38.0.r38/17
+K 10
+file37.php
+V 18
+file 0-39.0.r39/17
+K 10
+file38.php
+V 18
+file 0-40.0.r40/17
+K 10
+file39.php
+V 18
+file 0-41.0.r41/17
+K 9
+file4.php
+V 18
+file 0-6.0.r101/67
+K 10
+file40.php
+V 18
+file 0-42.0.r42/17
+K 10
+file41.php
+V 18
+file 0-43.0.r43/17
+K 10
+file42.php
+V 18
+file 0-44.0.r44/17
+K 10
+file43.php
+V 18
+file 0-45.0.r45/17
+K 10
+file44.php
+V 18
+file 0-46.0.r46/17
+K 10
+file45.php
+V 18
+file 0-47.0.r47/17
+K 10
+file46.php
+V 18
+file 0-48.0.r48/17
+K 10
+file47.php
+V 18
+file 0-49.0.r49/17
+K 10
+file48.php
+V 18
+file 0-50.0.r50/17
+K 10
+file49.php
+V 18
+file 0-51.0.r51/17
+K 9
+file5.php
+V 16
+file 0-7.0.r7/17
+K 9
+file6.php
+V 16
+file 0-8.0.r8/17
+K 9
+file7.php
+V 16
+file 0-9.0.r9/17
+K 9
+file8.php
+V 18
+file 0-10.0.r10/17
+K 9
+file9.php
+V 18
+file 0-11.0.r11/17
+END
+ENDREP
+id: 0-1.0.r115/2737
+type: dir
+pred: 0-1.0.r114/2694
+count: 114
+text: 115 152 2572 2572 24a29a6fec12932b5c629856a8cd3e29
+cpath: /newProject
+copyroot: 0 /
+
+PLAIN
+K 10
+newProject
+V 19
+dir 0-1.0.r115/2737
+END
+ENDREP
+id: 0.0.r115/2949
+type: dir
+pred: 0.0.r114/2906
+count: 115
+text: 115 2891 45 45 eed0a69c366299d190f302c7da5dc7d1
+cpath: /
+copyroot: 0 /
+
+_0.0.t114-36 add true false /newProject/file113.php
+
+
+2949 3086

@@ -1,0 +1,20 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    #title:        symfony project
+    #description:  symfony project
+    #keywords:     symfony, project
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:    [main.css, base.css, themes/blue/style.css]
+
+  javascripts:    [jquery-1.3.min.js, jquery.localscroll.js, jquery.scrollTo.js]
+
+  has_layout:     on
+  layout:         layout
+
+  components:
+    sidebar:      []

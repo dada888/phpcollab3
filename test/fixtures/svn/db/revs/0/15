@@ -1,0 +1,95 @@
+DELTA
+SVNENDREP
+id: 0-15.0.r15/17
+type: file
+count: 0
+text: 15 0 4 0 d41d8cd98f00b204e9800998ecf8427e
+cpath: /newProject/file13.php
+copyroot: 0 /
+
+PLAIN
+K 9
+file0.php
+V 16
+file 0-2.0.r2/17
+K 9
+file1.php
+V 16
+file 0-3.0.r3/17
+K 10
+file10.php
+V 18
+file 0-12.0.r12/17
+K 10
+file11.php
+V 18
+file 0-13.0.r13/17
+K 10
+file12.php
+V 18
+file 0-14.0.r14/17
+K 10
+file13.php
+V 18
+file 0-15.0.r15/17
+K 9
+file2.php
+V 16
+file 0-4.0.r4/17
+K 9
+file3.php
+V 16
+file 0-5.0.r5/17
+K 9
+file4.php
+V 16
+file 0-6.0.r6/17
+K 9
+file5.php
+V 16
+file 0-7.0.r7/17
+K 9
+file6.php
+V 16
+file 0-8.0.r8/17
+K 9
+file7.php
+V 16
+file 0-9.0.r9/17
+K 9
+file8.php
+V 18
+file 0-10.0.r10/17
+K 9
+file9.php
+V 18
+file 0-11.0.r11/17
+END
+ENDREP
+id: 0-1.0.r15/689
+type: dir
+pred: 0-1.0.r14/649
+count: 14
+text: 15 148 528 528 d39f794614955e05478653a9ad436fbb
+cpath: /newProject
+copyroot: 0 /
+
+PLAIN
+K 10
+newProject
+V 17
+dir 0-1.0.r15/689
+END
+ENDREP
+id: 0.0.r15/891
+type: dir
+pred: 0.0.r14/851
+count: 15
+text: 15 835 43 43 cda513a47af17e13a7069d37996fcc1c
+cpath: /
+copyroot: 0 /
+
+_0.0.t14-e add true false /newProject/file13.php
+
+
+891 1021

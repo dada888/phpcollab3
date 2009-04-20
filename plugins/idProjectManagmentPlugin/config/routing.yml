@@ -1,0 +1,76 @@
+index_priority:
+  url:    /:sf_culture/idPriority
+  param:  { module: idPriority, action: index }
+
+new_priority:
+  url:    /:sf_culture/idPriority/new
+  param:  { module: idPriority, action: new }
+
+edit_priority:
+  url:    /:sf_culture/idPriority/edit/:id
+  param:  { module: idPriority, action: edit }
+
+delete_priority:
+  url:    /:sf_culture/idPriority/detele/:id
+  param:  { module: idPriority, action: delete }
+
+index_status:
+  url:    /:sf_culture/idStatus
+  param:  { module: idStatus, action: index }
+
+new_status:
+  url:    /:sf_culture/idStatus/new
+  param:  { module: idStatus, action: new }
+
+edit_status:
+  url:    /:sf_culture/idStatus/edit/:id
+  param:  { module: idStatus, action: edit }
+
+delete_status:
+  url:    /:sf_culture/idStatus/detele/:id
+  param:  { module: idStatus, action: delete }
+
+index_issue:
+  url:    /:sf_culture/idProject/:id/issues
+  param:  { module: idIssue, action: index }
+
+new_issue:
+  url:    /:sf_culture/idProject/:id/issue/new
+  param:  { module: idIssue, action: new }
+
+edit_issue:
+  url:    /:sf_culture/idProject/:id/issue/:issue_id/edit
+  param:  { module: idIssue, action: edit }
+
+create_issue:
+  url:    /:sf_culture/idProject/:id/issue_id/create
+  param:  { module: idIssue, action: edit }
+
+delete_issue:
+  url:    /:sf_culture/idProject/:id/idIssue/:issue_id/delete
+  param:  { module: idIssue, action: delete }
+
+show_issue:
+  url:    /:sf_culture/idProject/:id/issue/:issue_id/show
+  param:  { module: idIssue, action: show }
+
+show_project:
+  url:    /:sf_culture/idProject/show/:id
+  param:  { module: idProject, action: show }
+
+new_project:
+  url:    /:sf_culture/idProject/new
+  param:  { module: idProject, action: new }
+
+edit_project:
+  url:    /:sf_culture/idProject/edit/:id
+  param:  { module: idProject, action: edit }
+
+delete_project:
+  url:    /:sf_culture/idProject/delete/:id
+  param:  { module: idProject, action: delete }
+
+index_project:
+  url:    /:sf_culture/idProject
+  param:  { module: idProject, action: index }
+

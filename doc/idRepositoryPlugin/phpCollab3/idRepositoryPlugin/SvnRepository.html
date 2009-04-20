@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class SvnRepository</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> SvnRepository</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Repository Factory</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Filippo (p16) de Santis &lt;<a href="mailto:fd@ideato.it">fd@ideato.it</a>&gt;</li>
+				<li><span class="field">author:</span> Francesco (cphp) Trucchia &lt;<a href="mailto:ft@ideato.it">ft@ideato.it</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---SvnRepository.class.php.html">/lib/SvnRepository.class.php</a> (line <span class="field">24</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																<div class="method-definition">
+					<img src="../../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">SvnRepository</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnProxy.html">SvnProxy</a></span>&nbsp;<span class="var-name">$proxy</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnXmlReader.html">SvnXmlReader</a></span>&nbsp;<span class="var-name">$reader</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$usr</span> = <span class="var-default">false</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$pwd</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#getAllLogRevisions" title="details" class="method-name">getAllLogRevisions</a>
+											(<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>&nbsp;<span class="var-name">$svnLogCommand</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>&nbsp;<span class="var-name">$svnLogCommandObject</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#getAllRevisionForPath" title="details" class="method-name">getAllRevisionForPath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>&nbsp;<span class="var-name">$svnLogCommand</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>&nbsp;<span class="var-name">$svnLogCommandObject</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result"><a href="../../phpCollab3/idRepositoryPlugin/DiffParser.html">DiffParser</a></span>
+										<a href="#getDiffMatrixFromRevision" title="details" class="method-name">getDiffMatrixFromRevision</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$first_revision</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$last_revision</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/DiffParser.html">DiffParser</a></span>&nbsp;<span class="var-name">$diffParser</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnDiffCommand.html">SvnDiffCommand</a></span>&nbsp;<span class="var-name">$svnDiffCommand</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">array</span>
+										<a href="#getLogLatestRevisions" title="details" class="method-name">getLogLatestRevisions</a>
+											(<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>&nbsp;<span class="var-name">$svnLogCommand</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">10</span>])
+									</div>
+																<div class="method-definition">
+					<img src="../../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#getUrl" title="details" class="method-name">getUrl</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+													<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Constructor.png" />
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">105</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Initialize the svn procy object, the svn xml reader object, the user and the password of the repository.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">SvnRepository</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnProxy.html">SvnProxy</a></span>&nbsp;<span class="var-name">$proxy</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnXmlReader.html">SvnXmlReader</a></span>&nbsp;<span class="var-name">$reader</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$usr</span> = <span class="var-default">false</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$pwd</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnProxy.html">SvnProxy</a></span>
+				<span class="var-name">$proxy</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnXmlReader.html">SvnXmlReader</a></span>
+				<span class="var-name">$reader</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$usr</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$pwd</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAllLogRevisions" id="getAllLogRevisions"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">getAllLogRevisions</span> (line <span class="line-number">139</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array of logData objects representing all the revision of a repository</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getAllLogRevisions
+		</span>
+					(<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>&nbsp;<span class="var-name">$svnLogCommand</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>&nbsp;<span class="var-name">$svnLogCommandObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>
+				<span class="var-name">$svnLogCommandObject</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>
+				<span class="var-name">$svnLogCommand</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAllRevisionForPath" id="getAllRevisionForPath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">getAllRevisionForPath</span> (line <span class="line-number">152</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array of logData representing the revision where a given path is modified</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getAllRevisionForPath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$path</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>&nbsp;<span class="var-name">$svnLogCommand</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>&nbsp;<span class="var-name">$svnLogCommandObject</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$path</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>
+				<span class="var-name">$svnLogCommandObject</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>
+				<span class="var-name">$svnLogCommand</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetDiffMatrixFromRevision" id="getDiffMatrixFromRevision"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">getDiffMatrixFromRevision</span> (line <span class="line-number">167</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the matrix representing the differences between two revisions of he same file.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../phpCollab3/idRepositoryPlugin/DiffParser.html">DiffParser</a></span>
+		<span class="method-name">
+			getDiffMatrixFromRevision
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$first_revision</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$last_revision</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/DiffParser.html">DiffParser</a></span>&nbsp;<span class="var-name">$diffParser</span>, <span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnDiffCommand.html">SvnDiffCommand</a></span>&nbsp;<span class="var-name">$svnDiffCommand</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$first_revision</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$last_revision</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/DiffParser.html">DiffParser</a></span>
+				<span class="var-name">$diffParser</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnDiffCommand.html">SvnDiffCommand</a></span>
+				<span class="var-name">$svnDiffCommand</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetLogLatestRevisions" id="getLogLatestRevisions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">getLogLatestRevisions</span> (line <span class="line-number">127</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds the limit option to the SvnLogCommand object and returns an array of logData objects.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getLogLatestRevisions
+		</span>
+					(<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>&nbsp;<span class="var-name">$svnLogCommand</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$limit</span> = <span class="var-default">10</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../phpCollab3/idRepositoryPlugin/SvnLogCommand.html">SvnLogCommand</a></span>
+				<span class="var-name">$svnLogCommand</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$limit</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetUrl" id="getUrl"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../../media/images/Method.png" />
+		<span class="method-title">getUrl</span> (line <span class="line-number">180</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return repository url</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getUrl
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 20 Apr 2009 10:01:02 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

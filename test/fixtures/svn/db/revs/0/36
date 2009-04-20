@@ -1,0 +1,179 @@
+DELTA
+SVNENDREP
+id: 0-36.0.r36/17
+type: file
+count: 0
+text: 36 0 4 0 d41d8cd98f00b204e9800998ecf8427e
+cpath: /newProject/file34.php
+copyroot: 0 /
+
+PLAIN
+K 9
+file0.php
+V 16
+file 0-2.0.r2/17
+K 9
+file1.php
+V 16
+file 0-3.0.r3/17
+K 10
+file10.php
+V 18
+file 0-12.0.r12/17
+K 10
+file11.php
+V 18
+file 0-13.0.r13/17
+K 10
+file12.php
+V 18
+file 0-14.0.r14/17
+K 10
+file13.php
+V 18
+file 0-15.0.r15/17
+K 10
+file14.php
+V 18
+file 0-16.0.r16/17
+K 10
+file15.php
+V 18
+file 0-17.0.r17/17
+K 10
+file16.php
+V 18
+file 0-18.0.r18/17
+K 10
+file17.php
+V 18
+file 0-19.0.r19/17
+K 10
+file18.php
+V 18
+file 0-20.0.r20/17
+K 10
+file19.php
+V 18
+file 0-21.0.r21/17
+K 9
+file2.php
+V 16
+file 0-4.0.r4/17
+K 10
+file20.php
+V 18
+file 0-22.0.r22/17
+K 10
+file21.php
+V 18
+file 0-23.0.r23/17
+K 10
+file22.php
+V 18
+file 0-24.0.r24/17
+K 10
+file23.php
+V 18
+file 0-25.0.r25/17
+K 10
+file24.php
+V 18
+file 0-26.0.r26/17
+K 10
+file25.php
+V 18
+file 0-27.0.r27/17
+K 10
+file26.php
+V 18
+file 0-28.0.r28/17
+K 10
+file27.php
+V 18
+file 0-29.0.r29/17
+K 10
+file28.php
+V 18
+file 0-30.0.r30/17
+K 10
+file29.php
+V 18
+file 0-31.0.r31/17
+K 9
+file3.php
+V 16
+file 0-5.0.r5/17
+K 10
+file30.php
+V 18
+file 0-32.0.r32/17
+K 10
+file31.php
+V 18
+file 0-33.0.r33/17
+K 10
+file32.php
+V 18
+file 0-34.0.r34/17
+K 10
+file33.php
+V 18
+file 0-35.0.r35/17
+K 10
+file34.php
+V 18
+file 0-36.0.r36/17
+K 9
+file4.php
+V 16
+file 0-6.0.r6/17
+K 9
+file5.php
+V 16
+file 0-7.0.r7/17
+K 9
+file6.php
+V 16
+file 0-8.0.r8/17
+K 9
+file7.php
+V 16
+file 0-9.0.r9/17
+K 9
+file8.php
+V 18
+file 0-10.0.r10/17
+K 9
+file9.php
+V 18
+file 0-11.0.r11/17
+END
+ENDREP
+id: 0-1.0.r36/1529
+type: dir
+pred: 0-1.0.r35/1489
+count: 35
+text: 36 148 1368 1368 dbb1232ea66cc89b8e57e6b3b260d0d9
+cpath: /newProject
+copyroot: 0 /
+
+PLAIN
+K 10
+newProject
+V 18
+dir 0-1.0.r36/1529
+END
+ENDREP
+id: 0.0.r36/1736
+type: dir
+pred: 0.0.r35/1696
+count: 36
+text: 36 1679 44 44 8c5a7ea63d3e5dedee0fff83b4de8922
+cpath: /
+copyroot: 0 /
+
+_0.0.t35-z add true false /newProject/file34.php
+
+
+1736 1869

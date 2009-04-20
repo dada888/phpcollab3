@@ -1,0 +1,34 @@
+dev:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+#      dsn: 'sqlite:%SF_DATA_DIR%/phpcollab.db'
+      dsn: 'mysql:host=localhost;dbname=phpcollab'
+      username: root
+      password:
+
+prod:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+#      dsn: 'sqlite:%SF_DATA_DIR%/phpcollab.db'
+      dsn: 'mysql:host=localhost;dbname=phpcollab'
+      username: root
+      password:
+
+test:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'sqlite:%SF_DATA_DIR%/phpcollab.db'
+#      dsn: 'mysql:host=localhost;dbname=phpcollab'
+#      username: root
+#      password:
+
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=phpcollab'
+      username: root
+      password:

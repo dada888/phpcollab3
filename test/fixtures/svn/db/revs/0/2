@@ -1,0 +1,43 @@
+DELTA
+SVNENDREP
+id: 0-2.0.r2/17
+type: file
+count: 0
+text: 2 0 4 0 d41d8cd98f00b204e9800998ecf8427e
+cpath: /newProject/file0.php
+copyroot: 0 /
+
+PLAIN
+K 9
+file0.php
+V 16
+file 0-2.0.r2/17
+END
+ENDREP
+id: 0-1.0.r2/197
+type: dir
+pred: 0-1.0.r1/0
+count: 1
+text: 2 144 40 40 dc4f8e890663ec28a7fa32ebac68e227
+cpath: /newProject
+copyroot: 0 /
+
+PLAIN
+K 10
+newProject
+V 16
+dir 0-1.0.r2/197
+END
+ENDREP
+id: 0.0.r2/390
+type: dir
+pred: 0.0.r1/121
+count: 2
+text: 2 335 42 42 8c2ebfc7d942e545c9d8a794044de97c
+cpath: /
+copyroot: 0 /
+
+_0.0.t1-1 add true false /newProject/file0.php
+
+
+390 516
