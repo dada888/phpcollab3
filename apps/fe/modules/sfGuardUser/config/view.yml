@@ -1,0 +1,4 @@
+default:
+  components:
+    sidebar:  [sfGuardUser, sidebar]
+

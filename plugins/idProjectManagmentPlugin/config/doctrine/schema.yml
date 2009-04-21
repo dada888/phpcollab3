@@ -1,0 +1,187 @@
+##  Yaml schema for project
+Project:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    name:
+      type: string(64)
+      notnull: true
+    description:
+      type: string(512)
+    is_public:
+      type: boolean
+      default: false
+    created_at:
+      type: timestamp
+    updated_at:
+      type: timestamp
+  relations:
+    users:
+      class: Profile
+      refClass: ProjectUser
+#      local: project_id
+#      foreign: profile_id
+      foreignAlias: Projects
+
+Issue:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    project_id:
+      type: integer
+      notnull: true
+    status_id:
+      type: integer
+      notnull: true
+    priority_id:
+      type: integer
+      notnull: true
+    title:
+      type: string(256)
+      notnull: true
+    description:
+      type: string(2000)
+    starting_date:
+      type: timestamp
+    ending_date:
+      type: timestamp
+  relations:
+    project:
+      class: Project
+      foreignAlias: Issues
+      local: project_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: CASCADE
+    users:
+      class: Profile
+      refClass: IssueUser
+#      local: project_id
+#      foreign: profile_id
+      foreignAlias: Issues
+    status:
+      class: Status
+      local: status_id
+      foreign: id
+      type: one
+      foreignType: one
+      foreignAlias: Status
+    priority:
+      class: Priority
+      local: priority_id
+      foreign: id
+      type: one
+      foreignType: one
+      foreignAlias: Priority
+
+Status:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    name:
+      type: string(64)
+
+Priority:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    name:
+      type: string(64)
+
+Profile:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    sf_guard_user_id:
+      type: integer(4)
+    first_name:
+      type: string(64)
+    last_name:
+      type: string(64)
+    email:
+      type: string(255)
+      notnull: true
+      unique: true
+  relations:
+    User:
+      class: sfGuardUser
+      foreignType: one
+    projects:
+      class: Project
+#      local: profile_id
+#      foreign: project_id
+      refClass: ProjectUser
+      foreignAlias: Profiles
+    issues:
+      class: Issue
+#      local: profile_id
+#      foreign: project_id
+      refClass: IssueUser
+      foreignAlias: Profiles
+
+ProjectUser:
+  columns:
+    project_id:
+      type: integer
+#      primary: true
+    profile_id:
+      type: integer
+#      primary: true
+  relations:
+    Project:
+      foreignAlias: ProjectUsers
+      onDelete: CASCADE
+#      local: project_id
+#      onDelete: CASCADE
+    Profile:
+      foreignAlias: ProjectUsers
+      onDelete: CASCADE
+#      local: profile_id
+#      onDelete: CASCADE
+
+IssueUser:
+  columns:
+    issue_id:
+      type: integer
+#      primary: true
+    profile_id:
+      type: integer
+#      primary: true
+  relations:
+    Issue:
+      foreignAlias: IssueUsers
+      onDelete: CASCADE
+#      local: project_id
+#      onDelete: CASCADE
+    Profile:
+      foreignAlias: IssueUsers
+      onDelete: CASCADE
+#      local: profile_id
+#      onDelete: CASCADE
+

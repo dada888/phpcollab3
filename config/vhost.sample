@@ -1,0 +1,21 @@
+    # Be sure to only have this line once in your configuration
+    NameVirtualHost 127.0.0.1:80
+
+    # This is the configuration for PHPCollab3
+    Listen 127.0.0.1:80
+
+    <VirtualHost 127.0.0.1:80>
+      ServerName PHPCollab3.localhost
+      DocumentRoot "/var/www/PHPCollab3/web"
+      DirectoryIndex index.php
+      <Directory "/var/www/PHPCollab3/web">
+        AllowOverride All
+        Allow from All
+      </Directory>
+
+      Alias /sf "/usr/local/symfony_repository/1.2/data/web/sf"
+      <Directory "/usr/local/symfony_repository/1.2/data/web/sf">
+        AllowOverride All
+        Allow from All
+      </Directory>
+    </VirtualHost>

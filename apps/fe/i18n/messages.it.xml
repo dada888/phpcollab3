@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<xliff version="1.0">
+  <file orginal="global" source-language="en" datatype="plaintext" date="2008-12-18T18:32:15Z">
+    <body>
+      <trans-unit id="1">
+        <source>Project Repository</source>
+        <target>Repository di Progetto</target>
+      </trans-unit>
+      </body>
+  </file>
+</xliff>

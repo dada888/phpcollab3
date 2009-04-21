@@ -1,0 +1,21 @@
+show_revisions:
+  url:    /:sf_culture/idRepository/show
+  param:  { module: idRepository, action: show }
+
+showall_revisions:
+  url:    /:sf_culture/idRepository/showall
+  param:  { module: idRepository, action: showall }
+
+show_revision_details:
+  url:    /:sf_culture/idRepository/showdetails/revisionid/:revisionid
+  param:  { module: idRepository, action: showdetails }
+  requirements:
+    revisionid: \d+
+
+show_diff_list_url:
+  url:    /:sf_culture/idRepository/showdifflist/path/:path
+  param:  { module: idRepository, action: showdifflist }
+
+show_diff:
+  url:    /:sf_culture/idRepository/showdiff
+  param:  { module: idRepository, action: showdiff }
