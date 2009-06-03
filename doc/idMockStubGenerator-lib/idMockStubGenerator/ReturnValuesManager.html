@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class ReturnValuesManager</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class ReturnValuesManager</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">ReturnValuesManager</p>
+<p class="description"><p>Manages fake class configuration</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Filippo (p16) De Santis &lt;<a href="mailto:fd@ideato.it">fd@ideato.it</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_ReturnValuesManager.class.php.html">/ReturnValuesManager.class.php</a> (line <span class="field">23</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																				
+												<div class="method-definition">
+											<span class="method-result">ReturnValuesManager</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$className</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$extends</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$implements</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getAllInputParameter" title="details" class="method-name">getAllInputParameter</a>
+											(<span class="var-type">String</span>&nbsp;<span class="var-name">$methodName</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getClassesDeclared" title="details" class="method-name">getClassesDeclared</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getClassName" title="details" class="method-name">getClassName</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getConstants" title="details" class="method-name">getConstants</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getException" title="details" class="method-name">getException</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getExtends" title="details" class="method-name">getExtends</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getImplements" title="details" class="method-name">getImplements</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getInputParameter" title="details" class="method-name">getInputParameter</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getMethodsSet" title="details" class="method-name">getMethodsSet</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#getReturnValue" title="details" class="method-name">getReturnValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getReturnValueArray" title="details" class="method-name">getReturnValueArray</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#hasInputParameter" title="details" class="method-name">hasInputParameter</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#hasReturnValues" title="details" class="method-name">hasReturnValues</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#isSetAtLeastOneReturnValue" title="details" class="method-name">isSetAtLeastOneReturnValue</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$methodName</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isSetException" title="details" class="method-name">isSetException</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isSetReturnValue" title="details" class="method-name">isSetReturnValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#methodReturnValues" title="details" class="method-name">methodReturnValues</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#returnCodeForReturnValueManager" title="details" class="method-name">returnCodeForReturnValueManager</a>
+											(<span class="var-type">ReturnValuesManagers</span>&nbsp;<span class="var-name">$rm</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$first_level</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+										<a href="#setConstant" title="details" class="method-name">setConstant</a>
+											(<span class="var-type">name</span>&nbsp;<span class="var-name">$costant_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+										<a href="#setInputParameterForMethod" title="details" class="method-name">setInputParameterForMethod</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$inputParameter</span> = <span class="var-default">array()</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+										<a href="#setReturnException" title="details" class="method-name">setReturnException</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$exceptionName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+										<a href="#setReturnObject" title="details" class="method-name">setReturnObject</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$ChildClass</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$extends</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$implements</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+										<a href="#setReturnObjectDefault" title="details" class="method-name">setReturnObjectDefault</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$method_name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$class</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$class_extends</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$implements</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><type></span>
+										<a href="#setReturnObjectsArray" title="details" class="method-name">setReturnObjectsArray</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$returnValuesManagersForEachObject</span> = <span class="var-default">array()</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+										<a href="#setReturnValue" title="details" class="method-name">setReturnValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+										<a href="#setReturnValueDefault" title="details" class="method-name">setReturnValueDefault</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$method_name</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$default_value</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+										<a href="#setReturnValuesArray" title="details" class="method-name">setReturnValuesArray</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span> = <span class="var-default">array()</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">null</span>])
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">120</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Costructor of the class. It takes as input the name of the class to be stubbed.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">ReturnValuesManager</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$className</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$extends</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$implements</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$className</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$extends</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$implements</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAllInputParameter" id="getAllInputParameter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAllInputParameter</span> (line <span class="line-number">423</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return all the specified input parameter for a method</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getAllInputParameter
+		</span>
+					(<span class="var-type">String</span>&nbsp;<span class="var-name">$methodName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">String</span>
+				<span class="var-name">$methodName</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetClassesDeclared" id="getClassesDeclared"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClassesDeclared</span> (line <span class="line-number">59</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the array of DeclaredClass objects</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of DelcaredClass objects</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getClassesDeclared
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetClassName" id="getClassName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClassName</span> (line <span class="line-number">217</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the name of the class which the return manager referes.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> class name</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getClassName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetConstants" id="getConstants"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getConstants</span> (line <span class="line-number">108</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the constants array</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getConstants
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetException" id="getException"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getException</span> (line <span class="line-number">312</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array ['name' =&gt; ExceptionName, 'message' =&gt; exception message].</p>
+	<ul class="tags">
+				<li><span class="field">deprecated:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getException
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$at</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetExtends" id="getExtends"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getExtends</span> (line <span class="line-number">69</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the class name of the extended class.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getExtends
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetImplements" id="getImplements"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getImplements</span> (line <span class="line-number">79</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the string of the interface that will be implemented</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getImplements
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetInputParameter" id="getInputParameter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getInputParameter</span> (line <span class="line-number">412</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the array that represent the input parametes specified for a method at a specific call</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getInputParameter
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$at</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetMethodsSet" id="getMethodsSet"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMethodsSet</span> (line <span class="line-number">467</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array of names of methods set with return values/objects/exceptions</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getMethodsSet
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetReturnValue" id="getReturnValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getReturnValue</span> (line <span class="line-number">435</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the &quot;return value&quot; of a method. It can be an object, a string or a number.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			getReturnValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$at</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetReturnValueArray" id="getReturnValueArray"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getReturnValueArray</span> (line <span class="line-number">228</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array that describes the methods and the values that they have to return.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getReturnValueArray
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasInputParameter" id="hasInputParameter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasInputParameter</span> (line <span class="line-number">400</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return true if a methods has specific input parameter at least for one of its calls.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			hasInputParameter
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodhasReturnValues" id="hasReturnValues"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasReturnValues</span> (line <span class="line-number">195</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if the ReturnValuesManager has values to return.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if there are return values, false otherwise.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			hasReturnValues
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisSetAtLeastOneReturnValue" id="isSetAtLeastOneReturnValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isSetAtLeastOneReturnValue</span> (line <span class="line-number">457</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			isSetAtLeastOneReturnValue
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$methodName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$methodName</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisSetException" id="isSetException"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isSetException</span> (line <span class="line-number">298</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check if it has been set an excepotion for a method.</p>
+	<ul class="tags">
+				<li><span class="field">deprecated:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isSetException
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$at</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisSetReturnValue" id="isSetReturnValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isSetReturnValue</span> (line <span class="line-number">452</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check if it is set a return parameter for a method.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isSetReturnValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$at</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodmethodReturnValues" id="methodReturnValues"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">methodReturnValues</span> (line <span class="line-number">205</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			methodReturnValues
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodreturnCodeForReturnValueManager" id="returnCodeForReturnValueManager"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">returnCodeForReturnValueManager</span> (line <span class="line-number">561</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates a string that describes as code a ReturnValuesManager object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			returnCodeForReturnValueManager
+		</span>
+					(<span class="var-type">ReturnValuesManagers</span>&nbsp;<span class="var-name">$rm</span>, [<span class="var-type">bool</span>&nbsp;<span class="var-name">$first_level</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">ReturnValuesManagers</span>
+				<span class="var-name">$rm</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$first_level</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetConstant" id="setConstant"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setConstant</span> (line <span class="line-number">91</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a constant and its values for the class that will be declared</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+		<span class="method-name">
+			setConstant
+		</span>
+					(<span class="var-type">name</span>&nbsp;<span class="var-name">$costant_name</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">name</span>
+				<span class="var-name">$costant_name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetInputParameterForMethod" id="setInputParameterForMethod"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setInputParameterForMethod</span> (line <span class="line-number">386</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the input parameter for the specified method.</p>
+<p class="description"><p>If the input paramet &quot;at&quot; is set, it specifies at which call the input parameters should be checked.</p><p>The input array can cointains reference to classes.  Example: array(1,2,3, 'hello', 'class:MyClass')</p><p>This will set a check on the fifth parameter to be of the same class as specified after 'class:'</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+		<span class="method-name">
+			setInputParameterForMethod
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$inputParameter</span> = <span class="var-default">array()</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">'any'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$inputParameter</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$at</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetReturnException" id="setReturnException"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setReturnException</span> (line <span class="line-number">283</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a method to return an exception when called.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+		<span class="method-name">
+			setReturnException
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$exceptionName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$exceptionName</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$message</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$at</span><span class="var-description">: At which call it will be used this return value, if null it means that the method has to return always the same thing</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetReturnObject" id="setReturnObject"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setReturnObject</span> (line <span class="line-number">265</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the return value of a method that has to return an object.</p>
+<p class="description"><p>It throws an exception when a return value has already been set for a method.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+		<span class="method-name">
+			setReturnObject
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$ChildClass</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$extends</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$implements</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$ChildClass</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$at</span><span class="var-description">: At which call it will be used this return value, if null it means that the method has to return always the same thing</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$extends</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$implements</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetReturnObjectDefault" id="setReturnObjectDefault"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setReturnObjectDefault</span> (line <span class="line-number">169</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets an object as return value for a method when more then one value can be returned.</p>
+<p class="description"><p>If the the method '$method_name' has been already set to return always the same value this method won't change anything,  otherwise it is a synonym of setReturnObject.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+		<span class="method-name">
+			setReturnObjectDefault
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$method_name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$class</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$class_extends</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$implements</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method_name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$class</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$class_extends</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$implements</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetReturnObjectsArray" id="setReturnObjectsArray"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setReturnObjectsArray</span> (line <span class="line-number">352</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets an array of Object specified by ReturnValueManager istances.</p>
+<p class="description"><p>If the input paramet &quot;at&quot; is set, it specifies at which call the input parameters should be checked.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><type></span>
+		<span class="method-name">
+			setReturnObjectsArray
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$returnValuesManagersForEachObject</span> = <span class="var-default">array()</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$returnValuesManagersForEachObject</span><span class="var-description">: Array of ReturnValueManager istances that describe the objects that should be returned and their configuration</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$at</span><span class="var-description">: At which call it will be used this return value, if null it means that the method has to return always the same thing</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetReturnValue" id="setReturnValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setReturnValue</span> (line <span class="line-number">243</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the return value for a method.</p>
+<p class="description"><p>It throws an exception when a return value has already been set for a method.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+		<span class="method-name">
+			setReturnValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span><span class="var-description">: It can be a number or a string</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$at</span><span class="var-description">: At which call it will be used this return value, if null it means that the method has to return always the same thing</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetReturnValueDefault" id="setReturnValueDefault"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setReturnValueDefault</span> (line <span class="line-number">144</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the default value for a method when more then one value can be returned.</p>
+<p class="description"><p>If the the method '$method_name' has been already set to returnolways the same value this method won't change anything,  otherwise it is a synonym of setReturnValue.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+		<span class="method-name">
+			setReturnValueDefault
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$method_name</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$default_value</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method_name</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$default_value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetReturnValuesArray" id="setReturnValuesArray"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setReturnValuesArray</span> (line <span class="line-number">331</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets an array as return value for the specified method.</p>
+<p class="description"><p>If the input paramet &quot;at&quot; is set, it specifies when the array will be returned.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+		<span class="method-name">
+			setReturnValuesArray
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span> = <span class="var-default">array()</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$at</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$array</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$at</span><span class="var-description">: At which call it will be used this return value, if null it means that the method has to return always the same thing</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 28 May 2009 17:33:41 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

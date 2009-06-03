@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class CodeGenerator</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class CodeGenerator</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Class that contains the concrete code that will be put in a class definition depending on the configuration of the ReturnValuesManager</p>
+<p class="description"><p>Manages fake class configuration</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Filippo (p16) De Santis &lt;<a href="mailto:fd@ideato.it">fd@ideato.it</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_CodeGenerator.class.php.html">/CodeGenerator.class.php</a> (line <span class="field">23</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																												
+												<div class="method-definition">
+											<span class="method-result">CodeGenerator</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$custom_list_path</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#checkClassDeclared" title="details" class="method-name">checkClassDeclared</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$classname</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateCodeForArrayOfObjects" title="details" class="method-name">generateCodeForArrayOfObjects</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateCodeForArrayOfValues" title="details" class="method-name">generateCodeForArrayOfValues</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateCodeForCallMagicMethod" title="details" class="method-name">generateCodeForCallMagicMethod</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateCodeForException" title="details" class="method-name">generateCodeForException</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$exception</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateCodeForInputParameter" title="details" class="method-name">generateCodeForInputParameter</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$input</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$at</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateCodeForNewInnerObjects" title="details" class="method-name">generateCodeForNewInnerObjects</a>
+											(<span class="var-type"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>&nbsp;<span class="var-name">$rm</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateCodeForTimingConfiguration" title="details" class="method-name">generateCodeForTimingConfiguration</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateMethodCode" title="details" class="method-name">generateMethodCode</a>
+											(<span class="var-type">ReturnValueManager</span>&nbsp;<span class="var-name">$actual_value</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateReturnDefault" title="details" class="method-name">generateReturnDefault</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPathToClassesMethodsList" title="details" class="method-name">getPathToClassesMethodsList</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#returnGenerateClassForDefault" title="details" class="method-name">returnGenerateClassForDefault</a>
+											(<span class="var-type"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>&nbsp;<span class="var-name">$returnValuesManager</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">48</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Cnstructor</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">CodeGenerator</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$custom_list_path</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$custom_list_path</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckClassDeclared" id="checkClassDeclared"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkClassDeclared</span> (line <span class="line-number">244</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Verify if a class has been already redeclared. If it is so, an exception is thrown</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			checkClassDeclared
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$classname</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$classname</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateCodeForArrayOfObjects" id="generateCodeForArrayOfObjects"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateCodeForArrayOfObjects</span> (line <span class="line-number">117</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate the code to return and array of objects (NOT VALUE as int,string,bool)</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateCodeForArrayOfObjects
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$array</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateCodeForArrayOfValues" id="generateCodeForArrayOfValues"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateCodeForArrayOfValues</span> (line <span class="line-number">106</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate the code to return and array of value (NOT OBJECT)</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateCodeForArrayOfValues
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$array</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateCodeForCallMagicMethod" id="generateCodeForCallMagicMethod"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateCodeForCallMagicMethod</span> (line <span class="line-number">258</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate the code for magic method &quot;__call&quot; that will intercept  all those calls to methods that are not defined throw the  ReturnValuesManager instance or listClassesMethods task.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateCodeForCallMagicMethod
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgenerateCodeForException" id="generateCodeForException"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateCodeForException</span> (line <span class="line-number">96</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates the code for throwing an exception</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateCodeForException
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$exception</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$exception</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateCodeForInputParameter" id="generateCodeForInputParameter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateCodeForInputParameter</span> (line <span class="line-number">73</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the code that will be used to verify that the input of the method it's the same as expected.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateCodeForInputParameter
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$input</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$at</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$input</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$at</span><span class="var-description">: can be an integer or 'any'</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateCodeForNewInnerObjects" id="generateCodeForNewInnerObjects"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateCodeForNewInnerObjects</span> (line <span class="line-number">228</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate the code for an object that has to be return from a method of my redefined class.</p>
+<p class="description"><p>This implicates a new class definition where needed (see returnCodeForReturnValueManager method of ReturnValuesManager)</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateCodeForNewInnerObjects
+		</span>
+					(<span class="var-type"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>&nbsp;<span class="var-name">$rm</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+				<span class="var-name">$rm</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateCodeForTimingConfiguration" id="generateCodeForTimingConfiguration"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateCodeForTimingConfiguration</span> (line <span class="line-number">211</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates the code used to check if a method has been called once or more</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateCodeForTimingConfiguration
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$methodName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$methodName</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateMethodCode" id="generateMethodCode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateMethodCode</span> (line <span class="line-number">157</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Main method that generates the code for a redefined class</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateMethodCode
+		</span>
+					(<span class="var-type">ReturnValueManager</span>&nbsp;<span class="var-name">$actual_value</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">ReturnValueManager</span>
+				<span class="var-name">$actual_value</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateReturnDefault" id="generateReturnDefault"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateReturnDefault</span> (line <span class="line-number">298</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates the code that will be put in the default case of a switch.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateReturnDefault
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$method</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$value</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$method</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetPathToClassesMethodsList" id="getPathToClassesMethodsList"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPathToClassesMethodsList</span> (line <span class="line-number">60</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the path for the file containing a list of classes and their characteristics.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPathToClassesMethodsList
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodreturnGenerateClassForDefault" id="returnGenerateClassForDefault"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">returnGenerateClassForDefault</span> (line <span class="line-number">278</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Run throw all the methods looking for a method with a default value.</p>
+<p class="description"><p>If it is found, this method acts as a proxy for the private method that generate the code.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			returnGenerateClassForDefault
+		</span>
+					(<span class="var-type"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>&nbsp;<span class="var-name">$returnValuesManager</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../idMockStubGenerator/ReturnValuesManager.html">ReturnValuesManager</a></span>
+				<span class="var-name">$returnValuesManager</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Thu, 28 May 2009 17:33:40 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>
