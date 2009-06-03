@@ -1,0 +1,276 @@
+##  Yaml schema for project
+Project:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    name:
+      type: string(64)
+      notnull: true
+    description:
+      type: string(512)
+    is_public:
+      type: boolean
+      default: false
+    created_at:
+      type: timestamp
+    updated_at:
+      type: timestamp
+  relations:
+    users:
+      class: Profile
+      refClass: ProjectUser
+      foreignAlias: Projects
+
+Milestone:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    title:
+      type: string(64)
+      notnull: true
+    description:
+      type: string(512)
+    starting_date:
+      type: timestamp
+    ending_date:
+      type: timestamp
+    project_id:
+      type: integer
+      notnull: true
+  relations:
+    project:
+      class: Project
+      foreignAlias: Milestones
+      local: project_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: CASCADE
+
+Issue:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    project_id:
+      type: integer
+      notnull: true
+    milestone_id:
+      type: integer
+    status_id:
+      type: integer
+    priority_id:
+      type: integer
+    title:
+      type: string(256)
+      notnull: true
+    description:
+      type: string(2000)
+    starting_date:
+      type: timestamp
+    ending_date:
+      type: timestamp
+  relations:
+    project:
+      class: Project
+      foreignAlias: Issues
+      local: project_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: CASCADE
+    milestone:
+      class: Milestone
+      foreignAlias: Issues
+      local: milestone_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: SET NULL
+    users:
+      class: Profile
+      refClass: IssueUser
+      foreignAlias: Issues
+    related_issue:
+      class: Issue
+      local: main
+      foreign: associated_issue
+      refClass: AssociatedIssue
+      equal: true
+    status:
+      class: Status
+      local: status_id
+      foreign: id
+      type: one
+      foreignType: one
+      foreignAlias: Status
+      onDelete: SET NULL
+    priority:
+      class: Priority
+      local: priority_id
+      foreign: id
+      type: one
+      foreignType: one
+      foreignAlias: Priority
+      onDelete: SET NULL
+
+Status:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    name:
+      type: string(64)
+
+Priority:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    name:
+      type: string(64)
+
+Profile:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    sf_guard_user_id:
+      type: integer(4)
+    first_name:
+      type: string(64)
+    last_name:
+      type: string(64)
+    email:
+      type: string(255)
+      notnull: true
+      unique: true
+  relations:
+    User:
+      class: sfGuardUser
+      foreignType: one
+    projects:
+      class: Project
+      refClass: ProjectUser
+      foreignAlias: Profiles
+    issues:
+      class: Issue
+      refClass: IssueUser
+      foreignAlias: Profiles
+
+Comment:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    issue_id:
+      type: integer
+    profile_id:
+      type: integer
+    body:
+      type: string(1000)
+    created_at:
+      type: timestamp
+  relations:
+    Issue:
+      class: Issue
+      foreignAlias: Comments
+      local: issue_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: CASCADE
+    UserProfile:
+      class: Profile
+      foreignAlias: Comments
+      local: profile_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: SET NULL
+
+ProjectUser:
+  options:
+    charset: utf8
+  columns:
+    project_id:
+      type: integer
+    profile_id:
+      type: integer
+  relations:
+    Project:
+      foreignAlias: ProjectUsers
+      onDelete: CASCADE
+    Profile:
+      foreignAlias: ProjectUsers
+      onDelete: CASCADE
+
+IssueUser:
+  options:
+    charset: utf8
+  columns:
+    issue_id:
+      type: integer
+    profile_id:
+      type: integer
+  relations:
+    Issue:
+      foreignAlias: IssueUsers
+      onDelete: CASCADE
+    Profile:
+      foreignAlias: IssueUsers
+      onDelete: CASCADE
+
+AssociatedIssue:
+  options:
+    charset: utf8
+  columns:
+    main:
+      type: integer
+      primary: true
+    associated_issue:
+      type: integer
+      primary: true
+  relations:
+    main:
+      class: Issue
+      local: main
+      foreign: id
+      foreignAlias: RelatedIssuesByMain
+      onDelete: CASCADE
+    associated_issue:
+      class: Issue
+      local: associated_issue
+      foreignAlias: RelatedIssuesByAssociated
+      foreign: id
+      onDelete: CASCADE

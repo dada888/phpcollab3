@@ -1,0 +1,76 @@
+sfGuardUser:
+  sfGuardUser_1:
+    username: admin
+    algorithm: sha1
+    salt: cb7ddae023af5af0e091412bebe69e38
+    password: admin
+    is_active: true
+    is_super_admin: true
+    last_login: null
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+  sfGuardUser_2:
+    username: user
+    algorithm: sha1
+    salt: 7042a9a97aab3384e472d917ea493730
+    password: user
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+sfGuardGroup:
+  sfGuardGroup_1:
+    name: admin
+    description: 'Administrator group'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+  sfGuardGroup_2:
+    name: user
+    description: 'User group'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+sfGuardGroupPermission:
+  sfGuardGroupPermission_1_1:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_1
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+  sfGuardGroupPermission_2_2:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_2
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+sfGuardPermission:
+  sfGuardPermission_1:
+    name: admin
+    description: 'Administrator permission'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+  sfGuardPermission_2:
+    name: user
+    description: 'Basic user permission'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+sfGuardUserGroup:
+  sfGuardUserGroup_1_1:
+    sfGuardUser: sfGuardUser_1
+    sfGuardGroup: sfGuardGroup_1
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+  sfGuardUserGroup_2_2:
+    sfGuardUser: sfGuardUser_2
+    sfGuardGroup: sfGuardGroup_2
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+Profile:
+  Profile_1:
+    User: sfGuardUser_1
+    first_name: Amministro
+    last_name: Amministroni
+    email: amministro@example.com
+  Profile_2:
+    User: sfGuardUser_2
+    first_name: Mario
+    last_name: Wage
+    email: mario@example.com

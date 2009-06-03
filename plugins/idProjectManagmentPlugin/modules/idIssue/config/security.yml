@@ -1,0 +1,31 @@
+all:
+  is_secure: on
+  credentials: [[admin, user]]
+
+#show:
+#  is_secure: on
+#  credentials: [[admin, user]]
+#
+#index:
+#  is_secure: on
+#  credentials: [[admin, user]]
+#
+#new:
+#  is_secure: on
+#  credentials: [[admin, user]]
+#
+#create:
+#  is_secure: on
+#  credentials: [[admin, user]]
+#
+#edit:
+#  is_secure: on
+#  credentials: [[admin, user]]
+#
+#update:
+#  is_secure: on
+#  credentials: [[admin, user]]
+#
+#delete:
+#  is_secure: on
+#  credentials: [[admin, user]]

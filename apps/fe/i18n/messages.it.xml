@@ -1,0 +1,471 @@
+<?xml version="1.0"?>
+<xliff version="1.0">
+  <file orginal="global" source-language="en" datatype="plaintext" date="2008-12-18T18:32:15Z">
+    <body>
+      <trans-unit id="1">
+        <source>Project Repository</source>
+        <target>Repository di Progetto</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>My Projects</source>
+        <target>I miei progetti</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Repository</source>
+        <target>Repository</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Users</source>
+        <target>Utenti</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Groups</source>
+        <target>Gruppi</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Permissions</source>
+        <target>Permessi</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Priorities</source>
+        <target>Priorità</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Statuses</source>
+        <target>Stati</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>All Projects</source>
+        <target>Tutti i progetti</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Name</source>
+        <target>Nome</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Description</source>
+        <target>Descrizione</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Public/Private</source>
+        <target>Pubblico/Privato</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Actions</source>
+        <target>Azioni</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>No Results</source>
+        <target>Nessun risultato</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Public</source>
+        <target>Pubblico</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Private</source>
+        <target>Privato</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Edit</source>
+        <target>Modifica</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Delete</source>
+        <target>Elimina</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Do you really want to delete this project?</source>
+        <target>Vuoi veramente eliminare questo progetto?</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>Project details</source>
+        <target>Dettagli del progetto</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Users of this project</source>
+        <target>Membri del progetto</target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>Username</source>
+        <target>Nome utente</target>
+      </trans-unit>
+      <trans-unit id="23">
+        <source>First name</source>
+        <target>Nome</target>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>Last name</source>
+        <target>Cognome</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>No users</source>
+        <target>Nessun utente</target>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>Milestones</source>
+        <target>Milestone</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>Title</source>
+        <target>Titolo</target>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Starting date</source>
+        <target>Data d'inizio</target>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Ending date</source>
+        <target>Data di conclusione</target>
+      </trans-unit>
+      <trans-unit id="30">
+        <source>No milestone</source>
+        <target>Nessuna milestone</target>
+      </trans-unit>
+      <trans-unit id="31">
+        <source>Project filters</source>
+        <target>Filtra i progetti</target>
+      </trans-unit>
+      <trans-unit id="32">
+        <source>Manage Projects</source>
+        <target>Gestisci i progetti</target>
+      </trans-unit>
+      <trans-unit id="33">
+        <source>Filter by</source>
+        <target>Filtra per</target>
+      </trans-unit>
+      <trans-unit id="34">
+        <source>Reset</source>
+        <target>Cancella</target>
+      </trans-unit>
+      <trans-unit id="35">
+        <source>Filter</source>
+        <target>Filtra</target>
+      </trans-unit>
+      <trans-unit id="36">
+        <source>Created after : mm/dd/year</source>
+        <target>Creato dopo il : mm/gg/aaaa</target>
+      </trans-unit>
+      <trans-unit id="37">
+        <source>Logout</source>
+        <target>Esci</target>
+      </trans-unit>
+      <trans-unit id="38">
+        <source>Projects list</source>
+        <target>Lista dei progetti</target>
+      </trans-unit>
+      <trans-unit id="39">
+        <source>Create new project</source>
+        <target>Crea nuovo progetto</target>
+      </trans-unit>
+      <trans-unit id="40">
+        <source>Show latest revisions</source>
+        <target>Mostra le ultime revision</target>
+      </trans-unit>
+      <trans-unit id="41">
+        <source>Show all revisions</source>
+        <target>Mostra tutte le revision</target>
+      </trans-unit>
+      <trans-unit id="42">
+        <source>Revision Number</source>
+        <target>Revisione</target>
+      </trans-unit>
+      <trans-unit id="43">
+        <source>Author</source>
+        <target>Autore</target>
+      </trans-unit>
+      <trans-unit id="44">
+        <source>Date</source>
+        <target>Data</target>
+      </trans-unit>
+      <trans-unit id="45">
+        <source>Message</source>
+        <target>Commento</target>
+      </trans-unit>
+      <trans-unit id="46">
+        <source>Details from revision</source>
+        <target>Dettagli della revision</target>
+      </trans-unit>
+      <trans-unit id="47">
+        <source>Modified files</source>
+        <target>File modificati</target>
+      </trans-unit>
+      <trans-unit id="48">
+        <source>Revision %revision_id% has been committed on %date% by %user% .</source>
+        <target>La revision %revision_id% è stata registrata il %date% da %user% .</target>
+      </trans-unit>
+      <trans-unit id="49">
+        <source>Revision list for %path%</source>
+        <target>Revision per %path%</target>
+      </trans-unit>
+      <trans-unit id="50">
+        <source>Show Diff</source>
+        <target>Mostra Diff</target>
+      </trans-unit>
+      <trans-unit id="51">
+        <source>From revision %first_revision% to revision %second_revision%</source>
+        <target>Dalla revision %first_revision% alla %second_revision%</target>
+      </trans-unit>
+      <trans-unit id="52">
+        <source>Add user(s)</source>
+        <target>Aggiungi utente(i)</target>
+      </trans-unit>
+      <trans-unit id="53">
+        <source>Create milestone</source>
+        <target>Crea milestone</target>
+      </trans-unit>
+      <trans-unit id="54">
+        <source>Create issue</source>
+        <target>Crea issue</target>
+      </trans-unit>
+      <trans-unit id="55">
+        <source>View all issues</source>
+        <target>Mostra tutti gli issue</target>
+      </trans-unit>
+      <trans-unit id="56">
+        <source>View all milestones</source>
+        <target>Mostra tutte le milestone</target>
+      </trans-unit>
+      <trans-unit id="57">
+        <source>Created at</source>
+        <target>Creato il</target>
+      </trans-unit>
+      <trans-unit id="58">
+        <source>Updated at</source>
+        <target>Aggiornato il</target>
+      </trans-unit>
+      <trans-unit id="59">
+        <source>Project users</source>
+        <target>Membri del progetto</target>
+      </trans-unit>
+      <trans-unit id="60">
+        <source>Create a new project</source>
+        <target>Crea un nuovo progetto</target>
+      </trans-unit>
+      <trans-unit id="61">
+        <source>Update the project</source>
+        <target>Aggiorna il progetto</target>
+      </trans-unit>
+      <trans-unit id="62">
+        <source>Go back to the project list</source>
+        <target>Torna alla lista dei progetti</target>
+      </trans-unit>
+      <trans-unit id="63">
+        <source>Create a new milestone</source>
+        <target>Crea una nuova milestone</target>
+      </trans-unit>
+      <trans-unit id="64">
+        <source>Go back to the project dashboard</source>
+        <target>Torna alla dashboard di progetto</target>
+      </trans-unit>
+      <trans-unit id="65">
+        <source>View all project milestones</source>
+        <target>Mostra tutte le milestone</target>
+      </trans-unit>
+      <trans-unit id="66">
+        <source>Cancel</source>
+        <target>Cancella</target>
+      </trans-unit>
+      <trans-unit id="67">
+        <source>Save</source>
+        <target>Salva</target>
+      </trans-unit>
+      <trans-unit id="68">
+        <source>Milestones list</source>
+        <target>Tutte le milestone</target>
+      </trans-unit>
+      <trans-unit id="69">
+        <source>Create new issue</source>
+        <target>Crea un nuovo issue</target>
+      </trans-unit>
+      <trans-unit id="70">
+        <source>Issues list</source>
+        <target>Lista degli issue</target>
+      </trans-unit>
+      <trans-unit id="71">
+        <source>Status</source>
+        <target>Stato</target>
+      </trans-unit>
+      <trans-unit id="72">
+        <source>Priority</source>
+        <target>Priorità</target>
+      </trans-unit>
+      <trans-unit id="73">
+        <source>Assign to</source>
+        <target>Assegnato a</target>
+      </trans-unit>
+      <trans-unit id="74">
+        <source>Related issues</source>
+        <target>Issue associati</target>
+      </trans-unit>
+      <trans-unit id="75">
+        <source>User filters</source>
+        <target>Filtra gli utenti</target>
+      </trans-unit>
+      <trans-unit id="76">
+        <source>Is active</source>
+        <target>Attivo</target>
+      </trans-unit>
+      <trans-unit id="77">
+        <source>Groups list</source>
+        <target>Lista dei gruppi</target>
+      </trans-unit>
+      <trans-unit id="78">
+        <source>Permissions list</source>
+        <target>Lista dei permessi</target>
+      </trans-unit>
+      <trans-unit id="79">
+        <source>Users list</source>
+        <target>Lista degli utenti</target>
+      </trans-unit>
+      <trans-unit id="79">
+        <source>Create new user</source>
+        <target>Crea un nuovo utente</target>
+      </trans-unit>
+      <trans-unit id="80">
+        <source>Do you really want to delete this user?</source>
+        <target>Vuoi veramente eliminare l'utente dal sistema?</target>
+      </trans-unit>
+      <trans-unit id="81">
+        <source>Do you really want to delete this group?</source>
+        <target>Vuoi veramente eliminare questo gruppo?</target>
+      </trans-unit>
+      <trans-unit id="82">
+        <source>Do you really want to delete this permission?</source>
+        <target>Vuoi veramente eliminare questo permesso?</target>
+      </trans-unit>
+      <trans-unit id="82">
+        <source>Do you really want to delete this issue?</source>
+        <target>Vuoi veramente eliminare questo issue?</target>
+      </trans-unit>
+      <trans-unit id="83">
+        <source>Do you really want to delete this milestone?</source>
+        <target>Vuoi veramente eliminare questa milestone?</target>
+      </trans-unit>
+      <trans-unit id="83">
+        <source>Do you really want to delete this priority?</source>
+        <target>Vuoi veramente eliminare questa priprità?</target>
+      </trans-unit>
+      <trans-unit id="84">
+        <source>Do you really want to delete this status?</source>
+        <target>Vuoi veramente eliminare questo stato?</target>
+      </trans-unit>
+      <trans-unit id="85">
+        <source>Edit user</source>
+        <target>Modifica utente</target>
+      </trans-unit>
+      <trans-unit id="86">
+        <source>Password again</source>
+        <target>Inserisci di nuovo la password</target>
+      </trans-unit>
+      <trans-unit id="87">
+        <source>Profile</source>
+        <target>Profilo</target>
+      </trans-unit>
+      <trans-unit id="88">
+        <source>Is super admin</source>
+        <target>É un super admin</target>
+      </trans-unit>
+      <trans-unit id="89">
+        <source>Save modification</source>
+        <target>Salva le modifiche</target>
+      </trans-unit>
+      <trans-unit id="90">
+        <source>Group filters</source>
+        <target>Filtra i gruppi</target>
+      </trans-unit>
+      <trans-unit id="91">
+        <source>Create new group</source>
+        <target>Crea nuovo gruppo</target>
+      </trans-unit>
+      <trans-unit id="92">
+        <source>Groups list</source>
+        <target>Lista dei gruppi</target>
+      </trans-unit>
+      <trans-unit id="93">
+        <source>Manage users</source>
+        <target>Gestione utenti</target>
+      </trans-unit>
+      <trans-unit id="94">
+        <source>New user creation</source>
+        <target>Creazione di un nuovo utente</target>
+      </trans-unit>
+      <trans-unit id="95">
+        <source>Groups list</source>
+        <target>Lista dei gruppi</target>
+      </trans-unit>
+      <trans-unit id="96">
+        <source>New group creation</source>
+        <target>Creazione di un nuovo gruppo</target>
+      </trans-unit>
+      <trans-unit id="97">
+        <source>Edit group</source>
+        <target>Modifica gruppo</target>
+      </trans-unit>
+      <trans-unit id="98">
+        <source>Permission filters</source>
+        <target>Filtra i permessi</target>
+      </trans-unit>
+      <trans-unit id="99">
+        <source>Create new permission</source>
+        <target>Crea nuovo permesso</target>
+      </trans-unit>
+      <trans-unit id="100">
+        <source>New permission creation</source>
+        <target>Creazione di un nuovo permesso</target>
+      </trans-unit>
+      <trans-unit id="101">
+        <source>Edit permission</source>
+        <target>Modifica permesso</target>
+      </trans-unit>
+      <trans-unit id="102">
+        <source>Priorities list</source>
+        <target>Lista delle priorità</target>
+      </trans-unit>
+      <trans-unit id="103">
+        <source>Create new priority</source>
+        <target>Crea nuova priorità</target>
+      </trans-unit>
+      <trans-unit id="104">
+        <source>Manage priorities</source>
+        <target>Gestione priorità</target>
+      </trans-unit>
+      <trans-unit id="105">
+        <source>Fields</source>
+        <target>Campi</target>
+      </trans-unit>
+      <trans-unit id="106">
+        <source>Values</source>
+        <target>Valori</target>
+      </trans-unit>
+      <trans-unit id="107">
+        <source>Edit priority</source>
+        <target>Modifica priorità</target>
+      </trans-unit>
+      <trans-unit id="108">
+        <source>Create new status</source>
+        <target>Crea nuovo stato</target>
+      </trans-unit>
+      <trans-unit id="109">
+        <source>Manage statuses</source>
+        <target>Gestione stati</target>
+      </trans-unit>
+      <trans-unit id="110">
+        <source>Edit status</source>
+        <target>Modifica stato</target>
+      </trans-unit>
+      <trans-unit id="111">
+        <source>Statuses list</source>
+        <target>Lista degli stati</target>
+      </trans-unit>
+      <trans-unit id="112">
+        <source>Milestone's issues list</source>
+        <target>Lista degli issue</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

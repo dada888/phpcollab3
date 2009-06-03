@@ -1,0 +1,63 @@
+- Introduzione:
+Strumento per la creazione di definizioni di classi modificate per poter andare a impostare il comportamento di quei metodi statici richiamati all'interno delle classi del nostro progetto symfony. (fare in modo di non usare realmente un database ridefinendo Propel).
+
+
+- Cartella "DEVEL-FOLDER Mock-Stub-Generator":
+
+In questa cartella si trovano tutti i test eseguiti sulle classi FakeObjectGenerator e ReturnValuesManager.
+I test sono stati eseguiti con simpletest e sono visibili una volta che si mette tutta la cartella sotto apache e si aprono i file php nella cartella UnitTest (i file list.php e list_php_for_test.php non sono dei test ma servono da fixture per le classi che dovrebbero essere stare analizzate dal task listClassesMethodsTask.class.php).
+
+- Cartella "sfStaticMockGeneratorPlugin" :
+
+Sono contenuti in questa cartella i file utili per l'utilizzo dello strumento sviluppato. La struttura delle cartelle rispecchia dove i file devono essere copiati all'interno del nostro progetto symfony.
+
+- Utilizzo:
+
+1) Dopo aver installato il plugin nel nostro progetto symfony si può eseguire il task "listClassesMethodsTask.class.php" :
+	# php symfony test:listClassesMethods --class=MySQLConnection
+		Caricherà le caratteristiche della classe MySQLConnection nel file list.php nella cartella test/cache_method_list/
+	# php symfony test:listClassesMethods --class=MySQLConnection,Propel,Criteria
+		CAricherà le caratteristiche delle classi MySQLConnection, Propel e Criteria nel file list.php nella cartella test/cache_method_list/
+Se una di queste classi è già presente all'interno del file non verrà rianalizzata a meno che non si utilizzi l'opzione --reload_class:
+	# php symfony test:listClassesMethods --reload_class=Propel
+	# php symfony test:listClassesMethods --reload_class=Propel,Criteria
+
+Le due opzioni --reload_class e --class possono essere utilizzate nello stesso momento.
+
+2) Una volta caricate le caratteristiche delle classi che vogliamo ridefinire come fake/mock/stub andiamo a utilizzare la classe FakeObjectGenerator all'interno dei file di test del nostro progetto symfony:
+
+File appuntamentoTest.php:
+
+	# Includiamo il dile in cui è definita FakeObjectGenerator #
+
+	include(dirname(__FILE__).'/../bootstrap/unit.php');
+	include(dirname(__FILE__).'/../Mock-Stub-Generator/FakeObjectGenerator.php');
+
+	# Utilizziamo la classe ReturnValuesManager per definire quale metodo di quale classe deve restituire cosa e quando #
+
+	$rvm->setInputParameterForMethod('metodo_1', array('ciao',1,2,3))
+        ->setInputParameterForMethod('metodo_2',array('a','b','d'),1)
+        ->setInputParameterForMethod('metodo_2', array(1,2,3), 2)
+        ->setReturnException('metodo_3', 'Exception', 'Eccezione ritornata')
+        ->setReturnException('metodo_4', 'Exception', 'Eccezione at',2)
+        ->setReturnObject('metodo_5', 'oggetto_nuovo')
+        ->setReturnValue('metodo_7', 'ritorno')
+        ->setReturnValue('metodo_8', false, 1)
+        ->setReturnValuesArray('metodo_9', array('a',1,false,true,33))
+        ->setReturnValuesArray('metodo_10', array('b',1,false,false,4), 3)
+        ->setReturnObjectsArray('metodo_6', array($rm1, $rm2))
+        ->setReturnObjectsArray('metodo_11', array($rm3, $rm5), 3);
+
+	# Associamo il ResutlValuesManager che abbiamo creato alla classe che ci interessa e generiamo la classe secondo quanto specificato sopra #
+	
+	FakeObjectGenerator::generate('Propel', $rvm);
+
+	# Scriviamo il test come se stessimo usando le classi originali #
+
+	$appuntamento = new Appuntamento();
+	$t2 = new lime_test(1, new lime_output_color());
+
+	$t2->diag('save()');
+	$t2->is(1, $appuntamento->save());
+
+

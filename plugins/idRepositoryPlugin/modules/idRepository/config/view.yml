@@ -1,0 +1,8 @@
+showdiffSuccess:
+  components:
+    sidebar:  []
+
+default:
+  components:
+    sidebar:  [idRepository, sidebar]
+

@@ -1,0 +1,180 @@
+dashboard:
+  url:   /:sf_culture/idDashboard
+  param: { module: idDashboard, action: index}
+  requirements:
+    sf_culture: (?:en|it)
+
+index_milestone:
+  url:    /:sf_culture/idProject/:project_id/idMilestone
+  param:  { module: idMilestone, action: index }
+  requirements:
+    sf_culture: (?:en|it)
+
+new_milestone:
+  url:    /:sf_culture/idProject/:project_id/idMilestone/new
+  param:  { module: idMilestone, action: new }
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_milestone:
+  url:    /:sf_culture/idProject/:project_id/idMilestone/edit/:milestone_id
+  param:  { module: idMilestone, action: edit }
+  requirements:
+    sf_culture: (?:en|it)
+
+delete_milestone:
+  url:    /:sf_culture/idProject/:project_id/idMilestone/detele/:milestone_id
+  param:  { module: idMilestone, action: delete }
+  requirements:
+    sf_culture: (?:en|it)
+
+show_milestone:
+  url:    /:sf_culture/idProject/:project_id/idMilestone/show/:milestone_id
+  param:  { module: idMilestone, action: show }
+  requirements:
+    sf_culture: (?:en|it)
+
+update_milestone:
+  url:    /:sf_culture/idProject/:project_id/idMilestone/update/:milestone_id
+  param:  { module: idMilestone, action: update }
+  requirements:
+    sf_culture: (?:en|it)
+
+create_milestone:
+  url:    /:sf_culture/idProject/:project_id/idMilestone/create
+  param:  { module: idMilestone, action: create }
+  requirements:
+    sf_culture: (?:en|it)
+
+index_priority:
+  url:    /:sf_culture/idPriority
+  param:  { module: idPriority, action: index }
+  requirements:
+    sf_culture: (?:en|it)
+
+new_priority:
+  url:    /:sf_culture/idPriority/new
+  param:  { module: idPriority, action: new }
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_priority:
+  url:    /:sf_culture/idPriority/edit/:id
+  param:  { module: idPriority, action: edit }
+  requirements:
+    sf_culture: (?:en|it)
+
+delete_priority:
+  url:    /:sf_culture/idPriority/detele/:id
+  param:  { module: idPriority, action: delete }
+  requirements:
+    sf_culture: (?:en|it)
+
+index_status:
+  url:    /:sf_culture/idStatus
+  param:  { module: idStatus, action: index }
+  requirements:
+    sf_culture: (?:en|it)
+
+new_status:
+  url:    /:sf_culture/idStatus/new
+  param:  { module: idStatus, action: new }
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_status:
+  url:    /:sf_culture/idStatus/edit/:id
+  param:  { module: idStatus, action: edit }
+  requirements:
+    sf_culture: (?:en|it)
+
+delete_status:
+  url:    /:sf_culture/idStatus/detele/:id
+  param:  { module: idStatus, action: delete }
+  requirements:
+    sf_culture: (?:en|it)
+
+index_issue:
+  url:    /:sf_culture/idProject/:project_id/idIssues
+  param:  { module: idIssue, action: index }
+  requirements:
+    sf_culture: (?:en|it)
+
+new_issue:
+  url:    /:sf_culture/idProject/:project_id/idIssue/new
+  param:  { module: idIssue, action: new }
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_issue:
+  url:    /:sf_culture/idProject/:project_id/idIssue/edit/:issue_id
+  param:  { module: idIssue, action: edit }
+  requirements:
+    sf_culture: (?:en|it)
+
+create_issue:
+  url:    /:sf_culture/idProject/:project_id/idIssue/create
+  param:  { module: idIssue, action: edit }
+  requirements:
+    sf_culture: (?:en|it)
+
+delete_issue:
+  url:    /:sf_culture/idProject/:project_id/idIssue/delete/:issue_id
+  param:  { module: idIssue, action: delete }
+  requirements:
+    sf_culture: (?:en|it)
+
+show_issue:
+  url:    /:sf_culture/idProject/:project_id/idIssue/show/:issue_id
+  param:  { module: idIssue, action: show }
+  requirements:
+    sf_culture: (?:en|it)
+
+create_issue:
+  url:    /:sf_culture/idProject/:project_id/idIssue/create
+  param:  { module: idIssue, action: create }
+  requirements:
+    sf_culture: (?:en|it)
+
+update_issue:
+  url:    /:sf_culture/idProject/:project_id/idIssue/update/:issue_id
+  param:  { module: idIssue, action: update }
+  requirements:
+    sf_culture: (?:en|it)
+
+roadmap_project:
+  url:    /:sf_culture/idProject/show/:id/roadmap
+  param:  { module: idProject, action: roadmap }
+  requirements:
+    sf_culture: (?:en|it)
+
+show_project:
+  url:    /:sf_culture/idProject/show/:id
+  param:  { module: idProject, action: show }
+  requirements:
+    sf_culture: (?:en|it)
+
+new_project:
+  url:    /:sf_culture/idProject/new
+  param:  { module: idProject, action: new }
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_project:
+  url:    /:sf_culture/idProject/edit/:id
+  param:  { module: idProject, action: edit }
+  requirements:
+    sf_culture: (?:en|it)
+
+delete_project:
+  url:    /:sf_culture/idProject/delete/:id
+  param:  { module: idProject, action: delete }
+  requirements:
+    sf_culture: (?:en|it)
+
+index_project:
+  url:    /:sf_culture/idProject
+  param:  { module: idProject, action: index }
+  requirements:
+    sf_culture: (?:en|it)
+
