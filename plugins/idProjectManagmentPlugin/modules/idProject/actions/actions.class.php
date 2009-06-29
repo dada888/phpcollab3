@@ -85,9 +85,8 @@ class idProjectActions extends sfActions
    */
   public function executeNew(sfWebRequest $request)
   {
-    $this->getUser()->setAttribute('creation_date', date('Y-m-d H:i:s', time()));
-    
     $this->form = new idProjectForm();
+    $this->form->setDefault('created_at', date('Y-m-d H:i:s', time()));
   }
 
   /**
@@ -100,6 +99,7 @@ class idProjectActions extends sfActions
     $this->forward404Unless($request->isMethod('post'));
 
     $this->form = new idProjectForm();
+    $this->form->setDefault('created_at', date('Y-m-d H:i:s', time()));
     
     $this->processForm($request, $this->form);
 
@@ -114,7 +114,6 @@ class idProjectActions extends sfActions
   public function executeEdit(sfWebRequest $request)
   {
     $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
-    $this->getUser()->setAttribute('creation_date', $this->project->getCreatedAt());
 
     $this->form = new idProjectForm($this->project);
   }

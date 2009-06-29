@@ -11,7 +11,7 @@ default:
 
   stylesheets:    [main.css, base.css, themes/blue/style.css]
 
-  javascripts:    [%SF_PROTOTYPE_WEB_DIR%/js/prototype]
+  javascripts:    []
 
   has_layout:     on
   layout:         layout

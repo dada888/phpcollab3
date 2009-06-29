@@ -36,12 +36,7 @@ class idProjectForm extends ProjectForm
    */
   public function configure()
   {
-    $date = sfContext::getInstance()->getUser()->getAttribute('creation_date');
-    $this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->retriveAllButSuperAdmin()));
-
-    $this->validatorSchema['created_at'] = new sfValidatorChoice(array('choices' => array($date)));
-    $this->setDefault('created_at', $date);
 
     $this->validatorSchema['name'] = new sfValidatorString(
                                             array('max_length' => 64, 'min_length' => 3,'required' => true),

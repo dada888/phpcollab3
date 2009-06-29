@@ -1,0 +1,10 @@
+.svn
+/web/uploads/*
+/cache/*
+/log/*
+/lib/model/*
+/lib/filter/*
+/lib/form/*
+/data/*
+cron.php
+svnFakeRepositoryCreationScript.php

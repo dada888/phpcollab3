@@ -29,8 +29,61 @@ class idStatusActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->status_list = Doctrine::getTable('Status')
-      ->createQuery('st')
+      ->createQuery('st')->orderBy('st.position')
       ->execute();
+  }
+
+
+  private function checkPositionParameters($status_list, $ordering_list)
+  {
+    $status_items_number = count($status_list);
+
+    if ( count($ordering_list) != $status_items_number)
+    {
+      return false;
+    }
+
+    foreach ($ordering_list as $order_key => $value)
+    {
+      if (!is_int($order_key) || $order_key > $status_items_number)
+      {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  /**
+   * Executes index action
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeOrder(sfWebRequest $request)
+  {
+    $ordering_list = $request->getParameter('status');
+
+    if (!is_null($ordering_list) && !empty($ordering_list))
+    {
+      $status_list = Doctrine::getTable('Status')
+      ->createQuery('st')->orderBy('st.id')
+      ->execute();
+
+      if (!$this->checkPositionParameters($status_list, $ordering_list))
+      {
+        return $this->renderPartial('idPriority/order_message', array('response_message' => 'Some error occurred processing your request.', 'class' => 'message error'));
+      }
+
+
+      foreach ($status_list as $status)
+      {
+        $status->setPosition(array_search($status->id, $ordering_list));
+        $status->save();
+      }
+      return $this->renderPartial('idPriority/order_message', array('response_message' => 'Order updated', 'class' => 'message notice'));
+    }
+
+    return $this->renderPartial('idPriority/order_message', array('response_message' => 'Invalid request', 'class' => 'message warning'));
   }
 
   /**
@@ -116,6 +169,11 @@ class idStatusActions extends sfActions
     {
       $status = $form->save();
 
+      if ($status->getPosition() == null)
+      {
+        $status->setPosition($status->id);
+        $status->save();
+      }
       $this->redirect('@index_status');
     }
   }

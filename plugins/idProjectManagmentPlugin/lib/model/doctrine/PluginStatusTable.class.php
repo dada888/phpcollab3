@@ -20,5 +20,4 @@
  */
 class PluginStatusTable extends Doctrine_Table
 {
-
 }

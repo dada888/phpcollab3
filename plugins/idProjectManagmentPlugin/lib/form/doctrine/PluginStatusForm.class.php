@@ -21,5 +21,24 @@
  */
 abstract class PluginStatusForm extends BaseStatusForm
 {
-  
+  public function setup()
+  {
+    $this->setWidgets(array(
+      'id'          => new sfWidgetFormInputHidden(),
+      'name'        => new sfWidgetFormInput(),
+      'status_type' => new sfWidgetFormSelect(array('choices' => sfConfig::get('app_statuses_types'))),
+    ));
+
+    $this->setValidators(array(
+      'id'          => new sfValidatorDoctrineChoice(array('model' => 'Status', 'column' => 'id', 'required' => false)),
+      'name'        => new sfValidatorString(array('max_length' => 64, 'required' => false)),
+      'status_type' => new sfValidatorChoice(array('choices' => array_keys(sfConfig::get('app_statuses_types')))),
+    ));
+
+    $this->widgetSchema->setNameFormat('status[%s]');
+
+    $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
+
+    //parent::setup();
+  }
 }

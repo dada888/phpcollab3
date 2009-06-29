@@ -36,6 +36,15 @@
         <?php echo $form['is_public']->renderLabel(__('Public'), null, array('class'=>'label')) ?>
         <?php echo $form['is_public'] ?>
       </div>
+      <div class="group">
+        <?php if ($form['created_at']->hasError()):?>
+          <div class="fieldWithErrors">
+            <span class="error"><?php echo $form['created_at']->renderError() ?></span>
+          </div>
+        <?php endif; ?>
+        <?php echo $form['created_at']->renderLabel() ?>
+        <?php echo $form['created_at'] ?>
+      </div>
 
       <div class="group">
         <?php if ($form['users_list']->hasError()):?>

@@ -94,10 +94,10 @@
       </tr>
       <tr class="even">
         <td>&nbsp;</td>
-        <td><?php echo $form['related_list']->renderLabel('Related issues') ?></td>
+        <td><?php echo $form['related_issue_list']->renderLabel('Related issues') ?></td>
         <td>
-          <?php echo $form['related_list']->renderError() ?>
-          <?php echo $form['related_list'] ?>
+          <?php echo $form['related_issue_list']->renderError() ?>
+          <?php echo $form['related_issue_list'] ?>
         </td>
         <td>&nbsp;</td>
       </tr>

@@ -3,3 +3,6 @@
 /cache/*
 /log/*
 /web/*_dev.php
+/test/fixtures/git
+/test/fixtures/svn
+/test/fixtures/svn_client

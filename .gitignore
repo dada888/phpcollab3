@@ -1,5 +1,7 @@
+/lib/model/*
+/lib/filter/*
+/lib/form/*
 log/*
 cache/*
-lib/*
 data/sql/*
 data/phpcollab.db

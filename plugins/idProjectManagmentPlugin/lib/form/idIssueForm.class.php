@@ -24,6 +24,34 @@ class idIssueForm extends IssueForm
 {
   private $project_id;
 
+  /**
+   * Adds orderby option to the query on the <field_name>
+   *
+   * @param Doctrine_Query $q
+   */
+  private function addOrderByPositionOption(Doctrine_Query $q, $table_alias = 't', $filed_name = 'position')
+  {
+    $q->addOrderBy($table_alias.'.'.$filed_name);
+  }
+
+  private function getQueryForPriorityList()
+  {
+    $q = Doctrine_Query::create()
+      ->from('Priority t');
+    $this->addOrderByPositionOption($q);
+
+    return $q;
+  }
+
+
+  private function getQueryForStatusesList()
+  {
+    $q = Doctrine_Query::create()
+      ->from('Status t');
+    $this->addOrderByPositionOption($q);
+
+    return $q;
+  }
 
   /**
    * Add to a Doctrine_Query object the options for a query that selects users from a project.
@@ -97,14 +125,14 @@ class idIssueForm extends IssueForm
    */
   public function configure()
   {
-    $this->widgetSchema['status_id'] = new sfWidgetFormDoctrineChoice(array('model' => 'Status'));
-    $this->widgetSchema['priority_id'] = new sfWidgetFormDoctrineChoice(array('model' => 'Priority'));
+    $this->widgetSchema['status_id'] = new sfWidgetFormDoctrineChoice(array('model' => 'Status', 'query' => $this->getQueryForStatusesList()));
+    $this->widgetSchema['priority_id'] = new sfWidgetFormDoctrineChoice(array('model' => 'Priority', 'query' => $this->getQueryForPriorityList()));
     $this->widgetSchema['starting_date'] = new sfWidgetFormDate();
     $this->widgetSchema['ending_date'] = new sfWidgetFormDate();
     $this->widgetSchema['project_id'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->getQueryForUsers()));
     $this->widgetSchema['milestone_id'] = new sfWidgetFormDoctrineSelect(array('model' => 'Milestone', 'add_empty' => true, 'query' => $this->getQueryForMilestones()));
-    $this->widgetSchema['related_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Issue', 'query' => $this->getQueryForRelatedIssue()));
+    $this->widgetSchema['related_issue_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Issue', 'query' => $this->getQueryForRelatedIssue()));
 
 
     $this->validatorSchema['status_id'] = new sfValidatorDoctrineChoice(array('model' => 'Status', 'column' => 'id', 'required' => true));
@@ -115,7 +143,7 @@ class idIssueForm extends IssueForm
     $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Profile', 'alias' => '' ,'query' => $this->getQueryForUsers(), 'required' => false));
     $this->validatorSchema['milestone_id'] = new sfValidatorDoctrineChoice(array('model' => 'Milestone', 'alias' => '' ,'query' => $this->getQueryForMilestones(), 'required' => false));
     $this->validatorSchema['title'] = new sfValidatorString(array('required' => true,'max_length' => 256), array('required' => 'Title is mandatory'));
-    $this->validatorSchema['related_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Issue', 'alias' => '', 'required' => false, 'query' => $this->getQueryForRelatedIssue()));
+    $this->validatorSchema['related_issue_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Issue', 'alias' => '', 'required' => false, 'query' => $this->getQueryForRelatedIssue()));
 
     parent::configure();
   }

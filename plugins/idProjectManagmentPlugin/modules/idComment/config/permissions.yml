@@ -1,0 +1,12 @@
+Permission_comment_1:
+  name: 'idCommentRead'
+  description: 'Reading comments permission'
+Permission_comment_2:
+  name: 'idCommentCreate'
+  description: 'Creating comments permission'
+Permission_comment_3:
+  name: 'idCommentEdit'
+  description: 'Editing comments permission'
+Permission_comment_4:
+  name: 'idCommentDelete'
+  description: 'Deleting comments permission'

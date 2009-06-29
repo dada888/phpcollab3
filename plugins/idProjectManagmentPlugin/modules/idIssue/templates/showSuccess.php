@@ -18,6 +18,7 @@
             <th><?php echo __('Status') ?></th>
             <th><?php echo __('Priority') ?></th>
             <th><?php echo __('Milestone') ?></th>
+            <th><?php echo __('Assigned to') ?></th>
             <th><?php echo __('Description') ?></th>
             <th><?php echo __('Starting date') ?></th>
             <th><?php echo __('Ending date') ?></th>
@@ -32,11 +33,20 @@
               <td><?php echo $issue->getStatus() ?></td>
               <td><?php echo $issue->getPriority() ?></td>
               <td><?php echo !is_null($issue->milestone_id) ? $issue->getMilestone() : '' ?></td>
+              <td>
+              <?php if (count($issue->users) > 0): ?>
+                <ul>
+                  <?php foreach ($issue->users as $user): ?>
+                  <li><?php echo $user; ?></li>
+                  <?php endforeach; ?>
+                </ul>
+              <?php endif; ?>
+              </td>
               <td><?php echo $issue->getDescription() ?></td>
               <td><?php echo $issue->getStartingDate() ?></td>
-              <td><?php echo $issue->getEndingDate() ?></td>(
+              <td><?php echo $issue->getEndingDate() ?></td>
               <td><?php echo link_to(__('Edit'), '@edit_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId()) ?> | <?php echo link_to(__('Delete'), '@delete_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId(), array('confirm' => __('Do you really want to delete this issue?'))) ?></td>
-            <td class="last">&nbsp;</td>
+              <td class="last">&nbsp;</td>
           </tr>
 
         </table>

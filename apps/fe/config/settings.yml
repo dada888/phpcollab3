@@ -3,6 +3,26 @@ prod:
     no_script_name:         on
     logging_enabled:        off
 
+demo:
+  .settings:
+#    no_script_name:         on
+    logging_enabled:        on
+#    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              off
+    cache:                  on
+    no_script_name:         on
+    etag:                   off
+
+phpcollabdev:
+  .settings:
+#    no_script_name:         on
+    logging_enabled:        on
+#    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              off
+    cache:                  on
+    no_script_name:         on
+    etag:                   off
+
 dev:
   .settings:
     error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
@@ -21,6 +41,10 @@ test:
 
 all:
   .settings:
+    #jquery plugin options
+    jquery_core:          jquery-1.3.1.min.js
+    jquery_sortable:      jquery-ui-sortable-1.6rc2.min.js
+    jquery_autocomplete:  jquery.autocomplete-1.0.2.min.js
     # enabling repository plugin module
     enabled_modules:  			[default, idDashboard, idRepository, idProject, idIssue, sfGuardAuth, sfGuardGroup, sfGuardUser, sfGuardPermission, idStatus, idPriority, idMilestone, idComment]
     # Form security secret (CSRF protection)

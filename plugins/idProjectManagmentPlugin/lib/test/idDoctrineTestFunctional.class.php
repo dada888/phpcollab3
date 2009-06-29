@@ -62,10 +62,11 @@ class idDoctrineTestFunctional extends sfTestFunctional
   {
     $this->with('response')->begin()->
       debug()->
-    end;
+    end();
 
     return $this;
   }
+
 }
 
 ?>

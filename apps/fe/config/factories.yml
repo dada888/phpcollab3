@@ -5,6 +5,18 @@ prod:
       level:   err
       loggers: ~
 
+demo:
+  storage:
+    class: sfSessionStorage
+    param:
+      session_name: symfony_demo
+
+phpcollabdev:
+  storage:
+    class: sfSessionStorage
+    param:
+      session_name: symfony_phpcollabdev
+
 cli:
   controller:
     class: sfConsoleController

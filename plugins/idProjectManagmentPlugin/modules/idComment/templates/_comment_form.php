@@ -1,8 +1,8 @@
-<?php use_helper('Javascript') ?>
+<?php use_helper('jQuery') ?>
 
   <div class="content">
     <div class="inner">
-      <?php echo form_remote_tag(array('update' => 'comment_list','url' => 'idComment/create'), array('class' => 'form')) ?>
+      <?php echo jq_form_remote_tag(array('update' => 'comment_list','url' => 'idComment/create'), array('class' => 'form')) ?>
 
         <?php if (!$comment_form->getObject()->isNew()): ?>
           <input type="hidden" name="sf_method" value="put" />
@@ -19,8 +19,8 @@
             </div>
           </div>
           <div class="column right" id="comment_list"></div>
-          <?php echo javascript_tag(
-            remote_function(array(
+          <?php echo jq_javascript_tag(
+            jq_remote_function(array(
               'update'  => 'comment_list',
               'url'     => 'idComment/index?issue_id='.$issue->getId()
             ))

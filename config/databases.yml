@@ -7,6 +7,20 @@ dev:
       username: root
       password:
 
+phpcollabdev:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=phpcollab_demo'
+      username: root
+      password:
+
+demo:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'sqlite:%SF_DATA_DIR%/phpcollab_demo.db'
+
 prod:
   doctrine:
     class: sfDoctrineDatabase
@@ -34,7 +48,3 @@ unittest:
 all:
   doctrine:
     class: sfDoctrineDatabase
-    param:
-      dsn: 'mysql:host=localhost;dbname=phpcollab'
-      username: root
-      password:

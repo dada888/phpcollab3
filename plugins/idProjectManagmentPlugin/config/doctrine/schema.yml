@@ -139,6 +139,10 @@ Status:
       autoincrement: true
     name:
       type: string(64)
+    status_type:
+      type: string(64)
+    position:
+      type: integer
 
 Priority:
   options:
@@ -151,6 +155,8 @@ Priority:
       autoincrement: true
     name:
       type: string(64)
+    position:
+      type: integer
 
 Profile:
   options:

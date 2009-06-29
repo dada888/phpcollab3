@@ -16,6 +16,7 @@
       <th class="first"></th>
       <th><?php echo __('Fields') ?></th>
       <th><?php echo __('Values') ?></th>
+      <th><?php echo __('Status type') ?></th>
       <th class="last"></th>
     </tr>
 
@@ -25,6 +26,10 @@
       <td>
         <?php echo $form['name']->renderError() ?>
         <?php echo $form['name'] ?>
+      </td>
+      <td>
+        <?php echo $form['status_type']->renderError() ?>
+        <?php echo $form['status_type'] ?>
       </td>
       <td>&nbsp;</td>
     </tr>

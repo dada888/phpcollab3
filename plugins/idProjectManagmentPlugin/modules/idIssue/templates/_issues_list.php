@@ -5,6 +5,7 @@
     <th><?php echo __('Status') ?></th>
     <th><?php echo __('Priority') ?></th>
     <th><?php echo __('Milestone') ?></th>
+    <th><?php echo __('Assigned to') ?></th>
     <th><?php echo __('Description') ?></th>
     <th><?php echo __('Starting date') ?></th>
     <th><?php echo __('Ending date') ?></th>
@@ -25,6 +26,15 @@
         <td><?php echo $issue->getStatus() ?></td>
         <td><?php echo $issue->getPriority() ?></td>
         <td><?php echo !is_null($issue->milestone_id) ? $issue->getMilestone() : '' ?></td>
+        <td>
+        <?php if (count($issue->users) > 0): ?>
+          <ul>
+            <?php foreach ($issue->users as $user): ?>
+            <li><?php echo $user; ?></li>
+            <?php endforeach; ?>
+          </ul>
+        <?php endif; ?>
+        </td>
         <td><?php echo $issue->getDescription() ?></td>
         <td><?php echo format_date($issue->getStartingDate()) ?></td>
         <td><?php echo format_date($issue->getEndingDate()) ?></td>

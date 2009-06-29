@@ -1,0 +1,17 @@
+.svn
+/web/.htaccess
+/web/uploads/*
+/cache/*
+/log/*
+/web/*_dev.php
+/web/index.php
+/web/sfProtoculousPlugin
+/web/demo.php
+/test/*
+config/rsync*
+/data/sql/*
+/data/phpcollab.db
+/plugins/idMockStubGenerator/*
+/cron.php
+/patch.diff
+/svnFakeRepositoryCreationScript.php
