@@ -21,6 +21,23 @@
  */
 class idPriorityActions extends sfActions
 {
+
+  protected function getQueryForPrioritiesList()
+  {
+    return Doctrine::getTable('Priority')
+      ->getPrioritiesOrderByPositionQuery();
+  }
+
+  /**
+   * Retrieve a priority list ordered by position field
+   *
+   * @return <type>
+   */
+  protected function retrievePrioritiesList()
+  {
+    return $this->getQueryForPrioritiesList()->execute();
+  }
+
   /**
    * Executes index action
    *
@@ -28,9 +45,7 @@ class idPriorityActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->priority_list = Doctrine::getTable('Priority')
-      ->createQuery('pr')->orderBy('pr.position')
-      ->execute();
+    $this->priority_list = $this->retrievePrioritiesList();
   }
 
   private function checkPositionParameters($priorities_list, $ordering_list)
@@ -54,7 +69,7 @@ class idPriorityActions extends sfActions
   }
 
   /**
-   * Executes index action
+   * Executes order action (AJAX)
    *
    * @param sfWebRequest $request
    */
@@ -64,9 +79,7 @@ class idPriorityActions extends sfActions
 
     if (!is_null($ordering_list) && !empty($ordering_list))
     {
-      $priorities_list = Doctrine::getTable('Priority')
-      ->createQuery('pr')->orderBy('pr.id')
-      ->execute();
+      $priorities_list = $this->retrievePrioritiesList();
 
       if (!$this->checkPositionParameters($priorities_list, $ordering_list))
       {
@@ -84,6 +97,49 @@ class idPriorityActions extends sfActions
 
     return $this->renderPartial('idPriority/order_message', array('response_message' => 'Invalid request', 'class' => 'message warning'));
   }
+
+  protected function switchFirstAndSecondPositions($priorities)
+  {
+    $first_position = (int)$priorities[0]->getPosition();
+    $priorities[0]->setPosition((int)$priorities[1]->getPosition());
+    $priorities[1]->setPosition($first_position);
+
+    $priorities[0]->save();
+    $priorities[1]->save();
+  }
+
+  /**
+   * Execute order action (not AJAX)
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeOrderPriority(sfWebRequest $request)
+  {
+    $highest_position = Doctrine::getTable('Priority')->retrieveHighestPosition();
+    if (!is_null($request->getParameter('position'))
+                            && $request->getParameter('position') <= $highest_position
+                            && $request->getParameter('position') >= 0
+                            && $request->getParameter('move')
+                            && ($request->getParameter('move') == 'up' || $request->getParameter('move') == 'down')
+                           )
+    {
+      $move = ($request->getParameter('move') == 'up') ? '<' : '>';
+
+      $priorities = $this->getQueryForPrioritiesList()
+                        ->where('pr.position '.$move.'= ?', $request->getParameter('position'))
+                        ->limit(2)
+                        ->execute();
+      
+      $this->switchFirstAndSecondPositions($priorities);
+      $this->getUser()->setFlash('notice', 'Order updated');
+      $this->redirect('idPriority/index');
+    }
+
+    $this->getUser()->setFlash('error', 'Some error occurred processing your request.');
+    $this->redirect('idPriority/index');
+
+  }
+
 
   /**
    * Executes new action
@@ -140,6 +196,23 @@ class idPriorityActions extends sfActions
   }
 
   /**
+   * This method checks if all the position are in cardinal oreder and if it is not, it will fix them
+   * 
+   */
+  protected function checkAndFixPriorityPositions()
+  {
+    $priorities = $this->getQueryForPrioritiesList()->execute();
+    foreach ($priorities as $key => $priority)
+    {
+      if ($priority->getPosition() != $key)
+      {
+        $priority->setPosition($key);
+        $priority->save();
+      }
+    }
+  }
+
+  /**
    * Executes delete action
    *
    * @param sfWebRequest $request
@@ -150,6 +223,8 @@ class idPriorityActions extends sfActions
 
     $this->forward404Unless($priority = Doctrine::getTable('Priority')->find(array($request->getParameter('id'))), sprintf('Object priority does not exist (%s).', array($request->getParameter('id'))));
     $priority->delete();
+
+    $this->checkAndFixPriorityPositions();
 
     $this->redirect('idPriority/index');
   }
@@ -170,7 +245,8 @@ class idPriorityActions extends sfActions
 
       if ($priority->getPosition() == null)
       {
-        $priority->setPosition($status->id);
+        $highest_position = Doctrine::getTable('Priority')->retrieveHighestPosition();
+        $priority->setPosition($highest_position + 1);
         $priority->save();
       }
 

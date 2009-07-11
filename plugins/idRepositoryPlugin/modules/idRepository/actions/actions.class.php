@@ -86,7 +86,7 @@ class idRepositoryActions extends sfActions {
     $this->getUser()->setAttribute('path', $request->getParameter('path'));
 
     $this->path = $request->getParameter('path');
-    $this->data = $this->repository->getAllRevisionForPath($this->repository->getUrl()."/".urldecode($request->getParameter('path')), $this->log_command);
+    $this->data = $this->repository->getAllRevisionForPath($this->repository->getUrl().urldecode($request->getParameter('path')), $this->log_command);
 
     $choices = array();
     foreach ($this->data as $logentry)
@@ -102,7 +102,7 @@ class idRepositoryActions extends sfActions {
     
     $this->path = $this->getUser()->getAttribute('path');
     
-    $this->data = $this->repository->getAllRevisionForPath($this->repository->getUrl()."/".urldecode($this->getUser()->getAttribute('path')), $this->log_command );
+    $this->data = $this->repository->getAllRevisionForPath($this->repository->getUrl().urldecode($this->getUser()->getAttribute('path')), $this->log_command );
     $this->active = $request->getParameter('action');
 
     $choices = array();

@@ -21,6 +21,12 @@
  */
 class idStatusActions extends sfActions
 {
+  protected function getQueryForStatusesList()
+  {
+    return Doctrine::getTable('Status')
+      ->getStatusesOrderByPositionQuery();
+  }
+
   /**
    * Executes index action
    *
@@ -28,9 +34,7 @@ class idStatusActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->status_list = Doctrine::getTable('Status')
-      ->createQuery('st')->orderBy('st.position')
-      ->execute();
+    $this->status_list = $this->getQueryForStatusesList()->execute();
   }
 
 
@@ -65,9 +69,7 @@ class idStatusActions extends sfActions
 
     if (!is_null($ordering_list) && !empty($ordering_list))
     {
-      $status_list = Doctrine::getTable('Status')
-      ->createQuery('st')->orderBy('st.id')
-      ->execute();
+      $status_list = $this->getQueryForStatusesList()->execute();
 
       if (!$this->checkPositionParameters($status_list, $ordering_list))
       {
@@ -85,6 +87,49 @@ class idStatusActions extends sfActions
 
     return $this->renderPartial('idPriority/order_message', array('response_message' => 'Invalid request', 'class' => 'message warning'));
   }
+
+  protected function switchFirstAndSecondPositions($statuses)
+  {
+    $first_position = (int)$statuses[0]->getPosition();
+    $statuses[0]->setPosition((int)$statuses[1]->getPosition());
+    $statuses[1]->setPosition($first_position);
+
+    $statuses[0]->save();
+    $statuses[1]->save();
+  }
+
+  /**
+   * Execute order action (not AJAX)
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeOrderStatus(sfWebRequest $request)
+  {
+    $highest_position = Doctrine::getTable('Status')->retrieveHighestPosition();
+    if (!is_null($request->getParameter('position'))
+                            && $request->getParameter('position') <= $highest_position
+                            && $request->getParameter('position') >= 0
+                            && $request->getParameter('move')
+                            && ($request->getParameter('move') == 'up' || $request->getParameter('move') == 'down')
+                           )
+    {
+      $move = ($request->getParameter('move') == 'up') ? '<' : '>';
+
+      $priorities = $this->getQueryForStatusesList()
+                        ->where('s.position '.$move.'= ?', $request->getParameter('position'))
+                        ->limit(2)
+                        ->execute();
+
+      $this->switchFirstAndSecondPositions($priorities);
+      $this->getUser()->setFlash('notice', 'Order updated');
+      $this->redirect('idStatus/index');
+    }
+
+    $this->getUser()->setFlash('error', 'Some error occurred processing your request.');
+    $this->redirect('idStatus/index');
+
+  }
+
 
   /**
    * Executes new action
@@ -141,6 +186,23 @@ class idStatusActions extends sfActions
   }
 
   /**
+   * This method checks if all the position are in cardinal oreder and if it is not, it will fix them
+   *
+   */
+  protected function checkAndFixPriorityPositions()
+  {
+    $statuses = $this->getQueryForStatusesList()->execute();
+    foreach ($statuses as $key => $status)
+    {
+      if ($status->getPosition() != $key)
+      {
+        $status->setPosition($key);
+        $status->save();
+      }
+    }
+  }
+
+  /**
    * Executes delete action
    *
    * @param sfWebRequest $request
@@ -151,6 +213,8 @@ class idStatusActions extends sfActions
 
     $this->forward404Unless($status = Doctrine::getTable('Status')->find(array($request->getParameter('id'))), sprintf('Object status does not exist (%s).', array($request->getParameter('id'))));
     $status->delete();
+
+    $this->checkAndFixPriorityPositions();
 
     $this->redirect('@index_status');
   }
@@ -171,7 +235,8 @@ class idStatusActions extends sfActions
 
       if ($status->getPosition() == null)
       {
-        $status->setPosition($status->id);
+        $highest_position = Doctrine::getTable('Status')->retrieveHighestPosition();
+        $status->setPosition($highest_position + 1);
         $status->save();
       }
       $this->redirect('@index_status');

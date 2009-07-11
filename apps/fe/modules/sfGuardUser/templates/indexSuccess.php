@@ -1,5 +1,3 @@
-
-
 <?php slot('title', __('Manage users')) ?>
 
 <?php include_partial('idProject/sf_guard_filters', array(
@@ -18,7 +16,6 @@
   <h2 class="title"><?php echo __('Users list') ?></h2>
     <div class="inner">
 
-      <form action="<?php echo url_for('sf_guard_user_collection', array('action' => 'batch')) ?>" method="post">
         <?php if (!$pager->getNbResults()): ?>
           <p><?php echo __('No result', array(), 'sf_admin') ?></p>
         <?php else: ?>
@@ -61,20 +58,20 @@
             </tr>
           <?php endforeach; ?>
 
-          <!--tr colspan="6">
-              <?php if ($pager->haveToPaginate()): ?>
+            <?php if ($pager->haveToPaginate()): ?>
+            <tr class="even">
+              <td colspan="7">
                 <?php include_partial('sfGuardUser/pagination', array('pager' => $pager)) ?>
-              <?php endif; ?>
-
-              <?php if ($pager->haveToPaginate()): ?>
+                <br/>
                 <?php echo __('(page %%page%%/%%nb_pages%%)', array('%%page%%' => $pager->getPage(), '%%nb_pages%%' => $pager->getLastPage()), 'sf_admin') ?>
-              <?php endif; ?>
-            </tr-->
+              </td>
+            </tr>
+            <?php endif; ?>
+            
 
         </table>
         
       <?php endif; ?>
-      </form>
 
     </div>
   </div>

@@ -1,0 +1,12 @@
+idIssue1:
+  name: 'idIssue-Read'
+  description: 'Reading issues permission'
+idIssue2:
+  name: 'idIssue-Create'
+  description: 'Creating issues permission'
+idIssue3:
+  name: 'idIssue-Edit'
+  description: 'Editing issues permission'
+idIssue4:
+  name: 'idIssue-Delete'
+  description: 'Deleting issues permission'

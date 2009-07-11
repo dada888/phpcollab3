@@ -55,6 +55,8 @@ dev:
       suffix: <<_END_>>
   
 all:
+  itemperpage:
+    users: 5
   statuses:
     types:
       new: new

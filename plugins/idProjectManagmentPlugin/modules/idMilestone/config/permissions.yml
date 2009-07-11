@@ -1,0 +1,12 @@
+idMilestone1:
+  name: 'idMilestone-Read'
+  description: 'Reading milestones permission'
+idMilestone2:
+  name: 'idMilestone-Create'
+  description: 'Creating milestones permission'
+idMilestone3:
+  name: 'idMilestone-Edit'
+  description: 'Editing milestones permission'
+idMilestone4:
+  name: 'idMilestone-Delete'
+  description: 'Deleting milestones permission'

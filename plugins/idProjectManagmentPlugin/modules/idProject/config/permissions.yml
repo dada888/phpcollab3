@@ -1,0 +1,15 @@
+idProject1:
+  name: 'idProject-Read'
+  description: 'Reading projects permission'
+idProject2:
+  name: 'idProject-Create'
+  description: 'Creating projects permission'
+idProject3:
+  name: 'idProject-Edit'
+  description: 'Editing projects permission'
+idProject4:
+  name: 'idProject-Delete'
+  description: 'Deleting projects permission'
+idProject5:
+  name: 'idProject-ViewRoadmap'
+  description: 'View projects roadmap permission'

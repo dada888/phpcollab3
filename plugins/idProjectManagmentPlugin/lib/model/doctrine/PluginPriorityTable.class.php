@@ -20,5 +20,26 @@
  */
 class PluginPriorityTable extends Doctrine_Table
 {
+  public function getPrioritiesOrderByPositionQuery()
+  {
+    return Doctrine_Query::create()->
+            from('Priority pr')->
+            orderBy('pr.position');
+  }
+
+  public function retrieveHighestPosition()
+  {
+    $priority = Doctrine_Query::create()
+                      ->from('Priority pr')
+                      ->orderBy('pr.position DESC')
+                      ->fetchOne();
+
+    if (!is_null($priority))
+    {
+      return $priority->getPosition();
+    }
+
+    return -1;
+  }
 
 }

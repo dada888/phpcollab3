@@ -1,12 +1,12 @@
-Permission_comment_1:
-  name: 'idCommentRead'
+idComment1:
+  name: 'idComment-Read'
   description: 'Reading comments permission'
-Permission_comment_2:
-  name: 'idCommentCreate'
+idComment2:
+  name: 'idComment-Create'
   description: 'Creating comments permission'
-Permission_comment_3:
-  name: 'idCommentEdit'
+idComment3:
+  name: 'idComment-Edit'
   description: 'Editing comments permission'
-Permission_comment_4:
-  name: 'idCommentDelete'
+idComment4:
+  name: 'idComment-Delete'
   description: 'Deleting comments permission'

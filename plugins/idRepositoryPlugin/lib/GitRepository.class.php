@@ -169,7 +169,8 @@ class GitRepository {
    */
   public function getUrl()
   {
-    return $this->localRepository;
+    return '';
+    //return $this->localRepository;
   }
 }
 

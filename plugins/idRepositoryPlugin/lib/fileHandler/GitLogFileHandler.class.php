@@ -54,7 +54,10 @@ class GitLogFileHandler {
   {
     $logDataArray = array();
     $resourceLogFile = fopen($this->file_path, 'r');
-    $fileData = fread($resourceLogFile, filesize($this->file_path));
+    $fileData = fread(
+      $resourceLogFile,
+      filesize($this->file_path));
+
     fclose($resourceLogFile);
 
     $logEntries = split($this->prefix, $fileData);

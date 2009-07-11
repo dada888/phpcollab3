@@ -11,9 +11,9 @@ phpcollabdev:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=localhost;dbname=phpcollab_demo'
-      username: root
-      password:
+      dsn: 'mysql:host=db2.fullo.net;dbname=phpcollab_demo'
+      username: collabdb
+      password: c0ll4bdb123
 
 demo:
   doctrine:

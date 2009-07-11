@@ -1,0 +1,12 @@
+idStatus1:
+  name: 'idStatus-Read'
+  description: 'Reading statuses permission'
+idStatus2:
+  name: 'idStatus-Create'
+  description: 'Creating statuses permission'
+idStatus3:
+  name: 'idStatus-Edit'
+  description: 'Editing statuses permission'
+idStatus4:
+  name: 'idStatus-Delete'
+  description: 'Deleting statuses permission'

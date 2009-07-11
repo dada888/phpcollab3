@@ -30,4 +30,28 @@ class sfGuardUserActions extends autoSfGuardUserActions
   {
     $this->forward404Unless($this->user = Doctrine::getTable('sfGuardUser')->find(array($request->getParameter('id'))));
   }
+
+  public function executeIndex(sfWebRequest $request)
+  {
+    if ($request->hasParameter('sort'))
+    {
+      $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
+    }
+
+    $this->setPage($request->getParameter('page', 1));
+
+    $this->pager = $this->getPager();
+    $this->sort = $this->getSort();
+  }
+
+  protected function getPager()
+  {
+    $pager = $this->configuration->getPager('sfGuardUser');
+    $pager->setQuery($this->buildQuery());
+    $pager->setPage($this->getPage());
+    $pager->setMaxPerPage(!is_null(sfConfig::get('app_itemperpage_users')) ? sfConfig::get('app_itemperpage_users') : 5);
+    $pager->init();
+
+    return $pager;
+  }
 }

@@ -1,0 +1,12 @@
+idPriority1:
+  name: 'idPriority-Read'
+  description: 'Reading priorities permission'
+idPriority2:
+  name: 'idPriority-Create'
+  description: 'Creating priorities permission'
+idPriority3:
+  name: 'idPriority-Edit'
+  description: 'Editing priorities permission'
+idPriority4:
+  name: 'idPriority-Delete'
+  description: 'Deleting priorities permission'

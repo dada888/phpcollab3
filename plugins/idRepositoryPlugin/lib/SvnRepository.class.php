@@ -185,7 +185,8 @@ class SvnRepository {
    */
   public function getUrl()
   {
-    return $this->proxy->getUrl();
+    $url = $this->proxy->getUrl();
+    return $url."/";
   }
 
 }

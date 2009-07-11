@@ -20,4 +20,25 @@
  */
 class PluginStatusTable extends Doctrine_Table
 {
+   public function getStatusesOrderByPositionQuery()
+  {
+    return Doctrine_Query::create()->
+            from('Status s')->
+            orderBy('s.position');
+  }
+
+  public function retrieveHighestPosition()
+  {
+    $priority = Doctrine_Query::create()
+                      ->from('Status s')
+                      ->orderBy('s.position DESC')
+                      ->fetchOne();
+
+    if (!is_null($priority))
+    {
+      return $priority->getPosition();
+    }
+
+    return -1;
+  }
 }
