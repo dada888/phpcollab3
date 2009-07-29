@@ -1,0 +1,6 @@
+idProfile1:
+  name: 'idProfile-Read'
+  description: 'Reading profile permission'
+idProfile2:
+  name: 'idProfile-Edit'
+  description: 'Editing profile permission'

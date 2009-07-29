@@ -27,7 +27,7 @@
             <?php foreach ($milestone_list as $milestone): ?>
               <tr class="odd">
                 <td>&nbsp;</td>
-                <td><?php echo $milestone->gettitle() ?></td>
+                <td><?php echo link_to($milestone->gettitle(), '@show_milestone?project_id='.$milestone->project_id.'&milestone_id='.$milestone->id) ?></td>
                 <td><?php echo $milestone->getdescription() ?></td>
                 <td><?php echo $milestone->getstarting_date() ?></td>
                 <td><?php echo $milestone->getending_date() ?></td>

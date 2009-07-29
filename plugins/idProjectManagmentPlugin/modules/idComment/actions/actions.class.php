@@ -29,6 +29,11 @@ class idCommentActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+    if (!$this->getUser()->hasCredential('idComment-Read'))
+    {
+      return $this->renderPartial('idComment/invalid');
+    }
+
     $issue = Doctrine::getTable('Issue')->find(array($request->getParameter('issue_id')));
     
     if (is_null($issue) || !$this->getUser()->isMyProjectByIssue($issue))
@@ -46,7 +51,10 @@ class idCommentActions extends sfActions
    */
   public function executeNew(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idComment-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404();
+
     $this->form = new CommentForm();
   }
 
@@ -58,6 +66,8 @@ class idCommentActions extends sfActions
    */
   public function executeCreate(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idComment-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404Unless($this->getRequest()->isXmlHttpRequest() || $request->isMethod('post'));
     $form_parameters = $request->getParameter('comment');
 
@@ -82,7 +92,10 @@ class idCommentActions extends sfActions
    */
   public function executeEdit(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idComment-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404();
+
     $this->forward404Unless($comment = Doctrine::getTable('Comment')->find(array($request->getParameter('id'))), sprintf('Object comment does not exist (%s).', array($request->getParameter('id'))));
     $this->form = new CommentForm($comment);
   }
@@ -94,7 +107,10 @@ class idCommentActions extends sfActions
    */
   public function executeUpdate(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idComment-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404();
+
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless($comment = Doctrine::getTable('Comment')->find(array($request->getParameter('id'))), sprintf('Object comment does not exist (%s).', array($request->getParameter('id'))));
     $this->form = new CommentForm($comment);
@@ -111,7 +127,10 @@ class idCommentActions extends sfActions
    */
   public function executeDelete(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idComment-Delete'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404();
+
     $request->checkCSRFProtection();
 
     $this->forward404Unless($comment = Doctrine::getTable('Comment')->find(array($request->getParameter('id'))), sprintf('Object comment does not exist (%s).', array($request->getParameter('id'))));

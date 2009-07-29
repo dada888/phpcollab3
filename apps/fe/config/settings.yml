@@ -46,7 +46,7 @@ all:
     jquery_sortable:      jquery-ui-sortable-1.6rc2.min.js
     jquery_autocomplete:  jquery.autocomplete-1.0.2.min.js
     # enabling repository plugin module
-    enabled_modules:  			[default, idDashboard, idRepository, idProject, idIssue, sfGuardAuth, sfGuardGroup, sfGuardUser, sfGuardPermission, idStatus, idPriority, idMilestone, idComment]
+    enabled_modules:  			[default, idProfile, idDashboard, idRepository, idProject, idIssue, sfGuardAuth, sfGuardGroup, sfGuardUser, sfGuardPermission, idStatus, idPriority, idMilestone, idComment]
     # Form security secret (CSRF protection)
     csrf_secret:       false     # Unique secret to enable CSRF protection or false to disable
 

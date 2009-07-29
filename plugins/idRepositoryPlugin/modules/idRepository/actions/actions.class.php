@@ -43,7 +43,9 @@ class idRepositoryActions extends sfActions {
   * @param sfRequest $request A request object
   */
   public function executeShow(sfWebRequest $request)
-  {   
+  {
+    $this->forwardUnless($this->getUser()->hasCredential('idRepository-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->data = $this->repository->getLogLatestRevisions($this->log_command);
     $this->slotType = 'show_repository';
     $this->repositoryURL = $this->repository->getURL();
@@ -55,7 +57,9 @@ class idRepositoryActions extends sfActions {
   * @param sfRequest $request A request object
   */
   public function executeShowall(sfWebRequest $request)
-  {       
+  {
+    $this->forwardUnless($this->getUser()->hasCredential('idRepository-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->data = $this->repository->getAllLogRevisions($this->log_command);
     $this->slotType = 'show_repository_all';
     $this->repositoryURL = $this->repository->getURL();
@@ -70,6 +74,7 @@ class idRepositoryActions extends sfActions {
   */
   public function executeShowdetails(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idRepository-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->data = $this->repository->getLogLatestRevisions($this->log_command, 25);
     $this->logentry = $this->data[$request->getParameter('revisionid')];
     $this->active = $request->getParameter('action');
@@ -82,6 +87,7 @@ class idRepositoryActions extends sfActions {
    */
   public function executeShowdifflist(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idRepository-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
 
     $this->getUser()->setAttribute('path', $request->getParameter('path'));
 
@@ -99,6 +105,7 @@ class idRepositoryActions extends sfActions {
 
   public function executeShowdiff(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idRepository-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     
     $this->path = $this->getUser()->getAttribute('path');
     

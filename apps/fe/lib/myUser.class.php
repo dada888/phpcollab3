@@ -136,4 +136,29 @@ class myUser extends sfGuardSecurityUser
     return $this->isAdmin() ? true : $this->isMemberOfProject($issue->getProject()->getId());
   }
 
+  /**
+   * Returns projects ids and names where the user have assigned issues
+   *
+   * @return array
+   */
+  public function getProjectsIdsAndNamesWhereIhaveAssignedIssues()
+  {
+    return Doctrine::getTable('Project')
+            ->getQueryToRetrieveProjectWhereUserHaveAssignedIssues($this->getProfile()->getId())
+            ->select('p.name as name, p.id as id')
+            ->groupBy('p.name AND p.id')
+            ->execute(array(), Doctrine::HYDRATE_ARRAY);
+  }
+
+  /**
+   * Returns true if the id is the same as the user
+   *
+   * @param int $project_id
+   * @return boolean
+   */
+  public function isMyProfile($id)
+  {
+    return $this->isAdmin() ? true : ($id == $this->getGuardUser()->getId());
+  }
+
 }

@@ -21,4 +21,10 @@
  */
 abstract class PluginProfileForm extends BaseProfileForm
 {
+  public function setup()
+  {
+    parent::setup();
+
+    $this->validatorSchema['email'] = new sfValidatorEmail(array(), array('invalid' => 'Invalid email address'));
+  }
 }

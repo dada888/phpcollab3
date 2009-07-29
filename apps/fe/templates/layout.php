@@ -17,9 +17,12 @@
 
         <div id="user-navigation">
           <ul>
-            <li><?php
-            echo ($sf_user->isAuthenticated()) ? link_to(__('Logout'), '@sf_guard_signout') : link_to(__('Signin'), '@sf_guard_signin') ;
-            ?></li>
+            <?php if ($sf_user->isAuthenticated()) : ?>
+              <li><?php echo link_to(__('Logout'), '@sf_guard_signout'); ?></li>
+              <li><?php echo link_to(__('Edit my profile'), '@edit_profile') ?></li>
+            <?php else: ?>
+              <li><?php echo link_to(__('Signin'), '@sf_guard_signin'); ?></li>
+            <?php endif; ?>
           </ul>
           <div class="clear"></div>
         </div>

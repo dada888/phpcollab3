@@ -1,6 +1,6 @@
 all:
   is_secure: on
-  credentials: [admin]
+#  credentials: [admin]
 
 #show:
 #  is_secure: on

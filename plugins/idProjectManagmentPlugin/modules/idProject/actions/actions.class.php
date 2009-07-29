@@ -28,8 +28,10 @@ class idProjectActions extends sfActions
    */
   public function executeShow(sfWebRequest $request)
   {
-    $this->forward404Unless($this->getUser()->isMyProject($request->getParameter('id')) && 
-                            $this->project = Doctrine::getTable('Project')->getProjectMilestonesAndUsers($request->getParameter('id')));
+    $this->forwardUnless($this->getUser()->hasCredential('idProject-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $this->forward404Unless($this->getUser()->isMyProject($request->getParameter('id')) &&
+                            $this->project = Doctrine::getTable('Project')->getProjectMilestonesAndUsers($request->getParameter('id'))
+                           );
     $this->milestones = $this->project->getMilestones();
   }
 
@@ -40,6 +42,8 @@ class idProjectActions extends sfActions
    */
   public function executeRoadmap(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idProject-ViewRoadmap'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404Unless($this->getUser()->isMyProject($request->getParameter('id')));
     $this->forward404Unless($this->project = Doctrine::getTable('Project')->getProjectRelatedMilestonesAndIssues($request->getParameter('id')));
   }
@@ -51,6 +55,8 @@ class idProjectActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idProject-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->form = new FormFilters();
     $q = null;
 
@@ -85,6 +91,7 @@ class idProjectActions extends sfActions
    */
   public function executeNew(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idProject-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->form = new idProjectForm();
     $this->form->setDefault('created_at', date('Y-m-d H:i:s', time()));
   }
@@ -96,6 +103,7 @@ class idProjectActions extends sfActions
    */
   public function executeCreate(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idProject-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post'));
 
     $this->form = new idProjectForm();
@@ -113,6 +121,8 @@ class idProjectActions extends sfActions
    */
   public function executeEdit(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idProject-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
 
     $this->form = new idProjectForm($this->project);
@@ -125,6 +135,8 @@ class idProjectActions extends sfActions
    */
   public function executeUpdate(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idProject-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless($project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
     
@@ -142,6 +154,8 @@ class idProjectActions extends sfActions
    */
   public function executeDelete(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idProject-Delete'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $request->checkCSRFProtection();
 
     $this->forward404Unless($project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));

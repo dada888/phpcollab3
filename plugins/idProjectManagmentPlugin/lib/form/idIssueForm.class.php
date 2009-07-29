@@ -22,7 +22,7 @@
 
 class idIssueForm extends IssueForm
 {
-  private $project_id;
+  protected $project_id;
 
   /**
    * Adds orderby option to the query on the <field_name>
@@ -144,6 +144,7 @@ class idIssueForm extends IssueForm
     $this->validatorSchema['milestone_id'] = new sfValidatorDoctrineChoice(array('model' => 'Milestone', 'alias' => '' ,'query' => $this->getQueryForMilestones(), 'required' => false));
     $this->validatorSchema['title'] = new sfValidatorString(array('required' => true,'max_length' => 256), array('required' => 'Title is mandatory'));
     $this->validatorSchema['related_issue_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Issue', 'alias' => '', 'required' => false, 'query' => $this->getQueryForRelatedIssue()));
+    $this->validatorSchema['estimated_time'] = new sfValidatorNumber(array('min' => '0', 'required' => false), array('min' => 'You cannot set a negative estimated time'));
 
     parent::configure();
   }

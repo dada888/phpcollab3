@@ -24,6 +24,14 @@ EOF;
     $this->addOption('application', null, sfCommandOption::PARAMETER_OPTIONAL, 'The application name', null);
     $this->addOption('connection', null, sfCommandOption::PARAMETER_REQUIRED, 'The connection name', 'doctrine');
     $this->addOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev');
+
+    parent::configure();
+  }
+
+  protected function configIgnore()
+  {
+    parent::configIgnore();
+    $this->addIgnoreFolder('test');
   }
 
   protected function cleanPermissionsArrayFromExistentPermissions($permissions)
@@ -53,11 +61,22 @@ EOF;
 
   protected function saveNewPermissions($new_permissions)
   {
+    $sfGuardGroup_admin = Doctrine::getTable('sfGuardGroup')
+                            ->createQuery()
+                            ->from('sfGuardGroup sgg')
+                            ->where('sgg.name = ?', 'admin')
+                            ->fetchOne();
+
     foreach ($new_permissions as $new_permission)
     {
       $this->logSection('Saving : ','...');
       $new_permission->save();
       $this->logSection($new_permission->getName(),' saved');
+      $sfGuardGroupPermission = new sfGuardGroupPermission();
+      $sfGuardGroupPermission->group_id = $sfGuardGroup_admin->getId();
+      $sfGuardGroupPermission->permission_id = $new_permission->getId();
+      $sfGuardGroupPermission->save();
+      $this->logSection('Admin permission : ','updated');
     }
   }
 
@@ -67,7 +86,7 @@ EOF;
     {
       $options['dir'] = sfConfig::get('sf_root_dir').DIRECTORY_SEPARATOR.$options['dir'];
     }
-    
+
     $this->logSection('Searching : ','Scanning folder '.$options['dir']);
 
     $permission_files = $this->findPermissionsFiles($options);

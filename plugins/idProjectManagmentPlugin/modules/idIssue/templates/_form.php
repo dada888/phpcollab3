@@ -101,6 +101,15 @@
         </td>
         <td>&nbsp;</td>
       </tr>
+      <tr class="odd">
+        <td>&nbsp;</td>
+        <td><?php echo $form['estimated_time']->renderLabel('Estimated time') ?></td>
+        <td>
+          <?php echo $form['estimated_time']->renderError() ?>
+          <?php echo $form['estimated_time'] ?>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields() ?>

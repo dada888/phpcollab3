@@ -34,6 +34,8 @@ class idStatusActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idStatus-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->status_list = $this->getQueryForStatusesList()->execute();
   }
 
@@ -65,24 +67,25 @@ class idStatusActions extends sfActions
    */
   public function executeOrder(sfWebRequest $request)
   {
-    $ordering_list = $request->getParameter('status');
-
-    if (!is_null($ordering_list) && !empty($ordering_list))
+    if ($this->getUser()->hasCredential('idStatus-Edit'))
     {
-      $status_list = $this->getQueryForStatusesList()->execute();
-
-      if (!$this->checkPositionParameters($status_list, $ordering_list))
+      $ordering_list = $request->getParameter('status');
+      if (!is_null($ordering_list) && !empty($ordering_list))
       {
-        return $this->renderPartial('idPriority/order_message', array('response_message' => 'Some error occurred processing your request.', 'class' => 'message error'));
-      }
+        $status_list = $this->getQueryForStatusesList()->execute();
 
+        if (!$this->checkPositionParameters($status_list, $ordering_list))
+        {
+          return $this->renderPartial('idPriority/order_message', array('response_message' => 'Some error occurred processing your request.', 'class' => 'message error'));
+        }
 
-      foreach ($status_list as $status)
-      {
-        $status->setPosition(array_search($status->id, $ordering_list));
-        $status->save();
+        foreach ($status_list as $status)
+        {
+          $status->setPosition(array_search($status->id, $ordering_list));
+          $status->save();
+        }
+        return $this->renderPartial('idPriority/order_message', array('response_message' => 'Order updated', 'class' => 'message notice'));
       }
-      return $this->renderPartial('idPriority/order_message', array('response_message' => 'Order updated', 'class' => 'message notice'));
     }
 
     return $this->renderPartial('idPriority/order_message', array('response_message' => 'Invalid request', 'class' => 'message warning'));
@@ -105,6 +108,8 @@ class idStatusActions extends sfActions
    */
   public function executeOrderStatus(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idStatus-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $highest_position = Doctrine::getTable('Status')->retrieveHighestPosition();
     if (!is_null($request->getParameter('position'))
                             && $request->getParameter('position') <= $highest_position
@@ -138,6 +143,8 @@ class idStatusActions extends sfActions
    */
   public function executeNew(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idStatus-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->form = new StatusForm();
     $this->setTemplate('edit');
   }
@@ -149,6 +156,8 @@ class idStatusActions extends sfActions
    */
   public function executeCreate(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idStatus-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404Unless($request->isMethod('post'));
 
     $this->form = new StatusForm();
@@ -165,6 +174,8 @@ class idStatusActions extends sfActions
    */
   public function executeEdit(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idStatus-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404Unless($status = Doctrine::getTable('Status')->find(array($request->getParameter('id'))), sprintf('Object status does not exist (%s).', array($request->getParameter('id'))));
     $this->form = new StatusForm($status);
   }
@@ -176,6 +187,7 @@ class idStatusActions extends sfActions
    */
   public function executeUpdate(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idStatus-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless($status = Doctrine::getTable('Status')->find(array($request->getParameter('id'))), sprintf('Object status does not exist (%s).', array($request->getParameter('id'))));
     $this->form = new StatusForm($status);
@@ -209,6 +221,8 @@ class idStatusActions extends sfActions
    */
   public function executeDelete(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idStatus-Delete'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $request->checkCSRFProtection();
 
     $this->forward404Unless($status = Doctrine::getTable('Status')->find(array($request->getParameter('id'))), sprintf('Object status does not exist (%s).', array($request->getParameter('id'))));

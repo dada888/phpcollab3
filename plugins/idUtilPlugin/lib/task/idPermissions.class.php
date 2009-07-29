@@ -2,6 +2,43 @@
 
 abstract class idPermissions extends sfBaseTask {
 
+  private $ignore_folders_and_files = array();
+
+  protected function configure()
+  {
+    $this->configIgnore();
+  }
+
+  protected function addWhatToIgnore(sfFinder $sf_finder)
+  {
+    if (!empty($this->ignore_folders_and_files))
+    {
+      foreach ($this->ignore_folders_and_files as $folder => $file_format)
+      {
+        $sf_finder->prune($folder)->discard($file_format);
+      }
+    }
+
+    return $sf_finder;
+  }
+
+  public function addIgnoreFolder($folder, $file_format = null)
+  {
+    if (!is_null($folder))
+    {
+      $file_name = is_null($file_name) ? $folder : $file_name;
+      $this->ignore_folders_and_files[$folder] = $file_name;
+    }
+  }
+
+  protected function configIgnore()
+  {
+    $this->addIgnoreFolder('.svn');
+    $this->addIgnoreFolder('data');
+    $this->addIgnoreFolder('doc');
+    $this->addIgnoreFolder('cache');
+  }
+
   protected function createArrayOfExistingPermissionsNames($existing_permissions)
   {
     $names_array = array();
@@ -26,7 +63,10 @@ abstract class idPermissions extends sfBaseTask {
 
   protected function findPermissionsFiles($options)
   {
-    $permissions_files = sfFinder::type('file')
+    $sf_finder = sfFinder::type('file');
+    $sf_finder = $this->addWhatToIgnore($sf_finder);
+
+    $permissions_files = $sf_finder
                           ->maxdepth(isset($options['depth']) ? $options['depth'] : 6 )
                           ->name(isset($options['filenameFormat']) ? $options['filenameFormat'] : 'permissions.yml')
                           ->in(isset($options['dir']) ? $options['dir'] : sfConfig::get('sf_root_dir') );

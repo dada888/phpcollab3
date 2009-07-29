@@ -10,7 +10,8 @@
 /web/sfProtoculousPlugin
 /web/.htaccess
 /web/phpcollabdev.php
-/data/*
+/data/sql/*
+/data/phpcollab.db
 /test/*
 cron.php
 patch.diff

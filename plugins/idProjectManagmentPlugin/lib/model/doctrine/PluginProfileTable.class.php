@@ -26,7 +26,7 @@ class PluginProfileTable extends Doctrine_Table
    *
    * @return Doctrine_Query
    */
-  public function retirveQueryForAllButSuperAdmin()
+  public function retrieveQueryForAllButSuperAdmin()
   {
     return Doctrine_Query::create()
             ->from('Profile p')

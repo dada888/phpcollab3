@@ -1,6 +1,6 @@
 all:
   is_secure: on
-  credentials: [[admin, user]]
+#  credentials: [[admin, user]]
 
 #show:
 #  is_secure: on

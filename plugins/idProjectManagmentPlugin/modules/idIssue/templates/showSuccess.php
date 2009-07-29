@@ -9,7 +9,7 @@
     <h2 class="title"><?php echo __('Issue').' #'.$issue->getId() ?></h2>
     <div class="inner">
 
-        <table class="table">
+        <table class="table" id="issue-table">
 
           <tr>
             <th class="first">&nbsp;</th>
@@ -22,6 +22,7 @@
             <th><?php echo __('Description') ?></th>
             <th><?php echo __('Starting date') ?></th>
             <th><?php echo __('Ending date') ?></th>
+            <th><?php echo __('Estimated time') ?></th>
             <th><?php echo __('Actions') ?></th>
             <th class="last">&nbsp;</th>
           </tr>
@@ -45,8 +46,27 @@
               <td><?php echo $issue->getDescription() ?></td>
               <td><?php echo $issue->getStartingDate() ?></td>
               <td><?php echo $issue->getEndingDate() ?></td>
+              <td><?php echo $issue->getEstimatedTime() ?></td>
               <td><?php echo link_to(__('Edit'), '@edit_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId()) ?> | <?php echo link_to(__('Delete'), '@delete_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId(), array('confirm' => __('Do you really want to delete this issue?'))) ?></td>
               <td class="last">&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td colspan="3"><?php echo $estimated_time_form['estimated_time']->renderLabel('Estimated time') ?></td>
+            <td colspan="10">
+              <form action="<?php echo url_for('@set_estimated_time_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">
+                <?php if ($sf_user->hasFlash('error')): ?>
+                <div class="flash">
+                  <div class="message error">
+                    <p><?php echo $sf_user->getFlash('error') ?></p>
+                  </div>
+                </div>
+                <?php endif; ?>
+                <?php echo $estimated_time_form['estimated_time'] ?>
+                <?php echo $estimated_time_form->renderHiddenFields() ?>
+                <input type="submit" value="<?php echo __('Set') ?>" class="button" />
+              </form>
+            </td>
           </tr>
 
         </table>

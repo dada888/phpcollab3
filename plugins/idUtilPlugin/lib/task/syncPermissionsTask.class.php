@@ -19,6 +19,8 @@ EOF;
     $this->addOption('application', null, sfCommandOption::PARAMETER_OPTIONAL, 'The application name', null);
     $this->addOption('connection', null, sfCommandOption::PARAMETER_REQUIRED, 'The connection name', 'doctrine');
     $this->addOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev');
+
+    parent::configure();
   }
 
   protected function deletePermissionByName($name)

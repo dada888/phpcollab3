@@ -45,6 +45,7 @@ class idPriorityActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idPriority-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->priority_list = $this->retrievePrioritiesList();
   }
 
@@ -75,24 +76,25 @@ class idPriorityActions extends sfActions
    */
   public function executeOrder(sfWebRequest $request)
   {
-    $ordering_list = $request->getParameter('priority');
-
-    if (!is_null($ordering_list) && !empty($ordering_list))
+    if ($this->getUser()->hasCredential('idPriority-Edit'))
     {
-      $priorities_list = $this->retrievePrioritiesList();
-
-      if (!$this->checkPositionParameters($priorities_list, $ordering_list))
+      $ordering_list = $request->getParameter('priority');
+      if (!is_null($ordering_list) && !empty($ordering_list))
       {
-        return $this->renderPartial('idPriority/order_message', array('response_message' => 'Some error occurred processing your request.', 'class' => 'message error'));
-      }
+        $priorities_list = $this->retrievePrioritiesList();
 
+        if (!$this->checkPositionParameters($priorities_list, $ordering_list))
+        {
+          return $this->renderPartial('idPriority/order_message', array('response_message' => 'Some error occurred processing your request.', 'class' => 'message error'));
+        }
 
-      foreach ($priorities_list as $priority)
-      {
-        $priority->setPosition(array_search($priority->id, $ordering_list));
-        $priority->save();
+        foreach ($priorities_list as $priority)
+        {
+          $priority->setPosition(array_search($priority->id, $ordering_list));
+          $priority->save();
+        }
+        return $this->renderPartial('idPriority/order_message', array('response_message' => 'Order updated', 'class' => 'message notice'));
       }
-      return $this->renderPartial('idPriority/order_message', array('response_message' => 'Order updated', 'class' => 'message notice'));
     }
 
     return $this->renderPartial('idPriority/order_message', array('response_message' => 'Invalid request', 'class' => 'message warning'));
@@ -115,6 +117,8 @@ class idPriorityActions extends sfActions
    */
   public function executeOrderPriority(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idPriority-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $highest_position = Doctrine::getTable('Priority')->retrieveHighestPosition();
     if (!is_null($request->getParameter('position'))
                             && $request->getParameter('position') <= $highest_position
@@ -148,6 +152,8 @@ class idPriorityActions extends sfActions
    */
   public function executeNew(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idPriority-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->form = new PriorityForm();
     $this->setTemplate('edit');
   }
@@ -159,6 +165,7 @@ class idPriorityActions extends sfActions
    */
   public function executeCreate(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idPriority-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post'));
 
     $this->form = new PriorityForm();
@@ -175,6 +182,8 @@ class idPriorityActions extends sfActions
    */
   public function executeEdit(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idPriority-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404Unless($priority = Doctrine::getTable('Priority')->find(array($request->getParameter('id'))), sprintf('Object priority does not exist (%s).', array($request->getParameter('id'))));
     $this->form = new PriorityForm($priority);
   }
@@ -186,6 +195,7 @@ class idPriorityActions extends sfActions
    */
   public function executeUpdate(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idPriority-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless($priority = Doctrine::getTable('Priority')->find(array($request->getParameter('id'))), sprintf('Object priority does not exist (%s).', array($request->getParameter('id'))));
     $this->form = new PriorityForm($priority);
@@ -219,6 +229,8 @@ class idPriorityActions extends sfActions
    */
   public function executeDelete(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idPriority-Delete'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $request->checkCSRFProtection();
 
     $this->forward404Unless($priority = Doctrine::getTable('Priority')->find(array($request->getParameter('id'))), sprintf('Object priority does not exist (%s).', array($request->getParameter('id'))));

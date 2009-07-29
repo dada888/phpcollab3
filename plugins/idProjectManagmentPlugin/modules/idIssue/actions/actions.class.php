@@ -28,6 +28,8 @@ class idIssueActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idIssue-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->pager = new sfDoctrinePager('Issue',10);
     $this->pager->setQuery(Doctrine::getTable('Issue')->getQueryForProjectIssues($request->getParameter('project_id')));
     $this->pager->setPage($this->getRequestParameter('page',1));
@@ -41,8 +43,8 @@ class idIssueActions extends sfActions
    */
   public function executeShow(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idIssue-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->issue = Doctrine::getTable('Issue')->getIssueById($request->getParameter('issue_id'));
-    
     $this->forward404Unless($this->issue && $this->issue->project_id == $request->getParameter('project_id'));
 
     $this->pager = new idPager('Issue',10);
@@ -54,6 +56,8 @@ class idIssueActions extends sfActions
     $this->comment_form->setDefault('issue_id', $request->getParameter('issue_id'));
     $this->comment_form->setDefault('profile_id', $this->getUser()->getProfile()->getId());
     $this->comment_form->setDefault('created_at', date('Y-m-d H:i:s', time()));
+
+    $this->estimated_time_form = new idEstimatedTimeForm($this->issue->getProjectId(), $this->issue);
   }
 
   /**
@@ -63,6 +67,8 @@ class idIssueActions extends sfActions
    */
   public function executeNew(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idIssue-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
     $this->form = new idIssueForm($request->getParameter('project_id'));
     $this->form->setDefault('project_id', $request->getParameter('project_id'));
@@ -77,6 +83,7 @@ class idIssueActions extends sfActions
    */
   public function executeCreate(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idIssue-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post'));
     $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
 
@@ -94,6 +101,8 @@ class idIssueActions extends sfActions
    */
   public function executeEdit(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idIssue-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
     $this->forward404Unless($issue = Doctrine::getTable('Issue')->find(array($request->getParameter('issue_id'))), sprintf('Object issue does not exist (%s).', array($request->getParameter('issue_id'))));
     $this->form = new idIssueForm($request->getParameter('project_id'), $issue);
@@ -106,6 +115,7 @@ class idIssueActions extends sfActions
    */
   public function executeUpdate(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idIssue-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
     $this->forward404Unless($issue = Doctrine::getTable('Issue')->find(array($request->getParameter('issue_id'))), sprintf('Object issue does not exist (%s).', array($request->getParameter('issue_id'))));
@@ -124,6 +134,8 @@ class idIssueActions extends sfActions
    */
   public function executeDelete(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idIssue-Delete'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
     $this->forward404Unless($issue = Doctrine::getTable('Issue')->find(array($request->getParameter('issue_id'))), sprintf('Object issue does not exist (%s).', array($request->getParameter('issue_id'))));
     $request->checkCSRFProtection();
@@ -133,6 +145,25 @@ class idIssueActions extends sfActions
     $issue->delete();
 
     $this->redirect('@index_issue?project_id='.$project_id);
+  }
+
+  public function executeSetEstimatedTime(sfWebRequest $request)
+  {
+    $this->forwardUnless($this->getUser()->hasCredential('idIssue-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
+    $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
+    $this->forward404Unless($issue = Doctrine::getTable('Issue')->find(array($request->getParameter('issue_id'))), sprintf('Object issue does not exist (%s).', array($request->getParameter('issue_id'))));
+
+    $form = new idEstimatedTimeForm($issue->getProjectId(), $issue);
+    $form->bind($request->getParameter($form->getName()));
+    if ($form->isValid())
+    {
+      $issue = $form->save();
+      $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
+    }
+
+    $this->getUser()->setFlash('error', $form['estimated_time']->renderError());
+    $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
   }
 
   /**

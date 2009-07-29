@@ -28,7 +28,7 @@ class idProjectForm extends ProjectForm
    */
   private function retriveAllButSuperAdmin()
   {
-    return Doctrine::getTable('Profile')->retirveQueryForAllButSuperAdmin();
+    return Doctrine::getTable('Profile')->retrieveQueryForAllButSuperAdmin();
   }
 
   /**

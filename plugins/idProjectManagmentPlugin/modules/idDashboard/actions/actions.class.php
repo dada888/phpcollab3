@@ -29,6 +29,8 @@ class idDashboardActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+    $this->forwardUnless($this->getUser()->hasCredential('idDashboard-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     if ($this->getUser()->isAdmin())
     {
       $this->forward('idProject', 'index');
@@ -38,5 +40,7 @@ class idDashboardActions extends sfActions
     $this->pager->setQuery(Doctrine::getTable('Issue')->getQueryForUserIssues($this->getUser()->getProfile()->getId()));
     $this->pager->setPage($this->getRequestParameter('page',1));
     $this->pager->init();
+
+    $this->projects = $this->getUser()->getProjectsIdsAndNamesWhereIhaveAssignedIssues();
   }
 }

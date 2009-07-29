@@ -4,6 +4,24 @@ dashboard:
   requirements:
     sf_culture: (?:en|it)
 
+edit_profile:
+  url:    /:sf_culture/idProfile/edit
+  param:  { module: idProfile, action: edit }
+  requirements:
+    sf_culture: (?:en|it)
+
+update_profile:
+  url:    /:sf_culture/idProfile/update
+  param:  { module: idProfile, action: update }
+  requirements:
+    sf_culture: (?:en|it)
+
+index_profile:
+  url:    /:sf_culture/idProfile
+  param:  { module: idProfile, action: index }
+  requirements:
+    sf_culture: (?:en|it)
+
 index_milestone:
   url:    /:sf_culture/idProject/:project_id/idMilestone
   param:  { module: idMilestone, action: index }
@@ -97,6 +115,12 @@ delete_status:
 index_issue:
   url:    /:sf_culture/idProject/:project_id/idIssues
   param:  { module: idIssue, action: index }
+  requirements:
+    sf_culture: (?:en|it)
+
+set_estimated_time_issue:
+  url:    /:sf_culture/idIssue/setEstimatedTime/:issue_id
+  param:  { module: idIssue, action: setEstimatedTime }
   requirements:
     sf_culture: (?:en|it)
 

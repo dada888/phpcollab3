@@ -1,31 +1,31 @@
 show:
   is_secure: on
-  credentials: [[admin, user]]
+#  credentials: [[admin, user]]
 
 index:
   is_secure: on
-  credentials: [[admin, user]]
+#  credentials: [[admin, user]]
 
 roadmap:
   is_secure: on
-  credentials: [[admin, user]]
+#  credentials: [[admin, user]]
 
 new:
   is_secure: on
-  credentials: admin
+#  credentials: admin
 
 create:
   is_secure: on
-  credentials: admin
+#  credentials: admin
 
 edit:
   is_secure: on
-  credentials: admin
+#  credentials: admin
 
 update:
   is_secure: on
-  credentials: admin
+#  credentials: admin
 
 delete:
   is_secure: on
-  credentials: admin
+#  credentials: admin

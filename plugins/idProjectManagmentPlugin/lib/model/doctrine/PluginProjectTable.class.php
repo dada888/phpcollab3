@@ -58,4 +58,19 @@ class PluginProjectTable extends Doctrine_Table
 
     return $q->fetchOne();
   }
+
+  /**
+   *
+   *
+   * @param <type> $user
+   * @return <type>
+   */
+  public function getQueryToRetrieveProjectWhereUserHaveAssignedIssues($user_id)
+  {
+    return Doctrine_Query::create()
+            ->from('Project as p')
+            ->leftJoin('p.Issues i')
+            ->leftJoin('i.users u')
+            ->where('u.id = ?', $user_id);
+  }
 }

@@ -84,6 +84,8 @@ Issue:
       type: timestamp
     ending_date:
       type: timestamp
+    estimated_time:
+      type: float
   relations:
     project:
       class: Project
@@ -238,7 +240,7 @@ ProjectUser:
       foreignAlias: ProjectUsers
       onDelete: CASCADE
     Profile:
-      foreignAlias: ProjectUsers
+      foreignAlias: UserProjects
       onDelete: CASCADE
 
 IssueUser:
