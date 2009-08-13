@@ -23,15 +23,15 @@
         <table class="table">
           <tr>
             <th class="first">&nbsp;</th>
-            <?php include_partial('idProject/sf_guard_th_as_ordering_links', array(
+            <?php include_partial('sfGuardUser/sf_guard_th_as_ordering_links', array(
                                                                             'sort' => $sort,
                                                                             'module_name' => 'user',
                                                                             'fields' => array(
-                                                                                          'username',
-                                                                                          'first_name',
-                                                                                          'last_name',
-                                                                                          'email',
-                                                                                          'created_at'
+                                                                                          $prefix_for_sf_guard_user_field.'.username',
+                                                                                          $prefix_for_profile.'.first_name',
+                                                                                          $prefix_for_profile.'.last_name',
+                                                                                          $prefix_for_profile.'.email',
+                                                                                          $prefix_for_sf_guard_user_field.'.created_at'
                                                                             )
               )); ?>
 

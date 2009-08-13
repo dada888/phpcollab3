@@ -188,6 +188,7 @@ class idStatusActions extends sfActions
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idStatus-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless($status = Doctrine::getTable('Status')->find(array($request->getParameter('id'))), sprintf('Object status does not exist (%s).', array($request->getParameter('id'))));
     $this->form = new StatusForm($status);

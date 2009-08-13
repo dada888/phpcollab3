@@ -1,0 +1,18 @@
+idLogotime1:
+  name: 'idLogotime-Read'
+  description: 'Reading logtime permission'
+idLogotime2:
+  name: 'idLogotime-Create'
+  description: 'Creating logtime permission'
+idLogotime3:
+  name: 'idLogotime-Edit'
+  description: 'Editing logtime permission'
+idLogotime4:
+  name: 'idLogotime-Delete'
+  description: 'Deleting logtime permission'
+idLogotime5:
+  name: 'idLogotime-ReadReport'
+  description: 'reading logtime report for my user permission'
+idLogotime6:
+  name: 'idLogotime-ReadReportForAllUsers'
+  description: 'reading logtime report for all users permission'

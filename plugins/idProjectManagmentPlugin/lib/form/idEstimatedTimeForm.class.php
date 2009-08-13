@@ -5,6 +5,7 @@ class idEstimatedTimeForm extends idIssueForm
   public function configure()
   {
     parent::configure();
+    
     unset($this['status_id'],
           $this['priority_id'],
           $this['starting_date'],

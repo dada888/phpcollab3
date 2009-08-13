@@ -20,7 +20,7 @@
         <th class="last"></th>
       </tr>
 
-      <tr class="odd">
+      <tr class="even">
         <td>&nbsp;</td>
         <td><?php echo $form['title']->renderLabel() ?></td>
         <td>
@@ -29,12 +29,21 @@
         </td>
         <td>&nbsp;</td>
       </tr>
-      <tr class="even">
+      <tr class="odd">
         <td>&nbsp;</td>
         <td><?php echo $form['description']->renderLabel() ?></td>
         <td>
           <?php echo $form['description']->renderError() ?>
           <?php echo $form['description'] ?>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr class="even">
+        <td>&nbsp;</td>
+        <td><?php echo $form['tracker_id']->renderLabel() ?></td>
+        <td>
+          <?php echo $form['tracker_id']->renderError() ?>
+          <?php echo $form['tracker_id'] ?>
         </td>
         <td>&nbsp;</td>
       </tr>

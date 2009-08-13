@@ -40,8 +40,32 @@ class sfGuardUserActions extends autoSfGuardUserActions
 
     $this->setPage($request->getParameter('page', 1));
 
+    $this->prefix_for_sf_guard_user_field = 's';
+    $this->prefix_for_profile = 'p';
+
     $this->pager = $this->getPager();
     $this->sort = $this->getSort();
+
+  }
+
+  protected function buildQuery()
+  {
+    $tableMethod = $this->configuration->getTableMethod();
+    if (is_null($this->filters))
+    {
+      $this->filters = $this->configuration->getFilterForm($this->getFilters());
+    }
+
+    $this->filters->setTableMethod($tableMethod);
+    $query = $this->filters->buildQuery($this->getFilters());
+
+    $query->from('sfGuardUser '.$this->prefix_for_sf_guard_user_field)
+          ->leftJoin('s.Profile '.$this->prefix_for_profile);
+    $this->addSortQuery($query);
+    $event = $this->dispatcher->filter(new sfEvent($this, 'admin.build_query'), $query);
+    $query = $event->getReturnValue();
+
+    return $query;
   }
 
   protected function getPager()

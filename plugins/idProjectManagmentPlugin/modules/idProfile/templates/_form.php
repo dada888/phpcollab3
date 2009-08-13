@@ -44,6 +44,7 @@
         </td>
         <td>&nbsp;</td>
       </tr>
+      
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields() ?>

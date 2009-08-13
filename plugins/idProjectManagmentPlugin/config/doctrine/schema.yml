@@ -25,6 +25,10 @@ Project:
       class: Profile
       refClass: ProjectUser
       foreignAlias: Projects
+    trackers:
+      class: Tracker
+      refClass: ProjectsTrackers
+      foreignAlias: projects
 
 Milestone:
   options:
@@ -75,6 +79,8 @@ Issue:
       type: integer
     priority_id:
       type: integer
+    tracker_id:
+      type: integer
     title:
       type: string(256)
       notnull: true
@@ -118,16 +124,24 @@ Issue:
       local: status_id
       foreign: id
       type: one
-      foreignType: one
-      foreignAlias: Status
+      foreignType: many
+      foreignAlias: issues
       onDelete: SET NULL
     priority:
       class: Priority
       local: priority_id
       foreign: id
       type: one
-      foreignType: one
-      foreignAlias: Priority
+      foreignType: many
+      foreignAlias: issues
+      onDelete: SET NULL
+    tracker:
+      class: Tracker
+      local: tracker_id
+      foreign: id
+      type: one
+      foreignType: many
+      foreignAlias: issues
       onDelete: SET NULL
 
 Status:
@@ -183,6 +197,7 @@ Profile:
     User:
       class: sfGuardUser
       foreignType: one
+      foreignAlias: Profile
     projects:
       class: Project
       refClass: ProjectUser
@@ -221,6 +236,41 @@ Comment:
     UserProfile:
       class: Profile
       foreignAlias: Comments
+      local: profile_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: SET NULL
+
+LogTime:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    created_at:
+      type: timestamp
+    issue_id:
+      type: integer
+    profile_id:
+      type: integer
+    log_time:
+      type: float
+  relations:
+    issue:
+      class: Issue
+      foreignAlias: logtimes
+      local: issue_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: CASCADE
+    profile:
+      class: Profile
+      foreignAlias: logtimes
       local: profile_id
       foreign: id
       type: one
@@ -281,4 +331,37 @@ AssociatedIssue:
       local: associated_issue
       foreignAlias: RelatedIssuesByAssociated
       foreign: id
+      onDelete: CASCADE
+
+Tracker:
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    name:
+      type: string(128)
+  relations:
+    projects:
+      class: Project
+      refClass: ProjectsTrackers
+      foreignAlias: trackers
+
+ProjectsTrackers:
+  options:
+    charset: utf8
+  columns:
+    project_id:
+      type: integer
+    tracker_id:
+      type: integer
+  relations:
+    Project:
+      foreignAlias: ProjectTrackers
+      onDelete: CASCADE
+    Tracker:
+      foreignAlias: ProjectTrackers
       onDelete: CASCADE

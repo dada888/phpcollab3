@@ -56,6 +56,16 @@
         <?php echo $form['users_list'] ?>
       </div>
 
+      <div class="group">
+        <?php if ($form['trackers_list']->hasError()):?>
+          <div class="fieldWithErrors">
+            <span class="error"><?php echo $form['trackers_list']->renderError() ?></span>
+          </div>
+        <?php endif; ?>
+        <?php echo $form['trackers_list']->renderLabel(__('Project trackers'), null, array('class'=>'label')) ?>
+        <?php echo $form['trackers_list'] ?>
+      </div>
+
       <div class="group navform">
         <?php echo $form->renderHiddenFields() ?>
         

@@ -71,6 +71,9 @@ class PluginProjectTable extends Doctrine_Table
             ->from('Project as p')
             ->leftJoin('p.Issues i')
             ->leftJoin('i.users u')
-            ->where('u.id = ?', $user_id);
+            ->leftJoin('i.status s')
+            ->addWhere('u.id = ?', $user_id)
+            ->addWhere('s.status_type = ?', 'new')
+            ;
   }
 }

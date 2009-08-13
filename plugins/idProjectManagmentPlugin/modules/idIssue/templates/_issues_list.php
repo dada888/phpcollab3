@@ -9,13 +9,15 @@
     <th><?php echo __('Description') ?></th>
     <th><?php echo __('Starting date') ?></th>
     <th><?php echo __('Ending date') ?></th>
+    <th><?php echo __('Estimated time') ?></th>
+    <th><?php echo __('Tracker') ?></th>
     <th class="last"><?php echo __('Actions') ?></th>
   </tr>
   
   <?php if (count($pager->getResults()) !== false && count($pager->getResults()) == 0): ?>
     <tr class="odd">
       <td class="first">&nbsp;</td>
-      <td colspan="6"><?php echo __('No Results') ?></td>
+      <td colspan="9"><?php echo __('No Results') ?></td>
       <td class="last">&nbsp;</td>
     </tr>
   <?php else: ?>
@@ -38,6 +40,8 @@
         <td><?php echo $issue->getDescription() ?></td>
         <td><?php echo format_date($issue->getStartingDate()) ?></td>
         <td><?php echo format_date($issue->getEndingDate()) ?></td>
+        <td><?php echo $issue->getEstimatedTime() ?></td>
+        <td><?php echo $issue->getTracker() ?></td>
         <td><?php echo link_to(__('Edit'), '@edit_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId()) ?> | <?php echo link_to(__('Delete'), '@delete_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId(), array('confirm' => __('Do you really want to delete this issue?'))) ?></td>
       </tr>
     <?php endforeach; ?>
@@ -45,7 +49,7 @@
 
   <tr>
     <td></td>
-    <td colspan="5"><?php  echo pager_navigation($pager, $url) ?></td>
+    <td colspan="9"><?php  echo pager_navigation($pager, $url) ?></td>
     <td></td>
   </tr>
 </table>

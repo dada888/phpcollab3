@@ -1,8 +1,10 @@
 <div class="secondary-navigation">
   <ul>
-    <?php if($sf_user->isAdmin()): ?>
+
+
+    <?php if($sf_user->hasCredential('idProject-Create')): ?>
       <li class="first active"><?php echo link_to( __('Create new project'), '@new_project') ?></li>
-      <?php if($action == 'show'): ?>
+      <?php if($action == 'show' && $sf_user->isAdmin()): ?>
         <li><?php echo link_to( __('Add user(s)'), '@edit_project?id='.$sf_request->getParameter('id')) ?></li>
       <?php endif; ?>
     <?php else: ?>

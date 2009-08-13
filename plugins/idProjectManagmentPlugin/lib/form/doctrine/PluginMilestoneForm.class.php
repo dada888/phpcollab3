@@ -24,11 +24,14 @@ abstract class PluginMilestoneForm extends BaseMilestoneForm
 {
   public function setup()
   {
+    $today = date('m/d/Y', time());
+    $parameters = $this->isNew() ? array('default' => $today) : array();
+
     $this->setWidgets(array(
       'id'            => new sfWidgetFormInputHidden(),
       'title'         => new sfWidgetFormInput(),
       'description'   => new sfWidgetFormTextarea(),
-      'starting_date' => new sfWidgetFormDate(),
+      'starting_date' => new sfWidgetFormDate($parameters),
       'ending_date'   => new sfWidgetFormDate(),
       'project_id'    => new sfWidgetFormInputHidden(),
     ));

@@ -109,6 +109,16 @@ class idIssueForm extends IssueForm
     return $q;
   }
 
+  private function getQueryForProjectTrakers()
+  {
+    $q = Doctrine_Query::create()
+      ->from('Tracker t')
+      ->leftJoin('t.projects p')
+      ->where('p.id = '.$this->project_id);
+
+    return $q;
+  }
+
   /**
    * Inizialize the project identifier and call the parent construct method.
    *
@@ -127,7 +137,12 @@ class idIssueForm extends IssueForm
   {
     $this->widgetSchema['status_id'] = new sfWidgetFormDoctrineChoice(array('model' => 'Status', 'query' => $this->getQueryForStatusesList()));
     $this->widgetSchema['priority_id'] = new sfWidgetFormDoctrineChoice(array('model' => 'Priority', 'query' => $this->getQueryForPriorityList()));
-    $this->widgetSchema['starting_date'] = new sfWidgetFormDate();
+    $this->widgetSchema['tracker_id'] = new sfWidgetFormDoctrineChoice(array('model' => 'Tracker', 'add_empty' => true, 'query' => $this->getQueryForProjectTrakers()));
+    
+    $today = date('m/d/Y', time());
+    $parameters = $this->isNew() ? array('default' => $today) : array();
+    $this->widgetSchema['starting_date'] = new sfWidgetFormDate($parameters);
+
     $this->widgetSchema['ending_date'] = new sfWidgetFormDate();
     $this->widgetSchema['project_id'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->getQueryForUsers()));

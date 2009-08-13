@@ -75,6 +75,7 @@ class idRepositoryActions extends sfActions {
   public function executeShowdetails(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idRepository-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    
     $this->data = $this->repository->getLogLatestRevisions($this->log_command, 25);
     $this->logentry = $this->data[$request->getParameter('revisionid')];
     $this->active = $request->getParameter('action');
@@ -88,7 +89,7 @@ class idRepositoryActions extends sfActions {
   public function executeShowdifflist(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idRepository-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-
+    
     $this->getUser()->setAttribute('path', $request->getParameter('path'));
 
     $this->path = $request->getParameter('path');

@@ -10,6 +10,42 @@ edit_profile:
   requirements:
     sf_culture: (?:en|it)
 
+set_log_time_from_issue:
+  url:    /:sf_culture/idLogtime/addto/:issue_id
+  param:  { module: idLogtime, action: addToIssue }
+  requirements:
+    sf_culture: (?:en|it)
+
+index_logtime:
+  url:    /:sf_culture/idLogtime
+  param:  { module: idLogtime, action: index }
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_logtime:
+  url:    /:sf_culture/idLogtime/edit/:id
+  param:  { module: idLogtime, action: edit }
+  requirements:
+    sf_culture: (?:en|it)
+
+delete_logtime:
+  url:    /:sf_culture/idLogtime/delete/:id
+  param:  { module: idLogtime, action: delete }
+  requirements:
+    sf_culture: (?:en|it)
+
+log_time_report_issue_actual_user:
+  url:    /:sf_culture/idLogtime/reportfor/:issue_id
+  param:  { module: idLogtime, action: reportForActualUser }
+  requirements:
+    sf_culture: (?:en|it)
+
+log_time_report_issue_all_users:
+  url:    /:sf_culture/idLogtime/reportalluserfor/:issue_id
+  param:  { module: idLogtime, action: reportForAllUsers }
+  requirements:
+    sf_culture: (?:en|it)
+
 update_profile:
   url:    /:sf_culture/idProfile/update
   param:  { module: idProfile, action: update }
@@ -112,6 +148,30 @@ delete_status:
   requirements:
     sf_culture: (?:en|it)
 
+index_trackers:
+  url:    /:sf_culture/idTrackers
+  param:  { module: idTracker, action: index }
+  requirements:
+    sf_culture: (?:en|it)
+
+new_tracker:
+  url:    /:sf_culture/idTracker/new
+  param:  { module: idTracker, action: new }
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_tracker:
+  url:    /:sf_culture/idTracker/edit/:id
+  param:  { module: idTracker, action: edit }
+  requirements:
+    sf_culture: (?:en|it)
+
+delete_tracker:
+  url:    /:sf_culture/idTracker/detele/:id
+  param:  { module: idTracker, action: delete }
+  requirements:
+    sf_culture: (?:en|it)
+
 index_issue:
   url:    /:sf_culture/idProject/:project_id/idIssues
   param:  { module: idIssue, action: index }
@@ -132,12 +192,6 @@ new_issue:
 
 edit_issue:
   url:    /:sf_culture/idProject/:project_id/idIssue/edit/:issue_id
-  param:  { module: idIssue, action: edit }
-  requirements:
-    sf_culture: (?:en|it)
-
-create_issue:
-  url:    /:sf_culture/idProject/:project_id/idIssue/create
   param:  { module: idIssue, action: edit }
   requirements:
     sf_culture: (?:en|it)

@@ -23,12 +23,13 @@
             <th><?php echo __('Starting date') ?></th>
             <th><?php echo __('Ending date') ?></th>
             <th><?php echo __('Estimated time') ?></th>
+            <th><?php echo __('Tracker') ?></th>
             <th><?php echo __('Actions') ?></th>
             <th class="last">&nbsp;</th>
           </tr>
 
           <tr>
-            <td class="first">&nbsp;</th>
+            <td class="first">&nbsp;</td>
               <td>#<?php echo $issue->getId() ?></td>
               <td><?php echo $issue->getTitle() ?></td>
               <td><?php echo $issue->getStatus() ?></td>
@@ -47,26 +48,58 @@
               <td><?php echo $issue->getStartingDate() ?></td>
               <td><?php echo $issue->getEndingDate() ?></td>
               <td><?php echo $issue->getEstimatedTime() ?></td>
+              <td><?php echo $issue->getTracker() ?></td>
               <td><?php echo link_to(__('Edit'), '@edit_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId()) ?> | <?php echo link_to(__('Delete'), '@delete_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId(), array('confirm' => __('Do you really want to delete this issue?'))) ?></td>
               <td class="last">&nbsp;</td>
           </tr>
 
           <tr>
-            <td colspan="3"><?php echo $estimated_time_form['estimated_time']->renderLabel('Estimated time') ?></td>
-            <td colspan="10">
-              <form action="<?php echo url_for('@set_estimated_time_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">
-                <?php if ($sf_user->hasFlash('error')): ?>
+            <td colspan="14">
+              <?php if ($sf_user->hasFlash('error')): ?>
                 <div class="flash">
                   <div class="message error">
                     <p><?php echo $sf_user->getFlash('error') ?></p>
                   </div>
                 </div>
-                <?php endif; ?>
+              <?php endif; ?>
+              <?php if ($sf_user->hasFlash('success')): ?>
+                <div class="flash">
+                  <div class="message notice">
+                    <p><?php echo $sf_user->getFlash('success') ?></p>
+                  </div>
+                </div>
+              <?php endif; ?>
+            </td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td colspan="4">
+              <?php echo $estimated_time_form['estimated_time']->renderLabel('Estimated time') ?>
+              <form action="<?php echo url_for('@set_estimated_time_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">
                 <?php echo $estimated_time_form['estimated_time'] ?>
                 <?php echo $estimated_time_form->renderHiddenFields() ?>
                 <input type="submit" value="<?php echo __('Set') ?>" class="button" />
               </form>
             </td>
+            <td colspan="4">
+              <strong><?php echo __('Report for this issue: ') ?></strong><br />
+              <?php if ($sf_user->hasCredential('idLogotime-ReadReport')): ?>
+                  <?php echo link_to(__('My log time report'), '@log_time_report_issue_actual_user?issue_id='.$issue->getId()) ?><br />
+              <?php endif; ?>
+              <?php if ($sf_user->hasCredential('idLogotime-ReadReport')): ?>
+                  <?php echo link_to(__('All users log time report'), '@log_time_report_issue_all_users?issue_id='.$issue->getId()) ?>
+              <?php endif; ?>
+            </td>
+            <td colspan="4">
+              <?php echo $logtime_form['log_time']->renderLabel('Log time') ?>
+              <form action="<?php echo url_for('@set_log_time_from_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">
+                <?php echo $logtime_form['log_time'] ?>
+                <?php echo $logtime_form->renderHiddenFields() ?>
+                <input type="submit" value="<?php echo __('Add') ?>" class="button" />
+              </form>
+            </td>
+            <td></td>
           </tr>
 
         </table>

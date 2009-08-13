@@ -29,6 +29,7 @@ class idProfileActions extends sfActions
   public function executeEdit(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idProfile-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    
     $this->form = new idProfileForm($this->getUser()->getGuardUser());
     $this->form->setDefault('username', $this->getUser()->getGuardUser()->getUsername());
   }
@@ -40,7 +41,9 @@ class idProfileActions extends sfActions
 
     $this->form = new idProfileForm($this->getUser()->getGuardUser());
     $this->form->setDefault('username', $this->getUser()->getGuardUser()->getUsername());
+    
     $this->processForm($request, $this->form);
+    
     $this->setTemplate('edit');
   }
 
@@ -56,6 +59,7 @@ class idProfileActions extends sfActions
     if ($form->isValid())
     {
       $profile = $form->save();
+      
       $this->redirect('@index_profile');
     }
   }

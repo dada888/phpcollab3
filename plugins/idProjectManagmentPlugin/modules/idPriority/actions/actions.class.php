@@ -167,7 +167,6 @@ class idPriorityActions extends sfActions
   {
     $this->forwardUnless($this->getUser()->hasCredential('idPriority-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post'));
-
     $this->form = new PriorityForm();
 
     $this->processForm($request, $this->form);
@@ -196,6 +195,7 @@ class idPriorityActions extends sfActions
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idPriority-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless($priority = Doctrine::getTable('Priority')->find(array($request->getParameter('id'))), sprintf('Object priority does not exist (%s).', array($request->getParameter('id'))));
     $this->form = new PriorityForm($priority);

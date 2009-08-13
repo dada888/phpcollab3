@@ -1,0 +1,12 @@
+idTracker1:
+  name: 'idTracker-Read'
+  description: 'Reading trackers permission'
+idTracker2:
+  name: 'idTracker-Create'
+  description: 'Creating trackers permission'
+idTracker3:
+  name: 'idTracker-Edit'
+  description: 'Editing trackers permission'
+idTracker4:
+  name: 'idTracker-Delete'
+  description: 'Deleting trackers permission'

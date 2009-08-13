@@ -187,13 +187,11 @@ class idProjectActions extends sfActions
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form_parameters = $this->setUpdatedAt($request->getParameter($form->getName()));
-
     $form->bind($form_parameters);
     if ($form->isValid())
     {
       $project = $form->save();
-
-      $this->redirect('idProject/show/?id='.$project->getId());
+      $this->redirect('@show_project?id='.$project->getId());
     }
   }
 }
