@@ -27,8 +27,8 @@ prod:
     param:
 #      dsn: 'sqlite:%SF_DATA_DIR%/phpcollab.db'
       dsn: 'mysql:host=localhost;dbname=phpcollab'
-      username: root
-      password:
+      username: phpcollab
+      password: p4pCollab
 
 test:
   doctrine:
@@ -43,7 +43,8 @@ unittest:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'sqlite:%SF_CACHE_DIR%/phpcollab_unit_test.db'
+      dsn: 'sqlite:%SF_DATA_DIR%/phpcollab_unit_test.db'
+#      dsn: 'sqlite:memory'
 
 all:
   doctrine:

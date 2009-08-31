@@ -38,6 +38,7 @@ class PluginIssueTable extends Doctrine_Table
       ->leftJoin('i.status s')
       ->leftJoin('i.priority pr')
       ->leftJoin('i.Comments c')
+      ->leftJoin('i.tracker t')
       ->Where('i.id = ? ', $issue_id);
 
     return $q->fetchOne();
@@ -78,6 +79,7 @@ class PluginIssueTable extends Doctrine_Table
 
     $q = Doctrine_Query::create()
       ->from('Issue i')
+      ->leftJoin('i.tracker t')
       ->andWhere('i.project_id = ? ', $project_id);
 
     return $q;
@@ -102,8 +104,86 @@ class PluginIssueTable extends Doctrine_Table
       ->leftJoin('i.status s')
       ->leftJoin('i.priority pr')
       ->leftJoin('i.milestone m')
+      ->leftJoin('i.tracker t')
       ->where('iu.profile_id = ? ', $user_profile_id);
 
     return $q;
   }
+
+  public function countByProject($project_id)
+  {
+    if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
+    {
+      return $q->select('COUNT(*) as issues')
+               ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+    }
+  }
+
+  public function countByProjectWithEstimatedTime($project_id)
+  {
+    if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
+    {
+      return $q->select('COUNT(*) as issues')
+               ->addWhere('i.estimated_time IS NOT NULL')
+               ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+    }
+  }
+
+  protected function formatResultsNumberOfIssuePerTracker($results)
+  {
+
+    $trackers_and_issues = array();
+    foreach ($results as $tracker_and_issue)
+    {
+      $trackers_and_issues[$tracker_and_issue[0]] = $tracker_and_issue[1];
+    }
+    return $trackers_and_issues;
+  }
+
+  public function countByTrackerOfProjectWithEstimatedTime($project_id)
+  {
+    if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
+    {
+      $results = $q->select('t.name as tracker, COUNT(i.id) as issues')
+                   ->addWhere('i.estimated_time IS NOT NULL')
+                   ->groupBy('tracker')
+                   ->execute(array(), Doctrine::HYDRATE_NONE);
+
+      return $this->formatResultsNumberOfIssuePerTracker($results);
+    }
+  }
+
+
+  public function countByTrackerOfProjectWithoutEstimatedTime($project_id)
+  {
+    if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
+    {
+      $results = $q->select('t.name as tracker, COUNT(i.id) as issues')
+                   ->addWhere('i.estimated_time IS NULL')
+                   ->groupBy('t.name')
+                   ->execute(array(), Doctrine::HYDRATE_NONE);
+
+      return $this->formatResultsNumberOfIssuePerTracker($results);
+    }
+  }
+
+  public function retrieveEstimatedTimeForProject($project_id)
+  {
+    if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
+    {
+      return $q->select('SUM(i.estimated_time) as estimated_time')
+               ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+    }
+  }
+
+  public function retrieveLogTimeForProject($project_id)
+  {
+    if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
+    {
+      return $q->select('SUM(l.log_time) as project_log_times')
+               ->leftJoin('i.logtimes l')
+               ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+    }
+  }
+
 }

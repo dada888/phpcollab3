@@ -15,6 +15,7 @@
             <th><?php echo __('Public/Private') ?></th>
             <th><?php echo __('Created at') ?></th>
             <th><?php echo __('Updated at') ?></th>
+            <th><?php echo __('End date') ?></th>
             <th class="last">
             <?php if ($sf_user->isAdmin()): ?>
               <?php echo __('Actions') ?>
@@ -28,12 +29,22 @@
             <td><?php echo $project->getis_public() ? __('Public') : __('Private'); ?></td>
             <td><?php echo $project->getcreated_at() ?></td>
             <td><?php echo $project->getupdated_at() ?></td>
+            <td><?php echo $project->getend_date() ?></td>
             <td>
             <?php if ($sf_user->isAdmin()): ?>
               <?php echo link_to(__('Edit'), '@edit_project?id='.$project['id']).' | '.link_to(__('Delete'), '@delete_project?id='.$project['id'], array('confirm' => __('Do you really want to delete this project?'))) ?>
             <?php endif; ?>
             </td>
           </tr>
+          <?php if ($estimated_time > 0): ?>
+          <tr>
+            <td></td>
+            <td colspan="6" class="<?php echo (($estimated_time - $log_time) >= 0) ? 'green' : 'red' ; ?>">
+              <?php echo __('Estimated time : %est% hours - Log time: %log% hours', array('%est%' => $estimated_time, '%log%' => $log_time)); ?>
+            </td>
+            <td></td>
+          </tr>
+          <?php endif; ?>
         </table>
     </div>
   </div>

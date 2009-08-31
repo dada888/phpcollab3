@@ -45,6 +45,15 @@
         <?php echo $form['created_at']->renderLabel() ?>
         <?php echo $form['created_at'] ?>
       </div>
+      <div class="group">
+        <?php if ($form['end_date']->hasError()):?>
+          <div class="fieldWithErrors">
+            <span class="error"><?php echo $form['end_date']->renderError() ?></span>
+          </div>
+        <?php endif; ?>
+        <?php echo $form['end_date']->renderLabel() ?>
+        <?php echo $form['end_date'] ?>
+      </div>
 
       <div class="group">
         <?php if ($form['users_list']->hasError()):?>

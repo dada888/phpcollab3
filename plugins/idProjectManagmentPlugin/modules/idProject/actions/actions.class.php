@@ -33,6 +33,10 @@ class idProjectActions extends sfActions
                             $this->project = Doctrine::getTable('Project')->getProjectMilestonesAndUsers($request->getParameter('id'))
                            );
     $this->milestones = $this->project->getMilestones();
+    $this->estimated_time = Doctrine::getTable('Issue')->retrieveEstimatedTimeForProject($request->getParameter('id'));
+    $this->estimated_time = $this->estimated_time['estimated_time'];
+    $this->log_time = Doctrine::getTable('Issue')->retrieveLogTimeForProject($request->getParameter('id'));
+    $this->log_time = $this->log_time['project_log_times'];
   }
 
    /**

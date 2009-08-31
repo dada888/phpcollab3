@@ -75,7 +75,7 @@
           <tr>
             <td></td>
             <td colspan="4">
-              <?php echo $estimated_time_form['estimated_time']->renderLabel('Estimated time') ?>
+              <?php echo $estimated_time_form['estimated_time']->renderLabel('Estimated time (hours)') ?>
               <form action="<?php echo url_for('@set_estimated_time_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">
                 <?php echo $estimated_time_form['estimated_time'] ?>
                 <?php echo $estimated_time_form->renderHiddenFields() ?>
@@ -92,7 +92,7 @@
               <?php endif; ?>
             </td>
             <td colspan="4">
-              <?php echo $logtime_form['log_time']->renderLabel('Log time') ?>
+              <?php echo $logtime_form['log_time']->renderLabel('Log time (hours)') ?>
               <form action="<?php echo url_for('@set_log_time_from_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">
                 <?php echo $logtime_form['log_time'] ?>
                 <?php echo $logtime_form->renderHiddenFields() ?>

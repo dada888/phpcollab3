@@ -4,6 +4,24 @@ dashboard:
   requirements:
     sf_culture: (?:en|it)
 
+xml_analysis_gantt:
+  url: /Gantt/xmlAnalysisGanttData/:project_id/:resources/data.:sf_format
+  param: { module: idGantt, action: xmlAnalysisGanttData }
+  requirements:
+    sf_format: (?:xml)
+
+show_gantt:
+  url:   /:sf_culture/idProject/:project_id/show/Gantt
+  param: { module: idGantt, action: show}
+  requirements:
+    sf_culture: (?:en|it)
+
+update_show_gantt:
+  url:   /:sf_culture/idProject/:project_id/update/Gantt
+  param: { module: idGantt, action: updateShow}
+  requirements:
+    sf_culture: (?:en|it)
+
 edit_profile:
   url:    /:sf_culture/idProfile/edit
   param:  { module: idProfile, action: edit }

@@ -22,6 +22,17 @@
  */
 class PluginProjectTable extends Doctrine_Table
 {
+
+  public function projectExists($project_id)
+  {
+    $result = Doctrine_Query::create()
+            ->from('Project p')
+            ->where('p.id = ? ', $project_id)
+            ->count();
+
+    return ($result > 0);
+  }
+
   /**
    * Retrive a project and all the related milestones and issues given a project id
    *
@@ -76,4 +87,5 @@ class PluginProjectTable extends Doctrine_Table
             ->addWhere('s.status_type = ?', 'new')
             ;
   }
+
 }

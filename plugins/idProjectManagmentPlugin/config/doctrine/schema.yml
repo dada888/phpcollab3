@@ -20,6 +20,8 @@ Project:
       type: timestamp
     updated_at:
       type: timestamp
+    end_date:
+      type: timestamp
   relations:
     users:
       class: Profile

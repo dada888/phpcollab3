@@ -1,0 +1,5 @@
+default:
+  components:
+    sidebar:      [idProject, sidebar]
+  javascripts:    [../idProjectManagmentPlugin/js/FusionCharts.js]
+

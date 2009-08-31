@@ -1,7 +1,5 @@
 <div class="secondary-navigation">
   <ul>
-
-
     <?php if($sf_user->hasCredential('idProject-Create')): ?>
       <li class="first active"><?php echo link_to( __('Create new project'), '@new_project') ?></li>
       <?php if($action == 'show' && $sf_user->isAdmin()): ?>
@@ -12,15 +10,20 @@
     <?php endif; ?>
 
     <?php if ($sf_request->hasParameter('id')): ?>
+
       <?php if (!is_null($project) && $project->hasRoadmap()):?>
         <li><?php echo link_to('Roadmap', '@roadmap_project?id='.$sf_request->getParameter('id')); ?></li>
       <?php endif;?>
+
       <li><?php echo link_to(__('Create milestone'), '@new_milestone?project_id='.$sf_request->getParameter('id')) ?></li>
       <li><?php echo link_to(__('Create issue'), '@new_issue?project_id='.$sf_request->getParameter('id')) ?></li>
       <li><?php echo link_to( __('View all issues'), '@index_issue?project_id='.$sf_request->getParameter('id')) ?></li>
       <li><?php echo link_to( __('View all milestones'), '@index_milestone?project_id='.$sf_request->getParameter('id')) ?></li>
-    <?php endif; ?>
 
+      <?php if($sf_user->hasCredential('idGantt-View')): ?>
+        <li><?php echo link_to( __('Gantt chart'), '@show_gantt?project_id='.$sf_request->getParameter('id')) ?></li>
+      <?php endif; ?>
+    <?php endif; ?>
   </ul>
   <div class="clear"></div>
 </div>

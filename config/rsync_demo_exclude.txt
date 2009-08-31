@@ -1,4 +1,5 @@
 .svn
+/data/phpcollab_demo.db
 /web/uploads/*
 /cache/*
 /log/*
