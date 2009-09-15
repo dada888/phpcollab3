@@ -6,7 +6,10 @@ class AddTracker extends Doctrine_Migration
 {
 	public function up()
 	{
-		$this->createTable('tracker', array('id' => array('type' => 'integer', 'primary' => true, 'autoincrement' => true, 'length' => 2147483647), 'name' => array('type' => 'string', 'length' => 128)), array('indexes' => array(), 'primary' => array(0 => 'id')));
+		$this->createTable('tracker',
+      array('id' => array('type' => 'integer', 'primary' => true, 'autoincrement' => true, 'length' => 2147483647),
+            'name' => array('type' => 'string', 'length' => 128)),
+      array('indexes' => array(), 'primary' => array(0 => 'id')));
     $this->addColumn('issue', 'tracker_id', 'integer', array('length' => 2147483647));
 	}
 

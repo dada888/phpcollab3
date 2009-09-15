@@ -31,4 +31,7 @@ fdComment:
     model_field_value:
       type: integer
       notnull: true
+  indexes:
+    profileidindex:
+      fields: [profile_id]
 
