@@ -16,10 +16,8 @@
   <h2 class="title"><?php echo __('Users list') ?></h2>
     <div class="inner">
 
-        <?php if (!$pager->getNbResults()): ?>
-          <p><?php echo __('No result', array(), 'sf_admin') ?></p>
-        <?php else: ?>
-
+        <?php if ($pager->getNbResults() > 0): ?>
+          
         <table class="table">
           <tr>
             <th class="first">&nbsp;</th>

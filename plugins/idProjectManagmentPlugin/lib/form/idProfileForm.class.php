@@ -30,10 +30,6 @@ class idProfileForm extends sfGuardUserAdminForm
     $this->widgetSchema['username'] = new sfWidgetFormInputHidden();
     $this->validatorSchema['username'] = new sfValidatorChoice(array('choices' => array($username)));
 
-    unset($this['groups_list'],
-          $this['permissions_list'],
-          $this['is_active'],
-          $this['is_super_admin']
-    );
+    unset($this['groups_list'], $this['permissions_list'], $this['is_active'], $this['is_super_admin']);
   }
 }

@@ -18,10 +18,10 @@
         <div id="user-navigation">
           <ul>
             <?php if ($sf_user->isAuthenticated()) : ?>
-              <li><?php echo link_to(__('Logout'), '@sf_guard_signout'); ?></li>
-              <li><?php echo link_to(__('Edit my profile'), '@edit_profile') ?></li>
+            <li><?php echo link_to(__('Logout'), '@sf_guard_signout'); ?></li>
+            <li><?php echo link_to(__('Edit my profile'), '@edit_profile') ?></li>
             <?php else: ?>
-              <li><?php echo link_to(__('Signin'), '@sf_guard_signin'); ?></li>
+            <li><?php echo link_to(__('Signin'), '@sf_guard_signin'); ?></li>
             <?php endif; ?>
           </ul>
           <div class="clear"></div>
@@ -46,7 +46,7 @@
           </div>
         </div>
 
-        
+
         <?php include_component_slot('sidebar') ?>
 
 
@@ -56,3 +56,20 @@
 
   </body>
 </html>
+<!--
+<?php //if ($sf_user->hasFlash('notice')) : ?>
+  <div class="message notice">
+    <p><?php //echo $sf_user->getFlash('notice');  ?></p>
+  </div>
+<?php //endif; ?>
+<?php //if ($sf_user->hasFlash('warning')) : ?>
+  <div class="message warning">
+    <p><?php //echo $sf_user->getFlash('warning');  ?></p>
+  </div>
+<?php //endif; ?>
+<?php //if ($sf_user->hasFlash('error')) : ?>
+  <div class="message error">
+    <p><?php //echo $sf_user->getFlash('error');  ?></p>
+  </div>
+<?php //endif; ?>
+-->

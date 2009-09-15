@@ -7,7 +7,7 @@
     <?php if ($form->hasGlobalErrors()): ?>
       <div class="flash">
         <div class="message error">
-          <p><?php echo $form->getGlobalErrors() ?></p>
+          <p><?php echo $form->renderGlobalErrors() ?></p>
         </div>
       </div>
     <?php endif;?>

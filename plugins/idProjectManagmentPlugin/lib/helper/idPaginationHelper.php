@@ -55,3 +55,45 @@ function pager_navigation($pager, $uri)
 
   return $navigation;
 }
+
+function ajax_pager_navigation($pager, $uri)
+{
+  $navigation = '';
+
+  if ($pager->haveToPaginate())
+  {
+    $uri .= (preg_match('/\?/', $uri) ? '&' : '?').'page=';
+
+    // First and previous page
+    if ($pager->getPage() != 1)
+    {
+      $navigation .= link_to(image_tag('/sf/sf_admin/images/first.png', 'align=absmiddle'), $uri.'1', array('onclick' => 'loadAjaxCommentList(\''.$uri.'1\'); return false;'));
+      $navigation .= link_to(image_tag('/sf/sf_admin/images/previous.png', 'align=absmiddle'), $uri.$pager->getPreviousPage(), array('onclick' => 'loadAjaxCommentList(\''. $uri.$pager->getPreviousPage().'\'); return false;')).' ';
+    }
+
+    // Pages one by one
+    $links = array();
+    foreach ($pager->getLinks() as $page)
+    {
+      if ($page == $pager->getPage())
+      {
+        $links[] = '<span>'.$pager->getPage().'</span>';
+        continue;
+      }
+
+      $links[] = link_to($page, $uri.$page, array('onclick' => 'loadAjaxCommentList(\''.$uri.$page.'\'); return false;'));
+    }
+    
+    $navigation .= join('  ', $links);
+
+    // Next and last page
+    if ($pager->getPage() != $pager->getLastPage())
+    {
+      $navigation .= ' '.link_to(image_tag('/sf/sf_admin/images/next.png', 'align=absmiddle'), $uri.$pager->getNextPage(), array('onclick' => 'loadAjaxCommentList(\''.$uri.$page.'\'); return false;'));
+      $navigation .= link_to(image_tag('/sf/sf_admin/images/last.png', 'align=absmiddle'), $uri.$pager->getLastPage(), array('onclick' => 'loadAjaxCommentList(\''.$uri.$page.'\'); return false;'));
+    }
+
+  }
+
+  return $navigation;
+}

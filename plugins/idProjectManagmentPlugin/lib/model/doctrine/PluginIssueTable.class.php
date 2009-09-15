@@ -37,7 +37,6 @@ class PluginIssueTable extends Doctrine_Table
       ->leftJoin('i.related_issue ri')
       ->leftJoin('i.status s')
       ->leftJoin('i.priority pr')
-      ->leftJoin('i.Comments c')
       ->leftJoin('i.tracker t')
       ->Where('i.id = ? ', $issue_id);
 
@@ -125,6 +124,7 @@ class PluginIssueTable extends Doctrine_Table
     {
       return $q->select('COUNT(*) as issues')
                ->addWhere('i.estimated_time IS NOT NULL')
+               ->addWhere('i.estimated_time > 0')
                ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
     }
   }
@@ -146,6 +146,7 @@ class PluginIssueTable extends Doctrine_Table
     {
       $results = $q->select('t.name as tracker, COUNT(i.id) as issues')
                    ->addWhere('i.estimated_time IS NOT NULL')
+                   ->addWhere('i.estimated_time > 0')
                    ->groupBy('tracker')
                    ->execute(array(), Doctrine::HYDRATE_NONE);
 
@@ -159,7 +160,7 @@ class PluginIssueTable extends Doctrine_Table
     if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
     {
       $results = $q->select('t.name as tracker, COUNT(i.id) as issues')
-                   ->addWhere('i.estimated_time IS NULL')
+                   ->addWhere('(i.estimated_time IS NULL OR i.estimated_time = 0)')
                    ->groupBy('t.name')
                    ->execute(array(), Doctrine::HYDRATE_NONE);
 
@@ -182,6 +183,16 @@ class PluginIssueTable extends Doctrine_Table
     {
       return $q->select('SUM(l.log_time) as project_log_times')
                ->leftJoin('i.logtimes l')
+               ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+    }
+  }
+
+  public function retrieveEstimatedTimeForProjectMilestone($project_id, $milestone_id)
+  {
+    if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
+    {
+      return $q->select('SUM(i.estimated_time) as estimated_time')
+               ->addWhere('i.milestone_id = ?', $milestone_id)
                ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
     }
   }

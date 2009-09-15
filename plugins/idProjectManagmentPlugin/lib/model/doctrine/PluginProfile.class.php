@@ -30,7 +30,7 @@ abstract class PluginProfile extends BaseProfile
   public function getName()
   {
     $user = $this->getUser();
-    return $this->getFirstName().' ('.$user->getUsername().') '.$this->getLastName().' <'.$this->getEmail().'>';
+    return $this->getFirstName().' ('.$user->getUsername().') '.$this->getLastName().' ['.$this->getEmail().']';
   }
-  
+
 }

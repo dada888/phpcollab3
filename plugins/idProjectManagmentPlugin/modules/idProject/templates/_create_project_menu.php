@@ -23,6 +23,9 @@
       <?php if($sf_user->hasCredential('idGantt-View')): ?>
         <li><?php echo link_to( __('Gantt chart'), '@show_gantt?project_id='.$sf_request->getParameter('id')) ?></li>
       <?php endif; ?>
+      <?php if($sf_user->hasCredential('idMessage-Read')): ?>
+        <li><?php echo link_to( __('Messages'), '@index_messages?project_id='.$sf_request->getParameter('id')) ?></li>
+      <?php endif; ?>
     <?php endif; ?>
   </ul>
   <div class="clear"></div>

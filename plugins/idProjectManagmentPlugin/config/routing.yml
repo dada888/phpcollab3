@@ -1,3 +1,45 @@
+index_messages:
+  url:   /:sf_culture/idProject/:project_id/idMessages
+  param: { module: idMessage, action: index}
+  requirements:
+    sf_culture: (?:en|it)
+
+show_message:
+  url:   /:sf_culture/idProject/:project_id/idMessage/show/:message_id
+  param: { module: idMessage, action: show}
+  requirements:
+    sf_culture: (?:en|it)
+
+new_message:
+  url:   /:sf_culture/idProject/:project_id/idMessage/new
+  param: { module: idMessage, action: new}
+  requirements:
+    sf_culture: (?:en|it)
+
+create_message:
+  url:   /:sf_culture/idProject/:project_id/idMessage/create
+  param: { module: idMessage, action: create}
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_message:
+  url:   /:sf_culture/idProject/:project_id/idMessage/edit/:message_id
+  param: { module: idMessage, action: edit}
+  requirements:
+    sf_culture: (?:en|it)
+
+update_message:
+  url:   /:sf_culture/idProject/:project_id/idMessage/update/:message_id
+  param: { module: idMessage, action: update}
+  requirements:
+    sf_culture: (?:en|it)
+
+delete_message:
+  url:   /:sf_culture/idProject/:project_id/idMessage/delete/:message_id
+  param: { module: idMessage, action: delete}
+  requirements:
+    sf_culture: (?:en|it)
+
 dashboard:
   url:   /:sf_culture/idDashboard
   param: { module: idDashboard, action: index}
@@ -61,6 +103,12 @@ log_time_report_issue_actual_user:
 log_time_report_issue_all_users:
   url:    /:sf_culture/idLogtime/reportalluserfor/:issue_id
   param:  { module: idLogtime, action: reportForAllUsers }
+  requirements:
+    sf_culture: (?:en|it)
+
+log_time_report_project_all_users:
+  url:    /:sf_culture/idLogtime/reportalluserforproject/:project_id
+  param:  { module: idLogtime, action: reportAllUsersForProject }
   requirements:
     sf_culture: (?:en|it)
 

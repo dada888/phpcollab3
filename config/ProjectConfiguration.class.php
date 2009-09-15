@@ -13,7 +13,10 @@ class ProjectConfiguration extends sfProjectConfiguration
                                'idProjectManagmentPlugin',
                                'sfDoctrineGuardPlugin',
                                'sfJqueryReloadedPlugin',
-                                'idUtilPlugin'));
+                               'fdEventsListenersPlugin',
+                               'idEstimatedTimePlugin',
+                               'CommentPlugin',
+                               'idUtilPlugin'));
     $this->disablePlugins(array('sfPropelPlugin'));
   }
 }

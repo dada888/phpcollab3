@@ -34,7 +34,7 @@ class PluginStatusTable extends Doctrine_Table
                       ->orderBy('s.position DESC')
                       ->fetchOne();
 
-    if (!is_null($priority))
+    if ($priority)
     {
       return $priority->getPosition();
     }

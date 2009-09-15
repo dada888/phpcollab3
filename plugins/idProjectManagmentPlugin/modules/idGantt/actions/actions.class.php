@@ -126,13 +126,13 @@ class idGanttActions extends sfActions
 
     $this->resources = $request->getParameter('resources');
 
-    $this->gantt_starting_date =  $this->getStartingDate($project->getCreatedAt(), 3);
-    $this->project_starting_date = $this->getStartingDate($project->getCreatedAt());
+    $this->gantt_starting_date =  $this->getStartingDate($project->getstarting_date(), 3);
+    $this->project_starting_date = $this->getStartingDate($project->getstarting_date());
 
-    $this->gantt_ending_date = $this->getEndingDate($project->getCreatedAt(), $project->getEndDate(), $estimated_time_for_project, 3);
-    $this->project_ending_date = $this->getEndingDate($project->getCreatedAt(), $project->getEndDate(), $estimated_time_for_project);
+    $this->gantt_ending_date = $this->getEndingDate($project->getstarting_date(), $project->getEndDate(), $estimated_time_for_project, 3);
+    $this->project_ending_date = $this->getEndingDate($project->getstarting_date(), $project->getEndDate(), $estimated_time_for_project);
 
-    $this->estimated_ending_date = $this->getEstimatedEndingDate($project->getCreatedAt(), $estimated_time_for_project, $this->resources);
+    $this->estimated_ending_date = $this->getEstimatedEndingDate($project->getstarting_date(), $estimated_time_for_project, $this->resources);
 
     $this->days = $this->getDaysFromWorkingHours($estimated_time_for_project);
 

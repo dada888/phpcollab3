@@ -19,6 +19,7 @@
         <th><?php echo __('Description') ?></th>
         <th><?php echo __('Starting date') ?></th>
         <th><?php echo __('Ending date') ?></th>
+        <th><?php echo __('Estimated time') ?></th>
         <th class="last">&nbsp;</th>
       </tr>
     </tr>
@@ -29,6 +30,7 @@
       <td><?php echo $form['description']->renderError('</br>') ?><?php echo $form['description'] ?></td>
       <td><?php echo $form['starting_date']->renderError('</br>') ?><?php echo $form['starting_date'] ?></td>
       <td><?php echo $form['ending_date']->renderError('</br>') ?><?php echo $form['ending_date'] ?></td>
+      <td><?php echo $form['estimated_time']->renderError('</br>') ?><?php echo $form['estimated_time'] ?></td>
       <td>&nbsp;</td>
     </tr>
 

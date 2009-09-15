@@ -14,4 +14,15 @@ class PluginLogTimeTable extends Doctrine_Table
             ->addWhere('lt.issue_id = ? ',$issue_id)
             ->execute();
   }
+
+  public function getLogtimeForProjectByUser($project_id)
+  {
+    return Doctrine_Query::create()
+            ->from('LogTime lt')
+            ->leftJoin('lt.issue i')
+            ->leftJoin('lt.profile p')
+            ->orderBy('lt.created_at')
+            ->where('i.project_id = ? ', $project_id)
+            ->execute();
+  }
 }

@@ -1,0 +1,44 @@
+fd_ajax_comment_list:
+  url:   /:sf_culture/comments_list/:model/:model_field/:model_field_value
+  param: { module: fd_comment, action: ajaxCommentList }
+  requirements:
+    sf_culture: (?:en|it)
+
+fd_comment_index:
+  url:   /:sf_culture/comments/:model/:model_field
+  param: { module: fd_comment, action: index }
+  requirements:
+    sf_culture: (?:en|it)
+
+fd_comment_new:
+  url:   /:sf_culture/new_comment/:model/:model_field/:model_field_value
+  param: { module: fd_comment, action: new }
+  requirements:
+    sf_culture: (?:en|it)
+
+fd_comment_create:
+  url:   /:sf_culture/create_comment/:model/:model_field/:model_field_value
+  param: { module: fd_comment, action: create }
+  requirements:
+    sf_culture: (?:en|it)
+
+fd_comment_edit:
+  url:   /:sf_culture/edit_comment/:comment_id
+  param: { module: fd_comment, action: edit }
+  requirements:
+    sf_culture: (?:en|it)
+
+fd_comment_update:
+  url:   /:sf_culture/update_comment/:comment_id
+  param: { module: fd_comment, action: update }
+  requirements:
+    sf_culture: (?:en|it)
+
+fd_comment_delete:
+  url:   /:sf_culture/delete_comment/:comment_id
+  param: { module: fd_comment, action: index}
+  requirements:
+    sf_culture: (?:en|it)
+
+
+

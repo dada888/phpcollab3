@@ -1,4 +1,3 @@
-<?php use_helper('Javascript') ?>
 <?php slot('title', __('Issue details')) ?>
 
 <div class="block" id="issue-table">
@@ -103,12 +102,16 @@
           </tr>
 
         </table>
+
+      <?php include_partial('fd_comment/comment_form', array('commentForm' => $commentForm)); ?>
+      <?php include_component('fd_comment', 'listByModel', array('model' => $commentForm->getModel(), 'model_field' =>$commentForm->getModelField(), 'model_field_value' =>$issue->getId())) ?>
+
     </div>
   </div>
 </div>
 
 <div class="block" id="comment-form">
-  <?php include_partial('idComment/comment_form', array('comment_form' => $comment_form, 'issue' => $issue)) ?>
+  <?php /*include_partial('idComment/comment_form', array('comment_form' => $comment_form, 'issue' => $issue))*/ ?>
 </div>
 
 <div class="block" id="related-issue">

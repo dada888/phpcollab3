@@ -39,6 +39,8 @@ class idMilestoneActions extends sfActions
     $this->pager->setQuery(Doctrine::getTable('Issue')->getQueryForMilstoneIssues($this->project->getId(), $this->milestone->getId()));
     $this->pager->setPage($this->getRequestParameter('page',1));
     $this->pager->init();
+
+    $this->issues_estimated_time = Doctrine::getTable('Issue')->retrieveEstimatedTimeForProjectMilestone($this->milestone->getProjectId(), $this->milestone->getId());
   }
 
   /**
@@ -143,6 +145,11 @@ class idMilestoneActions extends sfActions
 
     $milestone->delete();
 
+    $this->dispatcher->notify(new sfEvent($this, 'milestone.delete',
+                                          array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                'milestone_id' => $milestone->id
+                                               )));
+
     $this->redirect('@show_project?id='.$milestone->getProjectId());
   }
 
@@ -157,7 +164,15 @@ class idMilestoneActions extends sfActions
     $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
+      $operation = $form->getObject()->isNew() ? 'creation' : 'update';
       $milestone = $form->save();
+
+      $this->dispatcher->notify(new sfEvent($this, 'milestone.'.$operation.'_success',
+                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                          'milestone_id' => $milestone->id,
+                                                          'form_parameters' => $request->getParameter($form->getName())
+                                                         )));
+
       $this->redirect('@show_project?id='.$milestone->getProjectId());
     }
   }

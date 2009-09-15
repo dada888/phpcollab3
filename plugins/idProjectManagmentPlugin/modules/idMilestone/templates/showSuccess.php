@@ -28,6 +28,15 @@
             <td>&nbsp;</td>
           </tr>
 
+          <tr>
+            <td>&nbsp;</td>
+            <td colspan="5" <?php echo (($milestone->getEstimatedTime() - $issues_estimated_time['estimated_time']) >= 0) ? '' : 'class="red"' ; ?>>
+              <?php echo __('Estimated time').' : '.$milestone->getEstimatedTime().' '.__('hours') ?>
+              <?php echo (($milestone->getEstimatedTime() - $issues_estimated_time['estimated_time']) >= 0) ? '' : '('.__('issues estimated time ').$issues_estimated_time['estimated_time'].__(' hours').')'; ?>
+            </td>
+            <td>&nbsp;</td>
+          </tr>
+          
         </table>
     </div>
   </div>

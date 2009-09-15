@@ -1,0 +1,34 @@
+fdComment:
+  actAs:
+    Timestampable:
+      created:
+        name: created_at
+        type: timestamp
+      updated:
+        disabled: true
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    title:
+      type: string(512)
+      notnull: true
+    body:
+      type: string(3000)
+      notnull: true
+    profile_id:
+      type: integer
+    model:
+      type: string(255)
+      notnull: true
+    model_field:
+      type: string(255)
+      notnull: true
+    model_field_value:
+      type: integer
+      notnull: true
+

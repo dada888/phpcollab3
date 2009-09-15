@@ -1,0 +1,12 @@
+idMessage1:
+  name: 'idMessage-Read'
+  description: 'Reading message permission'
+idMessage2:
+  name: 'idMessage-Create'
+  description: 'Creating message permission'
+idMessage3:
+  name: 'idMessage-Edit'
+  description: 'Editing message permission'
+idMessage4:
+  name: 'idMessage-Delete'
+  description: 'Deleting message permission'

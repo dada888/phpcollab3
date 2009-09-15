@@ -34,6 +34,7 @@ test:
   doctrine:
     class: sfDoctrineDatabase
     param:
+#      dsn: 'sqlite://:memory:'
       dsn: 'sqlite:%SF_DATA_DIR%/phpcollab.db'
 #      dsn: 'mysql:host=localhost;dbname=phpcollab'
 #      username: root

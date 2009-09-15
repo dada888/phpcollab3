@@ -54,12 +54,17 @@ class idProfileActions extends sfActions
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
-//var_dump($request->getParameter($form->getName()));die();
     $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
+      $operation = $form->getObject()->isNew() ? 'creation' : 'update';
       $profile = $form->save();
-      
+      $this->dispatcher->notify(new sfEvent($this, 'profile.'.$operation.'_success',
+                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                          'profile_id' => $profile->id,
+                                                          'form_parameters' => $request->getParameter($form->getName())
+                                                         )));
+
       $this->redirect('@index_profile');
     }
   }

@@ -37,13 +37,13 @@
         <?php echo $form['is_public'] ?>
       </div>
       <div class="group">
-        <?php if ($form['created_at']->hasError()):?>
+        <?php if ($form['starting_date']->hasError()):?>
           <div class="fieldWithErrors">
-            <span class="error"><?php echo $form['created_at']->renderError() ?></span>
+            <span class="error"><?php echo $form['starting_date']->renderError() ?></span>
           </div>
         <?php endif; ?>
-        <?php echo $form['created_at']->renderLabel() ?>
-        <?php echo $form['created_at'] ?>
+        <?php echo $form['starting_date']->renderLabel() ?>
+        <?php echo $form['starting_date'] ?>
       </div>
       <div class="group">
         <?php if ($form['end_date']->hasError()):?>

@@ -28,12 +28,13 @@ abstract class PluginMilestoneForm extends BaseMilestoneForm
     $parameters = $this->isNew() ? array('default' => $today) : array();
 
     $this->setWidgets(array(
-      'id'            => new sfWidgetFormInputHidden(),
-      'title'         => new sfWidgetFormInput(),
-      'description'   => new sfWidgetFormTextarea(),
-      'starting_date' => new sfWidgetFormDate($parameters),
-      'ending_date'   => new sfWidgetFormDate(),
-      'project_id'    => new sfWidgetFormInputHidden(),
+      'id'              => new sfWidgetFormInputHidden(),
+      'title'           => new sfWidgetFormInput(),
+      'estimated_time'  => new sfWidgetFormInput(),
+      'description'     => new sfWidgetFormTextarea(),
+      'starting_date'   => new sfWidgetFormDate($parameters),
+      'ending_date'     => new sfWidgetFormDate(),
+      'project_id'      => new sfWidgetFormInputHidden(),
     ));
 
     $this->setValidators(array(
@@ -44,6 +45,7 @@ abstract class PluginMilestoneForm extends BaseMilestoneForm
       'starting_date' => new sfValidatorDate(array('required' => false)),
       'ending_date'   => new sfValidatorDate(array('required' => false)),
       'project_id'    => new sfValidatorDoctrineChoice(array('model' => 'Project')),
+      'estimated_time' => new sfValidatorNumber(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('milestone[%s]');

@@ -1,5 +1,13 @@
 ##  Yaml schema for project
 Project:
+  actAs:
+    Timestampable:
+      created:
+        name: created_at
+        type: timestamp
+      updated:
+        name: updated_at
+        type: timestamp
   options:
     charset: utf8
   columns:
@@ -13,13 +21,11 @@ Project:
       notnull: true
     description:
       type: string(512)
+    starting_date:
+      type: timestamp
     is_public:
       type: boolean
       default: false
-    created_at:
-      type: timestamp
-    updated_at:
-      type: timestamp
     end_date:
       type: timestamp
   relations:
@@ -33,6 +39,11 @@ Project:
       foreignAlias: projects
 
 Milestone:
+  actAs:
+    EstimateTime:
+      estimatedtime:
+        name: estimated_time
+        type: float
   options:
     charset: utf8
   columns:
@@ -64,6 +75,11 @@ Milestone:
       onDelete: CASCADE
 
 Issue:
+  actAs:
+    EstimateTime:
+      estimatedtime:
+        name: estimated_time
+        type: float
   options:
     charset: utf8
   columns:
@@ -92,8 +108,6 @@ Issue:
       type: timestamp
     ending_date:
       type: timestamp
-    estimated_time:
-      type: float
   relations:
     project:
       class: Project
@@ -209,42 +223,14 @@ Profile:
       refClass: IssueUser
       foreignAlias: Profiles
 
-Comment:
-  options:
-    charset: utf8
-  columns:
-    id:
-      type: integer
-      notnull: true
-      primary: true
-      autoincrement: true
-    issue_id:
-      type: integer
-    profile_id:
-      type: integer
-    body:
-      type: string(1000)
-    created_at:
-      type: timestamp
-  relations:
-    Issue:
-      class: Issue
-      foreignAlias: Comments
-      local: issue_id
-      foreign: id
-      type: one
-      foreignType: many
-      onDelete: CASCADE
-    UserProfile:
-      class: Profile
-      foreignAlias: Comments
-      local: profile_id
-      foreign: id
-      type: one
-      foreignType: many
-      onDelete: SET NULL
-
 LogTime:
+  actAs:
+    Timestampable:
+      created:
+        name: created_at
+        type: timestamp
+      updated:
+        disabled: true
   options:
     charset: utf8
   columns:
@@ -253,8 +239,6 @@ LogTime:
       notnull: true
       primary: true
       autoincrement: true
-    created_at:
-      type: timestamp
     issue_id:
       type: integer
     profile_id:
@@ -366,4 +350,46 @@ ProjectsTrackers:
       onDelete: CASCADE
     Tracker:
       foreignAlias: ProjectTrackers
+      onDelete: CASCADE
+
+Message:
+  actAs:
+    Timestampable:
+      created:
+        name: created_at
+        type: timestamp
+      updated:
+        disabled: true
+  options:
+    charset: utf8
+  columns:
+    id:
+      type: integer
+      notnull: true
+      primary: true
+      autoincrement: true
+    title:
+      type: string(512)
+    body:
+      type: string(3000)
+    profile_id:
+      type: integer
+    project_id:
+      type: integer
+  relations:
+    UserProfile:
+      class: Profile
+      foreignAlias: Messages
+      local: profile_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: SET NULL
+    project:
+      class: Project
+      foreignAlias: Messages
+      local: project_id
+      foreign: id
+      type: one
+      foreignType: many
       onDelete: CASCADE

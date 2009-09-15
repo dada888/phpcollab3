@@ -38,6 +38,6 @@ abstract class PluginIssue extends BaseIssue
    */
   public function hasComments()
   {
-    return (count($this->getComments()) > 0);
+    return (Doctrine::getTable('fdComment')->getQueryForListByModelAndFieldAndValue(get_class($this), 'id', $this->id)->count() > 0);
   }
 }

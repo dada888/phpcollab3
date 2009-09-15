@@ -13,8 +13,7 @@
             <th><?php echo __('Name') ?></th>
             <th><?php echo __('Description') ?></th>
             <th><?php echo __('Public/Private') ?></th>
-            <th><?php echo __('Created at') ?></th>
-            <th><?php echo __('Updated at') ?></th>
+            <th><?php echo __('Starting at') ?></th>
             <th><?php echo __('End date') ?></th>
             <th class="last">
             <?php if ($sf_user->isAdmin()): ?>
@@ -27,8 +26,7 @@
             <td><?php echo $project->getname() ?></td>
             <td><?php echo $project->getdescription() ?></td>
             <td><?php echo $project->getis_public() ? __('Public') : __('Private'); ?></td>
-            <td><?php echo $project->getcreated_at() ?></td>
-            <td><?php echo $project->getupdated_at() ?></td>
+            <td><?php echo $project->getstarting_date() ?></td>
             <td><?php echo $project->getend_date() ?></td>
             <td>
             <?php if ($sf_user->isAdmin()): ?>
@@ -39,8 +37,9 @@
           <?php if ($estimated_time > 0): ?>
           <tr>
             <td></td>
-            <td colspan="6" class="<?php echo (($estimated_time - $log_time) >= 0) ? 'green' : 'red' ; ?>">
+            <td colspan="5" class="<?php echo (($estimated_time - $log_time) >= 0) ? 'green' : 'red' ; ?>">
               <?php echo __('Estimated time : %est% hours - Log time: %log% hours', array('%est%' => $estimated_time, '%log%' => $log_time)); ?>
+              <?php echo '('.link_to(__('time report details'), '@log_time_report_project_all_users?project_id='.$project->getid()).')'; ?>
             </td>
             <td></td>
           </tr>

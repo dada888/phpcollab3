@@ -46,7 +46,7 @@
           <?php endif; ?>
           <tr>
             <td></td>
-            <td><?php  echo pager_navigation($pager, '@index_trackers') ?></td>
+            <td><?php  echo pager_navigation($pager, '@index_logtime') ?></td>
             <td></td>
           </tr>
         </table>

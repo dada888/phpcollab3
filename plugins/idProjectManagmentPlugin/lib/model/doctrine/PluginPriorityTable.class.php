@@ -34,7 +34,7 @@ class PluginPriorityTable extends Doctrine_Table
                       ->orderBy('pr.position DESC')
                       ->fetchOne();
 
-    if (!is_null($priority))
+    if ($priority)
     {
       return $priority->getPosition();
     }

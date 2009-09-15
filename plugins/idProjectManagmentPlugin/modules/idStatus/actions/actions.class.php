@@ -76,6 +76,11 @@ class idStatusActions extends sfActions
 
         if (!$this->checkPositionParameters($status_list, $ordering_list))
         {
+          $this->dispatcher->notify(new sfEvent($this, 'status.order_failed',
+                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                            'status_list' => $status_list,
+                                                            'ordering_list' => $ordering_list
+                                                           )));
           return $this->renderPartial('idPriority/order_message', array('response_message' => 'Some error occurred processing your request.', 'class' => 'message error'));
         }
 
@@ -84,10 +89,21 @@ class idStatusActions extends sfActions
           $status->setPosition(array_search($status->id, $ordering_list));
           $status->save();
         }
+
+        $this->dispatcher->notify(new sfEvent($this, 'status.order_success',
+                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                            'status_list' => $status_list,
+                                                            'ordering_list' => $ordering_list
+                                                           )));
+
         return $this->renderPartial('idPriority/order_message', array('response_message' => 'Order updated', 'class' => 'message notice'));
       }
     }
 
+    $this->dispatcher->notify(new sfEvent($this, 'status.order_failed',
+                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                            'status_list' => $status_list
+                                                           )));
     return $this->renderPartial('idPriority/order_message', array('response_message' => 'Invalid request', 'class' => 'message warning'));
   }
 
@@ -127,10 +143,16 @@ class idStatusActions extends sfActions
 
       $this->switchFirstAndSecondPositions($priorities);
       $this->getUser()->setFlash('notice', 'Order updated');
+
+      $this->dispatcher->notify(new sfEvent($this, 'status.order_success',
+                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId())));
+
       $this->redirect('idStatus/index');
     }
 
     $this->getUser()->setFlash('error', 'Some error occurred processing your request.');
+    $this->dispatcher->notify(new sfEvent($this, 'status.order_failed',
+                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId())));
     $this->redirect('idStatus/index');
 
   }
@@ -229,6 +251,11 @@ class idStatusActions extends sfActions
     $this->forward404Unless($status = Doctrine::getTable('Status')->find(array($request->getParameter('id'))), sprintf('Object status does not exist (%s).', array($request->getParameter('id'))));
     $status->delete();
 
+    $this->dispatcher->notify(new sfEvent($this, 'status.delete',
+                                          array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                'status_id' => $status->id
+                                               )));
+
     $this->checkAndFixPriorityPositions();
 
     $this->redirect('@index_status');
@@ -246,6 +273,7 @@ class idStatusActions extends sfActions
     $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
+      $operation = $form->getObject()->isNew() ? 'creation' : 'update';
       $status = $form->save();
 
       if ($status->getPosition() == null)
@@ -253,6 +281,13 @@ class idStatusActions extends sfActions
         $highest_position = Doctrine::getTable('Status')->retrieveHighestPosition();
         $status->setPosition($highest_position + 1);
         $status->save();
+
+        $this->dispatcher->notify(new sfEvent($this, 'status.'.$operation.'_success',
+                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                            'status_id' => $status->id,
+                                                            'form_parameters' => $request->getParameter($form->getName())
+                                                           )));
+
       }
       $this->redirect('@index_status');
     }

@@ -37,6 +37,7 @@ class idProjectForm extends ProjectForm
   public function configure()
   {
     $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->retriveAllButSuperAdmin()));
+    $this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
 
     $this->validatorSchema['name'] = new sfValidatorString(
                                             array('max_length' => 64, 'min_length' => 3,'required' => true),

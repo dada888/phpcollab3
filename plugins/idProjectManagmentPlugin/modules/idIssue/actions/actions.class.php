@@ -46,7 +46,6 @@ class idIssueActions extends sfActions
     $this->forwardUnless($this->getUser()->hasCredential('idIssue-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     
     $this->issue = Doctrine::getTable('Issue')->getIssueById($request->getParameter('issue_id'));
-    
     $this->forward404Unless($this->issue && $this->issue->project_id == $request->getParameter('project_id'));
 
     $this->pager = new idPager('Issue',10);
@@ -54,10 +53,10 @@ class idIssueActions extends sfActions
     $this->pager->setPage($this->getRequestParameter('page',1));
     $this->pager->init();
 
-    $this->comment_form = new CommentForm();
-    $this->comment_form->setDefault('issue_id', $request->getParameter('issue_id'));
-    $this->comment_form->setDefault('profile_id', $this->getUser()->getProfile()->getId());
-    $this->comment_form->setDefault('created_at', date('Y-m-d H:i:s', time()));
+//    $this->comment_form = new CommentForm();
+//    $this->comment_form->setDefault('issue_id', $request->getParameter('issue_id'));
+//    $this->comment_form->setDefault('profile_id', $this->getUser()->getProfile()->getId());
+//    $this->comment_form->setDefault('created_at', date('Y-m-d H:i:s', time()));
 
     $this->estimated_time_form = new idEstimatedTimeForm($this->issue->getProjectId(), $this->issue);
 
@@ -65,6 +64,9 @@ class idIssueActions extends sfActions
     $this->logtime_form->setDefault('issue_id', $request->getParameter('issue_id'));
     $this->logtime_form->setDefault('profile_id', $this->getUser()->getGuardUser()->getProfile()->getId());
     $this->logtime_form->setDefault('created_at', date('Y-m-d H:i:s', time()));
+
+    $this->commentForm = new fdCommentForm($this->issue, 'id', $request->getParameter('issue_id'));
+    $this->commentForm->setDefault('profile_id', $this->getUser()->getGuardUser()->getProfile()->getId());
   }
 
   /**
@@ -113,6 +115,9 @@ class idIssueActions extends sfActions
 
     $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
     $this->forward404Unless($issue = Doctrine::getTable('Issue')->find(array($request->getParameter('issue_id'))), sprintf('Object issue does not exist (%s).', array($request->getParameter('issue_id'))));
+
+    $this->forward404Unless($issue->project_id == $request->getParameter('project_id'));
+    
     $this->form = new idIssueForm($request->getParameter('project_id'), $issue);
   }
 
@@ -152,6 +157,10 @@ class idIssueActions extends sfActions
     $project_id = $request->getParameter('project_id');
 
     $issue->delete();
+    $this->dispatcher->notify(new sfEvent($this, 'issue.delete',
+                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                          'issue_id' => $issue->id
+                                                         )));
 
     $this->redirect('@index_issue?project_id='.$project_id);
   }
@@ -168,9 +177,19 @@ class idIssueActions extends sfActions
     if ($form->isValid())
     {
       $issue = $form->save();
+      $this->dispatcher->notify(new sfEvent($this, 'issue.set_estimated_time_success',
+                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                          'issue_id' => $issue->id,
+                                                          'form_parameters' => $request->getParameter($form->getName())
+                                                         )));
       $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
     }
 
+    $this->dispatcher->notify(new sfEvent($this, 'issue.set_estimated_time_failed',
+                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                          'issue_id' => $issue->id,
+                                                          'form_parameters' => $request->getParameter($form->getName())
+                                                         )));
     $this->getUser()->setFlash('error', $form['estimated_time']->renderError());
     $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
   }
@@ -187,7 +206,14 @@ class idIssueActions extends sfActions
     $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
+      $operation = $form->getObject()->isNew() ? 'creation' : 'update';
       $issue = $form->save();
+      
+      $this->dispatcher->notify(new sfEvent($this, 'issue.'.$operation.'_success',
+                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
+                                                          'issue_id' => $issue->id,
+                                                          'form_parameters' => $request->getParameter($form->getName())
+                                                         )));
 
       $this->redirect('@index_issue?project_id='.$issue->project_id);
     }
