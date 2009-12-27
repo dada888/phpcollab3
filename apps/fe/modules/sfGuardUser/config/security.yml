@@ -1,7 +1,7 @@
 show:
-  is_secure: on
+  is_secure: true
   credentials: [[admin, user]]
 
 default:
-  is_secure: on
+  is_secure: true
   credentials: admin

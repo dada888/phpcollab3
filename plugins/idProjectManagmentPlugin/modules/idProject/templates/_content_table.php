@@ -6,7 +6,34 @@
     <?php if (isset($form[$name])) : ?>
       <?php if ($form[$name]->isHidden() || (!isset($form[$name]) && $field->isReal())) continue ?>
 
-      <tr class="<?php echo fmod($ii, 2) ? 'even' : 'odd' ?>">
+      <?php if ($name == 'Profile'): ?>
+      <tr>
+        <td>&nbsp;</td>
+
+        <td><?php echo $form['Profile']['first_name']->renderLabel() ?></td>
+        <td><?php echo $form['Profile']['first_name']->renderError() ?><?php echo $form['Profile']['first_name']->render() ?></td>
+
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+
+        <td><?php echo $form['Profile']['last_name']->renderLabel() ?></td>
+        <td><?php echo $form['Profile']['last_name']->renderError() ?><?php echo $form['Profile']['last_name']->render() ?></td>
+
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+
+        <td><?php echo $form['Profile']['email']->renderLabel() ?></td>
+        <td><?php echo $form['Profile']['email']->renderError() ?><?php echo $form['Profile']['email']->render() ?></td>
+
+        <td>&nbsp;</td>
+      </tr>
+      <?php continue; endif;?>
+
+      <tr>
         <td>&nbsp;</td>
 
         <td><?php echo $form[$name]->renderLabel() ?></td>

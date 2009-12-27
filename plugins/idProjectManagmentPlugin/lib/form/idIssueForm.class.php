@@ -155,10 +155,10 @@ class idIssueForm extends IssueForm
     $this->validatorSchema['starting_date'] = new sfValidatorDate(array('required' => false));
     $this->validatorSchema['ending_date'] = new sfValidatorDate(array('required' => false));
     $this->validatorSchema['project_id'] = new sfValidatorDoctrineChoice(array('model' => 'Project', 'column' => 'id', 'required' => true));
-    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Profile', 'alias' => '' ,'query' => $this->getQueryForUsers(), 'required' => false));
-    $this->validatorSchema['milestone_id'] = new sfValidatorDoctrineChoice(array('model' => 'Milestone', 'alias' => '' ,'query' => $this->getQueryForMilestones(), 'required' => false));
+    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->getQueryForUsers(), 'required' => false));
+    $this->validatorSchema['milestone_id'] = new sfValidatorDoctrineChoice(array('model' => 'Milestone', 'query' => $this->getQueryForMilestones(), 'required' => false));
     $this->validatorSchema['title'] = new sfValidatorString(array('required' => true,'max_length' => 256), array('required' => 'Title is mandatory'));
-    $this->validatorSchema['related_issue_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Issue', 'alias' => '', 'required' => false, 'query' => $this->getQueryForRelatedIssue()));
+    $this->validatorSchema['related_issue_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Issue', 'required' => false, 'query' => $this->getQueryForRelatedIssue()));
     $this->validatorSchema['estimated_time'] = new sfValidatorNumber(array('min' => '0', 'required' => false), array('min' => 'You cannot set a negative estimated time'));
 
     parent::configure();

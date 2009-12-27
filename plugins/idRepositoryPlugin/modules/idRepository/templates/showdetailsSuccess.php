@@ -8,7 +8,7 @@
                               echo __('Revision %revision_id% has been committed on %date% by %user% .',
                                       array(
                                             '%revision_id%' => $logentry->getLogRevisionNumber(),
-                                            '%date%' => format_date($logentry->getDate()),
+                                            '%date%' => format_date($logentry->getDate(), 'd'),
                                             '%user%' => $logentry->getAuthor()
                                            )
                                      )

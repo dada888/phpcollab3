@@ -52,15 +52,27 @@ xml_analysis_gantt:
   requirements:
     sf_format: (?:xml)
 
+xml_project_status_gantt:
+  url: /Gantt/xmlProjectStatusGanttData/:project_id/data.:sf_format
+  param: { module: idGantt, action: xmlProjectStatusGanttData }
+  requirements:
+    sf_format: (?:xml)
+
 show_gantt:
   url:   /:sf_culture/idProject/:project_id/show/Gantt
   param: { module: idGantt, action: show}
   requirements:
     sf_culture: (?:en|it)
 
-update_show_gantt:
-  url:   /:sf_culture/idProject/:project_id/update/Gantt
-  param: { module: idGantt, action: updateShow}
+show_analysis_gantt:
+  url:   /:sf_culture/idProject/:project_id/analysisGanttChart
+  param: { module: idGantt, action: analysisGanttChartShow}
+  requirements:
+    sf_culture: (?:en|it)
+
+show_project_status_gantt:
+  url:   /:sf_culture/idProject/:project_id/projectStatusGanttChart
+  param: { module: idGantt, action: projectStatusGanttChartShow}
   requirements:
     sf_culture: (?:en|it)
 

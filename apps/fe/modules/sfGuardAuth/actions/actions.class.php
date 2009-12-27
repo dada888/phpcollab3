@@ -42,7 +42,7 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
   /**
    * Sets the status code of the page to 403
    */
-  public function executeSecure()
+  public function executeSecure($request)
   {
     $this->getResponse()->setStatusCode(403);
   }

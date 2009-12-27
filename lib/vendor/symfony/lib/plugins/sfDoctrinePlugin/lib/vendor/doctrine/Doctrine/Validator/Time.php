@@ -30,7 +30,7 @@
  * @version     $Revision: 3884 $
  * @author      Mark Pearson <mark.pearson0@googlemail.com>
  */
-class Doctrine_Validator_Time
+class Doctrine_Validator_Time extends Doctrine_Validator_Driver
 {
     /**
      * validate
@@ -42,7 +42,7 @@ class Doctrine_Validator_Time
      */
     public function validate($value)
     {
-        if ($value === null) {
+        if (is_null($value)) {
             return true;
         }
 

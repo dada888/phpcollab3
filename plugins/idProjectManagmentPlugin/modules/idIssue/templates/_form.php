@@ -103,10 +103,10 @@
       </tr>
       <tr class="even">
         <td>&nbsp;</td>
-        <td><?php echo $form['related_issue_list']->renderLabel('Related issues') ?></td>
+        <td><?php echo $form['issues_list']->renderLabel('Related issues') ?></td>
         <td>
-          <?php echo $form['related_issue_list']->renderError() ?>
-          <?php echo $form['related_issue_list'] ?>
+          <?php echo $form['issues_list']->renderError() ?>
+          <?php echo $form['issues_list'] ?>
         </td>
         <td>&nbsp;</td>
       </tr>

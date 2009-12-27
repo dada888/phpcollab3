@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>PHP Collab v3.0</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="client.css" />
+<script type="text/javascript" src="client.js"></script>
+</head>
+<body onload="mySwitch('phpcollab-01')">
+<div id="wrapper">
+  <div id="header">
+    <h1>PHP Collab v3.0</h1>
+    <h2>Draft dashboard - August 5, 2009</h2>
+  </div>
+  <div id="menu">
+    <p>Dashboard: <a href="javascript:mySwitch('phpcollab-01');" id="a-phpcollab-01" class="selected">Admin</a> / <a href="javascript:mySwitch('phpcollab-02');" id="a-phpcollab-02">Customer</a> / <a href="javascript:mySwitch('phpcollab-03');" id="a-phpcollab-03">Project Manager</a> / <a href="javascript:mySwitch('phpcollab-04');" id="a-phpcollab-04">Developer</a> / </p>
+    <p>Project Dashboard: <a href="javascript:mySwitch('phpcollab-05');" id="a-phpcollab-05">Other Users</a> / <a href="javascript:mySwitch('phpcollab-06');" id="a-phpcollab-06">Project Manager - Admin</a></p>
+    <p>Project Time: <a href="javascript:mySwitch('phpcollab-07');" id="a-phpcollab-07">Client Time</a> / <a href="javascript:mySwitch('phpcollab-08');" id="a-phpcollab-08">Developer Time</a> / <a href="javascript:mySwitch('phpcollab-09');" id="a-phpcollab-09">PM Time</a></p>
+  </div>
+  <div id="content">
+    <div id="phpcollab-01" style="display:none;"><img src="screens/Dashboard-Admin.png" class="left" ></div>
+    <div id="phpcollab-02" style="display:none;"><img src="screens/Dashboard-Customer.png" class="left" ></div>
+    <div id="phpcollab-03" style="display:none;"><img src="screens/Dashboard-PM.png" class="left" ></div>
+    <div id="phpcollab-04" style="display:none;"><img src="screens/Dashboard-Developer.png" class="left" ></div>
+    <div id="phpcollab-05" style="display:none;"><img src="screens/Project-Other.png" class="left" ></div>
+    <div id="phpcollab-06" style="display:none;"><img src="screens/Project-PM-Admin.png" class="left" ></div>
+    <div id="phpcollab-07" style="display:none;"><img src="screens/Project-Client-Time.png" class="left" ></div>
+    <div id="phpcollab-08" style="display:none;"><img src="screens/Project-Developer-Time.png" class="left" >
+      <div class="left notes">
+        <p><strong>Notes:</strong> When time is saved the date will default to now (current date). Depending on the date selecte ie. 2 days ago. the entry will be moved under the appropriate date in the log. </p>
+        <ol>
+          <li>Indicates the click action on an editable row. Same interactions apply as adding a new entry.</li>
+          <li>Indicates the click action on an editable row. Same interactions apply as adding a new entry.</li>
+        </ol>
+      </div>
+    </div>
+    <div id="phpcollab-09" style="display:none;"><img src="screens/Project-PM-Time.png" class="left" ><div class="left notes">
+        <p><strong>Notes:</strong> When time is saved the date will default to now (current date). Depending on the date selecte ie. 2 days ago. the entry will be moved under the appropriate date in the log. </p>
+        <ol>
+          <li>Indicates the click action on an editable row. Same interactions apply as adding a new entry.</li>
+          <li>Indicates the click action on an editable row. Same interactions apply as adding a new entry.</li>
+        </ol>
+      </div></div>
+  </div>
+</div>
+</body>
+</html>

@@ -29,16 +29,38 @@ class PluginStatusTable extends Doctrine_Table
 
   public function retrieveHighestPosition()
   {
-    $priority = Doctrine_Query::create()
+    $status = Doctrine_Query::create()
                       ->from('Status s')
                       ->orderBy('s.position DESC')
                       ->fetchOne();
 
-    if ($priority)
+    if ($status)
     {
-      return $priority->getPosition();
+      return $status->getPosition();
     }
 
     return -1;
+  }
+
+  public function isClosedTypeById($id)
+  {
+    $status = Doctrine_Query::create()
+                ->from('Status s')
+                ->where('(s.status_type = ? OR s.status_type = ?)', array('closed', 'invalid'))
+                ->addWhere('s.id = ?', $id)
+                ->fetchOne();
+
+    return (bool) $status;
+  }
+
+  public function isOpenTypeById($id)
+  {
+    $status = Doctrine_Query::create()
+                ->from('Status s')
+                ->where('s.status_type = ?', 'new')
+                ->addWhere('s.id = '. $id)
+                ->fetchOne();
+
+    return (bool) $status;
   }
 }

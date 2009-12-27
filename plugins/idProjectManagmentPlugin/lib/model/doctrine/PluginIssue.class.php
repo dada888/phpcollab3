@@ -40,4 +40,15 @@ abstract class PluginIssue extends BaseIssue
   {
     return (Doctrine::getTable('fdComment')->getQueryForListByModelAndFieldAndValue(get_class($this), 'id', $this->id)->count() > 0);
   }
+
+  public function getTotalLogTime()
+  {
+    $total_log_time = 0;
+    foreach ($this->logtimes as $logtime_entry)
+    {
+      $total_log_time += $logtime_entry->log_time;
+    }
+    return $total_log_time;
+  }
+
 }

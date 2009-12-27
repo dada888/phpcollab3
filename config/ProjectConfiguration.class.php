@@ -7,16 +7,16 @@ class ProjectConfiguration extends sfProjectConfiguration
 {
   public function setup()
   {
-    $this->enablePlugins(array('sfProtoculousPlugin',
-                               'sfDoctrinePlugin',
+    sfYaml::setSpecVersion('1.1');
+    $this->enablePlugins(array('sfDoctrinePlugin',
                                'idRepositoryPlugin',
                                'idProjectManagmentPlugin',
-                               'sfDoctrineGuardPlugin',
-                               'sfJqueryReloadedPlugin',
                                'fdEventsListenersPlugin',
                                'idEstimatedTimePlugin',
                                'CommentPlugin',
+                               'idTimestampablePlugin',
                                'idUtilPlugin'));
-    $this->disablePlugins(array('sfPropelPlugin'));
+    #$this->disablePlugins(array('sfPropelPlugin'));
+    $this->enablePlugins('sfDoctrineGuardPlugin');
   }
 }

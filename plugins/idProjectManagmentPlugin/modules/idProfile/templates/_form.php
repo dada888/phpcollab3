@@ -17,7 +17,7 @@
         <th class="last"></th>
       </tr>
 
-      <tr class="odd">
+      <tr class="even">
         <td>&nbsp;</td>
         <td><?php echo $form['password']->renderLabel() ?></td>
         <td>
@@ -26,7 +26,7 @@
         </td>
         <td>&nbsp;</td>
       </tr>
-      <tr class="even">
+      <tr class="odd">
         <td>&nbsp;</td>
         <td><?php echo $form['password_again']->renderLabel() ?></td>
         <td>
@@ -35,17 +35,35 @@
         </td>
         <td>&nbsp;</td>
       </tr>
+      <tr class="even">
+        <td>&nbsp;</td>
+        <td><?php echo $form['Profile']['first_name']->renderLabel() ?></td>
+        <td>
+          <?php echo $form['Profile']['first_name']->renderError() ?>
+          <?php echo $form['Profile']['first_name'] ?>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
       <tr class="odd">
         <td>&nbsp;</td>
-        <td><?php echo $form['Profile']->renderLabel() ?></td>
+        <td><?php echo $form['Profile']['last_name']->renderLabel() ?></td>
         <td>
-          <?php echo $form['Profile']->renderError() ?>
-          <?php echo $form['Profile'] ?>
+          <?php echo $form['Profile']['last_name']->renderError() ?>
+          <?php echo $form['Profile']['last_name'] ?>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr class="even">
+        <td>&nbsp;</td>
+        <td><?php echo $form['Profile']['email']->renderLabel() ?></td>
+        <td>
+          <?php echo $form['Profile']['email']->renderError() ?>
+          <?php echo $form['Profile']['email'] ?>
         </td>
         <td>&nbsp;</td>
       </tr>
       
-      <tr>
+      <tr class="odd">
         <td colspan="2">
           <?php echo $form->renderHiddenFields() ?>
           &nbsp;<a href="<?php echo url_for('@index_profile') ?>"><?php echo __('Cancel'); ?></a>

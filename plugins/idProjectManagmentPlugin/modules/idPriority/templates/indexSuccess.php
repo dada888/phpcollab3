@@ -1,5 +1,4 @@
 <?php slot('title', __('Manage priorities')) ?>
-<?php use_helper('jQuery'); ?>
 
 <div class="block" id="block-tables">
   <?php include_partial('create_priority_menu'); ?>
@@ -78,8 +77,6 @@
 
         
 
-      <?php jq_add_plugin(sfConfig::get('jquery_sortable',
-    'jquery-ui-sortable-1.6rc6.min.js')); ?>
 <script type="text/javascript">
 //<![CDATA[
 $(document).ready(

@@ -47,9 +47,9 @@
     </processes>
 
     <tasks>
-      <?php foreach($processes as $index => $process): ?>
-        <?php foreach($process as $interval): ?>
-          <task name='<?php echo __('resource').' '.$index ?>' hoverText='<?php echo __('resource').' '.$index ?>' processId='<?php echo $index ?>' start='<?php echo $interval['start'] ?>' end='<?php echo $interval['end'] ?>' id='<?php echo __('resource').'-'.$index ?>' color='99cc00' alpha='60' topPadding='19' />
+      <?php foreach($tasks as $index => $task): ?>
+        <?php foreach($task as $interval): ?>
+          <task hoverText='<?php echo __('resource').' '.$index ?>' processId='<?php echo $index ?>' start='<?php echo $interval['start'] ?>' end='<?php echo $interval['end'] ?>' id='<?php echo __('resource').'-'.$index ?>' color='99cc00' alpha='60' topPadding='19' />
         <?php endforeach;?>
       <?php endforeach;?>
     </tasks>

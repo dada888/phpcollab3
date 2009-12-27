@@ -1,5 +1,4 @@
 <?php slot('title', __('Message discussion')); ?>
-<?php use_helper('jQuery'); ?>
 
 <div class="block" id="message-table">
   <?php include_partial('create_message_menu'); ?>

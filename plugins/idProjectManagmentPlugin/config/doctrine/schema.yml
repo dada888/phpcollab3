@@ -129,11 +129,11 @@ Issue:
       class: Profile
       refClass: IssueUser
       foreignAlias: Issues
-    related_issue:
+    issues:
       class: Issue
-      local: main
-      foreign: associated_issue
-      refClass: AssociatedIssue
+      local: issue1
+      foreign: issue2
+      refClass: IssueReference
       equal: true
     status:
       class: Status
@@ -295,29 +295,16 @@ IssueUser:
       foreignAlias: IssueUsers
       onDelete: CASCADE
 
-AssociatedIssue:
+IssueReference:
   options:
     charset: utf8
   columns:
-    main:
+    issue1:
       type: integer
       primary: true
-    associated_issue:
+    issue2:
       type: integer
       primary: true
-  relations:
-    main:
-      class: Issue
-      local: main
-      foreign: id
-      foreignAlias: RelatedIssuesByMain
-      onDelete: CASCADE
-    associated_issue:
-      class: Issue
-      local: associated_issue
-      foreignAlias: RelatedIssuesByAssociated
-      foreign: id
-      onDelete: CASCADE
 
 Tracker:
   options:

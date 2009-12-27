@@ -44,8 +44,9 @@ class idGanttActions extends sfActions
     $this->show_gantt = false;
   }
 
-  protected function getStartingDate($project_starting_date, $add_days_to_the_end = 0)
+  protected function getStartingDate($project, $add_days_to_the_end = 0)
   {
+    $project_starting_date = !is_null($project->getstarting_date()) ? $project->getstarting_date() : $project->getcreated_at() ;
     list($project_starting_date) = explode(' ', $project_starting_date);
     return date('Y/m/d',strtotime("$project_starting_date -$add_days_to_the_end days"));
   }
@@ -77,7 +78,6 @@ class idGanttActions extends sfActions
 
   protected function retrieveWorkingIntervals($project_starting_date, $estimated_ending_date)
   {
-    //crea degli intervalli dal giorno di partenza del progetto alla fine stimata escludento tutti i sabati e le domeniche.
     $intervals = array();
     $index = 0;
     $date = $project_starting_date;
@@ -126,8 +126,8 @@ class idGanttActions extends sfActions
 
     $this->resources = $request->getParameter('resources');
 
-    $this->gantt_starting_date =  $this->getStartingDate($project->getstarting_date(), 3);
-    $this->project_starting_date = $this->getStartingDate($project->getstarting_date());
+    $this->gantt_starting_date =  $this->getStartingDate($project, 3);
+    $this->project_starting_date = $this->getStartingDate($project);
 
     $this->gantt_ending_date = $this->getEndingDate($project->getstarting_date(), $project->getEndDate(), $estimated_time_for_project, 3);
     $this->project_ending_date = $this->getEndingDate($project->getstarting_date(), $project->getEndDate(), $estimated_time_for_project);
@@ -136,16 +136,59 @@ class idGanttActions extends sfActions
 
     $this->days = $this->getDaysFromWorkingHours($estimated_time_for_project);
 
-    $this->processes = $this->retrieveProcessingDatePerResource($this->project_starting_date, $this->project_ending_date, $this->estimated_ending_date, $this->resources);
+    $this->tasks = $this->retrieveProcessingDatePerResource($this->project_starting_date, $this->project_ending_date, $this->estimated_ending_date, $this->resources);
   }
 
-  public function executeUpdateShow(sfWebRequest $request)
+  public function executeXmlProjectStatusGanttData(sfWebRequest $request)
+  {
+    $this->forwardUnless($this->getUser()->hasCredential('idGantt-View'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $this->forward404Unless($project = Doctrine::getTable('Project')->find($request->getParameter('project_id')));
+    
+    $this->closed_issues = Doctrine::getTable('Issue')->getClosedIssueForProject($project->id);
+    $this->new_issues = Doctrine::getTable('Issue')->getNewIssueForProject($project->id);
+    $this->invalid_issues = Doctrine::getTable('Issue')->getInvalidIssueForProject($project->id);
+    
+    $hours_issues_closed_or_invalid = Doctrine::getTable('Issue')->getSpentTimeOnIssuesClosedAndInvalidForProject($project->id);
+    $hours_issues_open = Doctrine::getTable('Issue')->getOpenIssuesEstimatedTimeForProject($project->id);
+    
+    $this->gantt_starting_date =  $this->getStartingDate($project, 3);
+
+    $this->gantt_ending_date = $this->getEndingDate($this->gantt_starting_date,
+                                                    null,
+                                                    $hours_issues_closed_or_invalid['project_log_times']+$hours_issues_open['estimated_time'],
+                                                    3);
+
+    $this->project_starting_date = $this->getStartingDate($project);
+    $this->project_ending_date = $this->getEndingDate($project->getstarting_date(), 
+                                                      null,
+                                                      $hours_issues_closed_or_invalid['project_log_times']+$hours_issues_open['estimated_time']);
+    $this->days = $this->getDaysFromWorkingHours($hours_issues_closed_or_invalid['project_log_times']+$hours_issues_open['estimated_time']);
+    $this->estimated_ending_date = $this->getEstimatedEndingDate(date('Y-m-d', time()), $hours_issues_open['estimated_time'], 1);
+  }
+
+  public function executeAnalysisGanttChartShow(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idGantt-View'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->form = new gnattChartForm();
     $this->show_gantt = $this->validateForm($request, $this->form);
+  }
+
+  public function executeProjectStatusGanttChartShow(sfWebRequest $request)
+  {
+    $this->forwardUnless($this->getUser()->hasCredential('idGantt-View'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $this->title = 'Status gantt chart';
+
+    $project_id = $request->getParameter('project_id');
+
+    $this->closed_issues_count = Doctrine::getTable('Issue')->getQueryForClosedIssueForProject($project_id)->count();
+    $this->new_issues_count = Doctrine::getTable('Issue')->getQueryForNewIssueForProject($project_id)->count();
+    $this->invalid_issues_count = Doctrine::getTable('Issue')->getQueryForInvalidIssueForProject($project_id)->count();
     
-    $this->setTemplate('show');
+    $hours_issues_open = Doctrine::getTable('Issue')->getOpenIssuesEstimatedTimeForProject($project_id);
+    $this->estimated_time_to_end = $hours_issues_open['estimated_time'];
+    $this->estimated_end_date = $this->getEstimatedEndingDate(date('Y-m-d', time()), $hours_issues_open['estimated_time'], 1);
+
+    $this->show_gantt = true;
   }
 
   private function validateForm(sfWebRequest $request, sfForm $form)

@@ -49,7 +49,7 @@ class idIssueActions extends sfActions
     $this->forward404Unless($this->issue && $this->issue->project_id == $request->getParameter('project_id'));
 
     $this->pager = new idPager('Issue',10);
-    $this->pager->setResultArray($this->issue->related_issue);
+    $this->pager->setResultArray($this->issue->issues);
     $this->pager->setPage($this->getRequestParameter('page',1));
     $this->pager->init();
 
@@ -194,6 +194,47 @@ class idIssueActions extends sfActions
     $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
   }
 
+  protected function issueIsBeingCloding($parameters)
+  {
+    return (empty($parameters['ending_date']['month']) &&
+            empty($parameters['ending_date']['day']) &&
+            empty($parameters['ending_date']['year']) &&
+            Doctrine::getTable('Status')->isClosedTypeById($parameters['status_id']));
+  }
+
+  protected function issueIsBeingReopen($parameters)
+  {
+    return (!empty($parameters['ending_date']['month']) &&
+            !empty($parameters['ending_date']['day']) &&
+            !empty($parameters['ending_date']['year']) &&
+            Doctrine::getTable('Status')->isOpenTypeById($parameters['status_id']));
+  }
+
+  protected function fixParameterForOpenOrClosedIssue($parameters, $issue)
+  {
+    if ($issue->isNew())
+    {
+      return $parameters;
+    }
+
+    if (is_array($parameters))
+    {
+      if ($this->issueIsBeingCloding($parameters))
+      {
+        list($parameters['ending_date']['year'], $parameters['ending_date']['month'], $parameters['ending_date']['day']) = explode('-',date('Y-m-d', time()));
+      }
+
+      if ($this->issueIsBeingReopen($parameters))
+      {
+        $parameters['ending_date'] = null;
+      }
+
+    }
+
+    return $parameters;
+  }
+
+
   /**
    * checks if the form is valid and redirect to the right page
    *
@@ -203,12 +244,27 @@ class idIssueActions extends sfActions
    */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
-    $form->bind($request->getParameter($form->getName()));
+    $form->bind($this->fixParameterForOpenOrClosedIssue($request->getParameter($form->getName()), $form->getObject()));
     if ($form->isValid())
     {
       $operation = $form->getObject()->isNew() ? 'creation' : 'update';
       $issue = $form->save();
       
+//      the operation of saving this issue again cannot be done cause of a bug on the embedded for that we thought was solved during the phpday2009
+//      $issue->save();
+//
+//      if ($issue->hasBeenClosed())
+//      {
+//        $issue->setEndingDate(date('Y-m-d H:i:s', time()));
+//      }
+//
+//      if ($issue->hasBeenReopen())
+//      {
+//        $issue->setEndingDate(null);
+//      }
+
+      
+
       $this->dispatcher->notify(new sfEvent($this, 'issue.'.$operation.'_success',
                                                     array('user_id'=> $this->getUser()->getGuardUser()->getId(),
                                                           'issue_id' => $issue->id,

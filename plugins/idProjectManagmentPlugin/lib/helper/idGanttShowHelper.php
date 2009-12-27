@@ -68,3 +68,15 @@ function retriveSwfUrl()
 
   return '/idProjectManagmentPlugin/Charts/FCF_Gantt.swf';
 }
+
+function retrive_date_from_hours($hours)
+{
+  $days = ceil($hours/8);
+
+  if ($days == 0 && $hours > 0)
+  {
+    $days = 1;
+  }
+  
+  return date('Y/m/d', strtotime("+$days days"));
+}

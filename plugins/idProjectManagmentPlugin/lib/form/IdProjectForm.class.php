@@ -54,8 +54,10 @@ class idProjectForm extends ProjectForm
                                             array('invalid' => 'invalid'
                                                   )
                                                 );
-    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Profile', 'alias' => '', 'required' => false, 'query' => $this->retriveAllButSuperAdmin()));
+    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Profile', 'required' => false, 'query' => $this->retriveAllButSuperAdmin()));
     
     parent::configure();
+
+    unset($this['updated_at']);
   }
 }

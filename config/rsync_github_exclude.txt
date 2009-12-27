@@ -6,5 +6,6 @@
 /lib/filter/*
 /lib/form/*
 /data/*
+/test/fixtures/git/*
 cron.php
 .gitignore

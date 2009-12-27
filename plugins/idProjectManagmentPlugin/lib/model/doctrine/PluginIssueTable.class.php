@@ -34,7 +34,7 @@ class PluginIssueTable extends Doctrine_Table
       ->from('Issue i')
       ->leftJoin('i.milestone m')
       ->leftJoin('i.project p')
-      ->leftJoin('i.related_issue ri')
+      ->leftJoin('i.issues ri')
       ->leftJoin('i.status s')
       ->leftJoin('i.priority pr')
       ->leftJoin('i.tracker t')
@@ -82,6 +82,53 @@ class PluginIssueTable extends Doctrine_Table
       ->andWhere('i.project_id = ? ', $project_id);
 
     return $q;
+  }
+
+  public function getIssueForProjectOrderedByStatusType($project_id)
+  {
+    return $this->getQueryForProjectIssues($project_id)
+                ->leftJoin('i.status s')
+                ->orderBy('s.status_type ASC')
+                ->execute();
+  }
+
+  public function getQueryForClosedIssueForProject($project_id)
+  {
+    return $this->getQueryForProjectIssues($project_id)
+                ->leftJoin('i.status s')
+                ->addWhere('s.status_type = ?', 'closed');
+  }
+
+  public function getClosedIssueForProject($project_id)
+  {
+    return $this->getQueryForClosedIssueForProject($project_id)
+                ->execute();
+  }
+
+  public function getQueryForInvalidIssueForProject($project_id)
+  {
+    return $this->getQueryForProjectIssues($project_id)
+                ->leftJoin('i.status s')
+                ->addWhere('s.status_type = ?', 'invalid');
+  }
+
+  public function getInvalidIssueForProject($project_id)
+  {
+    return $this->getQueryForInvalidIssueForProject($project_id)
+                ->execute();
+  }
+
+  public function getQueryForNewIssueForProject($project_id)
+  {
+    return $this->getQueryForProjectIssues($project_id)
+                ->leftJoin('i.status s')
+                ->addWhere('s.status_type = ?', 'new');
+  }
+
+  public function getNewIssueForProject($project_id)
+  {
+    return $this->getQueryForNewIssueForProject($project_id)
+                ->execute();
   }
 
   /**
@@ -193,6 +240,29 @@ class PluginIssueTable extends Doctrine_Table
     {
       return $q->select('SUM(i.estimated_time) as estimated_time')
                ->addWhere('i.milestone_id = ?', $milestone_id)
+               ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+    }
+  }
+
+  public function getSpentTimeOnIssuesClosedAndInvalidForProject($project_id)
+  {
+    if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
+    {
+      return $q->select('SUM(l.log_time) as project_log_times')
+               ->leftJoin('i.logtimes l')
+               ->leftJoin('i.status s')
+               ->addWhere('(s.status_type = ? OR s.status_type = ? )', array('closed', 'invalid'))
+               ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+    }
+  }
+
+  public function getOpenIssuesEstimatedTimeForProject($project_id)
+  {
+    if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
+    {
+      return $q->select('SUM(i.estimated_time) as estimated_time')
+               ->leftJoin('i.status s')
+               ->addWhere('s.status_type = ?', 'new')
                ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
     }
   }
