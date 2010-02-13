@@ -86,7 +86,7 @@ sf_guard_permission_delete:
     sf_culture: (?:en|it)
 
 sf_guard_user:
-  url:   /:sf_culture/sfGuardUser
+  url:   /:sf_culture/idUsers
   param: { module: sfGuardUser, action: index }
   requirements:
     sf_culture: (?:en|it)

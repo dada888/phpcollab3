@@ -1,4 +1,4 @@
 default:
   components:
-    sidebar:  [sfGuardPermission, sidebar]
+    sidebar:  []
 

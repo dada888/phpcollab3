@@ -4,5 +4,5 @@ showdiffSuccess:
 
 default:
   components:
-    sidebar:  [idRepository, sidebar]
+    sidebar:  []
 

@@ -33,7 +33,7 @@ class idDashboardActions extends sfActions
 
     if ($this->getUser()->isAdmin())
     {
-      $this->forward('idProject', 'index');
+      $this->forward('idDashboard', 'admin');
     }
     
     $this->pager = new sfDoctrinePager('Issue',10);
@@ -42,5 +42,10 @@ class idDashboardActions extends sfActions
     $this->pager->init();
 
     $this->projects = $this->getUser()->getProjectsIdsAndNamesWhereIhaveAssignedIssues();
+  }
+
+  public function executeAdmin()
+  {
+    
   }
 }
