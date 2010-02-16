@@ -21,6 +21,31 @@
  */
 class idDashboardActions extends sfActions
 {
+
+  protected function forwardToDashboard($user)
+  {
+    if ($user->isAdmin())
+    {
+      $this->forward('idDashboard', 'admin');
+    }
+    if ($user->isProjectManager())
+    {
+      $this->forward('idDashboard', 'projectManager');
+    }
+
+    if ($user->isCustomer())
+    {
+      $this->forward('idDashboard', 'customer');
+    }
+
+    if ($user->isDeveloper())
+    {
+      $this->forward('idDashboard', 'developer');
+    }
+
+    //forward to 404
+  }
+
   /**
    * Shows to the user all the issues assigned to him.
    * The admin is forwarded to the list of the projects.
@@ -29,13 +54,23 @@ class idDashboardActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idDashboard-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $this->forwardToDashboard($this->getUser());
+  }
 
-    if ($this->getUser()->isAdmin())
-    {
-      $this->forward('idDashboard', 'admin');
-    }
-    
+  public function executeAdmin(sfWebRequest $request)
+  {
+    $this->forwardUnless($this->getUser()->isAdmin(), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+  }
+
+  public function executeCustomer(sfWebRequest $request)
+  {
+    $this->forwardUnless($this->getUser()->isCustomer(), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+  }
+
+  public function executeDeveloper(sfWebRequest $request)
+  {
+    $this->forwardUnless($this->getUser()->isDeveloper(), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+
     $this->pager = new sfDoctrinePager('Issue',10);
     $this->pager->setQuery(Doctrine::getTable('Issue')->getQueryForUserIssues($this->getUser()->getProfile()->getId()));
     $this->pager->setPage($this->getRequestParameter('page',1));
@@ -44,8 +79,9 @@ class idDashboardActions extends sfActions
     $this->projects = $this->getUser()->getProjectsIdsAndNamesWhereIhaveAssignedIssues();
   }
 
-  public function executeAdmin()
+  public function executeProjectManager(sfWebRequest $request)
   {
-    
+    $this->forwardUnless($this->getUser()->isProjectManager(), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
   }
+
 }

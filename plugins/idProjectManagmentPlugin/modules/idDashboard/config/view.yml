@@ -1,3 +1,19 @@
+admin:
+  components:
+    sidebar:  []
+
+projectManager:
+  components:
+    sidebar:  []
+
+customer:
+  components:
+    sidebar:  []
+
+developer:
+  components:
+    sidebar:  []
+
 default:
   components:
     sidebar:  []

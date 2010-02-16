@@ -68,6 +68,21 @@ class myUser extends sfGuardSecurityUser
     return ($this->isSuperAdmin() || $this->hasPermission('admin')) ? true : false;
   }
 
+  public function isProjectManager()
+  {
+    return $this->hasCredential('project manager');
+  }
+
+  public function isCustomer()
+  {
+    return $this->hasCredential('customer');
+  }
+
+  public function isDeveloper()
+  {
+    return $this->hasCredential('user');
+  }
+
   /**
    * Retunrs the projects where the actual user is set as a member
    *

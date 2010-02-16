@@ -1,0 +1,55 @@
+sfGuardUser:
+  sfGuardUser_1:
+    username: admin
+    password: admin
+    is_active: true
+    is_super_admin: true
+
+sfGuardGroup:
+  sfGuardGroup_1:
+    name: admin
+    description: 'Administrator group'
+  sfGuardGroup_2:
+    name: user
+    description: 'User group'
+  sfGuardGroup_3:
+    name: 'project managers'
+    description: 'Project managers group'
+  sfGuardGroup_4:
+    name: customer
+    description: 'Customers group'
+
+sfGuardPermission:
+  sfGuardPermission_1:
+    name: admin
+    description: 'Administrator permission'
+  sfGuardPermission_2:
+    name: user
+    description: 'Basic user permission'
+  sfGuardPermission_3:
+    name: 'project manager
+    description: 'Project Manager'
+  sfGuardPermission_4:
+    name: customer
+    description: 'Customers'
+
+sfGuardGroupPermission:
+  sfGuardGroupPermission_1_1:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_1
+  sfGuardGroupPermission_2_2:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_2
+  sfGuardGroupPermission_3_3:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_3
+  sfGuardGroupPermission_4_4:
+    sfGuardGroup: sfGuardGroup_4
+    sfGuardPermission: sfGuardPermission_4
+
+sfGuardUserGroup:
+  sfGuardUserGroup_1_1:
+    sfGuardUser: sfGuardUser_1
+    sfGuardGroup: sfGuardGroup_1
+
+
