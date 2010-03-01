@@ -136,7 +136,7 @@ body { font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: n
 .square-yellow { background: #FFD150; }
 .flag-green { background: url(/images/icons/14-flag-green.png) no-repeat center; }
 .flag-grey { background: url(/images/icons/14-flag-grey.png) no-repeat center; }
-.percent { font-size: 12px; color: #000; margin-top: 7px; margin-left: 3px; font-weight: bold; }
+.percent { font-size: 11px; color: #000; margin-top: 7px; margin-left: 3px; font-weight: bold; }
 /*.error { background: #FFD5D5 url(/images/icons/20-x.png) no-repeat 5px 10px; clear: both; width: 100%; } */
 .notice { background: #FFF6BF url(/images/icons/20-float.png) no-repeat 5px 10px; }
 .note { background: #FFF6BF url(/images/icons/20-bulb.png) no-repeat 5px 10px; padding-right: 1.5em; border: 1px solid #FFD324; }
@@ -229,6 +229,11 @@ input.error:focus { border: 2px solid red; }
 .pager { text-align: right; }
 .pager a { padding-left: 5px; padding-right: 5px; font-size: 1.2em; }
 /*-- milestones --*/
+
+#sidebar-right .menuStatus .statusTitle a, .contentWrapper .menuStatus .statusTitle a
+{
+  color: #000000;
+}
 
 .milestone-description, .milestone-status { padding-top: 10px; }
 .late { color: #CE0000; font-weight: bold; }

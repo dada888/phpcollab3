@@ -9,7 +9,7 @@
  * idDoctrineTestBrowser.class.php
  *
  * @package    phpCollab3
- * @subpackage idProjectManagmentPlugin Test
+ * @subpackage idProjectManagementPlugin Test
  */
 
 /**
@@ -18,7 +18,7 @@
  * Extends the standard sfTestFunctional class to add doctrine fixtures loading methods
  *
  * @package    phpCollab3
- * @subpackage idProjectManagmentPlugin Test
+ * @subpackage idProjectManagementPlugin Test
  * @author     Filippo (p16) De Santis <fd@ideato.it>
  * @author     Francesco Fullone <ff@ideato.it>
  */

@@ -1,0 +1,21 @@
+EventLog:
+  event_lo_1:
+    created_at: '<?php echo date('Y-m-d H:i:s'); ?>'
+    namespace: issue
+    action: creation
+    message: 'message <?php echo '1'.$i ?>: issue <a href="#">#1<?php echo $i ?></a> created today project_ref#1'
+  event_lo_2:
+    created_at: '<?php echo date('Y-m-d H:i:s',strtotime('-1 days')); ?>'
+    namespace: repository
+    action: commit
+    message: 'message <?php echo '2'.$i ?>: commit on repository repository_name project_ref#1'
+  event_lo_3:
+    created_at: '<?php echo date('Y-m-d H:i:s',strtotime('-2 days')); ?>'
+    namespace: issue
+    action: assigned
+    message: 'message <?php echo '3'.$i ?>: issue <a href="#">#2<?php echo $i ?></a> has been assigned to <a href="#">johnny</a> user_ref#1 project_ref#1'
+  event_lo_4:
+    created_at: '<?php echo date('Y-m-d H:i:s',strtotime('-3 days')); ?>'
+    namespace: issue
+    action: completed
+    message: 'message <?php echo '4'.$i ?>: issue <a href="#">#1234</a> has been closed/completed by <a href="#">johnny</a> user_ref#1 project_ref#1'

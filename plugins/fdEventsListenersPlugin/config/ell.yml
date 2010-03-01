@@ -1,7 +1,0 @@
-# Example:
-#
-# event1:
-#  event_namespace: routing
-#  event_name:      load_configuration
-#  listener_class:  sfGuardUSer
-#  listener_method: listenToEvent

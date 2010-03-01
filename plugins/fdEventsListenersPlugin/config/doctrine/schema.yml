@@ -1,0 +1,11 @@
+EventLog:
+  options:
+    charset: utf8
+  columns:
+    namespace:    {type: string(256)}
+    action:       {type: string(256)}
+    message:      {type: string(5000)}
+    created_at:   {type: datetime}
+  indexes:
+    created_at_index:
+      fields: [created_at]

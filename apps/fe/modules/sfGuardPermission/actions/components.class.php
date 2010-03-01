@@ -9,14 +9,14 @@
  * sfGuardPermission/components.class.php
  *
  * @package    phpCollab3
- * @subpackage idProjectManagmentPlugin Modules
+ * @subpackage idProjectManagementPlugin Modules
  */
 
 /**
  * sfGuardPermission Components
  *
  * @package    phpCollab3
- * @subpackage idProjectManagmentPlugin Modules
+ * @subpackage idProjectManagementPlugin Modules
  * @author Filippo (p16) de Santis <fd@ideato.it>
  */
 class sfGuardPermissionComponents extends sfComponents

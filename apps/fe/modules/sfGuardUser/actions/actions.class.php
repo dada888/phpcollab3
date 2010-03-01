@@ -9,14 +9,14 @@
  * sfGuardUserActions actions.
  *
  * @package    phpCollab3
- * @subpackage idProjectManagmentPlugin Modules
+ * @subpackage idProjectManagementPlugin Modules
  */
 
 /**
  * sfGuardUserActions actions.
  *
  * @package    phpCollab3
- * @subpackage idProjectManagmentPlugin Modules
+ * @subpackage idProjectManagementPlugin Modules
  * @author     Filippo (p16) De Santis <fd@ideato.it>
  */
 class sfGuardUserActions extends autoSfGuardUserActions

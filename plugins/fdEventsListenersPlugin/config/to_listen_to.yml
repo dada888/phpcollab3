@@ -1,0 +1,5 @@
+# Example:
+#
+# event_to_log:
+#  event_namespace: routing
+#  event_name:      load_configuration

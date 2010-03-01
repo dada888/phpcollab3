@@ -10,7 +10,7 @@
  * sfGuardAuth/action.class.php
  *
  * @package    phpCollab3
- * @subpackage idProjectManagmentPlugin Modules
+ * @subpackage idProjectManagementPlugin Modules
  */
 
 /**
@@ -22,7 +22,7 @@ require_once(sfConfig::get('sf_plugins_dir').'/sfDoctrineGuardPlugin/modules/sfG
  * sfGuardAuth actions
  *
  * @package    phpCollab3
- * @subpackage idProjectManagmentPlugin Modules
+ * @subpackage idProjectManagementPlugin Modules
  * @author Filippo (p16) de Santis <fd@ideato.it>
  */
 class sfGuardAuthActions extends BasesfGuardAuthActions
