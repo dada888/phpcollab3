@@ -251,6 +251,17 @@ class PluginIssueTable extends Doctrine_Table
     }
   }
 
+  public function retrieveLogTimeForProjectMilestone($project_id, $milestone_id)
+  {
+    if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
+    {
+      return $q->select('SUM(l.log_time) as milestone_log_times')
+               ->leftJoin('i.logtimes l')
+               ->addWhere('i.milestone_id = ?', $milestone_id)
+               ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+    }
+  }
+
   public function getSpentTimeOnIssuesClosedAndInvalidForProject($project_id)
   {
     if (!is_null($q = $this->getQueryForProjectIssues($project_id)))

@@ -15,7 +15,7 @@ function link_project($name, $id)
   }
 }
 
-function get_cass_class_based_on_project_on_time($code)
+function get_css_class_based_on_project_on_time($code)
 {
   switch ($code)
   {
@@ -27,3 +27,17 @@ function get_cass_class_based_on_project_on_time($code)
       return 'green';
   }
 }
+
+function get_css_class_based_on_project_on_budget($on_budget)
+{
+  return ($on_budget) ? 'green' : 'red' ;
+}
+
+function get_days_of_difference($first_date, $second_date)
+{
+  $start_ts = strtotime($first_date);
+  $end_ts = strtotime($second_date);
+  $diff = abs($end_ts - $start_ts);
+  return round($diff / 86400);
+}
+

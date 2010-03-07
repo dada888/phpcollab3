@@ -46,4 +46,24 @@ abstract class PluginProject extends BaseProject
   {
     return Doctrine::getTable('Project')->hasExceededEstimatedHours($this->id);
   }
+
+  public function isOnTime()
+  {
+    return Doctrine::getTable('Project')->isProjectOnTime($this);
+  }
+
+  public function isOnBudget()
+  {
+    if ($this->costs > 0)
+    {
+      return $this->budget > $this->costs;
+    }
+
+    return true;
+  }
+
+  public function getReport()
+  {
+    return Doctrine::getTable('Project')->getReportOnProject($this->id);
+  }
 }

@@ -131,21 +131,31 @@ class PluginProjectTable extends Doctrine_Table
     return Project::ONTIME;
   }
 
+  public function getReportOnProject($project_id)
+  {
+    $closed = Doctrine::getTable('Issue')->getQueryForClosedIssueForProject($project_id)->count();
+    $assigned = Doctrine::getTable('Issue')->getQueryForAssignedIssueForProject($project_id)->count();
+    $all = Doctrine::getTable('Issue')->countByProject($project_id);
+
+    $report = array();
+    $report['completion_percentage'] = ($all['issues'] > 0) ? round((100*$closed)/$all['issues'], 2) : 0;
+    $report['assigned_percentage'] = ($all['issues'] > 0) ? round((100*$assigned)/$all['issues'], 2) : 0;
+    $report['closed_issues'] = $closed;
+    $report['remaining_issues'] = $all['issues'] - $closed;
+    $report['messages'] = Doctrine::getTable('Message')->getQueryForProjectMessages($project_id)->count();
+
+    return $report;
+  }
+
+
   public function getReportsForRecentProjects($limit = 3)
   {
     $projects_id_name = Doctrine::getTable('Project')->getRecentPrjectsIdAndName($limit);
     $reports = array();
     foreach ($projects_id_name as $id_name)
     {
-      $closed = Doctrine::getTable('Issue')->getQueryForClosedIssueForProject($id_name['id'])->count();
-      $assigned = Doctrine::getTable('Issue')->getQueryForAssignedIssueForProject($id_name['id'])->count();
-      $all = Doctrine::getTable('Issue')->countByProject($id_name['id']);
-
-      $reports[$id_name['id']]['completion_percentage'] = ($all['issues'] > 0) ? round((100*$closed)/$all['issues'], 2) : 0;
-      $reports[$id_name['id']]['assigned_percentage'] = ($all['issues'] > 0) ? round((100*$assigned)/$all['issues'], 2) : 0;
-      $reports[$id_name['id']]['closed_issues'] = $closed;
-      $reports[$id_name['id']]['remaining_issues'] = $all['issues'] - $closed;
-      $reports[$id_name['id']]['messages'] = Doctrine::getTable('Message')->getQueryForProjectMessages($id_name['id'])->count();
+      $report = $this->getReportOnProject($id_name['id']);
+      $reports[$id_name['id']] = $report;
       $reports[$id_name['id']]['project_name'] = $id_name['name'];
       $reports[$id_name['id']]['on_time'] = $this->isProjectOnTime($id_name['id']);
       
