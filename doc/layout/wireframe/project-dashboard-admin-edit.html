@@ -24,7 +24,7 @@
 </head>
 <body>
 <div class="container wrapper showgridOFF">
-  <div class="span-24 container last  utility-nav right">Hello, Adam Patterson <a href="#" class="utilLogin">Login</a> <a href="#" class="utilSettings">Settings</a> <a href="#" class="utilHelp">Help</a>
+  <div class="span-24 container last  utility-nav right">Hello, Adam Patterson <a href="#" class="utilLogin">Login</a> <a href="settings.html" class="utilSettings">Settings</a> <a href="#" class="utilHelp">Help</a>
     <select>
       <option>One</option>
     </select>
@@ -235,6 +235,61 @@ Elements for the textile editor should be considered.
                 <div class="span-1 last">&nbsp;<a href="#delete"><img src="images/icons/20-delete-ball.png" width="20" height="20" alt="Time" /></a></div>
               </div>
             </div>
+            <div class="span-17 recent last">
+              <div class="span-17 menu last">
+                <div class="colum span-4 append-8"><span class="padding-3"><strong>ACME Group</strong></span></div>
+                <div class="span-4"><span class="padding-3"><strong>Roll</strong></span></div>
+                <div class="span-1 last">&nbsp;</div>
+              </div>
+              <div class="span-17 last dashboard-row">
+                <div class="span-1"><img src="images/icons/20-group.png" width="20" height="20" alt="Group" /></div>
+                <div class="span-11"><strong> Adam P</strong></div>
+                <div class="span-4 right">
+                  <select id="member_role_id" name="member[role_id]">
+                    <option value="3" selected="selected">Manager</option>
+                    <option value="4">Developer</option>
+                    <option value="5">Reporter</option>
+                  </select>
+                </div>
+                <div class="span-1 last">&nbsp;<a href="#delete"><img src="images/icons/20-delete-ball.png" width="20" height="20" alt="Time" /></a></div>
+              </div>
+              <div class="span-17 last dashboard-row">
+                <div class="span-1"><img src="images/icons/20-group.png" width="20" height="20" alt="Group" /></div>
+                <div class="span-11"><strong> James M</strong></div>
+                <div class="span-4 right">
+                  <select id="member_role_id" name="member[role_id]">
+                    <option value="3">Manager</option>
+                    <option value="4">Developer</option>
+                    <option value="5">Reporter</option>
+                  </select>
+                </div>
+                <div class="span-1 last">&nbsp;<a href="#delete"><img src="images/icons/20-delete-ball.png" width="20" height="20" alt="Time" /></a></div>
+              </div>
+              <div class="span-17 last dashboard-row">
+                <div class="span-1"><img src="images/icons/20-group.png" width="20" height="20" alt="Group" /></div>
+                <div class="span-11"><strong> Samantha J</strong></div>
+                <div class="span-4 right">
+                  <select id="member_role_id" name="member[role_id]">
+                    <option value="3">Manager</option>
+                    <option value="4">Developer</option>
+                    <option value="5" selected="selected">Reporter</option>
+                  </select>
+                </div>
+                <div class="span-1 last">&nbsp;<a href="#delete"><img src="images/icons/20-delete-ball.png" width="20" height="20" alt="Time" /></a></div>
+              </div>
+              <div class="span-17 last dashboard-row last-row">
+                <div class="span-1"><img src="images/icons/20-group.png" width="20" height="20" alt="Group" /></div>
+                <div class="span-11"><strong> Candice B</strong></div>
+                <div class="span-4 right">
+                  <select id="member_role_id" name="member[role_id]">
+                    <option value="3">Manager</option>
+                    <option value="4">Developer</option>
+                    <option value="5">Reporter</option>
+                  </select>
+                </div>
+                <div class="span-1 last">&nbsp;<a href="#delete"><img src="images/icons/20-delete-ball.png" width="20" height="20" alt="Time" /></a></div>
+              </div>
+            </div>
           </div>
           <div class="span-6 push-1 last">
             <h3>Details</h3>
@@ -250,13 +305,23 @@ Elements for the textile editor should be considered.
                 <option value="4">Developer</option>
                 <option value="5">Reporter</option>
               </select>
+             Add a Company
+              <select id="member_role_id" name="member[role_id]">
+                              <option value="5">Select a Company</option>
+                <option value="3">ACME Co</option>
+                <option value="4">7-11</option>
+
+              </select>
               <input name="commit" value="Add" type="submit">
             </div>
           </div>
         </div>
         <div id="fourth" class="span-17">
           <h2>Invoicing</h2>
-          <div class="note">Build out</div>
+          <div class="note">Companie profile<br />
+Rates <br />
+Tax<br />
+Currencies </div>
         </div>
         <div id="fith" class="span-17">
           <label for="wiki_title"><span class="red">Wiki Title </span> </label>
@@ -264,15 +329,16 @@ Elements for the textile editor should be considered.
           <input id="wiki_title" name="repository_url2" size="60" value="My first Wiki Page" type="text" />
         </div>
         <div id="sith" class="span-17">
-          <p>
-            <label>SCM</label>
+          <h2>Sourc Controll</h2>
+            <label>
+            SCM</label>
             <select id="repository_scm" name="repository_scm" ">
               <option value="">--- Please select ---</option>
               <option value="Subversion" selected="selected">Subversion</option>
               <option value="Git">Git</option>
               <option value="Filesystem">Filesystem</option>
             </select>
-          </p>
+         
           <h3>SVN</h3>
           <label for="repository_url"><span class="red">URL </span> </label>
           <br />
@@ -297,6 +363,9 @@ Elements for the textile editor should be considered.
           <label for="repository_url"><span class="red">Filesystem </span> </label>
           <br />
           <input id="repository_url2" name="repository_url" size="60" value="" type="text" />
+          <div class="note">
+                <p>Each heading would be displayed when the selection in the drop down menu is selected.</p>
+          </div>
         </div>
       </div>
       <div class="span-17 last">

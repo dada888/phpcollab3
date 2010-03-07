@@ -90,11 +90,6 @@ class idMessageActions extends sfActions
     $this->forward404Unless($message->project_id == $request->getParameter('project_id'));
     $message->delete();
 
-    $this->dispatcher->notify(new sfEvent($this, 'message.delete',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'message_id' => $message->id
-                                                         )));
-
     $this->redirect('@index_messages?project_id='.$request->getParameter('project_id'));
   }
 
@@ -113,16 +108,10 @@ class idMessageActions extends sfActions
         $message->setProjectId($request->getParameter('project_id'));
         $message->setCreatedAt(date('Y-m-d', time()));
         $message->save();
-        $operation = 'creation';
+        $operation = 'create';
       }
 
-      $this->dispatcher->notify(new sfEvent($this, 'issue.'.$operation.'_success',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'message_id' => $message->getId(),
-                                                          'form_parameters' => $request->getParameter($form->getName())
-                                                         )));
-
-      $this->getUser()->setFlash('notice', 'Object '.$operation.' success');
+      $this->getUser()->setFlash('notice', 'Object '.$operation.'d successfully');
       $this->redirect('@edit_message?project_id='.$request->getParameter('project_id').'&message_id='.$message->getId());
     }
   }

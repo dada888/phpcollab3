@@ -33,4 +33,10 @@ abstract class PluginProfile extends BaseProfile
     return $this->getFirstName().' ('.$user->getUsername().') '.$this->getLastName().' ['.$this->getEmail().']';
   }
 
+  public function getShortName()
+  {
+    $user = $this->getUser();
+    return $this->getFirstName().' '. ucfirst(substr($this->getLastName(),0,1)).'.';
+  }
+
 }

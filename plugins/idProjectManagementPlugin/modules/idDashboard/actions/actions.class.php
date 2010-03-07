@@ -28,6 +28,7 @@ class idDashboardActions extends sfActions
     {
       $this->forward('idDashboard', 'admin');
     }
+
     if ($user->isProjectManager())
     {
       $this->forward('idDashboard', 'projectManager');
@@ -66,6 +67,8 @@ class idDashboardActions extends sfActions
   public function executeCustomer(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->isCustomer(), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $project_ids = $this->getUser()->getMyProjectsIds();
+    $this->recent_activities = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDaysByProjectsIds(3, $project_ids, 'LogDecorator');
   }
 
   public function executeDeveloper(sfWebRequest $request)

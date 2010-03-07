@@ -157,11 +157,6 @@ class idIssueActions extends sfActions
     $project_id = $request->getParameter('project_id');
 
     $issue->delete();
-    $this->dispatcher->notify(new sfEvent($this, 'issue.delete',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'issue_id' => $issue->id
-                                                         )));
-
     $this->redirect('@index_issue?project_id='.$project_id);
   }
 
@@ -177,19 +172,13 @@ class idIssueActions extends sfActions
     if ($form->isValid())
     {
       $issue = $form->save();
-      $this->dispatcher->notify(new sfEvent($this, 'issue.set_estimated_time_success',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'issue_id' => $issue->id,
-                                                          'form_parameters' => $request->getParameter($form->getName())
-                                                         )));
+      $this->dispatcher->notify(new sfEvent($issue,
+                                            'issue.set_estimated_time_success',
+                                            array('log_message' => LogMessageGenerator::generate($this->getUser(), 'Set estimated time to '.$issue->estimated_time.' hours', $issue),
+                                                  'project_id'  => $issue->project_id)));
       $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
     }
 
-    $this->dispatcher->notify(new sfEvent($this, 'issue.set_estimated_time_failed',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'issue_id' => $issue->id,
-                                                          'form_parameters' => $request->getParameter($form->getName())
-                                                         )));
     $this->getUser()->setFlash('error', $form['estimated_time']->renderError());
     $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
   }
@@ -247,7 +236,7 @@ class idIssueActions extends sfActions
     $form->bind($this->fixParameterForOpenOrClosedIssue($request->getParameter($form->getName()), $form->getObject()));
     if ($form->isValid())
     {
-      $operation = $form->getObject()->isNew() ? 'creation' : 'update';
+      $operation = $form->getObject()->isNew() ? 'create' : 'update';
       $issue = $form->save();
       
 //      the operation of saving this issue again cannot be done cause of a bug on the embedded for that we thought was solved during the phpday2009
@@ -264,12 +253,6 @@ class idIssueActions extends sfActions
 //      }
 
       
-
-      $this->dispatcher->notify(new sfEvent($this, 'issue.'.$operation.'_success',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'issue_id' => $issue->id,
-                                                          'form_parameters' => $request->getParameter($form->getName())
-                                                         )));
 
       $this->redirect('@index_issue?project_id='.$issue->project_id);
     }

@@ -7,7 +7,6 @@ foreach ($events_to_listen_to as $event => $parameters)
 {
   if (isset($parameters["event_namespace"]) && isset($parameters["event_name"]))
   {
-    $this->dispatcher
-         ->connect($parameters["event_namespace"].'.'.$parameters["event_name"], array('EventListener', 'processEvent'));
+    $this->dispatcher->connect($parameters["event_namespace"].'.'.$parameters["event_name"], array('EventListener', 'processEvent'));
   }
 }

@@ -31,4 +31,10 @@ abstract class PluginMilestone extends BaseMilestone
   {
     return $this->title;
   }
+
+  public function setUp()
+  {
+    parent::setUp();
+    $this->addListener(new EventLogDoctrineListener());
+  }
 }

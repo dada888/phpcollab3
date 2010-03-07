@@ -85,11 +85,6 @@ class idPriorityActions extends sfActions
 
         if (!$this->checkPositionParameters($priorities_list, $ordering_list))
         {
-          $this->dispatcher->notify(new sfEvent($this, 'priority.order_failed',
-                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                            'priorities_list' => $priorities_list,
-                                                            'ordering_list' => $ordering_list
-                                                           )));
           return $this->renderPartial('idPriority/order_message', array('response_message' => 'Some error occurred processing your request.', 'class' => 'message error'));
         }
 
@@ -99,20 +94,10 @@ class idPriorityActions extends sfActions
           $priority->save();
         }
 
-        $this->dispatcher->notify(new sfEvent($this, 'priority.order_success',
-                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                            'priorities_listr' => $priorities_list,
-                                                            'ordering_list' => $ordering_list
-                                                           )));
-        
         return $this->renderPartial('idPriority/order_message', array('response_message' => 'Order updated', 'class' => 'message notice'));
       }
     }
 
-    $this->dispatcher->notify(new sfEvent($this, 'priority.order_failed',
-                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                            'priorities_listr' => $priorities_list
-                                                           )));
     return $this->renderPartial('idPriority/order_message', array('response_message' => 'Invalid request', 'class' => 'message warning'));
   }
 
@@ -153,15 +138,10 @@ class idPriorityActions extends sfActions
       $this->switchFirstAndSecondPositions($priorities);
       $this->getUser()->setFlash('notice', 'Order updated');
 
-      $this->dispatcher->notify(new sfEvent($this, 'priority.order_success',
-                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId())));
-
       $this->redirect('idPriority/index');
     }
 
     $this->getUser()->setFlash('error', 'Some error occurred processing your request.');
-    $this->dispatcher->notify(new sfEvent($this, 'priority.order_failed',
-                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId())));
     $this->redirect('idPriority/index');
 
   }
@@ -258,11 +238,6 @@ class idPriorityActions extends sfActions
     $this->forward404Unless($priority = Doctrine::getTable('Priority')->find(array($request->getParameter('id'))), sprintf('Object priority does not exist (%s).', array($request->getParameter('id'))));
     $priority->delete();
 
-    $this->dispatcher->notify(new sfEvent($this, 'priority.delete',
-                                          array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                'priority_id' => $priority->id
-                                               )));
-
     $this->checkAndFixPriorityPositions();
 
     $this->redirect('idPriority/index');
@@ -280,7 +255,6 @@ class idPriorityActions extends sfActions
     $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
-      $operation = $form->getObject()->isNew() ? 'creation' : 'update';
       $priority = $form->save();
 
       if ($priority->getPosition() == null)
@@ -288,13 +262,6 @@ class idPriorityActions extends sfActions
         $highest_position = Doctrine::getTable('Priority')->retrieveHighestPosition();
         $priority->setPosition($highest_position + 1);
         $priority->save();
-
-        $this->dispatcher->notify(new sfEvent($this, 'priority.'.$operation.'_success',
-                                                      array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                            'priority_id' => $priority->id,
-                                                            'form_parameters' => $request->getParameter($form->getName())
-                                                           )));
-
       }
 
       $this->redirect('@index_priority');

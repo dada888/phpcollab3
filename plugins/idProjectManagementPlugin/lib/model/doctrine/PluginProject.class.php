@@ -26,6 +26,12 @@ abstract class PluginProject extends BaseProject
   const EXCEEDING_ESTIMATION = 2;
   const LATE = 3;
 
+  public function setUp()
+  {
+    parent::setUp();
+    $this->addListener(new EventLogDoctrineListener());
+  }
+
   /**
    * Checks if the projects has at least one milestone.
    *

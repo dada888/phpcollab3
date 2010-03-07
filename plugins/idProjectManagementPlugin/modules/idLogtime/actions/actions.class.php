@@ -36,11 +36,10 @@ class idLogtimeActions extends sfActions
 
       $this->getUser()->setFlash('success', 'Log time added');
 
-      $this->dispatcher->notify(new sfEvent($this, 'log_time.add_to_issue',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'logtime_id' => $log_time->id,
-                                                          'form_parameters' => $request->getParameter($form->getName())
-                                                         )));
+      $this->dispatcher->notify(new sfEvent($log_time,
+                                            'log_time.add_to_issue',
+                                            array('log_message' => LogMessageGenerator::generate($this->getUser(), 'add', $log_time),
+                                                  'project_id'  => $issue->project_id)));
 
       $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
     }
@@ -127,10 +126,10 @@ class idLogtimeActions extends sfActions
     $this->forward404Unless($log_time = Doctrine::getTable('LogTime')->find(array($request->getParameter('id'))), sprintf('Object log_time does not exist (%s).', array($request->getParameter('id'))));
     $log_time->delete();
 
-    $this->dispatcher->notify(new sfEvent($this, 'log_time.delete',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'logtime_id' => $log_time->id
-                                                         )));
+    $this->dispatcher->notify(new sfEvent($log_time,
+                                            'log_time.delete',
+                                            array('log_message' => LogMessageGenerator::generate($this->getUser(), 'delete', $log_time),
+                                                  'project_id'  => $issue->project_id)));
 
     $this->redirect('idLogtime/index');
   }
@@ -140,14 +139,13 @@ class idLogtimeActions extends sfActions
     $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
-      $operation = $form->getObject()->isNew() ? 'creation' : 'update';
+      $operation = $form->getObject()->isNew() ? 'create' : 'update';
       $log_time = $form->save();
       
-      $this->dispatcher->notify(new sfEvent($this, 'log_time.'.$operation.'_success',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'logtime_id' => $log_time->id,
-                                                          'form_parameters' => $request->getParameter($form->getName())
-                                                         )));
+      $this->dispatcher->notify(new sfEvent($log_time,
+                                            'log_time.'.$operation,
+                                            array('log_message' => LogMessageGenerator::generate($this->getUser(), $operation, $log_time),
+                                                  'project_id'  => $issue->project_id)));
 
       $this->redirect('idLogtime/edit?id='.$log_time->getId());
     }

@@ -166,11 +166,6 @@ class idProjectActions extends sfActions
     $this->forward404Unless($project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
     $project->delete();
 
-    $this->dispatcher->notify(new sfEvent($this, 'project.delete',
-                                          array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                'project_id' => $project->id
-                                               )));
-
     $this->redirect('idProject/index');
   }
 
@@ -200,15 +195,7 @@ class idProjectActions extends sfActions
     $form->bind($form_parameters);
     if ($form->isValid())
     {
-      $operation = $form->getObject()->isNew() ? 'creation' : 'update';
       $project = $form->save();
-
-      $this->dispatcher->notify(new sfEvent($this, 'profile.'.$operation.'_success',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'project_id' => $project->id,
-                                                          'form_parameters' => $form_parameters
-                                                         )));
-
       $this->redirect('@show_project?id='.$project->getId());
     }
   }

@@ -23,12 +23,11 @@ class LogDecorator
   public function extractDataFromMessage($message)
   {
     $extracted_data = array();
-    preg_match_all('/\s\w+#\w+|\s\w+#\"[\w\s]*\"/', $message, $matches);
-
+    preg_match_all('/([\s]?[\w]+#[\w]+)|([\s]?[\w]+#\"[\w\s\.]*\")/', $message, $matches);
+    
     foreach ($matches[0] as $match)
     {
       $message = str_replace($match, '', $message);
-      
       list($key,$value) = explode('#', $match);
       $extracted_data[trim($key)] = trim(str_replace('"','',$value));
     }

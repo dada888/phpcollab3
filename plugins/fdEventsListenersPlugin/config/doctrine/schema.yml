@@ -6,6 +6,19 @@ EventLog:
     action:       {type: string(256)}
     message:      {type: string(5000)}
     created_at:   {type: datetime}
+    project_id:   {type: integer}
+  relations:
+    Project:
+      class: Project
+      foreignAlias: Events
+      local: project_id
+      foreign: id
+      type: one
+      foreignType: many
   indexes:
     created_at_index:
       fields: [created_at]
+    project_id_index:
+      fields: [project_id]
+    created_at_project_id_index:
+      fields: [created_at, project_id]

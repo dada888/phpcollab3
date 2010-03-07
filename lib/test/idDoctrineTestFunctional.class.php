@@ -29,18 +29,32 @@ class idDoctrineTestFunctional extends sfTestFunctional
    *
    * @access private
    */
-  public function inizilizeDatabase()
+  public function initializeDatabase()
   {
-    $this->info('Loading fixtures');
+    $this->info('Initializing database');
 
     $command = "./symfony doctrine:drop-db --env=test --no-confirmation; ";
     $command .= "./symfony doctrine:build-db --env=test; ";
     $command .= "./symfony doctrine:build-sql --env=test; ";
     $command .= "./symfony doctrine:insert-sql --env=test; ";
-    $command .= "./symfony doctrine:data-load --env=test test/fixtures/fixtures.yml";
-
     $this->executeShellCommand($command);
 
+    $this->loadFixtures();
+
+  }
+
+  public function loadFixtures()
+  {
+    $this->info('Loading fixtures');
+    $command .= "./symfony doctrine:data-load --env=test test/fixtures/fixtures.yml";
+    $this->executeShellCommand($command);
+  }
+
+  public function loadEventFixtures()
+  {
+    $this->info('Loading events fixtures');
+    $command = "./symfony doctrine:data-load --env=test test/fixtures/event_log_fixtures.yml";
+    $this->executeShellCommand($command);
   }
 
   /**

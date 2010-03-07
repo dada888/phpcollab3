@@ -30,7 +30,7 @@ class PluginEventLogTable extends Doctrine_Table
     return $clean_result_by_date;
   }
 
-  protected function retrieveEventsByDays($days)
+  protected function getQueryToRetrieveEventsByDays($days)
   {
     $latest_dates = $this->getLastDatesOfEvents($days);
     $first_date = date('Y-m-d 00:00:00', strtotime($latest_dates[0]['date'].' +1 day'));
@@ -39,14 +39,32 @@ class PluginEventLogTable extends Doctrine_Table
     $until_date = date('Y-m-d 23:59:59', strtotime('-'.$days.' days'));
 
     return $this->createQuery()
+                ->from('EventLog e')
+                ->leftJoin('e.Project')
                 ->where('created_at < ?', $first_date)
                 ->andWhere('created_at >= ?', $last_date)
-                ->orderBy('created_at DESC')
+                ->orderBy('created_at DESC');
+  }
+
+  protected function retrieveEventsByDays($days)
+  {
+    return $this->getQueryToRetrieveEventsByDays($days)->execute();
+  }
+
+  protected function retrieveEventsByDaysAndProjectIds($days, $project_ids)
+  {
+    return $this->getQueryToRetrieveEventsByDays($days)
+                ->andWhereIn('project_id', $project_ids)
                 ->execute();
   }
 
   public function retrieveEventsOfTheLastDays($days, $decorator_class = null)
   {
     return $this->cleanData($this->retrieveEventsByDays($days), $decorator_class);
+  }
+
+  public function retrieveEventsOfTheLastDaysByProjectsIds($days, $project_ids, $decorator_class = null)
+  {
+    return $this->cleanData($this->retrieveEventsByDaysAndProjectIds($days, $project_ids), $decorator_class);
   }
 }

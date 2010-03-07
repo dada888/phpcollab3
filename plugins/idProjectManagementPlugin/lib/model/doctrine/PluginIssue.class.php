@@ -21,6 +21,12 @@
  */
 abstract class PluginIssue extends BaseIssue
 {
+  public function setUp()
+  {
+    parent::setUp();
+    $this->addListener(new EventLogDoctrineListener());
+  }
+
   /**
    * magic method that return the a string of the format "#<number> <issue_title>" when an issue is printed
    *

@@ -67,11 +67,6 @@ class idTrackerActions extends sfActions
     $this->forward404Unless($tracker = Doctrine::getTable('Tracker')->find(array($request->getParameter('id'))), sprintf('Object tracker does not exist (%s).', array($request->getParameter('id'))));
     $tracker->delete();
 
-    $this->dispatcher->notify(new sfEvent($this, 'tracker.delete',
-                                          array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                'tracker_id' => $tracker->id
-                                               )));
-
     $this->redirect('idTracker/index');
   }
 
@@ -80,16 +75,7 @@ class idTrackerActions extends sfActions
     $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
-      $operation = $form->getObject()->isNew() ? 'creation' : 'update';
       $tracker = $form->save();
-
-      $this->dispatcher->notify(new sfEvent($this, 'tracker.'.$operation.'_success',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'tracker_id' => $tracker->id,
-                                                          'form_parameters' => $request->getParameter($form->getName())
-                                                         )));
-
-
       $this->redirect('idTracker/index');
     }
   }

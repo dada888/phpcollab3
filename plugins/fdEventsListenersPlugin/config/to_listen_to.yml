@@ -3,3 +3,12 @@
 # event_to_log:
 #  event_namespace: routing
 #  event_name:      load_configuration
+event_milestone_create:
+  event_namespace: milestone
+  event_name:      create
+event_milestone_update:
+  event_namespace: milestone
+  event_name:      update
+event_milestone_delete:
+  event_namespace: milestone
+  event_name:      delete

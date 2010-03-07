@@ -7,7 +7,7 @@ $configuration = ProjectConfiguration::getApplicationConfiguration( 'fe', 'unitt
 new sfDatabaseManager($configuration);
 Doctrine::loadData(dirname(__FILE__).'/../fixtures/fixtures.yml');
 
-$t = new lime_test(17, new lime_output_color());
+$t = new lime_test(20, new lime_output_color());
 
 $events = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDays(3);
 
@@ -30,6 +30,12 @@ $events = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDays(1);
 
 $t->is(count($events[$today]), 1,  'count = 1');
 $t->like($events[$today][0]->created_at, '/'.date('Y-m-d H:i').'/',  '->retrieveEventsOfTheLAstDays(3) first result ok');
+
+$events = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDaysByProjectsIds(5, array(1,3), null);
+$t->is(count($events), 2,  'retrieveEventsOfTheLastDaysByProjectsIds() returns 2 events');
+$t->is($events[date('Y-m-d')][0]->project_id, 1, 'found right event');
+$t->is($events[date('Y-m-d',strtotime('-2 days'))][0]->project_id, 3, 'found right event');
+
 
 initializeDatabase();
 Doctrine::loadData(dirname(__FILE__).'/../fixtures/fixtures_old_log.yml');

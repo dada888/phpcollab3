@@ -9,13 +9,13 @@
 </head>
 <body>
 <div class="container wrapper">
-  <div class="span-24 container last  utility-nav right">Hello, Adam Patterson <a href="#" class="utilLogin">Login</a> <a href="#" class="utilSettings">Settings</a> <a href="#" class="utilHelp">Help</a>
+  <div class="span-24 container last  utility-nav right">Hello, Adam Patterson <a href="#" class="utilLogin">Login</a> <a href="settings.html" class="utilSettings">Settings</a> <a href="#" class="utilHelp">Help</a>
     <select>
       <option>One</option>
     </select>
   </div>
   <div class="span-24 container last header">
-    <div class="span-15 title"> Application Title</div>
+    <div class="span-15 title">ACME Project</div>
     <div id="header-search" class="search-box span-7 utility-search last right">
       <form id="main-search-form" action="index.php?page=list" method="post">
         <div class="search-button">
@@ -29,9 +29,11 @@
     </div>
   </div>
   <div class="span-24 container last">
-    <div class="span-18 navigation">      <ul>
-               <li><a href="dashboard-admin.html">Dashboard</a></li>
-        <li class="current"><a href="project-list.html">Projects</a></li><li><a href="time.html">Time</a></li>
+    <div class="span-18 navigation">
+      <ul>
+        <li><a href="dashboard-admin.html">Dashboard</a></li>
+        <li><a href="project-list.html">Projects</a></li>
+        <li><a href="time.html">Time</a></li>
         <li><a href="calendar.html">Calendar</a></li>
         <li><a href="users.html">Users</a></li>
         <li><a href="messages.html"><span>5</span>Messages</a></li>
@@ -44,13 +46,301 @@
     </div>
   </div>
   <div class="span-24 append-1 prepend-1 last contentWrapper rounded">
-<h3>Time</h3>
+    <div class="span-20 dashboard">
+      <h3>Recent Activity</h3>
       <hr />
-      <p>Time</p>
-    <div class="note">
-      <p>User time over all projects</p>
-      <p>PM can generate reports</p>
+      <div class="span-20 recent last">
+        <div class="span-20 menu last">
+          <div class="colum span-4 append-9"><span class="padding-3"><strong>Add New:</strong></span></div>
+          <div class="span-4"><span class="padding-3"><strong>Date</strong></span></div>
+          <div class="span-2 right last append-1"><span class="padding-3"><strong>Total</strong></span></div>
+        </div>
+        <div class="span-20 last dashboard-row last-row highlight">
+          <div class="span-1"><a href="#add"><img src="images/icons/20-add-ball.png" width="20" height="20" alt="Time" /></a></div>
+          <div class="span-3">
+            <select class="dropName">
+              <option>Adam P</option>
+              <option>James f</option>
+              <option>Paul S</option>
+            </select>
+          </div>
+          <div class="span-3"><span class="span-4 right">
+            <select name="select" class="dropMonth">
+              <option>Project List</option>
+              <option>ABC</option>
+              <option>ACME</option>
+              <option>Internal</option>
+            </select>
+            </span></div>
+          <div class="span-6">
+            <input type="text" class="inputSummary" />
+          </div>
+          <div class="span-4 right">
+            <select class="dropMonth">
+              <option>January</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option selected="selected">June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>October</option>
+              <option>November</option>
+              <option>December</option>
+            </select>
+            <select class="dropDate">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <option>26</option>
+              <option selected="selected">27</option>
+              <option>28</option>
+              <option>29</option>
+              <option>30</option>
+              <option>31</option>
+            </select>
+          </div>
+          <div class="span-2 right ">
+            <input type="text" class="inputHours" />
+          </div>
+          <div class="span-1 last right"><a href="#save"><img src="images/icons/20-check.png" width="20" height="20" alt="Time" /></a></div>
+        </div>
+        <div class="span-20 menu last">
+          <div class="colum span-4 append-11"><span class="padding-3"><strong>ACEM Project:</strong></span></div>
+          <div class="span-2 right"><span class="padding-3"><strong>Date</strong></span></div>
+          <div class="span-2 right last append-1"><span class="padding-3"><strong>Total</strong></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Adam P</strong></div>
+          <div class="span-9"><strong>Created Ticket </strong><a href="#">#567</a></div>
+          <div class="span-4 right"><span class="padding-3">June 27th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Freddie K</strong></div>
+          <div class="span-9"><strong>Closed Ticket </strong><a href="#">#879</a></div>
+          <div class="span-4 right"><span class="padding-3">June 27th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Samantha K</strong></div>
+          <div class="span-9"><strong>Created Ticket </strong><a href="#">#567</a></div>
+          <div class="span-4 right"><span class="padding-3">June 27th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Adam P</strong></div>
+          <div class="span-9"><strong>Closed Ticket </strong><a href="#">#879</a></div>
+          <div class="span-4 right"><span class="padding-3">June 27th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+      </div>
+      <div class="span-20 recent last">
+        <div class="span-20 menu last">
+          <div class="colum span-4 append-11"><strong>ABC Project:</strong></div>
+          <div class="span-2 right"><span class="padding-3"><strong>Date</strong></span></div>
+          <div class="span-2 right last append-1"><span class="padding-3"><strong>Total</strong></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Adam P</strong></div>
+          <div class="span-9"><strong>Created Ticket </strong><a href="#">#567</a></div>
+          <div class="span-4 right"><span class="padding-3">June 27th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Mike T</strong></div>
+          <div class="span-9"><strong>Closed Ticket </strong><a href="#">#879</a></div>
+          <div class="span-4 right"><span class="padding-3">June 27th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+        <div class="span-20 last dashboard-row highlight">
+          <div class="span-1"><a href="#delete"><img src="images/icons/20-red-minus-ball.png" width="20" height="20" alt="Time" /></a></div>
+          <div class="span-3">
+            <select class="dropName">
+              <option>Adam P</option>
+              <option selected="selected">James F</option>
+              <option>Paul S</option>
+            </select>
+          </div>
+          <div class="span-9">
+            <input type="text" class="inputSummary" value="Edit my time" />
+          </div>
+          <div class="span-4 right">
+            <select class="dropMonth">
+              <option>January</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option selected="selected">June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>October</option>
+              <option>November</option>
+              <option>December</option>
+            </select>
+            <select class="dropDate">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <option>26</option>
+              <option selected="selected">27</option>
+              <option>28</option>
+              <option>29</option>
+              <option>30</option>
+              <option>31</option>
+            </select>
+          </div>
+          <div class="span-2 right ">
+            <input type="text" class="inputHours" value="4" />
+          </div>
+          <div class="span-1 last right"><a href="#save"><img src="images/icons/20-check.png" width="20" height="20" alt="Time" /></a></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Adam P</strong></div>
+          <div class="span-9"><strong>Closed Ticket </strong><a href="#">#879</a></div>
+          <div class="span-4 right"><span class="padding-3">June 26th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Adam P</strong></div>
+          <div class="span-9"><strong>Created Ticket </strong><a href="#">#567</a></div>
+          <div class="span-4 right"><span class="padding-3">June 24th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+      </div>
+      <div class="span-20 recent last">
+        <div class="span-20 menu last">
+          <div class="colum span-4 append-11"><strong>Internal Project</strong></div>
+          <div class="span-2 right"><span class="padding-3"><strong>Date</strong></span></div>
+          <div class="span-2 right append-1 last"><span class="padding-3"><strong>Total</strong></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Adam P</strong></div>
+          <div class="span-9"><strong>Created Ticket </strong><a href="#">#567</a></div>
+          <div class="span-4 right"><span class="padding-3">June 28th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>James M</strong></div>
+          <div class="span-9"><strong>Closed Ticket </strong><a href="#">#879</a></div>
+          <div class="span-4 right"><span class="padding-3">June 27th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Adam P</strong></div>
+          <div class="span-9"><strong>Created Ticket </strong><a href="#">#567</a></div>
+          <div class="span-4 right"><span class="padding-3">June 21th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+        <div class="span-20 last dashboard-row">
+          <div class="span-1"><img src="images/icons/20-clock.png" width="20" height="20" alt="Time" /></div>
+          <div class="span-3"><strong>Frank S</strong></div>
+          <div class="span-9"><strong>Closed Ticket </strong><a href="#">#879</a></div>
+          <div class="span-4 right"><span class="padding-3">June 02th</span></div>
+          <div class="span-2 right "><span class="padding-3">2</span></div>
+          <div class="span-1 right last"><span class="padding-3"><a href="#"><span class="span-1 last right"><img src="images/icons/20-pencil.png" width="20" height="20" alt="Time" /></span></a></span></div>
+        </div>
+      </div>
     </div>
+    <div class="span-3 push-1 last">
+      <h3>Overview</h3>
+      <hr />
+      <div class="span-3 last report-time dashboard-row"> <span class="padding-3 small">Today</span>
+        <div class="span-2">
+          <h1><span class="padding-3">5</span></h1>
+        </div>
+        <div class="span-1 last"><img src="images/icons/30-excel.png" width="30" height="30" alt="Time Report" /></div>
+      </div>
+      <div class="span-3 last report-time dashboard-row"> <span class="padding-3 small">Yestreday</span>
+        <div class="span-2">
+          <h1><span class="padding-3">7.75</span></h1>
+        </div>
+        <div class="span-1 last"><img src="images/icons/30-excel.png" width="30" height="30" alt="Time Report" /></div>
+      </div>
+      <div class="span-3 last report-time dashboard-row">Last Week
+        <div class="span-2">
+          <h1><span class="padding-3">38</span></h1>
+        </div>
+        <div class="span-1 last"><img src="images/icons/30-excel.png" width="30" height="30" alt="Time Report" /></div>
+      </div>
+      <div class="span-3 last report-time dashboard-row"> <span class="padding-3 small">This Month</span>
+        <div class="span-2">
+          <h1><span class="padding-3">152</span></h1>
+        </div>
+        <div class="span-1 last"><img src="images/icons/30-excel.png" width="30" height="30" alt="Time Report" /></div>
+      </div>
+    </div>
+    <!-- -->
   </div>
   <div class="span-24 append-1 prepend-1 last footer">&nbsp;</div>
 </div>

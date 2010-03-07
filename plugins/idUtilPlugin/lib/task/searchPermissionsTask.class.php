@@ -96,8 +96,6 @@ EOF;
                                       $this->retrievePermissionsFromFiles($permission_files)
                                     );
 
-    $this->dispatcher->notify(new sfEvent($this, 'phpCollab.search_permissions', array('new_permissions' => $new_permissions)));
-    
     if ($new_permissions === false || empty($new_permissions))
     {
       $this->logSection('Searching : ','No new permission.');

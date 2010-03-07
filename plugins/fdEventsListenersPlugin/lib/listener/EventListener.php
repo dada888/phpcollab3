@@ -18,6 +18,16 @@ class EventListener
     return $action;
   }
 
+  static public function extracProjectId($event)
+  {
+    $parameters = $event->getParameters();
+    if (!isset($parameters['project_id']))
+    {
+      throw new Exception('Cannot log information realated to no project. '. __CLASS__.'::'.__FUNCTION__);
+    }
+    return $parameters['project_id'];
+  }
+
   static public function processParameters($event)
   {
     $parameters = $event->getParameters();
@@ -42,13 +52,14 @@ class EventListener
     return $action." on ".$namespace." performed";
   }
 
-  static protected function store($namespace, $action, $message)
+  static protected function store($namespace, $action, $message, $project_id)
   {
     $event_log = new EventLog();
     $event_log->setNamespace($namespace);
     $event_log->setAction($action);
     $event_log->setMessage($message);
     $event_log->setCreatedAt(date('Y-m-d H:i:s'));
+    $event_log->setProjectId($project_id);
 
     $event_log->save();
     unset($event_log);
@@ -58,10 +69,11 @@ class EventListener
   {
     $namespace = self::extracNamespace($event);
     $action = self::extracAction($event);
+    $project_id = self::extracProjectId($event);
 
     $message = self::processParameters($event);
 
-    self::store($namespace, $action, $message);
+    self::store($namespace, $action, $message, $project_id);
   }
 }
 ?>

@@ -145,11 +145,6 @@ class idMilestoneActions extends sfActions
 
     $milestone->delete();
 
-    $this->dispatcher->notify(new sfEvent($this, 'milestone.delete',
-                                          array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                'milestone_id' => $milestone->id
-                                               )));
-
     $this->redirect('@show_project?id='.$milestone->getProjectId());
   }
 
@@ -164,15 +159,7 @@ class idMilestoneActions extends sfActions
     $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
-      $operation = $form->getObject()->isNew() ? 'creation' : 'update';
       $milestone = $form->save();
-
-      $this->dispatcher->notify(new sfEvent($this, 'milestone.'.$operation.'_success',
-                                                    array('user_id'=> $this->getUser()->getGuardUser()->getId(),
-                                                          'milestone_id' => $milestone->id,
-                                                          'form_parameters' => $request->getParameter($form->getName())
-                                                         )));
-
       $this->redirect('@show_project?id='.$milestone->getProjectId());
     }
   }

@@ -30,7 +30,7 @@ class myUser extends sfGuardSecurityUser
    * @access private
    * @return boolean
    */
-  private function getAdminProject()
+  private function getAdminProjects()
   {
     $q = Doctrine_Query::create()
       ->from('Project')
@@ -98,7 +98,7 @@ class myUser extends sfGuardSecurityUser
     
     if ($this->isAdmin())
     {
-      return $this->getAdminProject();
+      return $this->getAdminProjects();
     }
 
     $sf_guard_user = $this->getGuardUser();
@@ -149,6 +149,16 @@ class myUser extends sfGuardSecurityUser
     }
     
     return $this->isAdmin() ? true : $this->isMemberOfProject($issue->getProject()->getId());
+  }
+
+  public function getMyProjectsIds()
+  {
+    $ids = array();
+    foreach ($this->getMyProjects() as $project)
+    {
+      $ids[] = $project->id;
+    }
+    return $ids;
   }
 
   /**
