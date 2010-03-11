@@ -37,43 +37,6 @@
   
   <h3>Milestones</h3>
   <hr />
-  <?php if(count($late_milestones) > 0): ?>
-    <div class="span-6 last">
-      <div class="milestone-red padding-3">
-        <strong>Late</strong>
-      </div>
-    </div>
-    <div class="span-6 milestone-thin-red last">
-      <?php foreach($late_milestones as $milestone): ?>
-        <div class="span-6 last report dashboard-row">
-          <div class="span-6 last padding-3">
-            <?php echo link_to($milestone->title, '@show_milestone?project_id='.$milestone->project_id.'&milestone_id='.$milestone->id) ?>
-            for <?php echo link_to($milestone->project->name, '@show_project?id='.$milestone->project_id); ?>
-          </div>
-          <!--div class="span-6 padding-3">Assigned to <a href="#">Adam P</a></div-->
-          <div class="span-6 last red padding-3"><strong><?php echo get_days_of_difference($milestone->ending_date, date('Y-m-d')); ?> days late</strong></div>
-        </div>
-      <?php endforeach;?>
-    </div>
-  <?php endif; ?>
-
-  <?php if(count($upcoming_milestones) > 0): ?>
-    <div class="span-6 last">
-      <div class="milestone-green padding-3">
-        <strong>Upcoming</strong>
-      </div>
-    </div>
-    <div class="span-6 milestone-thin-green last">
-      <?php foreach($upcoming_milestones as $milestone): ?>
-        <div class="span-6 last report dashboard-row">
-          <div class="span-6 last  padding-3">
-            <?php echo link_to($milestone->title, '@show_milestone?project_id='.$milestone->project_id.'&milestone_id='.$milestone->id) ?>
-            for <?php echo link_to($milestone->project->name, '@show_project?id='.$milestone->project_id); ?>
-          </div>
-          <!--div class="span-6 padding-3">Assigned to <a href="#">Simon J</a></div-->
-          <div class="span-6 last green padding-3"><strong>Starts in <?php echo get_days_of_difference($milestone->ending_date, date('Y-m-d')); ?> days</strong></div>
-        </div>
-      <?php endforeach;?>
-    </div>
-  <?php endif; ?>
+  <?php include_partial('idDashboard/milestone_boxes', array('milestones' => $late_milestones, 'color' => 'red', 'label' => 'Late', 'days_message' => '%d days late'))?>
+  <?php include_partial('idDashboard/milestone_boxes', array('milestones' => $upcoming_milestones, 'color' => 'green', 'label' => 'Upcoming', 'days_message' => 'Starts in %d days'))?>
 </div>

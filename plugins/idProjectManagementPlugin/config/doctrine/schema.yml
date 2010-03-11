@@ -72,6 +72,8 @@ Milestone:
     project_id:
       type: integer
       notnull: true
+    in_charge:
+      type: integer(4)
   relations:
     project:
       class: Project
@@ -81,6 +83,13 @@ Milestone:
       type: one
       foreignType: many
       onDelete: CASCADE
+    InCharge:
+      class: sfGuardUser
+      foreignAlias: Milestones
+      local: in_charge
+      foreign: id
+      type: one
+      foreignType: many
 
 Issue:
   actAs:

@@ -6,16 +6,16 @@
  */
 class fdDBManager
 {
-  public static function getSelectForEventLogs()
+  public static function getSQLToFormatDateToYearMonthDay($field = 'created_at', $as = 'date')
   {
     $driver_name = Doctrine_Manager::getInstance()->getCurrentConnection()->getDriverName();
     switch ($driver_name)
     {
       case 'Sqlite':
-        return 'DATE(created_at) AS date';
+        return 'DATE('.$field.') AS '.$as;
         break;
       default:
-        return 'CAST(created_at AS DATE) AS date';
+        return 'CAST('.$field.' AS DATE) AS '.$as;
         break;
     }
   }

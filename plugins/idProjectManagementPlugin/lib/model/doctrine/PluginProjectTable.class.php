@@ -165,4 +165,42 @@ class PluginProjectTable extends Doctrine_Table
     return $reports;
   }
 
+  protected function initializeEffortDataForChart($days)
+  {
+    $data = array();
+    for($ii = $days-1; $ii >= 0; --$ii)
+    {
+      $data[date('Y-m-d', strtotime('-'.$ii.' days'))] = 0;
+    }
+    return $data;
+  }
+
+  public function getEffortDataForChart($project_id, $days = 14)
+  {
+    $chart_data = $this->initializeEffortDataForChart($days);
+
+    $loggedtimes_by_day = Doctrine::getTable('Issue')->retrieveLogTimeForProjectGoupByCreatedAt($project_id, $days);
+    foreach($loggedtimes_by_day as $log_info)
+    {
+      $chart_data[$log_info['date']] = $log_info['logged_time'];
+    }
+    
+    return $chart_data;
+  }
+
+  public function getReportsOnProjectsWithEffortChart($projects)
+  {
+    $reports = array();
+    foreach ($projects as $project)
+    {
+      $report = $this->getReportOnProject($project->id);
+      $reports[$project->id] = $report;
+      $reports[$project->id]['project_name'] = $project->name;
+      $reports[$project->id]['on_time'] = $this->isProjectOnTime($project->id);
+      $reports[$project->id]['chart'] = $this->getEffortDataForChart($project->id);
+    }
+
+    return $reports;
+  }
+
 }

@@ -75,6 +75,16 @@
         <?php echo $form['trackers_list'] ?>
       </div>
 
+      <div class="group">
+        <?php if ($form['budget']->hasError()):?>
+          <div class="fieldWithErrors">
+            <span class="error"><?php echo $form['budget']->renderError() ?></span>
+          </div>
+        <?php endif; ?>
+        <?php echo $form['budget']->renderLabel(__('Project budget'), null, array('class'=>'label')) ?>
+        <?php echo $form['budget'] ?>
+      </div>
+
       <div class="group navform">
         <?php echo $form->renderHiddenFields() ?>
         

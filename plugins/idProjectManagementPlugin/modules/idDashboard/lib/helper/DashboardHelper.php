@@ -41,3 +41,17 @@ function get_days_of_difference($first_date, $second_date)
   return round($diff / 86400);
 }
 
+function calculate_max_logged_time(array $times)
+{
+  return max($times);
+}
+
+function calculate_proportion($portion, $total)
+{
+  if (empty($total))
+  {
+    return 0;
+  }
+  
+  return (float)($portion*100)/$total;
+}

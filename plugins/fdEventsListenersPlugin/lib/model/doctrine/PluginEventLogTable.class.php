@@ -6,7 +6,7 @@ class PluginEventLogTable extends Doctrine_Table
   //seleziona le ultime tre date in cui sono presenti log
   public function getLastDatesOfEvents($days)
   {
-    $select = fdDBManager::getSelectForEventLogs();
+    $select = fdDBManager::getSQLToFormatDateToYearMonthDay();
     return $this->createQuery()
                 ->select($select)
                 ->groupBy('date')

@@ -241,6 +241,19 @@ class PluginIssueTable extends Doctrine_Table
     }
   }
 
+  public function retrieveLogTimeForProjectGoupByCreatedAt($project_id, $days = 14)
+  {
+    return Doctrine::getTable('LogTime')
+              ->createQuery()
+              ->select('SUM(l.log_time) as logged_time, l.id, '.fdDBManager::getSQLToFormatDateToYearMonthDay('l.created_at'))
+              ->from('LogTime l')
+              ->leftJoin('l.issue i')
+              ->andWhere('l.created_at >= ?', date('Y-m-d', strtotime('-'.$days.' days')))
+              ->andWhere('i.project_id = ? ', $project_id)
+              ->groupBy('date')
+              ->execute(array(), Doctrine::HYDRATE_ARRAY);
+  }
+
   public function retrieveEstimatedTimeForProjectMilestone($project_id, $milestone_id)
   {
     if (!is_null($q = $this->getQueryForProjectIssues($project_id)))
@@ -285,4 +298,20 @@ class PluginIssueTable extends Doctrine_Table
     }
   }
 
+  public function getLateIssuesForUserByProfileId($profile_id)
+  {
+    $query = $this->getQueryForUserIssues($profile_id);
+    return $query->andWhere('i.ending_date < ? ', date('Y-m-d'))
+                 ->andWhere('(s.status_type <> ? OR s.status_type <> ? )', array('closed', 'invalid'))
+                 ->execute();
+  }
+
+  public function getUpcomingIssuesForUserByProfileId($profile_id, $days = 7)
+  {
+    $query = $this->getQueryForUserIssues($profile_id);
+    return $query->andWhere('i.starting_date >= ? ', date('Y-m-d'))
+                 ->andWhere('i.starting_date <= ? ', date('Y-m-d', strtotime('+'.$days.' days')))
+                 ->andWhere('(s.status_type <> ? OR s.status_type <> ? )', array('closed', 'invalid'))
+                 ->execute();
+  }
 }

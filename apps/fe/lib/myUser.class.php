@@ -186,4 +186,14 @@ class myUser extends sfGuardSecurityUser
     return $this->isAdmin() ? true : ($id == $this->getGuardUser()->getId());
   }
 
+  public function retrieveMyLateIssues()
+  {
+    return Doctrine::getTable('Issue')->getLateIssuesForUserByProfileId($this->getProfile()->getId());
+  }
+
+  public function retrieveMyUpcomingIssues($days = 7)
+  {
+    return Doctrine::getTable('Issue')->getUpcomingIssuesForUserByProfileId($this->getProfile()->getId(), $days);
+  }
+
 }

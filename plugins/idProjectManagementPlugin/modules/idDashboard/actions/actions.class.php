@@ -74,6 +74,12 @@ class idDashboardActions extends sfActions
   public function executeDeveloper(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->isDeveloper(), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    
+    $this->late_issues = $this->getUser()->retrieveMyLateIssues();
+    $this->upcoming_issues = $this->getUser()->retrieveMyUpcomingIssues();
+
+    $project_ids = $this->getUser()->getMyProjectsIds();
+    $this->recent_activities = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDaysByProjectsIds(3, $project_ids, 'LogDecorator');
 
     $this->pager = new sfDoctrinePager('Issue',10);
     $this->pager->setQuery(Doctrine::getTable('Issue')->getQueryForUserIssues($this->getUser()->getProfile()->getId()));
