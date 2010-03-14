@@ -23,7 +23,7 @@ class LogDecorator
   public function extractDataFromMessage($message)
   {
     $extracted_data = array();
-    preg_match_all('/([\s]?[\w]+#[\w]+)|([\s]?[\w]+#\"[\w\s\.]*\")/', $message, $matches);
+    preg_match_all('/([\s]?[\w]+#[\w]+\s)|([\s]?[\w]+#[\w]+$)|([\s]?[\w]+#\"[\w\s\.]*\")/', $message, $matches);
     
     foreach ($matches[0] as $match)
     {

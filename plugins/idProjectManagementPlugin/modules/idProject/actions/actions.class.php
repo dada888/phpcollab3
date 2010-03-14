@@ -29,9 +29,9 @@ class idProjectActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idProject-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-    $this->forward404Unless($this->getUser()->isMyProject($request->getParameter('id')) &&
-                            $this->project = Doctrine::getTable('Project')->getProjectMilestonesAndUsers($request->getParameter('id'))
-                           );
+    $this->forward404Unless($this->getUser()->isMyProject($request->getParameter('id')));
+    
+    $this->project = Doctrine::getTable('Project')->getProjectMilestonesAndUsers($request->getParameter('id'));
     $this->milestones = $this->project->getMilestones();
     $this->estimated_time = Doctrine::getTable('Issue')->retrieveEstimatedTimeForProject($request->getParameter('id'));
     $this->estimated_time = $this->estimated_time['estimated_time'];
@@ -196,6 +196,14 @@ class idProjectActions extends sfActions
     if ($form->isValid())
     {
       $project = $form->save();
+      if (!$this->getUser()->isAdmin())
+      {
+        $user_profile = $this->getUser()->getGuardUser()->getProfile();
+        $project->users[0] = $user_profile;
+        $project->save();
+        $user_profile->refreshRelated();
+      }
+
       $this->redirect('@show_project?id='.$project->getId());
     }
   }

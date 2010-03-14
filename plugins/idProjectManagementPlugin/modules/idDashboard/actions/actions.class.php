@@ -92,6 +92,8 @@ class idDashboardActions extends sfActions
   public function executeProjectManager(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->isProjectManager(), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $project_ids = $this->getUser()->getMyProjectsIds();
+    $this->recent_activities = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDaysByProjectsIds(3, $project_ids, 'LogDecorator');
   }
 
 }
