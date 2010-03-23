@@ -24,5 +24,18 @@ class idProjectComponents extends sfComponents
   public function executeSidebar()
   {
   }
+
+  public function executeIndexSidebar()
+  {
+    $this->form = new ProjectFormFilter();
+    if ($this->getRequest()->hasParameter('project_filters'))
+    {
+      $project_filters = $this->getRequest()->getParameter('project_filters');
+      $this->form->bind($project_filters);
+    }
+
+    $project_ids = $this->getUser()->getMyProjectsIds();
+    $this->recent_events = Doctrine::getTable('EventLog')->retrieveLastLoggedEventFroProjects($project_ids);
+  }
 }
 ?>

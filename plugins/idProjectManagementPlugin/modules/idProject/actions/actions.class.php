@@ -61,15 +61,14 @@ class idProjectActions extends sfActions
   {
     $this->forwardUnless($this->getUser()->hasCredential('idProject-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
 
-    $this->form = new FormFilters();
     $q = null;
-
     if ($request->hasParameter('project_filters'))
     {
+      $form = new ProjectFormFilter();
       $project_filters = $request->getParameter('project_filters');
-      $this->form->bind($project_filters);
+      $form->bind($project_filters);
 
-      if ($this->form->isValid())
+      if ($form->isValid())
       {
         $q = $this->getUser()->getQueryForMyProjects();
         
@@ -78,13 +77,12 @@ class idProjectActions extends sfActions
         {
           $from_date = date('Y-m-d H:i:s', strtotime($project_filters['created_at']['year']."-".$project_filters['created_at']['month']."-".$project_filters['created_at']['day']));
         }
-
+        
         !empty($project_filters['name']) ? $q->where('name LIKE ?', "%".$project_filters['name']."%") : null;
-        $project_filters['is_public'] != '' ? $q->andWhere('is_public = ?', $project_filters['is_public']) : null;
         !is_null($from_date) ? $q->andWhere("created_at > '".$from_date."'") : null;
       }
     }
-
+    
     $this->project_list = $this->getUser()->getMyProjects($q);
   }
 

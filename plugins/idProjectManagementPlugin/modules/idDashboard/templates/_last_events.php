@@ -1,3 +1,7 @@
+<?php use_helper('Dashboard') ?>
+
+<h3>Recent Activity</h3>
+<hr />
 <?php foreach($recent_activities as $day => $activities):?>
 <div class="span-17 recent last">
   <div class="span-17 menu last">

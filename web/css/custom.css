@@ -254,3 +254,44 @@ UL.tabNavigation LI A:focus { outline: 0; }
 #second { }
 #third { }
 .waste { min-height: 1000px; }
+
+
+/* project list sidebar*/
+
+#sidebar-right form
+{
+  margin-bottom: 15px;
+}
+
+#sidebar-right select
+{
+  width: auto;
+}
+
+#sidebar-right .sidebar_filter_form
+{
+  margin-bottom: 5px;
+}
+
+#sidebar-right .sidebar_filter_form .input_values
+{
+  float: right;
+  text-align: right;
+}
+
+#sidebar-right .sidebar_filter_form .label
+{
+  padding-top: 10px;
+}
+
+ul.recent_activities
+{
+  list-style-type: none;
+  margin: 3px 0px 3px 3px;
+}
+
+ul.recent_activities li p
+{
+  margin-left: 5px;
+}
+

@@ -7,7 +7,7 @@ $configuration = ProjectConfiguration::getApplicationConfiguration( 'fe', 'unitt
 new sfDatabaseManager($configuration);
 Doctrine::loadData(dirname(__FILE__).'/../fixtures/fixtures.yml');
 
-$t = new lime_test(20, new lime_output_color());
+$t = new lime_test(22, new lime_output_color());
 
 $events = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDays(3);
 
@@ -35,6 +35,11 @@ $events = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDaysByProjectsI
 $t->is(count($events), 2,  'retrieveEventsOfTheLastDaysByProjectsIds() returns 2 events');
 $t->is($events[date('Y-m-d')][0]->project_id, 1, 'found right event');
 $t->is($events[date('Y-m-d',strtotime('-2 days'))][0]->project_id, 3, 'found right event');
+
+
+$activities = Doctrine::getTable('EventLog')->retrieveLastLoggedEventFroProjects(array(1,2,3,4,5));
+$t->is(count($activities), 4, '->retrieveLastLoggedEventFroProjects() returns 5 records');
+$t->ok($activities[0] instanceof LogDecorator, '->retrieveLastLoggedEventFroProjects() returns 5 LogDecorator objects');
 
 
 initializeDatabase();

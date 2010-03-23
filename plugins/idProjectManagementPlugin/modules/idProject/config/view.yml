@@ -1,3 +1,7 @@
+indexSuccess:
+  components:
+    sidebar:  [idProject, indexSidebar]
+
 default:
   components:
     sidebar:  []

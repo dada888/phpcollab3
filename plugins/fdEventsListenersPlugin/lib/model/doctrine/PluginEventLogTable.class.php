@@ -67,4 +67,25 @@ class PluginEventLogTable extends Doctrine_Table
   {
     return $this->cleanData($this->retrieveEventsByDaysAndProjectIds($days, $project_ids), $decorator_class);
   }
+
+  public function retrieveLastLoggedEventFroProjects($project_ids)
+  {
+    $events = array();
+    foreach ($project_ids as $id)
+    {
+      $result = $this->createQuery()
+                       ->from('EventLog el')
+                       ->leftJoin('el.Project')
+                       ->orderBy('created_at DESC')
+                       ->where('project_id = ?', $id)
+                       ->limit(1)
+                       ->execute();
+
+      if (count($result) == 1)
+      {
+        $events[] = new LogDecorator($result[0]);
+      }
+    }
+    return $events;
+  }
 }

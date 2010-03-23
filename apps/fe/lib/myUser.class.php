@@ -153,8 +153,10 @@ class myUser extends sfGuardSecurityUser
 
   public function getMyProjectsIds()
   {
+    $projects = ($this->isAdmin()) ? $this->getAdminProjects() : $this->getMyProjects();
+
     $ids = array();
-    foreach ($this->getMyProjects() as $project)
+    foreach ($projects as $project)
     {
       $ids[] = $project->id;
     }
@@ -194,6 +196,11 @@ class myUser extends sfGuardSecurityUser
   public function retrieveMyUpcomingIssues($days = 7)
   {
     return Doctrine::getTable('Issue')->getUpcomingIssuesForUserByProfileId($this->getProfile()->getId(), $days);
+  }
+
+  public function canSeeBudget()
+  {
+    return ($this->isAdmin() || !$this->isDeveloper());
   }
 
 }

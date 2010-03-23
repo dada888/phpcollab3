@@ -313,6 +313,9 @@ IssueUser:
       onDelete: CASCADE
 
 IssueReference:
+  actAs:
+    h2aEqualable:
+      fields: [issue1,issue2]
   options:
     charset: utf8
   columns:

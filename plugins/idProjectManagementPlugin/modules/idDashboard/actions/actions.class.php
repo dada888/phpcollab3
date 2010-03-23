@@ -22,6 +22,12 @@
 class idDashboardActions extends sfActions
 {
 
+  public function preExecute()
+  {
+    $project_ids = $this->getUser()->getMyProjectsIds();
+    $this->recent_activities = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDaysByProjectsIds(3, $project_ids, 'LogDecorator');
+  }
+
   protected function forwardToDashboard($user)
   {
     if ($user->isAdmin())
@@ -61,14 +67,11 @@ class idDashboardActions extends sfActions
   public function executeAdmin(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->isAdmin(), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-    $this->recent_activities = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDays(3, 'LogDecorator');
   }
 
   public function executeCustomer(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->isCustomer(), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-    $project_ids = $this->getUser()->getMyProjectsIds();
-    $this->recent_activities = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDaysByProjectsIds(3, $project_ids, 'LogDecorator');
   }
 
   public function executeDeveloper(sfWebRequest $request)
@@ -77,23 +80,11 @@ class idDashboardActions extends sfActions
     
     $this->late_issues = $this->getUser()->retrieveMyLateIssues();
     $this->upcoming_issues = $this->getUser()->retrieveMyUpcomingIssues();
-
-    $project_ids = $this->getUser()->getMyProjectsIds();
-    $this->recent_activities = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDaysByProjectsIds(3, $project_ids, 'LogDecorator');
-
-    $this->pager = new sfDoctrinePager('Issue',10);
-    $this->pager->setQuery(Doctrine::getTable('Issue')->getQueryForUserIssues($this->getUser()->getProfile()->getId()));
-    $this->pager->setPage($this->getRequestParameter('page',1));
-    $this->pager->init();
-
-    $this->projects = $this->getUser()->getProjectsIdsAndNamesWhereIhaveAssignedIssues();
   }
 
   public function executeProjectManager(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->isProjectManager(), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-    $project_ids = $this->getUser()->getMyProjectsIds();
-    $this->recent_activities = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDaysByProjectsIds(3, $project_ids, 'LogDecorator');
   }
 
 }

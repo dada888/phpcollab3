@@ -21,4 +21,15 @@
  */
 abstract class PluginProjectFormFilter extends BaseProjectFormFilter
 {
+  public function setup()
+  {
+    parent::setup();
+    $this->useFields(array('name', 'starting_date', 'end_date', 'created_at'));
+
+    $this->widgetSchema['created_at'] = new sfWidgetFormDate();
+    $this->validatorSchema['created_at'] = new sfValidatorDate(array('required' => false));
+
+    $this->widgetSchema['name'] = new sfWidgetFormInputText();
+    $this->validatorSchema['name'] = new sfValidatorString(array('max_length' => 64, 'required' => false), array('max_length' => 'Project name %value% is too long (max %max_length% chars).'));
+  }
 }
