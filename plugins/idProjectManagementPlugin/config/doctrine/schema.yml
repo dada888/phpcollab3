@@ -286,7 +286,11 @@ ProjectUser:
   columns:
     project_id:
       type: integer
+      primary: true
     profile_id:
+      type: integer
+      primary: true
+    role:
       type: integer
   relations:
     Project:

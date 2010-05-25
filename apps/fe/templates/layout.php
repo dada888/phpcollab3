@@ -39,7 +39,11 @@
             <li><?php echo link_to(__('Projects'), '@index_project') ?></li>
             <li><?php echo link_to(__('Time'), '@index_logtime') ?></li>
             <li><a href="calendar.html">Calendar</a></li>
-            <li><?php echo link_to(__('Users'), '@sf_guard_user') ?></li>
+            
+            <?php if ($sf_user->isAdmin()):?>
+              <li><?php echo link_to(__('Users'), '@sf_guard_user') ?></li>
+            <?php endif;?>
+
             <li><a href="messages.html"><span>5</span>Messages</a></li>
           </ul>
         </div>
@@ -67,41 +71,3 @@
     </div>
   </body>
 </html>
-
-<!--div id="header">
-  <div id="user-navigation">
-    <ul>
-      <?php if ($sf_user->isAuthenticated()) : ?>
-      <li><?php echo link_to(__('Logout'), '@sf_guard_signout'); ?></li>
-      <li><?php echo link_to(__('Edit my profile'), '@edit_profile') ?></li>
-      <?php else: ?>
-      <li><?php echo link_to(__('Signin'), '@sf_guard_signin'); ?></li>
-      <?php endif; ?>
-    </ul>
-    <div class="clear"></div>
-  </div>
-
-  <div id="main-navigation">
-    <?php include_partial('global/main_navigation', array('sf_guard_user' => $sf_user)) ?>
-    <div class="clear"></div>
-  </div>
-
-</div-->
-
-<!--
-<?php //if ($sf_user->hasFlash('notice')) : ?>
-  <div class="message notice">
-    <p><?php //echo $sf_user->getFlash('notice');  ?></p>
-  </div>
-<?php //endif; ?>
-<?php //if ($sf_user->hasFlash('warning')) : ?>
-  <div class="message warning">
-    <p><?php //echo $sf_user->getFlash('warning');  ?></p>
-  </div>
-<?php //endif; ?>
-<?php //if ($sf_user->hasFlash('error')) : ?>
-  <div class="message error">
-    <p><?php //echo $sf_user->getFlash('error');  ?></p>
-  </div>
-<?php //endif; ?>
--->

@@ -7,7 +7,7 @@ $configuration = ProjectConfiguration::getApplicationConfiguration( 'fe', 'unitt
 new sfDatabaseManager($configuration);
 Doctrine::loadData(dirname(__FILE__).'/../fixtures/fixtures.yml');
 
-$t = new lime_test(22, new lime_output_color());
+$t = new lime_test(34, new lime_output_color());
 
 $events = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDays(3);
 
@@ -37,10 +37,23 @@ $t->is($events[date('Y-m-d')][0]->project_id, 1, 'found right event');
 $t->is($events[date('Y-m-d',strtotime('-2 days'))][0]->project_id, 3, 'found right event');
 
 
-$activities = Doctrine::getTable('EventLog')->retrieveLastLoggedEventFroProjects(array(1,2,3,4,5));
-$t->is(count($activities), 4, '->retrieveLastLoggedEventFroProjects() returns 5 records');
-$t->ok($activities[0] instanceof LogDecorator, '->retrieveLastLoggedEventFroProjects() returns 5 LogDecorator objects');
+$activities = Doctrine::getTable('EventLog')->retrieveLastLoggedEventFromProjects(array(1,2,3,4,5));
+$t->is(count($activities), 4, '->retrieveLastLoggedEventFromProjects() returns 4 records');
+$t->ok($activities[0] instanceof EventLog, '->retrieveLastLoggedEventFromProjects() returns 4 EventLog objects');
+$t->is($activities[0]->id, '1', 'id is ok');
+$t->is($activities[0]->project_id, '1', 'project_id is ok');
+$t->is($activities[1]->id, '2', 'id is ok');
+$t->is($activities[1]->project_id, '2', 'project_id is ok');
+$t->is($activities[2]->id, '3', 'id is ok');
+$t->is($activities[2]->project_id, '3', 'project_id is ok');
+$t->is($activities[3]->id, '4', 'id is ok');
+$t->is($activities[3]->project_id, '4', 'project_id is ok');
 
+$activities = Doctrine::getTable('EventLog')->retrieveLastLoggedEventFromProjects(array(1,2,3,4,5), date('Y-m-d 00:00:00', strtotime('today GMT')));
+$t->is(count($activities), 1, '->retrieveLastLoggedEventFromProjects() returns 4 records');
+$t->ok($activities[0] instanceof EventLog, '->retrieveLastLoggedEventFromProjects() returns 4 EventLog objects');
+$t->is($activities[0]->id, '1', 'id is ok');
+$t->is($activities[0]->project_id, '1', 'project_id is ok');
 
 initializeDatabase();
 Doctrine::loadData(dirname(__FILE__).'/../fixtures/fixtures_old_log.yml');

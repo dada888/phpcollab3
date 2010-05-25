@@ -203,4 +203,9 @@ class myUser extends sfGuardSecurityUser
     return ($this->isAdmin() || !$this->isDeveloper());
   }
 
+  public function canAddUsersToProject()
+  {
+    return ($this->isAdmin() || $this->hasPermission('CanAddUserToProject'));
+  }
+
 }

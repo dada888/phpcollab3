@@ -69,5 +69,15 @@ class LogDecorator
   {
     return $this->log->$name($arguments);
   }
+
+  public static function decorateCollectionToArray(Doctrine_Collection $events)
+  {
+    $results_decorated = array();
+    foreach ($events as $event)
+    {
+      $results_decorated[] = new LogDecorator($event);
+    }
+    return $results_decorated;
+  }
 }
 ?>

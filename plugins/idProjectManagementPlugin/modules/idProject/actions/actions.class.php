@@ -32,11 +32,7 @@ class idProjectActions extends sfActions
     $this->forward404Unless($this->getUser()->isMyProject($request->getParameter('id')));
     
     $this->project = Doctrine::getTable('Project')->getProjectMilestonesAndUsers($request->getParameter('id'));
-    $this->milestones = $this->project->getMilestones();
-    $this->estimated_time = Doctrine::getTable('Issue')->retrieveEstimatedTimeForProject($request->getParameter('id'));
-    $this->estimated_time = $this->estimated_time['estimated_time'];
-    $this->log_time = Doctrine::getTable('Issue')->retrieveLogTimeForProject($request->getParameter('id'));
-    $this->log_time = $this->log_time['project_log_times'];
+    $this->recent_activities = $this->recent_activities = Doctrine::getTable('EventLog')->retrieveEventsOfTheLastDaysByProjectsIds(3, array($request->getParameter('id')), 'LogDecorator');
   }
 
    /**
@@ -141,9 +137,9 @@ class idProjectActions extends sfActions
     $this->forwardUnless($this->getUser()->hasCredential('idProject-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
 
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
-    $this->forward404Unless($project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
+    $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
     
-    $this->form = new idProjectForm($project);
+    $this->form = new idProjectForm($this->project);
     
     $this->processForm($request, $this->form);
 
@@ -167,6 +163,12 @@ class idProjectActions extends sfActions
     $this->redirect('idProject/index');
   }
 
+  public function executeStaffList(sfWebRequest $request)
+  {
+    $this->forwardUnless($this->getUser()->hasCredential('idProject-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
+  }
+
   /**
    * sets the update date
    *
@@ -176,7 +178,7 @@ class idProjectActions extends sfActions
   private function setUpdatedAt($form_parameters)
   {
     $date = array('year' => date('Y'), 'month' => date('m'), 'day' => date('d'), 'hour' => date('H'), 'minute' => date('i'));
-    $form_parameters['id'] ? $form_parameters['updated_at'] = $date : null;
+    $form_parameters['updated_at'] = $date;
     return $form_parameters;
   }
 

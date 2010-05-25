@@ -248,7 +248,7 @@ class PluginIssueTable extends Doctrine_Table
               ->select('SUM(l.log_time) as logged_time, l.id, '.fdDBManager::getSQLToFormatDateToYearMonthDay('l.created_at'))
               ->from('LogTime l')
               ->leftJoin('l.issue i')
-              ->andWhere('l.created_at >= ?', date('Y-m-d', strtotime('-'.$days.' days')))
+              ->andWhere('l.created_at >= ?', date('Y-m-d 23:59:59', strtotime('-'.$days.' days GMT')))
               ->andWhere('i.project_id = ? ', $project_id)
               ->groupBy('date')
               ->execute(array(), Doctrine::HYDRATE_ARRAY);

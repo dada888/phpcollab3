@@ -1,3 +1,7 @@
+showSuccess:
+  components:
+    sidebar:  [idProject, showSidebar]
+
 indexSuccess:
   components:
     sidebar:  [idProject, indexSidebar]

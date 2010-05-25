@@ -1,3 +1,9 @@
+project_staff_list:
+  url:   /:sf_culture/idProject/:id/staff_list
+  param: { module: idProject, action: staffList}
+  requirements:
+    sf_culture: (?:en|it)
+
 index_messages:
   url:   /:sf_culture/idProject/:project_id/idMessages
   param: { module: idMessage, action: index}

@@ -170,7 +170,7 @@ class PluginProjectTable extends Doctrine_Table
     $data = array();
     for($ii = $days-1; $ii >= 0; --$ii)
     {
-      $data[date('Y-m-d', strtotime('-'.$ii.' days'))] = 0;
+      $data[date('Y-m-d', strtotime('-'.$ii.' days GMT'))] = 0;
     }
     return $data;
   }
@@ -184,7 +184,6 @@ class PluginProjectTable extends Doctrine_Table
     {
       $chart_data[$log_info['date']] = $log_info['logged_time'];
     }
-    
     return $chart_data;
   }
 

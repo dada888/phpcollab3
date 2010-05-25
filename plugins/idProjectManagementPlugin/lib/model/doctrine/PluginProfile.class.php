@@ -38,5 +38,4 @@ abstract class PluginProfile extends BaseProfile
     $user = $this->getUser();
     return ucfirst($this->getFirstName()).' '. ucfirst(substr($this->getLastName(),0,1)).'.';
   }
-
 }

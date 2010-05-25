@@ -1,14 +1,12 @@
 .svn
+.git
 /data/phpcollab_demo.db
 /web/uploads/*
 /cache/*
 /log/*
-/lib/model/*
-/lib/filter/*
-/lib/form/*
 /web/*_dev.php
 /web/index.php
-/web/sfProtoculousPlugin
+/web/sfProtoculousPlugin/*
 /web/.htaccess
 /web/phpcollabdev.php
 /data/sql/*
@@ -17,3 +15,4 @@
 cron.php
 patch.diff
 svnFakeRepositoryCreationScript.php
+doc/layout/*

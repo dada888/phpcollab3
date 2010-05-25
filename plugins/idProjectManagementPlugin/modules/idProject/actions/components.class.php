@@ -25,6 +25,17 @@ class idProjectComponents extends sfComponents
   {
   }
 
+  public function executeShowSidebar()
+  {
+    $this->project = Doctrine::getTable('Project')->findOneById($this->getRequest()->getParameter('id'));
+    $reports = Doctrine::getTable('Project')->getReportsOnProjectsWithEffortChart(array($this->project));
+
+    if (isset($reports[$this->project->id]))
+    {
+      $this->project_report = $reports[$this->project->id];
+    }
+  }
+
   public function executeIndexSidebar()
   {
     $this->form = new ProjectFormFilter();
@@ -35,7 +46,8 @@ class idProjectComponents extends sfComponents
     }
 
     $project_ids = $this->getUser()->getMyProjectsIds();
-    $this->recent_events = Doctrine::getTable('EventLog')->retrieveLastLoggedEventFroProjects($project_ids);
+    $logs = Doctrine::getTable('EventLog')->retrieveLastLoggedEventFromProjects($project_ids);
+    $this->recent_events = LogDecorator::decorateCollectionToArray($logs);
   }
 }
 ?>

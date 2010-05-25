@@ -58,7 +58,6 @@ class idProjectForm extends ProjectForm
     
     parent::configure();
 
-    unset($this['updated_at']);
     unset($this['costs']);
   }
 }

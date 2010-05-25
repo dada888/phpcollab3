@@ -21,4 +21,10 @@
  */
 abstract class PluginProjectUser extends BaseProjectUser
 {
+  public static $roles = array('admin' => 1, 'developer' => 2, 'project manager' => 3, 'customer' => 4);
+
+  public static function getRoleByProfileIdAndProjectId($profile_id, $project_id)
+  {
+    return Doctrine::getTable('ProjectUser')->getRoleByProfileIdAndRojectId($profile_id, $project_id);
+  }
 }
