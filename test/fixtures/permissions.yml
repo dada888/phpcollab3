@@ -1,0 +1,12 @@
+Permission_1:
+  name: 'module-Read'
+  description: 'Reading comments permission'
+Permission_2:
+  name: 'module-Create'
+  description: 'Creating comments permission'
+Permission_3:
+  name: 'module-Edit'
+  description: 'Editing comments permission'
+Permission_4:
+  name: 'module-Delete'
+  description: 'Deleting comments permission'

@@ -1,0 +1,6 @@
+Permission_1:
+  name: 'module-Read'
+  description: 'Reading comments permission'
+Permission_2:
+  name: 'module-Create'
+  description: 'Creating comments permission'

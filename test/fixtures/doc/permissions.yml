@@ -1,0 +1,12 @@
+Permission_not_loaded1:
+  name: 'DoNotLoadMe-Read'
+  description: 'Reading comments permission'
+Permission_not_loaded2:
+  name: 'DoNotLoadMe-Create'
+  description: 'Creating comments permission'
+Permission_not_loaded3:
+  name: 'DoNotLoadMe-Edit'
+  description: 'Editing comments permission'
+Permission_not_loaded4:
+  name: 'DoNotLoadMe-Delete'
+  description: 'Deleting comments permission'
