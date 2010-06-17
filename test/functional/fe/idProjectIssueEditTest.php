@@ -11,7 +11,7 @@ $issue_parameters = array('issue' => array(
                                 'description'         => 'new issue',
                                 'status_id'           => 1,
                                 'priority_id'         => 1,
-                                'starting_date'       => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())),
+                                'starting_date'       => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))),
                                 'ending_date'         => array('day' => date('d', strtotime('+1 month')), 'month' => date('m', strtotime('+1 month')), 'year' => date('Y', strtotime('+1 month'))),
                                 'users_list'          => array('3'),
                                 'issues_list'  => array(5)
@@ -65,7 +65,7 @@ $browser->click('Save', array('issue' => array(
     'description'     => 'new issue for this project up',
     'status_id'       => 1,
     'priority_id'     => 1,
-    'starting_date'   => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())),
+    'starting_date'   => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))),
     'ending_date'     => array('day' => date('d', strtotime('+1 month')), 'month' => date('m', strtotime('+1 month')), 'year' => date('Y', strtotime('+1 month'))),
     'users_list'      => array('3')
   )), array('methos'=>'post'))->
@@ -199,7 +199,7 @@ $browser->
     'description'     => 'new issue',
     'status_id'       => 1,
     'priority_id'     => 1,
-    'starting_date'   => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())),
+    'starting_date'   => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))),
     'ending_date'     => array('day' => date('d', strtotime('+1 month')), 'month' => date('m', strtotime('+1 month')), 'year' => date('Y', strtotime('+1 month'))),
     'users_list'      => array('3'),
     'issues_list'      => array('28'))),
@@ -221,7 +221,7 @@ $browser->
     'description'     => 'new issue',
     'status_id'       => 1,
     'priority_id'     => 1,
-    'starting_date'   => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())),
+    'starting_date'   => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))),
     'ending_date'     => array('day' => date('d', strtotime('+1 month')), 'month' => date('m', strtotime('+1 month')), 'year' => date('Y', strtotime('+1 month'))),
     'users_list'      => array('3'),
     'issues_list'      => array('28'),
@@ -244,7 +244,7 @@ $browser->
     'description'     => 'new issue',
     'status_id'       => 3,
     'priority_id'     => 1,
-    'starting_date'   => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())))),
+    'starting_date'   => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))))),
     array('methos'=>'post'))->
 
   followRedirect()->
@@ -252,9 +252,9 @@ $browser->
   get('/en/idProject/1/idIssue/edit/110')->
 
   with('response')->begin()->
-    checkElement('#issue_ending_date_month option[selected="selected"]','/'.date('m',time()).'/')->
-    checkElement('#issue_ending_date_year option[selected="selected"]','/'.date('Y',time()).'/')->
-    checkElement('#issue_ending_date_day option[selected="selected"]','/'.date('d',time()).'/')->
+    checkElement('#issue_ending_date_month option[selected="selected"]','/'.date('m',strtotime('today')).'/')->
+    checkElement('#issue_ending_date_year option[selected="selected"]','/'.date('Y',strtotime('today')).'/')->
+    checkElement('#issue_ending_date_day option[selected="selected"]','/'.date('d',strtotime('today')).'/')->
   end()
 ;
 
@@ -265,7 +265,7 @@ $browser->
     'description'     => 'new issue',
     'status_id'       => 1,
     'priority_id'     => 1,
-    'starting_date'   => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())))),
+    'starting_date'   => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))))),
     array('methos'=>'post'))->
 
   followRedirect()->

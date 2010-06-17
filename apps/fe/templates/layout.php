@@ -6,68 +6,62 @@
     <?php include_title() ?>
     <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
+    <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <title><?php include_slot('title') ?></title>
   </head>
   <body>
-    <div class="container wrapper">
-      <?php if ($sf_user->isAuthenticated()) : ?>
-      <div class="span-24 container last  utility-nav right">
-        Hello, <?php echo link_to($sf_user->getUsername(), '@edit_profile') ?> <a href="<?php echo url_for('@sf_guard_signout') ?>" class="utilLogout">Logout</a> <a href="#" class="utilSettings">Settings</a> <a href="#" class="utilHelp">Help</a>
-        <select>
-          <option>One</option>
-        </select>
-      </div>
-      <div class="span-24 container last header">
-        <div class="span-15 title"><?php include_slot('title') ?></div>
-        <div id="header-search" class="search-box span-7 utility-search last right">
-          <form id="main-search-form" action="index.php?page=list" method="post">
-            <div class="search-button">
-              <input class="submit" value="" type="submit" />
-            </div>
-            <div class="center">
-              <input class="search placeholder" name="search" title="Search for a Contact" value="" type="text" />
-            </div>
-            <div class="left"> </div>
-          </form>
+    <div class="site-bg">
+      <div class="container">
+        <?php if ($sf_user->isAuthenticated()) : ?>
+        <div id="utility" class="showgrid-off">
+          Hello, <?php echo link_to($sf_user->getUsername(), '@edit_profile') ?> <a href="<?php echo url_for('@sf_guard_signout') ?>" class="login">Logout</a> <a href="#" class="settings">Settings</a> <a href="#" class="help">Help</a>
+          <select>
+          <?php foreach($sf_user->getMyProjects() as $project): ?>
+            <option><?php echo $project->name ?></option>
+          <?php endforeach;?>
+          </select>
         </div>
-      </div>
-      <div class="span-24 main_menu last">
-        <div class="span-18 navigation">
+
+        <div id="header">
+          <div id="application-title"><?php include_slot('title') ?></div>
+          <div id="header-search" class="search-box utility-search right">
+            <form id="main-search-form" action="#" method="post">
+              <div class="search-button">
+                <input class="submit" value="" type="submit" />
+              </div>
+              <div class="center">
+                <input class="search placeholder" name="search" title="Search" value="" type="text" />
+              </div>
+              <div class="left"> </div>
+            </form>
+          </div>
+        </div>
+        <div id="navigation">
           <ul>
             <li><a href="<?php echo url_for('@dashboard') ?>"><?php echo __('Dashboard') ?></a></li>
-            <li><?php echo link_to(__('Projects'), '@index_project') ?></li>
-            <li><?php echo link_to(__('Time'), '@index_logtime') ?></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            
-            <?php if ($sf_user->isAdmin()):?>
-              <li><?php echo link_to(__('Users'), '@sf_guard_user') ?></li>
-            <?php endif;?>
+              <li><?php echo link_to(__('Projects'), '@index_project') ?></li>
+              <li><?php echo link_to(__('Time'), '@index_logtime') ?></li>
 
-            <li><a href="messages.html"><span>5</span>Messages</a></li>
+              <?php if ($sf_user->isAdmin()): ?>
+                <li><?php echo link_to(__('Users'), '@sf_guard_user') ?></li>
+              <?php endif; ?>
           </ul>
         </div>
-        <div class="span-6 navigationRight last">
-          <ul>
-            <li><a id="addIcon" href="#" >Quick Add</a></li>
-          </ul>
+        <?php else: ?>
+        <div id="utility" class="showgrid-off">
+          Hello! <a href="<?php echo url_for('@sf_guard_signin') ?>" class="login"><?php echo __('Signin') ?></a>
+        </div>
+        <div id="header">
+          <div id="application-title"><?php include_slot('title') ?></div>
+        </div>
+        <?php endif; ?>
+
+        <div id="wrapper">
+          <?php echo $sf_content ?>
+          <?php include_component_slot('sidebar') ?>
         </div>
       </div>
-      <?php else: ?>
-      <div class="span-24 container last  utility-nav right">
-        Hello! <a href="<?php echo url_for('@sf_guard_signin') ?>" class="utilLogin"><?php echo __('Signin') ?></a>
-      </div>
-      <div class="span-24 container last header">
-        <div class="span-15 title"><?php include_slot('title') ?></div>
-      </div>
-      <?php endif; ?>
-
-      <div class="span-24 append-1 prepend-1 last contentWrapper rounded">
-        <?php echo $sf_content ?>
-        <?php include_component_slot('sidebar') ?>
-      </div>
-
-      <div class="span-24 append-1 prepend-1 last footer">&nbsp;</div>
     </div>
   </body>
 </html>

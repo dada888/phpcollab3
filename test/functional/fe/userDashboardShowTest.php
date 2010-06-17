@@ -4,6 +4,8 @@ include(dirname(__FILE__).'/../../bootstrap/functional.php');
 
 $browser = new idDoctrineTestFunctional(new sfBrowser());
 $browser->initializeDatabase();
+$browser->loadEventFixtures();
+
 
 $browser->
   get('/')->
@@ -18,13 +20,9 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('.contentWrapper .dashboard h3:contains("Tickets")')->
-    checkElement('.contentWrapper .dashboard .milestone-green:contains("Due")')->
-    checkElement('.contentWrapper .dashboard .milestone-green:contains("Upcoming/Today")')->
-    checkElement('.contentWrapper .dashboard .milestone-thin-green .dashboard-row a[href*="idProject/3/idIssue/show/1"]', '/#1/')->
-    checkElement('.contentWrapper .dashboard .milestone-thin-green .dashboard-row p:contains("new issue")')->
-    checkElement('.contentWrapper .dashboard .milestone-thin-green .dashboard-row p a[href*="idProject/show/3"]', '/Il mio terzo progetto/')->
-    checkElement('.contentWrapper .dashboard .milestone-thin-green .dashboard-row .list-date', '/'.strftime('%B %d', strtotime('+10 days GMT')).'/', array('position'=>2))->
+    checkElement('#content .title', '/Recent Activity/', array('position' => 0))->
+    checkElement('#content .title', '/Tickets/', array('position' => 1))->
+    checkElement('ul.action li.icon-green', 3)->
   end()->
 
   click('Dashboard')->
@@ -42,23 +40,27 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('.contentWrapper .dashboard h3:contains("Tickets")')->
-    checkElement('.contentWrapper .dashboard:contains("Due")')->
-    checkElement('.contentWrapper .dashboard:contains("Upcoming/Today")')->
-    checkElement('.contentWrapper .dashboard .milestone-thin-green .dashboard-row a[href*="idProject/3/idIssue/show/2"]', '/#2/', array('position' => 0))->
-    checkElement('.contentWrapper .dashboard .milestone-thin-green .dashboard-row p:contains("new issue 2")')->
-    checkElement('.contentWrapper .dashboard .milestone-thin-green .dashboard-row a[href*="idProject/show/3"]', '/Il mio terzo progetto/', array('position' => 1))->
+    checkElement('#content .title', '/Recent Activity/', array('position' => 0))->
+    checkElement('#content .title', '/Tickets/', array('position' => 1))->
 
-    checkElement('#sidebar-right')->
-    checkElement('#sidebar-right h3:contains("Open Projects")')->
-    checkElement('#sidebar-right h3:contains("Milestones")')->
-    checkElement('#sidebar-right .menuStatus .statusTitle a:contains("Il mio primo progetto")')->
-    checkElement('#sidebar-right .grey-box', '/43.48%/')->
-    checkElement('#sidebar-right .grey-box .percent', '/43.48%/')->
-    checkElement('#sidebar-right .grey-box .progress')->
-    checkElement('#sidebar-right .grey-box .report', 6)->
-    checkElement('#sidebar-right .milestone-thin-red strong:contains("days late")')->
-    checkElement('#sidebar-right .milestone-thin-green strong:contains("Starts in")')->
+    checkElement('ul.action li.icon-red', 2)->
+    checkElement('ul.action li.icon-green', 11)->
+
+    checkElement('#sidebar')->
+    checkElement('#sidebar h3 a', 5)->
+    checkElement('#sidebar .box', 5)->
+    checkElement('#sidebar .box .percent', '43.48%', array('position' => 0))->
+
+    checkElement('#sidebar .box .progress div[class="progress-green"][style*="43.48%"]', true)->
+    checkElement('#sidebar .box .progress div[class="progress-grey"][style*="4.35%"]', true)->
+
+    checkElement('#sidebar:contains("Milestones")')->
+    checkElement('#sidebar h3', 'first iteration', array('position' => 2))->
+    checkElement('#sidebar h3', 'third iteration', array('position' => 3))->
+    checkElement('#sidebar h3', 'second iteration', array('position' => 4))->
+    checkElement('#sidebar .box .milestone-red', '5 days', array('position' => 1))->
+    checkElement('#sidebar .box .milestone-red', '2 days', array('position' => 3))->
+    checkElement('#sidebar .box .milestone-green', '15 days', array('position' => 1))->
   end()
 
 ;

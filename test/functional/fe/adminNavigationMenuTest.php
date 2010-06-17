@@ -14,17 +14,17 @@ $browser->
   with('response')->begin()->
     isStatusCode(200)->
     
-    checkElement('.navigation ul li a[href*="/idDashboard"]', 'Dashboard')->
-    checkElement('.navigation ul li a[href*="/idProject"]', 'Projects')->
-    checkElement('.navigation ul li a[href*="Logtime"]', 'Time')->
-    checkElement('.navigation ul li a[href="calendar.html"]', 'Calendar')->
-    checkElement('.navigation ul li a[href*="/idUsers"]', 'Users')->
-    checkElement('.navigation ul li a[href="messages.html"]', '/Messages/')->
+    checkElement('#navigation ul li a[href*="/idDashboard"]', 'Dashboard')->
+    checkElement('#navigation ul li a[href*="/idProject"]', 'Projects')->
+    checkElement('#navigation ul li a[href*="Logtime"]', 'Time')->
+    checkElement('#navigation ul li a:contains("Calendar")', 0)->
+    checkElement('#navigation ul li a[href*="/idUsers"]', 'Users')->
+    checkElement('#navigation ul li a:contains("Messages")', 0)->
 
-    checkElement('.navigationRight a[id="addIcon"][href="#"]', '/Quick Add/')->
+    checkElement('#navigationRight a:contains("Quick Add")', 0)->
 
-    checkElement('.utility-nav a[href*="/logout"]', 'Logout')->
-    checkElement('.utility-nav a[href="#"]', 'Settings')->
-    checkElement('.utility-nav a[class="utilHelp"][href="#"]', 'Help')->
+    checkElement('#utility a[href*="/logout"]', 'Logout')->
+    checkElement('#utility a[href="#"]', 'Settings')->
+    checkElement('#utility a[class="help"][href="#"]', 'Help')->
 
   end();

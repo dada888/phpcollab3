@@ -3,18 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>phpCollab 3.0a | Wireframe</title>
-<link href="blueprint/screen.css" rel="stylesheet" type="text/css" />
+<link href="schematic/grid.css" rel="stylesheet" type="text/css" />
+<link href="schematic/reset.css" rel="stylesheet" type="text/css" />
+<link href="schematic/typography.css" rel="stylesheet" type="text/css" />
 <link href="custom.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" />
 </head>
 <body>
-<div class="container wrapper showgridOFF">
-  <div class="span-24 container last  utility-nav right">Hello, Adam Patterson <a href="#" class="utilLogin">Login</a> <a href="settings.html" class="utilSettings">Settings</a> <a href="#" class="utilHelp">Help</a>
+<div class="container wrapper">
+  <div class="span-32 container last  utility-nav right">Hello, Adam Patterson <a href="#" class="utilLogin">Login</a> <a href="settings.html" class="utilSettings">Settings</a> <a href="#" class="utilHelp">Help</a>
     <select>
       <option>One</option>
     </select>
   </div>
-  <div class="span-24 container last header">
+  <div class="span-32 container last header">
     <div class="span-15 title">Application Title</div>
     <div id="header-search" class="search-box span-7 utility-search last right">
       <form id="main-search-form" action="index.php?page=list" method="post">
@@ -28,8 +30,8 @@
       </form>
     </div>
   </div>
-  <div class="span-24 container last">
-    <div class="span-18 navigation">
+  <div class="span-32 container last">
+    <div class="span-32 navigation">
       <ul>
         <li><a href="dashboard-admin.html">Dashboard</a></li>
         <li class="current"><a href="project-list.html">Projects</a></li>
@@ -39,19 +41,14 @@
         <li><a href="messages.html"><span>5</span>Messages</a></li>
       </ul>
     </div>
-    <div class="span-6 navigationRight last">
-      <ul>
-        <li><a id="addIcon" href="#" >Quick Add</a></li>
-      </ul>
-    </div>
   </div>
-  <div class="span-24 append-1 prepend-1 last contentWrapper rounded">
-    <div class="span-17 dashboard">
+  <div class="span-32 append-1 prepend-1 last contentWrapper rounded">
+    <div class="span-24 dashboard">
       <h3>Projects/My Projects</h3>
       <hr />
-      <div class="span-17 menuStatus  last">
+      <div class="span-24 menuStatus  last">
         <div class="span-11">
-          <div class="statusTitle greenBall padding-3"> <a href="project-dashboard-admin.html">ABC Project</a></div>
+          <div class="statusTitle padding-3"> <a href="project-dashboard-admin.html">ABC Project</a></div>
         </div>
         <div class="span-6 last">
           <div class="span-1 percent">50<small>%</small></div>
@@ -60,15 +57,15 @@
           </div>
         </div>
       </div>
-      <div class="span-17 last">
-        <div class="span-17 last report dashboard-row">
+      <div class="span-24 last">
+        <div class="span-24 last report dashboard-row">
           <div class="span-5 append-1">
             <div class="square-green">&nbsp;</div>
             On Time</div>
           <div class="span-5 append-1"><span class="padding-3"><a href="project-tickets.html">129 <small>Tickets Remain</small></a></span></div>
           <div class="span-5 last"><span class="padding-3"><a href="project-tickets.html">21 <small>Tickets Closed</small></a><small></small></span></div>
         </div>
-        <div class="span-17 last report dashboard-row last-row">
+        <div class="span-24 last report dashboard-row last-row">
           <div class="span-5 append-1">
             <div class="square-yellow">&nbsp;</div>
             On Budget</div>
@@ -76,9 +73,9 @@
           <div class="span-5 last"><span class="padding-3"><a href="project-repo.html">258 <small>Commits</small></a></span></div>
         </div>
       </div>
-      <div class="span-17 menuStatus last">
+      <div class="span-24 menuStatus last">
         <div class="span-11">
-          <div class="statusTitle redBall padding-3"><a href="project-dashboard-admin.html">ABC Project</a></div>
+          <div class="statusTitle padding-3"><a href="project-dashboard-admin.html">ABC Project</a></div>
         </div>
         <div class="span-6 last">
           <div class="span-1 percent">75<small>%</small></div>
@@ -87,15 +84,15 @@
           </div>
         </div>
       </div>
-      <div class="span-17 last">
-        <div class="span-17 last report dashboard-row">
+      <div class="span-24 last">
+        <div class="span-24 last report dashboard-row">
           <div class="span-5 append-1">
             <div class="square-red">&nbsp;</div>
             On Time</div>
           <div class="span-5 append-1"><span class="padding-3"><a href="project-tickets.html">129 <small>Tickets Remain</small></a><small></small></span></div>
           <div class="span-5 last"><span class="padding-3"><a href="project-tickets.html">21 <small>Tickets Closed</small></a></span></div>
         </div>
-        <div class="span-17 last report  dashboard-row last-row">
+        <div class="span-24 last report  dashboard-row last-row">
           <div class="span-5 append-1">
             <div class="square-green">&nbsp;</div>
             On Budget</div>
@@ -103,9 +100,9 @@
           <div class="span-5 last"><span class="padding-3"><a href="project-repo.html">258 <small>Commits</small></a></span></div>
         </div>
       </div>
-      <div class="span-17 menuStatus  last">
+      <div class="span-24 menuStatus  last">
         <div class="span-11">
-          <div class="statusTitle greenBall padding-3"><a href="project-dashboard-admin.html">ABC Project</a></div></div>
+          <div class="statusTitle padding-3"><a href="project-dashboard-admin.html">ABC Project</a></div></div>
         <div class="span-6 last">
           <div class="span-1 percent">50<small>%</small></div>
           <div class="span-5 last progress">
@@ -113,24 +110,35 @@
           </div>
         </div>
       </div>
-      <div class="span-17 last">
-        <div class="span-17 last report dashboard-row">
+      <div class="span-24 last">
+        <div class="span-24 last report dashboard-row">
           <div class="span-5 append-1">
             <div class="square-green">&nbsp;</div>
             On Time</div>
           <div class="span-5 append-1"><span class="padding-3"><a href="project-tickets.html">129 <small>Tickets Remain</small></a><small></small></span></div>
           <div class="span-5 last"><span class="padding-3"><a href="project-tickets.html">21 <small>Tickets Closed</small></a></span></div>
         </div>
-        <div class="span-17 last report dashboard-row last-row">
+        <div class="span-24 last report dashboard-row last-row">
           <div class="span-5 append-1">
             <div class="square-yellow">&nbsp;</div>
             On Budget</div>
           <div class="span-5 append-1"><span class="padding-3"><a href="project-discussions.html">37 <small>Discussions</small></a></span></div>
           <div class="span-5 last"><span class="padding-3"><a href="project-repo.html">258 <small>Commits</small></a></span></div>
         </div>
+      </div><div class="span-24 last pagenation">
+        <h2>Page:</h2>
+        <ul>
+          <li><a href="#"><img src="images/icons/14-minus-ball.png" alt="Previous" title="Previous"/></a></li>
+          <li><a href="#" class="current_page">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#"><img src="images/icons/14-add-ball.png" alt="Next" title="Next"/></a></li>
+        </ul>
       </div>
     </div>
-    <div class="span-6 push-1 last">
+    <div class="span-8 prepend-1 sidebar last">
       <h3>Recent Activity</h3>
       <hr />
       <div class="span-6 grey-box last"> <strong>Recentyl updated by:</strong>
@@ -147,7 +155,7 @@
     </div>
     <!-- -->
   </div>
-  <div class="span-24 append-1 prepend-1 last footer">&nbsp;</div>
+  <div class="span-32 append-1 prepend-1 last footer">&nbsp;</div>
 </div>
 </body>
 </html>

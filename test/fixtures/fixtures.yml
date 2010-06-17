@@ -7,8 +7,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: true
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
   sfGuardUser_2:
     username: user
     algorithm: sha1
@@ -17,8 +17,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_3:
     username: puser
     algorithm: sha1
@@ -27,8 +27,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_4:
     username: nopuser
     algorithm: sha1
@@ -37,8 +37,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_5:
     username: userp2
     algorithm: sha1
@@ -47,8 +47,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_6:
     username: sesto
     algorithm: sha1
@@ -57,8 +57,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_7:
     username: pmanager
     algorithm: sha1
@@ -67,8 +67,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_8:
     username: customer
     password: customer
@@ -663,44 +663,44 @@ Project:
     name: 'Il mio primo progetto'
     description: 'Il primo progetto creato con il plugin idProjectManagementPlugin'
     is_public: false
-    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-10 day GMT")); ?>'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-10 day")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
   Project_2:
     name: 'Il mio secondo progetto'
     description: 'Il secondo progetto creato con il plugin idProjectManagementPlugin'
     is_public: false
-    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    end_date: '<?php echo date("Y-m-d H:i:s", strtotime("+10 days GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    end_date: '<?php echo date("Y-m-d H:i:s", strtotime("+10 days")); ?>'
     budget: 100
     costs:  50
   Project_3:
     name: 'Il mio terzo progetto'
     description: 'Il terzo progetto creato con il plugin idProjectManagementPlugin'
     is_public: true
-    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day GMT")); ?>'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
   Project_4:
     name: 'Il mio quarto progetto'
     description: 'Il quarto progetto creato con il plugin idProjectManagementPlugin'
     is_public: false
-    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day GMT")); ?>'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day GMT")); ?>'
-    end_date: '<?php echo date("Y-m-d H:i:s", strtotime("-3 days GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day")); ?>'
+    end_date: '<?php echo date("Y-m-d H:i:s", strtotime("-3 days")); ?>'
     budget: 100
     costs:  150
   Project_5:
     name: 'Gant chart project'
     description: 'a prioject to test the gantt chart'
     is_public: false
-    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours GMT")); ?>'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours GMT")); ?>'
-    end_date: '<?php echo date("Y-m-d H:i:s", strtotime("+30 days GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours")); ?>'
+    end_date: '<?php echo date("Y-m-d H:i:s", strtotime("+30 days")); ?>'
 
 Issue:
   Issue_1:
@@ -709,7 +709,7 @@ Issue:
     priority: Priority_1
     title: 'new issue'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
 <?php for ($i = 2; $i < 50; $i++): ?>
   Issue_<?php echo $i; ?>:
     project: Project_3
@@ -717,7 +717,7 @@ Issue:
     priority: Priority_1
     title: 'new issue <?php echo $i ?>'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
 <?php endfor; ?>
 <?php for ($i = 51; $i < 70; $i++): ?>
   Issue_<?php echo $i; ?>:
@@ -727,7 +727,7 @@ Issue:
     priority: Priority_1
     title: 'new issue <?php echo $i ?>'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     estimated_time: '5'
 <?php endfor; ?>
   Issue_71:
@@ -736,7 +736,7 @@ Issue:
     priority: Priority_1
     title: 'new issue project 1'
     description: 'new issue project 1'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     estimated_time: '25'
     milestone: Milestone_2
   Issue_72:
@@ -745,8 +745,8 @@ Issue:
     priority: Priority_1
     title: 'new issue project 1'
     description: 'new issue project 1'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day")); ?>'
     milestone: Milestone_2
 <?php for ($i = 1; $i <= 3; $i++): ?>
   Issue_<?php echo $i+72; ?>:
@@ -756,7 +756,7 @@ Issue:
     priority: Priority_1
     title: 'p2 first iterazione issue <?php echo $i ?>'
     description: 'description p2 first iterazione issue <?php echo $i ?>'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
 <?php endfor; ?>
 <?php for ($i = 1; $i <= 3; $i++): ?>
   Issue_<?php echo $i+74; ?>:
@@ -766,7 +766,7 @@ Issue:
     priority: Priority_1
     title: 'p2 second iterazione issue <?php echo $i ?>'
     description: 'description p2 first iterazione issue <?php echo $i ?>'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
 <?php endfor; ?>
   Issue_78:
     project: Project_5
@@ -775,7 +775,7 @@ Issue:
     tracker: Tracker_1
     title: 'first user story'
     description: 'first user story'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: '10'
   Issue_79:
@@ -785,7 +785,7 @@ Issue:
     tracker: Tracker_1
     title: 'second user story'
     description: 'second user story'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: '15'
   Issue_80:
@@ -795,7 +795,7 @@ Issue:
     tracker: Tracker_1
     title: 'third user story'
     description: 'third user story'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: '33'
   Issue_81:
@@ -805,7 +805,7 @@ Issue:
     tracker: Tracker_2
     title: 'first task'
     description: 'first task'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: '12'
   Issue_82:
@@ -815,7 +815,7 @@ Issue:
     tracker: Tracker_2
     title: 'second task'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: '11'
   Issue_83:
@@ -825,7 +825,7 @@ Issue:
     tracker: Tracker_2
     title: 'third task'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: '2'
   Issue_84:
@@ -835,7 +835,7 @@ Issue:
     tracker: Tracker_2
     title: 'fourth task'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: '7'
   Issue_85:
@@ -845,7 +845,7 @@ Issue:
     tracker: Tracker_2
     title: 'fifth task'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: '33'
   Issue_86:
@@ -854,7 +854,7 @@ Issue:
     priority: Priority_1
     title: 'sixth task'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: '1'
   Issue_87:
@@ -864,7 +864,7 @@ Issue:
     tracker: Tracker_2
     title: 'seventh task'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: '12'
   Issue_88:
@@ -874,7 +874,7 @@ Issue:
     tracker: Tracker_3
     title: 'first bug'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: null
   Issue_89:
@@ -884,7 +884,7 @@ Issue:
     tracker: Tracker_3
     title: 'second bug'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: null
   Issue_90:
@@ -894,7 +894,7 @@ Issue:
     tracker: Tracker_3
     title: 'third bug'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: null
   Issue_91:
@@ -904,7 +904,7 @@ Issue:
     tracker: Tracker_3
     title: 'fourth bug'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: null
   Issue_92:
@@ -914,7 +914,7 @@ Issue:
     tracker: Tracker_3
     title: 'fifth bug'
     description: ''
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
     ending_date: null
     estimated_time: null
   Issue_93:
@@ -924,8 +924,8 @@ Issue:
     priority: Priority_1
     title: 'estimate issue 1'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime('-10 days GMT')); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime('-1 days GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('-10 days')); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime('-1 day')); ?>'
     estimated_time: 44
   Issue_94:
     project: Project_1
@@ -934,8 +934,8 @@ Issue:
     priority: Priority_1
     title: 'estimate issue 1'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime('-10 days GMT')); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime('-1 days GMT')); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('-10 days')); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime('-1 day')); ?>'
     estimated_time: 14
 <?php for ($i = 95; $i <= 105; $i++): ?>
   Issue_<?php echo $i ?>:
@@ -944,8 +944,8 @@ Issue:
     priority: Priority_1
     title: 'estimate issue 1'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime("-9 day GMT")); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("-1 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-9 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("-1 day")); ?>'
     estimated_time: 16
     milestone: Milestone_2
 <?php endfor; ?>
@@ -956,8 +956,8 @@ Issue:
     priority: Priority_1
     title: 'estimate issue 1'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime("-8 day GMT")); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("-2 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-8 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("-2 days")); ?>'
     estimated_time: 32
 <?php endfor; ?>
   Issue_112:
@@ -967,7 +967,7 @@ Issue:
     priority: Priority_1
     title: 'estimate issue 1'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime("-1 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-1 day")); ?>'
     estimated_time: 19
   Issue_113:
     project: Project_1
@@ -976,7 +976,7 @@ Issue:
     priority: Priority_1
     title: 'estimate issue 1'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime("-1 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-1 day")); ?>'
     ending_date: null
     estimated_time: 24
   Issue_114:
@@ -985,7 +985,7 @@ Issue:
     milestone: Milestone_1
     priority: Priority_1
     title: 'assigned issue 1'
-    starting_date: '<?php echo date("Y-m-d", strtotime("-1 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-1 day")); ?>'
     ending_date: null
 
 Priority:
@@ -1039,8 +1039,8 @@ Milestone:
   Milestone_1:
     title: 'first iteration'
     description: 'first iteration for project 1'
-    starting_date: '<?php echo date("Y-m-d", strtotime("-15 day GMT")); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("-5 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-15 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("-5 day")); ?>'
     project: Project_1
     closed: 0
     estimated_time: 8
@@ -1048,37 +1048,37 @@ Milestone:
   Milestone_2:
     title: 'second iteration'
     description: 'second iteration for project one'
-    starting_date: '<?php echo date("Y-m-d", strtotime("+5 day GMT")); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("+15 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("+5 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+15 day")); ?>'
     closed: 0
     project: Project_1
     InCharge: sfGuardUser_7
   Milestone_3:
     title: 'third iteration'
     description: 'third iteration for project 3'
-    starting_date: '<?php echo date("Y-m-d", strtotime("-15 day GMT")); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("-2 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-15 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("-2 day")); ?>'
     closed: 0
     project: Project_3
   Milestone_3_2:
     title: 'another third iteration'
     description: 'another third iteration for project 3'
-    starting_date: '<?php echo date("Y-m-d", strtotime("-15 day GMT")); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("-2 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-15 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("-2 day")); ?>'
     closed: 1
     project: Project_3
   Milestone_4:
     title: 'first iteration'
     description: 'first iteration for project 2'
-    starting_date: '<?php echo date("Y-m-d", strtotime("+2 day GMT")); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("+12 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("+2 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+12 day")); ?>'
     closed: 0
     project: Project_2
   Milestone_5:
     title: 'second iteration'
     description: 'second iteration for project 2'
-    starting_date: '<?php echo date("Y-m-d", strtotime("+12 day GMT")); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("+55 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime("+12 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+55 day")); ?>'
     closed: 0
     project: Project_2
 
@@ -1154,77 +1154,77 @@ LogTime:
     issue: Issue_1
     profile: Profile_3
     log_time: '12'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
   LogTime_2:
     issue: Issue_71
     profile: Profile_7
     log_time: '1.2'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours")); ?>'
   LogTime_3:
     issue: Issue_71
     profile: Profile_3
     log_time: '1.3'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   LogTime_4:
     issue: Issue_80
     profile: Profile_7
     log_time: '5'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 days")); ?>'
   LogTime_5:
     issue: Issue_81
     profile: Profile_7
     log_time: '10'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 days")); ?>'
   LogTime_6:
     issue: Issue_93
     profile: Profile_1
     log_time: '16'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 days")); ?>'
   LogTime_7:
     issue: Issue_94
     profile: Profile_1
     log_time: '16'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-5 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-5 days")); ?>'
   LogTime_8:
     issue: Issue_95
     profile: Profile_1
     log_time: '16'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   LogTime_9:
     issue: Issue_96
     profile: Profile_1
     log_time: '16'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 days")); ?>'
   LogTime_10:
     issue: Issue_97
     profile: Profile_1
     log_time: '25'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 days")); ?>'
   LogTime_11:
     issue: Issue_98
     profile: Profile_1
     log_time: '12'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   LogTime_12:
     issue: Issue_99
     profile: Profile_1
     log_time: '33'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 days")); ?>'
   LogTime_13:
     issue: Issue_100
     profile: Profile_1
     log_time: '16'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 days")); ?>'
   LogTime_14:
     issue: Issue_101
     profile: Profile_1
     log_time: '52'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   LogTime_15:
     issue: Issue_102
     profile: Profile_1
     log_time: '33'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 days GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 days")); ?>'
 
 ProjectsTrackers:
   ProjectsTrackers_1:
@@ -1241,13 +1241,13 @@ Message:
   message_1:
     title:       'Primo messaggio'
     body:        'Body primo messaggio'
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours")); ?>'
     UserProfile: Profile_3
     project:     Project_2
   message_2:
     title:       'Secondo messaggio'
     body:        'Body secondo messaggio'
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours")); ?>'
     UserProfile: Profile_3
     project:     Project_2
 
@@ -1259,7 +1259,7 @@ fdComment:
     model_field:        id
     model_field_value:  1
     profile_id:  3
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours")); ?>'
   fdcomment_2:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
@@ -1267,7 +1267,7 @@ fdComment:
     model_field:        id
     model_field_value:  1
     profile_id:  3
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_3:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
@@ -1275,7 +1275,7 @@ fdComment:
     model_field:        id
     model_field_value:  2
     profile_id:  3
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_4:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
@@ -1283,7 +1283,7 @@ fdComment:
     model_field:        id
     model_field_value:  2
     profile_id:  3
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_5:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
@@ -1291,7 +1291,7 @@ fdComment:
     model_field:        id
     model_field_value:  1
     profile_id:  3
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_6:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
@@ -1299,7 +1299,7 @@ fdComment:
     model_field:        id
     model_field_value:  1
     profile_id:  3
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_7:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
@@ -1307,7 +1307,7 @@ fdComment:
     model_field:        id
     model_field_value:  1
     profile_id:  2
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_8:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
@@ -1315,60 +1315,60 @@ fdComment:
     model_field:        id
     model_field_value:  1
     profile_id:  1
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_9:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
     model:              Message
     model_field:        id
     model_field_value:  1
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_10:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
     model:              Message
     model_field:        id
     model_field_value:  1
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_11:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
     model:              Message
     model_field:        id
     model_field_value:  1
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_12:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
     model:              Message
     model_field:        id
     model_field_value:  1
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_13:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
     model:              Message
     model_field:        id
     model_field_value:  1
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_14:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
     model:              Message
     model_field:        id
     model_field_value:  1
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_15:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
     model:              Message
     model_field:        id
     model_field_value:  1
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_16:
     title:              pippo2
     body:               'pippo2 pippo2 poivnonjoifwe ijewjpfjpw .... 22222222222222222222222222222222222222222222'
     model:              Message
     model_field:        id
     model_field_value:  1
-    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days GMT")); ?>'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'

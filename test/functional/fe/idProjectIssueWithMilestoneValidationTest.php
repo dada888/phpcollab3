@@ -26,7 +26,7 @@ $browser->click('Save', array('issue' => array(
     'description'     => 'new issue for this project new',
     'status_id'       => 1,
     'priority_id'     => 1,
-    'starting_date'   => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())),
+    'starting_date'   => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))),
     'ending_date'     => array('day' => date('d', strtotime('+1 month')), 'month' => date('m', strtotime('+1 month')), 'year' => date('Y', strtotime('+1 month'))),
     'users_list'       => array('3'),
     'milestone_id'       => 1

@@ -43,7 +43,7 @@ click('Login', array('signin' => array('username' => 'puser', 'password' => 'pus
   click('Il mio primo progetto')->
 
   with('response')->begin()->
-    checkElement('a[href~="idProject/1/show/Gantt"]', '/Gantt chart/')->
+    checkElement('a[href~="idProject/1/show/Gantt"]:contains("Gantt chart")', 0)->
   end()->
 
   click('Dashboard')->

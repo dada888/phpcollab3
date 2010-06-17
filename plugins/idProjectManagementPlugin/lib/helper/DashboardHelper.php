@@ -2,11 +2,11 @@
 
 use_helper('Url');
 
-function link_project($name, $id)
+function link_project($name, $id, $class = '')
 {
   if (!is_null($name) && !is_null($id))
   {
-    return link_to($name, '@show_project?id='.$id, array('absolute_url' => false));
+    return link_to($name, '@show_project?id='.$id, array('absolute_url' => false, 'class' => $class));
   }
   
   if (!is_null($name) && is_null($id))

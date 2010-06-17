@@ -5,7 +5,7 @@ include(dirname(__FILE__).'/../../bootstrap/functional.php');
 $browser = new idDoctrineTestFunctional(new sfBrowser());
 $browser->initializeDatabase();
 
-$today = explode('-',date('Y-n-d', time()));
+$today = explode('-',date('Y-n-d', strtotime('today')));
 
 $browser->
 

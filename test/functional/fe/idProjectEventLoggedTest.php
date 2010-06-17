@@ -59,9 +59,9 @@ $browser->
 
   get('/')->
   with('response')->begin()->
-    checkElement('.contentWrapper .dashboard .recent .dashboard-row', '/Amministro A./')->
-    checkElement('.contentWrapper .dashboard .recent .dashboard-row', '/Created Milestone/')->
-    checkElement('.contentWrapper .dashboard .recent .dashboard-row a[href*="idMilestone/show"]', '/first iteration/')->
-    checkElement('.contentWrapper .dashboard .recent .dashboard-row a[href*="show/4"]', '/Il mio quarto progetto/')->
+    checkElement('#content ul.action li ul li', '/Amministro A./', array('position' => 0))->
+    checkElement('#content ul.action li ul li', '/Created Milestone/', array('position' => 1))->
+    checkElement('#content ul.action li ul li a', '/first iteration/', array('position' => 0))->
+    checkElement('#content ul.action li ul li a', '/Il mio quarto progetto/', array('position' => 1))->
   end()
   ;

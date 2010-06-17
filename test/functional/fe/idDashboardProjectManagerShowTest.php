@@ -19,24 +19,33 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('.contentWrapper .dashboard h3:contains("Project Status")')->
-    checkElement('.contentWrapper .dashboard .percent:contains("43.48%")')->
-    checkElement('.contentWrapper .dashboard a:contains("Il mio primo progetto")')->
-    checkElement('.contentWrapper .dashboard .percent:contains("0%")')->
-    checkElement('.contentWrapper .dashboard a:contains("Gant chart project")')->
-    checkElement('.contentWrapper .dashboard .report:contains("On Time")', 2)->
-    checkElement('.contentWrapper .dashboard .report:contains("On Budget")', 2)->
+    checkElement('#content .title', 'Recent Activity')->
+    checkElement('#content .menu')->
+
+    checkElement('#content ul.action ul li:contains("'.date('F d',  strtotime('+1 minute')).'")')->
+    checkElement('#content ul.action ul li:contains("Frank Tony")')->
+
+    checkElement('#content ul.action ul li.span-15', '/message 19/', array('position' => 0))->
+    checkElement('#content ul.action ul li.span-15', '/message 18/', array('position' => 1))->
+    checkElement('#content ul.action ul li.span-15', '/message 17/', array('position' => 2))->
+    checkElement('#content ul.action ul li.span-15', '/message 16/', array('position' => 3))->
+    checkElement('#content ul.action ul li.span-15', '/message 15/', array('position' => 4))->
+    checkElement('#content ul.action ul li.span-15', '/message 14/', array('position' => 5))->
+    checkElement('#content ul.action ul li.span-15', '/message 13/', array('position' => 6))->
+    checkElement('#content ul.action ul li.span-15', '/message 12/', array('position' => 7))->
+    checkElement('#content ul.action ul li.span-15', '/message 11/', array('position' => 8))->
+    checkElement('#content ul.action ul li.span-15', '/message 10/', array('position' => 9))->
 
     
-    checkElement('.contentWrapper .dashboard h3:contains("Recent Activity")')->
-    //checkElement('.contentWrapper .dashboard .recent strong:contains("Frank Tony")', 10)->
-    checkElement('.contentWrapper .dashboard .recent .dashboard-row', '/Frank Tony/', array('position' => 0))->
-    checkElement('.contentWrapper .dashboard .recent a:contains("Il mio primo progetto")')->
+    checkElement('#sidebar')->
+    checkElement('#sidebar h3 a', 4)->
+    checkElement('#sidebar .box', 4)->
+    checkElement('#sidebar .box .percent', '43.48%', array('position' => 0))->
 
-    checkElement('#sidebar-right h3:contains("Milestones")')->
-    checkElement('#sidebar-right .milestone-red:contains("Late")')->
-    checkElement('#sidebar-right .red:contains("days late")')->
-    checkElement('#sidebar-right .milestone-green:contains("Upcoming")')->
-    checkElement('#sidebar-right .green:contains("Starts in")')->
+    checkElement('#sidebar .box .progress div[class="progress-green"][style*="43.48%"]', true)->
+    checkElement('#sidebar .box .progress div[class="progress-grey"][style*="4.35%"]', true)->
+
+    checkElement('#sidebar .title', 'Projects', array('position' => 0))->
+    checkElement('#sidebar .title', 'Milestones', array('position' => 1))->
   end()
 ;

@@ -26,7 +26,7 @@ $browser->click('Save', array('issue' => array(
     'description'     => 'new issue for this project',
     'status_id'       => 1,
     'priority_id'     => 1,
-    'starting_date'   => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())),
+    'starting_date'   => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))),
     'ending_date'     => array('day' => date('d', strtotime('+1 month')), 'month' => date('m', strtotime('+1 month')), 'year' => date('Y', strtotime('+1 month'))),
     'users_list'       => array('1')
   )), array('methos'=>'post'))->
@@ -45,7 +45,7 @@ $browser->click('Save', array('issue' => array(
     'description'     => 'new issue for this project',
     'status_id'       => 1,
     'priority_id'     => 1,
-    'starting_date'   => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())),
+    'starting_date'   => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))),
     'ending_date'     => array('day' => date('d', strtotime('+1 month')), 'month' => date('m', strtotime('+1 month')), 'year' => date('Y', strtotime('+1 month'))),
     'issues_list'     => array('11111111111')
   )), array('methos'=>'post'))->
@@ -57,7 +57,7 @@ $browser->click('Save', array('issue' => array(
     'description'     => 'new issue for this project',
     'status_id'       => 1,
     'priority_id'     => 1,
-    'starting_date'   => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())),
+    'starting_date'   => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))),
     'ending_date'     => array('day' => date('d', strtotime('+1 month')), 'month' => date('m', strtotime('+1 month')), 'year' => date('Y', strtotime('+1 month'))),
     'issues_list'     => array('-20')
   )), array('methos'=>'post'))->

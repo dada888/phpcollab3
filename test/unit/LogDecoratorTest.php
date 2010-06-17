@@ -4,11 +4,13 @@ include(dirname(__FILE__).'/../bootstrap/unit.php');
 include(dirname(__FILE__).'/../../plugins/idProjectManagementPlugin/lib/decorator/LogDecorator.php');
 
 
-$t = new lime_test(23, new lime_output_color());
+$t = new lime_test(25, new lime_output_color());
 
 class EventLogMock
 {
   public $message;
+  public $action = 'action';
+  public $namespace = 'namespace';
 
   public function __construct()
   {
@@ -56,6 +58,8 @@ $data = $decorator->extractDataFromMessage('1234#ble#wqd#dswq#dwq#');
 $t->is($data['message'],'1234#ble#wqd#dswq#dwq#', 'correct message extraction');
 $t->is(count($data),1, 'correct data extraction');
 
+$t->is($decorator->namespace, 'namespace', 'decorator retrieves right namespace');
+$t->is($decorator->action, 'action', 'decorator retrieves right action');
 $t->is($decorator->message, 'my message to <a href="/example.com/1">johnny</a>', 'decorator strip special string from message');
 $t->is($decorator->user_ref, '13', 'decorator strip special string from message');
 $t->is($decorator->project_ref, '14', 'decorator strip special string from message');

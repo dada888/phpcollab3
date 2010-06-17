@@ -53,7 +53,7 @@ all:
     i18n:                   true
     default_culture:        en
     charset:                utf-8
-    standard_helpers:      [I18N, Form, Partial, Date, idPagination, idGanttShow]
+    standard_helpers:      [I18N, Form, Partial, Date, idPagination]
     compat_10:              true
 
     login_module:           sfGuardAuth

@@ -5,9 +5,9 @@ include(dirname(__FILE__).'/../../bootstrap/functional.php');
 $project_filters = array();
 $project_filters['project_filters']['name'] = '';
 $project_filters['project_filters']['created_at'] = array(
-                                                          'month' => date("n", strtotime("-1 day GMT")),
-                                                          'day' => date("j", strtotime("-1 day GMT")),
-                                                          'year' => date("Y", strtotime("-1 day GMT"))
+                                                          'month' => date("n", strtotime("-1 day")),
+                                                          'day' => date("j", strtotime("-1 day")),
+                                                          'year' => date("Y", strtotime("-1 day"))
                                                           );
 
 $browser = new idDoctrineTestFunctional(new sfBrowser());
@@ -79,9 +79,9 @@ $browser->info('Testing the right behaviour of the filters form')->
 $project_filters = array();
 $project_filters['project_filters']['name'] = '';
 $project_filters['project_filters']['created_at'] = array(
-                                                          'month' => date("n", strtotime("-2 day GMT")),
-                                                          'day' => date("j", strtotime("-2 day GMT")),
-                                                          'year' => date("Y", strtotime("-2 day GMT"))
+                                                          'month' => date("n", strtotime("-2 day")),
+                                                          'day' => date("j", strtotime("-2 day")),
+                                                          'year' => date("Y", strtotime("-2 day"))
                                                           );
 $browser->
 click('Reset')->
@@ -97,9 +97,9 @@ click('Filter', $project_filters)->
 $project_filters = array();
 $project_filters['project_filters']['name'] = '';
 $project_filters['project_filters']['created_at'] = array(
-                                                          'month' => date("n", strtotime("-3 day GMT")),
-                                                          'day' => date("j", strtotime("-3 day GMT")),
-                                                          'year' => date("Y", strtotime("-3 day GMT"))
+                                                          'month' => date("n", strtotime("-3 day")),
+                                                          'day' => date("j", strtotime("-3 day")),
+                                                          'year' => date("Y", strtotime("-3 day"))
                                                           );
 
 $browser->

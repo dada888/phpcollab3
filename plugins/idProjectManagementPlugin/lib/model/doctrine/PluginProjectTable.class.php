@@ -133,6 +133,7 @@ class PluginProjectTable extends Doctrine_Table
 
   public function getReportOnProject($project_id)
   {
+    $project = Doctrine::getTable('Project')->findOneBy('id', $project_id);
     $closed = Doctrine::getTable('Issue')->getQueryForClosedIssueForProject($project_id)->count();
     $assigned = Doctrine::getTable('Issue')->getQueryForAssignedIssueForProject($project_id)->count();
     $all = Doctrine::getTable('Issue')->countByProject($project_id);
@@ -143,10 +144,10 @@ class PluginProjectTable extends Doctrine_Table
     $report['closed_issues'] = $closed;
     $report['remaining_issues'] = $all['issues'] - $closed;
     $report['messages'] = Doctrine::getTable('Message')->getQueryForProjectMessages($project_id)->count();
-
+    $report['project_name'] = $project->name;
+    $report['on_time'] = $project->isOnTime();
     return $report;
   }
-
 
   public function getReportsForRecentProjects($limit = 3)
   {
@@ -156,8 +157,6 @@ class PluginProjectTable extends Doctrine_Table
     {
       $report = $this->getReportOnProject($id_name['id']);
       $reports[$id_name['id']] = $report;
-      $reports[$id_name['id']]['project_name'] = $id_name['name'];
-      $reports[$id_name['id']]['on_time'] = $this->isProjectOnTime($id_name['id']);
       
       /** TO DO :numero di commit per il progetto **/
     }

@@ -27,16 +27,17 @@ class PluginEventLogTable extends Doctrine_Table
       }
       $clean_result_by_date[$date][] = $log;
     }
+
     return $clean_result_by_date;
   }
 
   protected function getQueryToRetrieveEventsByDays($days)
   {
     $latest_dates = $this->getLastDatesOfEvents($days);
-    $first_date = date('Y-m-d 00:00:00', strtotime($latest_dates[0]['date'].' +1 day'));
+    $first_date = date('Y-m-d 00:00:00', strtotime($latest_dates[0]['date'].' +1 day GMT'));
     $last_date  = $latest_dates[count($latest_dates)-1]['date'];
 
-    $until_date = date('Y-m-d 23:59:59', strtotime('-'.$days.' days'));
+    $until_date = date('Y-m-d 23:59:59', strtotime('-'.$days.' days GMT'));
 
     return $this->createQuery()
                 ->from('EventLog e')
@@ -68,7 +69,25 @@ class PluginEventLogTable extends Doctrine_Table
     return $this->cleanData($this->retrieveEventsByDaysAndProjectIds($days, $project_ids), $decorator_class);
   }
 
-  public function retrieveLastLoggedEventFromProjects($project_ids, $min_date = null)
+  public function retrieveLastEventsByProjectIds($events_number, $project_ids, $decorator_class = null)
+  {
+    $result = $this->createQuery()
+                ->from('EventLog e')
+                ->leftJoin('e.Project')
+                ->limit($events_number)
+                ->orderBy('created_at DESC')
+                ->WhereIn('project_id', $project_ids)
+                ->execute();
+
+    if ($decorator_class)
+    {
+      $result = $this->cleanData($result, $decorator_class);
+    }
+    
+    return $result;
+  }
+
+  public function retrieveLastLoggedEventFromProjects($project_ids, $min_date = null, $limit = 10)
   {
     if (is_null($min_date))
     {
@@ -79,6 +98,7 @@ class PluginEventLogTable extends Doctrine_Table
                  ->from('EventLog el')
                  ->leftJoin('el.Project')
                  ->groupBy('el.project_id')->having('MAX(el.created_at)')
+                 ->limit($limit)
                  ->where('el.created_at > ?', $min_date)
                  ->andWhereIn('el.project_id', $project_ids)
                  ->execute();

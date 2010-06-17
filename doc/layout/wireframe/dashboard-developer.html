@@ -3,20 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>phpCollab 3.0a | Wireframe</title>
-<link href="blueprint/screen.css" rel="stylesheet" type="text/css" />
+<link href="schematic/grid.css" rel="stylesheet" type="text/css" />
+<link href="schematic/reset.css" rel="stylesheet" type="text/css" />
+<link href="schematic/typography.css" rel="stylesheet" type="text/css" />
 <link href="custom.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" />
 </head>
 <body>
-<div class="container wrapper showgridOFF">
-  <div class="span-24 container last  utility-nav right">Hello, Adam Patterson <a href="#" class="utilLogin">Login</a> <a href="settings.html" class="utilSettings">Settings</a> <a href="#" class="utilHelp">Help</a>
+<div class="container wrapper">
+  <div class="span-32 container last  utility-nav right">Hello, Adam Patterson <a href="#" class="utilLogin">Login</a> <a href="settings.html" class="utilSettings">Settings</a> <a href="#" class="utilHelp">Help</a>
     <select>
       <option>One</option>
     </select>
   </div>
-  <div class="span-24 container last header">
+  <div class="span-32 container last header">
     <div class="span-15 title"> Application Title</div>
-    <div id="header-search" class="search-box span-7 utility-search last right">
+    <div id="header-search" class="search-box utility-search last right">
       <form id="main-search-form" action="index.php?page=list" method="post">
         <div class="search-button">
           <input class="submit" value="" type="submit" />
@@ -28,171 +30,119 @@
       </form>
     </div>
   </div>
-  <div class="span-24 container last">
-    <div class="span-18 navigation">
+  <div class="span-32 container last">
+    <div class="span-32 navigation">
       <ul>
-         <li><a href="dashboard-developer.html">Dashboard</a></li>
-        <li><a href="project-list.html">Projects</a></li><li><a href="time.html">Time</a></li>
+        <li><a href="dashboard-admin.html">Dashboard</a></li>
+        <li><a href="project-list.html">Projects</a></li>
+        <li><a href="time.html">Time</a></li>
         <li><a href="calendar.html">Calendar</a></li>
         <li><a href="users.html">Users</a></li>
         <li><a href="messages.html"><span>5</span>Messages</a></li>
       </ul>
     </div>
-    <div class="span-6 navigationRight last">
-      <ul>
-        <li><a id="addIcon" href="#" >Quick Add</a></li>
-      </ul>
-    </div>
   </div>
-  <div class="span-24 append-1 prepend-1 last contentWrapper rounded">
-    <div class="span-17 dashboard">
+  <div class="span-32 append-1 prepend-1 last contentWrapper rounded">
+    <div class="span-23 dashboard">
       <h3>Tickets</h3>
       <hr />
-      <div class="span-17 last">
-        <div class="milestone-red padding-3"> <span class="list-title-right append-2">Due</span> <strong>Late</strong> </div>
-      </div>
-      <div class="span-17 milestone-thin-red last">
-        <div class="span-17 last report_issue dashboard-row">
-          <div class="span-14">
-            <div class="issue-type"><a  href="#">Issue</a></div>
-            <p> imperdiet ipsum ante vel elit. for <a href="#">Acme Project</a></p>
+      <div class="span-23 last">
+        <div class="span-23 last recent">
+          <div class="menu">
+            <div class="colum span-12 "><span class="padding-3"><strong>Your Accepted Tickets</strong></div>
+            <div class="right"><span class="padding-3"><strong>Due</strong></div>
           </div>
-          <div class="span-2 list-date">Yesterday</div>
-          <div class="span-1 last flag-green"> &nbsp; </div>
+          <div class="tickets">
+            <ul>
+              <li class="icon-red"> <span class="red"><strong>Critical.</strong></span> imperdiet ipsum ante vel elit. <span class="quiet">for</span> <a href="#">Acme Project</a><a href="project-dashboard-admin.html" class="due-date">Yesterday</a></li>
+              <li class="icon-green"><strong>Normal. </strong>Iimperdiet ipsum ante vel elit. <span class="quiet">for </span><a href="#">Acme Project</a><a href="project-dashboard-admin.html"class="due-date">June 18th</a></li>
+              <li class="icon-grey no-border"><span class="quiet">Trivial.</span> Iimperdiet ipsum ante vel elit. sem lorem tincidunt nunc. <span class="quiet">for</span> <a href="#"> Acme Project</a><a href="project-dashboard-admin.html" class="due-date">May 2nd</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="span-17 last report_issue dashboard-row">
-          <div class="span-14">
-            <div class="issue-type"><a  href="#">Issue</a></div>
-            <p>Ssed mollis  dignissim, sem lorem tincidunt nunc, et imperdiet ipsumr for<a href="#">Acme Project</a></p>
+        <div class="span-23 last recent">
+          <div class="menu">
+            <div class="colum span-12 "><span class="padding-3"><strong>By Severity</strong></div>
+            <div class="right"><span class="padding-3"><strong>Due</strong></div>
           </div>
-          <div class="span-2 list-date">June 19th</div>
-          <div class="span-1 last flag-grey"> &nbsp; </div>
-        </div>
-        <div class="span-17 last report_issue dashboard-row-last">
-          <div class="span-14">
-            <div class="issue-type"><a  href="#">Issue</a></div>
-            <p>t imperdiet ipsum ante vel elit. for <a href="#">Acme Project</a> </p>
+          <div class="tickets">
+            <ul>
+              <li class="icon-red"> <a href="person.html" class="red"><strong>Critical.</strong></a> imperdiet ipsum ante vel elit. <span class="quiet">for</span> <a href="#">Acme Project</a><a href="project-dashboard-admin.html" class="due-date">Yesterday</a></li>
+              <li class="icon-red"><a href="person.html" class="red"><strong>Critical.</strong></a> Ssed mollis  dignissim, sem lorem tincidunt nunc, et imperdiet ipsumr <span class="quiet">for</span> <a href="#">Acme Project</a><a href="project-dashboard-admin.html" class="due-date">June 19th</a></li>
+              <li class="icon-red"><a href="person.html" class="red"><strong>High. </strong></a>imperdiet ipsum ante vel elit. <span class="quiet">for</span> <a href="#">Acme Project</a><a href="#"></a><a href="project-dashboard-admin.html"class="due-date">June 18th</a></li>
+              <li class="icon-red"><strong class="red">High.</strong><strong> </strong>imperdiet ipsum ante vel elit. <span class="quiet">for</span> <a href="#">Acme Project</a><a href="project-dashboard-admin.html"class="due-date">June 18th</a></li>
+              <li class="icon-green"> <strong>Normal.</strong> imperdiet ipsum ante vel elit. <span class="quiet">for</span> <a href="#">Acme Project</a><a href="project-dashboard-admin.html" class="due-date">Yesterday</a></li>
+              <li class="icon-green"> <strong>Normal. </strong>Ssed mollis  dignissim, sem lorem tincidunt nunc, et imperdiet ipsumr <span class="quiet">for</span> <a href="#">Acme Project</a><a href="project-dashboard-admin.html" class="due-date">June 19th</a></li>
+              <li class="icon-green">Low. Imperdiet ipsum ante vel elit. <span class="quiet">for</span> <a href="#">Acme Project</a><a href="project-dashboard-admin.html"class="due-date">June 18th</a></li>
+              <li class="icon-green">Low. Imperdiet ipsum ante vel elit. <strong> </strong><span class="quiet">for</span> <a href="#">Acme Project</a><a href="project-dashboard-admin.html"class="due-date">June 18th</a></li>
+                          <li class="icon-grey"><a href="person.html" class="name"><span class="quiet">Trivial</span></a>Imperdiet ipsum ante vel elit. <span class="quiet">for</span> <a href="#">Acme Project</a><a href="project-dashboard-admin.html"class="due-date">June 18th</a></li>
+
+                          <li class="icon-grey no-border"><span class="quiet">On Hold</span> Iimperdiet ipsum ante vel elit. sem lorem tincidunt nunc. <span class="quiet">for</span> <a href="#">Acme Project</a><a href="project-dashboard-admin.html" class="due-date">May 2nd</a></li>
+            </ul>
           </div>
-          <div class="span-2 list-date">June 19th</div>
-          <div class="span-1 last flag-grey"> &nbsp; </div>
-        </div>
-      </div>
-      <div class="span-17 last">
-        <div class="milestone-green padding-3"> <span class="list-title-right append-2">Due</span> <strong> Upcoming/Today</strong> </div>
-      </div>
-      <div class="span-17 milestone-thin-green last">
-        <div class="span-17 last report_issue dashboard-row">
-          <div class="span-14">
-            <div class="issue-type"><a  href="#">Issue</a></div>
-            <p>elementum ac nisi.   suscipit enim sem vitae lorem. for <a href="#">Acme Project</a></p>
-          </div>
-          <div class="span-2 list-date">Today</div>
-          <div class="span-1 last flag-green"> &nbsp; </div>
-        </div>
-        <div class="span-17 last report_issue dashboard-row-last">
-          <div class="span-14">
-            <div class="issue-type"><a  href="#">Issue</a></div>
-            <p> Quisque et aliquet tortor. vel urna. Vivamus eget egestas nulla. for <a href="#">Acme Project</a></p>
-          </div>
-          <div class="span-2 list-date">June 25th</div>
-          <div class="span-1 last flag-green"> &nbsp; </div>
         </div>
       </div>
       <h3>Recent Commits</h3>
       <hr />
-      <div class="span-17 recent last">
-        <div class="span-17 menu last">
-          <div class="colum span-4"><span class="padding-3"><strong>Today</strong></span></div>
-          <div class="span-8 small"></div>
-          <div class="span-5 right last"><span class="padding-3"><strong>Project</strong></span></div>
+      <div class="span-23 recent last">
+        <div class="menu">
+          <div class="colum span-12 "><span class="padding-3"><strong>Today</strong></div>
+          <div class="right"><span class="padding-3"><strong>Project</strong></div>
         </div>
-        <div class="span-17 last dashboard-row">
-          <div class="span-12">
-            <p><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></p>
-            <p>Fixed email template</p>
+          <div class="dashboard-row">
+            <div class="span-half"><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></div>
+            <div class="span-half right"><a href="#">ACME Redesign Project</a></div>
+            <p>Fixed email template email template email template email template email template email template email template email template email template </p>
           </div>
-          <div class="span-5 right last"><span class="padding-3"><a href="#">ACME Project</a></span></div>
-        </div>
-        <div class="span-17 last dashboard-row">
-          <div class="span-12">
-            <p><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></p>
-            <p>Fixed email template</p>
+          <div class="dashboard-row ">
+            <div class="span-half"><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></div>
+            <div class="span-half right"><a href="#">ACME Redesign Project</a></div>
+            <p>Fixed Fixed email template email template email template email template email template email template email template email template email template </p>
+          </div>          <div class="dashboard-row">
+            <div class="span-half"><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></div>
+            <div class="span-half right"><a href="#">ACME Redesign Project</a></div>
+            <p>Fixed Fixed email template email template email template email template email template email template email template email template email template </p>
           </div>
-          <div class="span-5 right last"><span class="padding-3"><a href="#">ABC Project</a></span></div>
-        </div>
-        <div class="span-17 last dashboard-row">
-          <div class="span-12">
-            <p><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></p>
-            <p>Fixed email template Fixed email template Fixed email template Fixed email template Fixed email template Fixed email template Fixed email template Fixed email template Fixed email template Fixed email template Fixed email template Fixed email template Fixed email template</p>
+          <div class="dashboard-row ">
+            <div class="span-half"><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></div>
+            <div class="span-half right"><a href="#">ACME Redesign Project</a></div>
+            <p>Fixed email template email template email template email template email template email template email template email template email template </p>
+          </div>          <div class="dashboard-row">
+            <div class="span-half"><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></div>
+            <div class="span-half right"><a href="#">ACME Redesign Project</a></div>
+            <p>Fixed Fixed email template email template email template email template email template email template email template email template email template </p>
           </div>
-          <div class="span-5 right last"><span class="padding-3"><a href="#">Sample Co</a></span></div>
-        </div>
-        <div class="span-17 last dashboard-row last-row">
-          <div class="span-12">
-            <p><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></p>
-            <p>Fixed email template</p>
+          <div class="dashboard-row">
+            <div class="span-half"><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></div>
+            <div class="span-half right"><a href="#">ACME Redesign Project</a></div>
+            <p>Fixed Fixed email template email template email template email template email template email template email template email template email template </p>
           </div>
-          <div class="span-5 right last"><span class="padding-3"><a href="#">ACME Redesign Project</a></span></div>
-        </div>
-      </div>
-      <div class="span-17 recent last">
-        <div class="span-17 menu last">
-          <div class="colum span-4"><span class="padding-3"><strong>Yesterday</strong></span></div>
-          <div class="span-8 small"></div>
-          <div class="span-5 right last"><span class="padding-3"><strong>Project</strong></span></div>
-        </div>
-        <div class="span-17 last dashboard-row">
-          <div class="span-12">
-            <p><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></p>
-            <p> Fixed email template</p>
-          </div>
-          <div class="span-5 right last"><span class="padding-3"><a href="#">ACME Project</a></span></div>
-        </div>
-        <div class="span-17 last dashboard-row">
-          <div class="span-12">
-            <p><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></p>
-            <p> Fixed email template</p>
-          </div>
-          <div class="span-5 right last"><span class="padding-3"><a href="#">ABC Project</a></span></div>
-        </div>
-        <div class="span-17 last dashboard-row">
-          <div class="span-12">
-            <p><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></p>
-            <p> Fixed email template</p>
-          </div>
-          <div class="span-5 right last"><span class="padding-3"><a href="#">Sample Co</a></span></div>
-        </div>
-        <div class="span-17 last dashboard-row last-row">
-          <div class="span-12">
-            <p><strong>Commit:</strong> <a href="#">1359</a> by <strong>Adam P</strong> on <strong>June 23rd 2009</strong> @ <strong>3:36pm</strong></p>
-            <p>configuration on mail client forFix incorrect configuration on mail client forFix incorrect configuration on mail client forFix incorrect configuration on mail client forFix incorrect configuration on mail client forFix incorrect configuration on mail client forFix incorrect configuration on mail client forFix incorrect configuration on mail client forFix incorrect configuration on mail client for</p>
-          </div>
-          <div class="span-5 right last"><span class="padding-3"><a href="#">ACME Redesign Project</a></span></div>
-        </div>
+        
+        
       </div>
     </div>
-    <div id="sidebar-right" class="span-6 push-1 last">
+    <div id="sidebar-right" class="span-8 prepend-1 last">
       <h3>Open Projects</h3>
       <hr />
-      <div class="span-6 menuStatus last">
-        <div class="statusTitle greenBall padding-3"><a href="#">ACME</a></div>
+      <div class="span-8 last">
+        <div class="menu-side"><a href="#">ACME</a></div>
       </div>
-      <div class="span-6 grey-box last">
-        <div class="span-6 last">
+      <div class="span-8 grey-box last">
+        <div class="span-8 last">
           <div class="span-1 percent">50<small>%</small></div>
           <div class="span-5 last progress">
             <div class="progress-green" style="width: 50%;"></div>
           </div>
         </div>
-        <div class="span-6 last report">
-          <div class="span-3"><span class="padding-3"><a href="#">999</a> <small>Tickets Remain</small></span></div>
-          <div class="span-3 last"><span class="padding-3"><a href="#">999</a> <small>Tickets Closed</small></span></div>
+        <div class="span-full report">
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Tickets Remain</small></span></div>
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Tickets Closed</small></span></div>
         </div>
-        <div class="span-6 last report">
-          <div class="span-3"><span class="padding-3"><a href="#">999</a> <small>Discussions</small></span></div>
-          <div class="span-3 last"><span class="padding-3"><a href="#">999</a> <small>Commits</small></span></div>
+        <div class="span-full report">
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Discussions</small></span></div>
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Commits</small></span></div>
         </div>
-        <div class="span-6 last report">
+        <div class="span-full report">
           <ul style="float: left;" class="timeline">
             <li> <a href="#" title="49 commits on June 23rd 2009 @ 3:36pm"> <span class="count" style="height: 39.8374%;">(49)</span> </a> </li>
             <li> <a href="#" title="31 commits on June 23rd 2009 @ 3:36pm"> <span class="count" style="height: 25.2033%;">(31)</span> </a> </li>
@@ -211,26 +161,26 @@
           </ul>
         </div>
       </div>
-      <div class="span-6 menuStatus last">
-        <div class="statusTitle redBall padding-3"><a href="#">ABC Project</a></div>
+      <div class="span-8 last">
+        <div class="menu-side"><a href="#">ABC Project</a></div>
       </div>
-      <div class="span-6 grey-box last">
-        <div class="span-6 last">
+      <div class="span-8 grey-box last">
+        <div class="span-8 last">
           <div class="span-1 percent">75%</div>
           <div class="span-5 last progress">
             <div class="progress-red" style="width: 75%;"></div>
             <div class="progress-grey" style="width: 25%;"></div>
           </div>
         </div>
-        <div class="span-6 last report">
-          <div class="span-3"><span class="padding-3"><a href="#">999</a> <small>Tickets Remain</small></span></div>
-          <div class="span-3 last"><span class="padding-3"><a href="#">999</a> <small>Tickets Closed</small></span></div>
+        <div class="span-full report">
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Tickets Remain</small></span></div>
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Tickets Closed</small></span></div>
         </div>
-        <div class="span-6 last report">
-          <div class="span-3"><span class="padding-3"><a href="#">999</a> <small>Discussions</small></span></div>
-          <div class="span-3 last"><span class="padding-3"><a href="#">999</a> <small>Commits</small></span></div>
+        <div class="span-full report">
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Discussions</small></span></div>
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Commits</small></span></div>
         </div>
-        <div class="span-6 last report">
+        <div class="span-8 last report">
           <ul style="float: left;" class="timeline">
             <li> <a href="#" title="49 commits on June 23rd 2009 @ 3:36pm"> <span class="count" style="height: 22.8374%;">(49)</span> </a> </li>
             <li> <a href="#" title="31 commits on June 23rd 2009 @ 3:36pm"> <span class="count" style="height: 25.2033%;">(31)</span> </a> </li>
@@ -249,26 +199,26 @@
           </ul>
         </div>
       </div>
-      <div class="span-6 menuStatus last">
-        <div class="statusTitle yellowBall padding-3"><a href="#">Sample Project</a></div>
+      <div class="span-8 last">
+        <div class="menu-side"><a href="#">Sample Project</a></div>
       </div>
-      <div class="span-6 grey-box last">
-        <div class="span-6 last">
+      <div class="span-8 grey-box last">
+        <div class="span-8 last">
           <div class="span-1 percent">65%</div>
           <div class="span-5 last progress">
             <div class="progress-yellow" style="width: 65%;"></div>
             <div class="progress-grey" style="width: 15%;"></div>
           </div>
         </div>
-        <div class="span-6 last report">
-          <div class="span-3"><span class="padding-3"><a href="#">999</a> <small>Tickets Remain</small></span></div>
-          <div class="span-3 last"><span class="padding-3"><a href="#">999</a> <small>Tickets Closed</small></span></div>
+        <div class="span-full report">
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Tickets Remain</small></span></div>
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Tickets Closed</small></span></div>
         </div>
-        <div class="span-6 last report">
-          <div class="span-3"><span class="padding-3"><a href="#">999</a> <small>Discussions</small></span></div>
-          <div class="span-3 last"><span class="padding-3"><a href="#">999</a> <small>Commits</small></span></div>
+        <div class="span-full report">
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Discussions</small></span></div>
+          <div class="span-half"><span class="padding-3"><a href="#">999</a> <small>Commits</small></span></div>
         </div>
-        <div class="span-6 last report">
+        <div class="span-8 last report">
           <ul style="float: left;" class="timeline">
             <li> <a href="#" title="49 commits on June 23rd 2009 @ 3:36pm"> <span class="count" style="height: 39.8374%;">(49)</span> </a> </li>
             <li> <a href="#" title="31 commits on June 23rd 2009 @ 3:36pm"> <span class="count" style="height: 25.2033%;">(31)</span> </a> </li>
@@ -289,40 +239,35 @@
       </div>
       <h3>Milestones</h3>
       <hr />
-      <div class="span-6 last">
-        <div class="milestone-red padding-3"><strong> Late</strong></div>
-      </div>
-      <div class="span-6 milestone-thin-red last">
-        <div class="span-6 last report dashboard-row">
-          <div class="span-6 last padding-3"><a href="#">Deliverables</a> for <a href="#">Acme Project</a></div>
-          <div class="span-6"><span class="padding-3">Assigned to <a href="#">Adam P</a></span></div>
-          <div class="span-6 last red padding-3"><strong>2 days late</strong></div>
+      <div class="menu-side"><strong> Late</strong></div>
+      <div class="span-8 milestone-thin-red last">
+        <div class="dashboard-row-side"> <a href="#">Deliverables</a> for <a href="#">Acme Project</a><br />
+          Assigned to <a href="#">Adam P</a><br />
+          <div class="red"><strong>2 days late</strong></div>
         </div>
-        <div class="span-6 last report">
-          <div class="span-6 last padding-3"><a href="#">Deliverables</a> for <a href="#">Acme Project</a></div>
-          <div class="span-6"><span class="padding-3">Assigned to <a href="#">You</a></span></div>
-          <div class="span-6 last red padding-3"><strong>1 day late</strong></div>
+        <div class="dashboard-row-side"> <a href="#">Deliverables</a> for <a href="#">Acme Project</a><br />
+          Assigned to <a href="#">You</a><br />
+          <div class="red"><strong>1 day late</strong></div>
         </div>
       </div>
-      <div class="span-6 last">
-        <div class="milestone-green padding-3"><strong> Upcoming</strong></div>
+      <div class="span-8 last">
+        <div class="menu-side"><strong> Upcoming/Today</strong></div>
       </div>
-      <div class="span-6 milestone-thin-green last">
-        <div class="span-6 last report dashboard-row">
-          <div class="span-6 last  padding-3"><a href="#">Content Draft</a> for <a href="#">ABC Project</a></div>
-          <div class="span-6 padding-3"> Assigned to <a href="#">Simon J</a></div>
-          <div class="span-6 last green padding-3"><strong>Due in 12 days</strong></div>
+      <div class="span-8 milestone-thin-green last">
+        <div class="dashboard-row-side"> <a href="#">Content Draft</a> for <a href="#">ABC Project</a><br />
+          Assigned to <a href="#">Simon J</a><br />
+          <div class="green"><strong>Due in 12 days</strong></div>
         </div>
-        <div class="span-6 last report ">
-          <div class="span-6 last padding-3"><a href="#">Client Approval</a> for <a href="#">ABC Project</a></div>
-          <div class="span-6"><span class="padding-3"> Assigned to <a href="#">Adam P</a></span></div>
-          <div class="span-6 last green padding-3"><strong>Due in 1 Day</strong></div>
+        <div class="dashboard-row-side"> <a href="#">Client Approval</a> for <a href="#">ABC Project</a><br />
+          <span class="padding-3"> Assigned to <a href="#">Adam P</a></span><br />
+          <div class="green"><strong>Due in 1 Day</strong></div>
         </div>
       </div>
     </div>
-    <!-- -->
   </div>
-  <div class="span-24 append-1 prepend-1 last footer">&nbsp;</div>
+  <!-- -->
+</div>
+<div class="span-32 append-1 prepend-1 last footer">&nbsp;</div>
 </div>
 </body>
 </html>

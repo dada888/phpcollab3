@@ -7,8 +7,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: true
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_2:
     username: user
     algorithm: sha1
@@ -17,8 +17,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_3:
     username: puser
     algorithm: sha1
@@ -27,8 +27,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_4:
     username: nopuser
     algorithm: sha1
@@ -37,8 +37,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_5:
     username: userp2
     algorithm: sha1
@@ -47,8 +47,8 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_6:
     username: sesto
     algorithm: sha1
@@ -57,71 +57,71 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
 
 sfGuardGroup:
   sfGuardGroup_1:
     name: admin
     description: 'Administrator group'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
   sfGuardGroup_2:
     name: user
     description: 'User group'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
 
 sfGuardGroupPermission:
   sfGuardGroupPermission_1_1:
     sfGuardGroup: sfGuardGroup_1
     sfGuardPermission: sfGuardPermission_1
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
   sfGuardGroupPermission_2_2:
     sfGuardGroup: sfGuardGroup_2
     sfGuardPermission: sfGuardPermission_2
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
 
 sfGuardPermission:
   sfGuardPermission_1:
     name: admin
     description: 'Administrator permission'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
   sfGuardPermission_2:
     name: user
     description: 'Basic user permission'
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
 
 sfGuardUserGroup:
   sfGuardUserGroup_1_1:
     sfGuardUser: sfGuardUser_1
     sfGuardGroup: sfGuardGroup_1
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
   sfGuardUserGroup_2_2:
     sfGuardUser: sfGuardUser_2
     sfGuardGroup: sfGuardGroup_2
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
   sfGuardUserGroup_3_2:
     sfGuardUser: sfGuardUser_3
     sfGuardGroup: sfGuardGroup_2
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
   sfGuardUserGroup_5_2:
     sfGuardUser: sfGuardUser_5
     sfGuardGroup: sfGuardGroup_2
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
   sfGuardUserGroup_6_2:
     sfGuardUser: sfGuardUser_6
     sfGuardGroup: sfGuardGroup_2
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
 
 IssueUser:
   IssueUser_1:
@@ -196,26 +196,26 @@ Project:
     name: 'Il mio primo progetto'
     description: 'Il primo progetto creato con il plugin idProjectManagementPlugin'
     is_public: false
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours")); ?>'
   Project_2:
     name: 'Il mio secondo progetto'
     description: 'Il secondo progetto creato con il plugin idProjectManagementPlugin'
     is_public: false
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 hours GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 hours")); ?>'
   Project_3:
     name: 'Il mio terzo progetto'
     description: 'Il terzo progetto creato con il plugin idProjectManagementPlugin'
     is_public: true
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 hours GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 hours")); ?>'
   Project_4:
     name: 'Il mio quarto progetto'
     description: 'Il quarto progetto creato con il plugin idProjectManagementPlugin'
     is_public: false
-    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day GMT")); ?>'
-    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours GMT")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours")); ?>'
 
 Issue:
   Issue_1:
@@ -224,8 +224,8 @@ Issue:
     priority: Priority_1
     title: 'new issue'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day")); ?>'
 <?php for ($i = 2; $i < 50; $i++): ?>
   Issue_<?php echo $i; ?>:
     project: Project_3
@@ -233,8 +233,8 @@ Issue:
     priority: Priority_1
     title: 'new issue <?php echo $i ?>'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day")); ?>'
 <?php endfor; ?>
 <?php for ($i = 51; $i < 70; $i++): ?>
   Issue_<?php echo $i; ?>:
@@ -244,8 +244,8 @@ Issue:
     priority: Priority_1
     title: 'new issue <?php echo $i ?>'
     description: 'new issue'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day")); ?>'
 <?php endfor; ?>
   Issue_71:
     project: Project_1
@@ -253,8 +253,8 @@ Issue:
     priority: Priority_1
     title: 'new issue project 1'
     description: 'new issue project 1'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day")); ?>'
 <?php for ($i = 1; $i <= 3; $i++): ?>
   Issue_<?php echo $i+71; ?>:
     project: Project_2
@@ -263,8 +263,8 @@ Issue:
     priority: Priority_1
     title: 'p2 first iterazione issue <?php echo $i ?>'
     description: 'description p2 first iterazione issue <?php echo $i ?>'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day")); ?>'
 <?php endfor; ?>
 <?php for ($i = 1; $i <= 3; $i++): ?>
   Issue_<?php echo $i+74; ?>:
@@ -274,8 +274,8 @@ Issue:
     priority: Priority_1
     title: 'p2 second iterazione issue <?php echo $i ?>'
     description: 'description p2 first iterazione issue <?php echo $i ?>'
-    starting_date: '<?php echo date("Y-m-d", strtotime('today GMT')); ?>'
-    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day GMT")); ?>'
+    starting_date: '<?php echo date("Y-m-d", strtotime('today')); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+10 day")); ?>'
 <?php endfor; ?>
 
 Priority:

@@ -16,24 +16,7 @@
  */
 class idDashboardComponents extends sfComponents
 {
-  public function executeAdmin()
-  {
-    $this->latest_projects_reports = Doctrine::getTable('Project')->getReportsForRecentProjects();
-  }
-
-  public function executeCustomer()
-  {
-    $this->late_milestones = Doctrine::getTable('Milestone')->getLateMilestonesByProjectIds($this->getUser()->getMyProjectsIds());
-    $this->upcoming_milestones = Doctrine::getTable('Milestone')->getUpcomingMilestonesByProjectIds($this->getUser()->getMyProjectsIds());
-  }
-
-  public function executeProjectManager()
-  {
-    $this->late_milestones = Doctrine::getTable('Milestone')->getLateMilestonesByProjectIds($this->getUser()->getMyProjectsIds());
-    $this->upcoming_milestones = Doctrine::getTable('Milestone')->getUpcomingMilestonesByProjectIds($this->getUser()->getMyProjectsIds());
-  }
-
-  public function executeDeveloper()
+  public function executeSidebar()
   {
     $this->latest_projects_reports = Doctrine::getTable('Project')->getReportsOnProjectsWithEffortChart($this->getUser()->getMyProjects());
     $this->late_milestones = Doctrine::getTable('Milestone')->getLateMilestonesByProjectIds($this->getUser()->getMyProjectsIds());

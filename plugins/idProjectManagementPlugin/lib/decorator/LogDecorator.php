@@ -36,6 +36,11 @@ class LogDecorator
     return $extracted_data;
   }
 
+  public function getLog()
+  {
+    return $this->log;
+  }
+
   public function __get($name)
   {
     if ($name == 'message')

@@ -1,18 +1,6 @@
-adminSuccess:
+indexSuccess:
   components:
-    sidebar:  [idDashboard, admin]
-
-projectManagerSuccess:
-  components:
-    sidebar:  [idDashboard, projectManager]
-
-customerSuccess:
-  components:
-    sidebar:  [idDashboard, customer]
-
-developerSuccess:
-  components:
-    sidebar:  [idDashboard, developer]
+    sidebar:  [idDashboard, sidebar]
 
 default:
   components:

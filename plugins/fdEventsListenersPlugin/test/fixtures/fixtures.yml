@@ -1,12 +1,12 @@
 EventLog:
   event_lo_1:
-    created_at: '<?php echo date('Y-m-d H:i:s'); ?>'
+    created_at: '<?php echo date('Y-m-d H:i:s', strtotime('today')); ?>'
     namespace: issue
     action: creation
     message: 'message <?php echo '1'.$i ?>: issue <a href="#">#1<?php echo $i ?></a> created today project_ref#1'
     project_id: 1
   event_lo_2:
-    created_at: '<?php echo date('Y-m-d H:i:s',strtotime('-1 days')); ?>'
+    created_at: '<?php echo date('Y-m-d H:i:s',strtotime('-1 day')); ?>'
     namespace: repository
     action: commit
     message: 'message <?php echo '2'.$i ?>: commit on repository repository_name project_ref#1'

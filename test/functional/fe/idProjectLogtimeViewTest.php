@@ -28,8 +28,8 @@ $browser->
     checkElement('td:contains("10.0 hours")')->
     checkElement('td:contains("third user story")')->
     checkElement('td:contains("first task")')->
-    checkElement('td:contains("'.date("Y-m-d", strtotime('-2 days GMT')).'")', 1)->
-    checkElement('td:contains("'.date("Y-m-d", strtotime('-3 days GMT')).'")', 1)->
+    checkElement('td:contains("'.date("Y-m-d", strtotime('-2 days')).'")', 1)->
+    checkElement('td:contains("'.date("Y-m-d", strtotime('-3 days')).'")', 1)->
   end()
 
 ;

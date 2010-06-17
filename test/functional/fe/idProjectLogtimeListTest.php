@@ -27,7 +27,7 @@ $browser->
     checkElement('table.table tr th:contains("Logtime")')->
     checkElement('table.table tr th:contains("Actions")')->
 
-    checkElement('table.table tr td:contains("'.date('Y-m-d', time()).'")')->
+    checkElement('table.table tr td:contains("'.date('Y-m-d', strtotime('today')).'")')->
     checkElement('table.table tr td a[href="/index.php/en/idLogtime/edit/1"]', '1')->
     checkElement('table.table tr td a[href="/index.php/en/idProject/3/idIssue/show/1"]', '#1 new issue')->
     checkElement('table.table tr td:contains("prog (puser) prog")')->

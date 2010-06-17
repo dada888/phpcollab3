@@ -66,11 +66,11 @@ $browser->
     checkElement('table.table tr th:contains("Date")')->
     checkElement('table.table tr th:contains("Logtime")')->
 
-    checkElement('table.table tr.odd td', '/'.date('Y-m-d', strtotime('-2 days GMT')).'/', array('position' => 1))->
+    checkElement('table.table tr.odd td', '/'.date('Y-m-d', strtotime('-2 days')).'/', array('position' => 1))->
     checkElement('table.table tr.odd td', '/12/', array('position' => 2))->
-    checkElement('table.table tr.even td', '/'.date('Y-m-d', strtotime('today GMT')).'/', array('position' => 1))->
+    checkElement('table.table tr.even td', '/'.date('Y-m-d', strtotime('today')).'/', array('position' => 1))->
     checkElement('table.table tr.even td', '/0.5/', array('position' => 2))->
-    checkElement('table.table tr.odd td', '/'.date('Y-m-d', strtotime('today GMT')).'/', array('position' => 5))->
+    checkElement('table.table tr.odd td', '/'.date('Y-m-d', strtotime('today')).'/', array('position' => 5))->
     checkElement('table.table tr.odd td', '/1.1/', array('position' => 6))->
 
     checkElement('#total_log_time', '/13.6/')->
@@ -106,7 +106,7 @@ $browser->
     checkElement('table.table tr th:contains("Date")')->
     checkElement('table.table tr th:contains("Logtime")')->
 
-    checkElement('table.table tr.odd td', '/'.date('Y-m', strtotime('today GMT')).'/', array('position' => 1))->
+    checkElement('table.table tr.odd td', '/'.date('Y-m', strtotime('today')).'/', array('position' => 1))->
     checkElement('table.table tr.odd td', '/1.2/', array('position' => 2))->
 
     checkElement('#total_log_time', '/1.2/')->
@@ -129,10 +129,10 @@ $browser->
     checkElement('table.table tr th:contains("Logtime")')->
 
     checkElement('table.table tr.odd td', '/paul/', array('position' => 1))->
-    checkElement('table.table tr.odd td', '/'.date('Y-m', strtotime('today GMT')).'/', array('position' => 2))->
+    checkElement('table.table tr.odd td', '/'.date('Y-m', strtotime('today')).'/', array('position' => 2))->
     checkElement('table.table tr.odd td', '/1.2/', array('position' => 3))->
     checkElement('table.table tr.even td', '/prog/', array('position' => 1))->
-    checkElement('table.table tr.even td', '/'.date('Y-m-d', strtotime('-1 days GMT')).'/', array('position' => 2))->
+    checkElement('table.table tr.even td', '/'.date('Y-m-d', strtotime('-1 days')).'/', array('position' => 2))->
     checkElement('table.table tr.even td', '/1.3/', array('position' => 3))->
 
     checkElement('#total_log_time', '/2.5/')->

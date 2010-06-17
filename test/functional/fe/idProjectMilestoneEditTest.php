@@ -30,7 +30,7 @@ $browser->
     'title'           => 'third iteration modified',
     'description'     => 'third iteration of this project modified',
     'estimated_time'   => '15',
-    'starting_date'   => array('day' => date('d', time()), 'month' => date('m', time()), 'year' => date('Y', time())),
+    'starting_date'   => array('day' => date('d', strtotime('today')), 'month' => date('m', strtotime('today')), 'year' => date('Y', strtotime('today'))),
     'ending_date'     => array('day' => date('d', strtotime('+1 month')), 'month' => date('m', strtotime('+1 month')), 'year' => date('Y', strtotime('+1 month')))
   )), array('methos'=>'post'))->
 

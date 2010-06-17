@@ -1,27 +1,28 @@
 <?php use_helper('Dashboard') ?>
 
 <?php if (count($recent_activities) > 0): ?>
-  <h3>Recent Activity</h3>
-  <hr />
-  <?php foreach($recent_activities as $day => $activities):?>
-  <div class="span-17 recent last">
-    <div class="span-17 menu last">
-      <div class="colum span-4 append-8"><span class="padding-3"><strong><?php echo format_date($day, 'MMMM dd', $sf_user->getCulture()); ?></strong></span></div>
-      <div class="span-5 right last"><span class="padding-3"><strong>Project</strong></span></div>
+  <div class="span-full">
+    <div class="title"><span>Recent Activity</span></div>
+    <div class="menu">
+      <div class="span-3">Name</div>
+      <div class="span-15">Description</div>
+      <div class="span-4 right last"><span>Project</span></div>
     </div>
-    <?php foreach($activities as $activity):?>
-    <div class="span-17 last dashboard-row">
-      <div class="span-1"><?php echo image_tag('icons/20-group.png', array('width' => "20", 'height' => "20", 'alt' => "Group")) ?></div>
-      <div class="span-3"><strong><?php echo (is_null($activity->user_name)) ? 'Mr. Unknown' : $activity->user_name; ?></strong></div>
-      <div class="span-8"><?php echo $activity->message ?></div>
-      <div class="span-5 right last">
-        <span class="padding-3">
-          <?php echo link_project($activity->getProject()->getName(), $activity->getProject()->getId()); ?>
-        </span>
-      </div>
-    </div>
-    <?php endforeach;?>
+    <ul class="action">
+    <?php foreach($recent_activities as $day => $activities): ?>
+      <?php foreach($activities as $activity):?>
+      <li class="icon-<?php echo $activity->action ?>">
+        <ul>
+          <li class="span-3"><?php echo (is_null($activity->user_name)) ? 'Mr. Unknown' : $activity->user_name; ?></li>
+          <li class="span-15">On <?php echo format_date($day, 'MMMM dd', $sf_user->getCulture()); ?>
+                              <?php echo $activity->message ?>
+          <li class="span-4 right last">
+            <div><?php echo link_project($activity->getProject()->getName(), $activity->getProject()->getId(), 'project-name'); ?></div>
+          </li>
+        </ul>
+      </li>
+      <?php endforeach; ?>
+    <?php endforeach; ?>
+    </ul>
   </div>
-  <hr />
-  <?php endforeach;?>
 <?php endif; ?>
