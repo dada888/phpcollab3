@@ -12,3 +12,49 @@
 {
   color: green;
 }
+
+#sidebar form .box select
+{
+  width: 20%;
+}
+
+.square-green, .square-red, .square-yellow
+{
+  height: 20px;
+  padding-left: 20px;
+}
+
+.square-green { background:transparent url(../images/icons/16-ball-red.png) no-repeat scroll 0px 0px; }
+.square-red { background:transparent url(../images/icons/16-ball-green.png) no-repeat scroll 0px 0px; }
+.square-yellow { background:transparent url(../images/icons/16-ball-yellow.png) no-repeat scroll 0px 0px; }
+
+
+ul.add-time
+{
+  padding-left: 0;
+  margin:0 0 5px 0;
+}
+
+ul.add-time li
+{
+  display: block;
+  float: left;
+  list-style-image:url(none);
+  list-style-position:outside;
+  list-style-type:none;
+}
+
+
+ul.add-time li input
+{
+  margin: 0;
+  margin-bottom:3px;
+  margin-top:3px;
+  width: 100%;
+}
+
+form.new-log-time .confirm-box
+{
+  margin-bottom: 15px;
+}
+

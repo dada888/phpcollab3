@@ -188,6 +188,24 @@ class myUser extends sfGuardSecurityUser
     return $this->isAdmin() ? true : ($id == $this->getGuardUser()->getId());
   }
 
+  public function retrieveNumberOfMyOpenIssueByProject($project_id)
+  {
+    $query = Doctrine::getTable('Issue')->getQueryForUserIssues($this->getProfile()->getId());
+    return $query->
+              addWhere('(s.status_type = ? OR s.status_type = ? )', array('new', 'assigned'))->
+              addWhere('(i.project_id = ?)', array($project_id))->
+              count();
+  }
+
+  public function retrieveMyClosedIssueByProject($project_id)
+  {
+    $query = Doctrine::getTable('Issue')->getQueryForUserIssues($this->getProfile()->getId());
+    return $query->
+              addWhere('(s.status_type = ? OR s.status_type = ? )', array('closed', 'invalid'))->
+              addWhere('(i.project_id = ?)', array($project_id))->
+              count();
+  }
+
   public function retrieveMyLateIssues()
   {
     return Doctrine::getTable('Issue')->getLateIssuesForUserByProfileId($this->getProfile()->getId());

@@ -39,8 +39,8 @@ $browser->
     checkElement('#content ul.action ul li.span-15:contains("message 4")', false)->
 
     checkElement('#sidebar')->
-    checkElement('#sidebar h3 a', 9)->
-    checkElement('#sidebar .box', 9)->
+    checkElement('#sidebar h3 a', 7)->
+    checkElement('#sidebar .box', 7)->
     checkElement('#sidebar .box .percent', '43.48%', array('position' => 1))->
     
     checkElement('#sidebar .box .progress div[class="progress-green"][style*="43.48%"]', true)->

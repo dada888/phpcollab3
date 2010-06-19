@@ -14,7 +14,7 @@ $browser->
 
   click('Time')->
 
-  click('Create a new logtime')->
+  click('Add')->
 
   with('request')->begin()->
     isParameter('module', 'idLogtime')->
@@ -35,26 +35,21 @@ $browser->
   end()->
 
   click('Cancel')->
-  click('Last')->
-//showPage()->
   with('request')->begin()->
     isParameter('module', 'idLogtime')->
     isParameter('action', 'index')->
   end()->
 
   with('response')->begin()->
-    checkElement('table.table tr th:contains("Logtime id")')->
-    checkElement('table.table tr th:contains("Issue")')->
-    checkElement('table.table tr th:contains("User")')->
-    checkElement('table.table tr th:contains("Date")')->
-    checkElement('table.table tr th:contains("Logtime")')->
-    checkElement('table.table tr th:contains("Actions")')->
-
-    checkElement('table.table tr td a[href~="en/idLogtime/edit/16"]', '16')->
-    checkElement('table.table tr td a[href~="en/idProject/3/idIssue/show/2"]', '#2 new issue 2')->
-    checkElement('table.table tr td:contains("prog (puser) prog")')->
-    checkElement('table.table tr td:contains("14")')->
-    checkElement('table.table tr td:contains("Edit")')->
-    checkElement('table.table tr td:contains("Delete")')->
+    checkElement('li:contains("Issue")')->
+    checkElement('li:contains("User")')->
+    checkElement('li:contains("Log time")')->
+    
+    checkElement('li a[href~="en/idLogtime/edit/16"]', 'Edit')->
+    checkElement('li a[href~="en/idProject/3/idIssue/show/2"]', '#2 new issue 2')->
+    checkElement('li:contains("prog (puser) prog")')->
+    checkElement('li:contains("14")')->
+    checkElement('li:contains("Edit")')->
+    checkElement('li:contains("Delete")')->
   end()
 ;

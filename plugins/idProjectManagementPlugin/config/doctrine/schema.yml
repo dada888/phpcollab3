@@ -262,6 +262,8 @@ LogTime:
       type: integer
     log_time:
       type: float
+    comment:
+      type: string(512)
   relations:
     issue:
       class: Issue

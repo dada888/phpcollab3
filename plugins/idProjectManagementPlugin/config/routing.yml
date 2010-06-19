@@ -463,3 +463,8 @@ index_project:
   requirements:
     sf_culture: (?:en|it)
 
+new_logtime:
+  url:    /:sf_culture/idLogtime/new
+  param:  { module: idLogtime, action: new }
+  requirements:
+    sf_culture: (?:en|it)

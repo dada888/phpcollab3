@@ -22,10 +22,12 @@ $browser->
   end()->
 
   click('Save', array('log_time' => array(
+        'issue_id' => '1',
         'log_time' => '14'
       )), array('methos'=>'post'))->
 
   followRedirect()->
+
 
   with('request')->begin()->
     isParameter('module', 'idLogtime')->
@@ -40,18 +42,15 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('table.table tr th:contains("Logtime id")')->
-    checkElement('table.table tr th:contains("Issue")')->
-    checkElement('table.table tr th:contains("User")')->
-    checkElement('table.table tr th:contains("Date")')->
-    checkElement('table.table tr th:contains("Logtime")')->
-    checkElement('table.table tr th:contains("Actions")')->
-
-    checkElement('table.table tr td a[href="/index.php/en/idLogtime/edit/1"]', '1')->
-    checkElement('table.table tr td a[href="/index.php/en/idProject/3/idIssue/show/1"]', '#1 new issue')->
-    checkElement('table.table tr td:contains("prog (puser) prog")')->
-    checkElement('table.table tr td:contains("14")')->
-    checkElement('table.table tr td:contains("Edit")')->
-    checkElement('table.table tr td:contains("Delete")')->
+    checkElement('li:contains("Issue")')->
+    checkElement('li:contains("User")')->
+    checkElement('li:contains("Log time")')->
+    
+    checkElement('li a[href="/index.php/en/idLogtime/edit/1"]', 'Edit')->
+    checkElement('li a[href="/index.php/en/idProject/3/idIssue/show/1"]', '#1 new issue')->
+    checkElement('li:contains("prog (puser) prog")')->
+    checkElement('li:contains("14")')->
+    checkElement('li:contains("Edit")')->
+    checkElement('li:contains("Delete")')->
   end()
 ;

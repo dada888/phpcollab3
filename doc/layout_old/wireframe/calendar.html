@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>phpCollab 3.0a | Wireframe</title>
+<link href="schematic/grid.css" rel="stylesheet" type="text/css" />
+<link href="schematic/reset.css" rel="stylesheet" type="text/css" />
+<link href="schematic/typography.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" />
+</head>
+<body>
+<div class="container wrapper">
+  <div class="span-32 container last  utility-nav right">Hello, Adam Patterson <a href="#" class="utilLogin">Login</a> <a href="settings.html" class="utilSettings">Settings</a> <a href="#" class="utilHelp">Help</a>
+    <select>
+      <option>One</option>
+    </select>
+  </div>
+  <div class="span-32 container last header">
+    <div class="span-15 title">Application Title</div>
+    <div id="header-search" class="search-box span-7 utility-search last right">
+      <form id="main-search-form" action="index.php?page=list" method="post">
+        <div class="search-button">
+          <input class="submit" value="" type="submit" />
+        </div>
+        <div class="center">
+          <input class="search placeholder" name="search" title="Search for a Contact" value="" type="text" />
+        </div>
+        <div class="left"> </div>
+      </form>
+    </div>
+  </div>
+  <div class="span-32 container last">
+    <div class="span-32 navigation">
+      <ul>
+        <li><a href="dashboard-admin.html">Dashboard</a></li>
+        <li><a href="project-list.html">Projects</a></li>
+        <li><a href="time.html">Time</a></li>
+        <li class="current"><a href="calendar.html">Calendar</a></li>
+        <li><a href="users.html">Users</a></li>
+        <li><a href="messages.html"><span>5</span>Messages</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="span-32 append-1 prepend-1 last contentWrapper rounded">
+    <div class="span-32 dashboard">
+      <h3>Calendar</h3>
+      <hr />
+      <table class="calendar_navigation">
+        <tbody>
+          <tr>
+            <td class="prev"><a href="#previous"><img src="images/arrow-left.png" width="45" height="31" alt="Previous" /></a></td>
+            <td class="current center"><h3>January 2010</h3></td>
+            <td class="next right"><a href="#next"><img src="images/arrow-right.png" width="45" height="31" alt="Next" /></a></td>
+          </tr>
+        </tbody>
+      </table>
+      <table border="1" class="calendar">
+        <thead>
+          <tr>
+            <th width="14%" class="weekend">Sunday</th>
+            <th width="14%" class="weekday">Monday</th>
+            <th width="14%" class="weekday">Tuesday </th>
+            <th width="14%" class="weekday">Wednesday</th>
+            <th width="14%" class="weekday">Thursday</th>
+            <th width="14%" class="weekday">Friday</th>
+            <th width="14%" class="weekend">Saturday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="previousMonth" colspan="5"></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">1</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekend empty_day"><div class="inner">
+                <div class="day_num"><a href="#">2</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+          </tr>
+          <tr>
+            <td class="day_cell  weekend empty_day" ><div class="inner">
+                <div class="day_num"><a href="#">3</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">4</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day" ><div class="inner">
+                <div class="day_num"><a href="#">5</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">6</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day" valign=""><div class="inner">
+                <div class="day_num"><a href="#">7</a></div>
+                <div class="day_brief"></div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day" ><div class="inner">
+                <div class="day_num"><a href="#">8</a></div>
+                <div class="day_brief">
+                  <ul>
+                    <li>Ticket: <a href="#">ticket that is due</a></li>
+                  </ul>
+                </div>
+              </div></td>
+            <td class="day_cell  weekend empty_day" ><div class="inner">
+                <div class="day_num"><a href="#">9</a></div>
+                <div class="day_brief">
+                 
+                </div>
+              </div></td>
+          </tr>
+          <tr>
+            <td class="day_cell today weekend empty_day"><div class="inner">
+                <div class="day_num"><a href="#">10</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday not_empty_day"><div class="inner">
+                <div class="day_num"><a href="#">11</a></div>
+                <div class="day_brief">
+                  <ul>
+                    <li><strong><span class="red">Ticket</span></strong><span class="red">:</span> <a href="#">ticket that is due</a></li>
+                  </ul>
+                </div>
+                
+              </div></td>
+            <td class="day_cell  weekday not_empty_day"><div class="inner">
+                <div class="day_num"><a href="#">12</a></div>
+                <div class="day_brief">
+                  <ul>
+                    <li>Ticket: <a href="#">Something that needs doing</a></li>
+                  </ul>
+                </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">13</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">14</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">15</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekend empty_day"><div class="inner">
+                <div class="day_num"><a href="#">16</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+          </tr>
+          <tr>
+            <td class="day_cell  weekend empty_day"><div class="inner">
+                <div class="day_num"><a href="#">17</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">18</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">19</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day" ><div class="inner">
+                <div class="day_num"><a href="#">20</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day" ><div class="inner">
+                <div class="day_num"><a href="#">21</a></div>
+                <div class="day_brief">
+                  <ul>
+                    <li>Ticket: <a href="#">Something that needs doing</a></li>
+                  </ul>
+                </div>
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">22</a></div>
+                <div class="day_brief"> <ul>
+                    <li><strong><span class="red">Milestone</span></strong><span class="red">:</span> <a href="#">Design</a></li></ul>
+                    
+                </div>
+                
+              </div></td>
+            <td class="day_cell  weekend empty_day" ><div class="inner">
+                <div class="day_num"><a href="#">23</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+          </tr>
+          <tr>
+            <td class="day_cell  weekend empty_day"><div class="inner">
+                <div class="day_num"><a href="#">24</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">25</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day" ><div class="inner">
+                <div class="day_num"><a href="#">26</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">27</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day"><div class="inner">
+                <div class="day_num"><a href="#">28</a></div>
+                <div class="day_brief">
+                  <ul>
+                   <li>Ticket: <a href="#">Something that needs doing</a></li>
+                  </ul>
+                </div>
+                
+              </div></td>
+            <td class="day_cell  weekday empty_day" ><div class="inner">
+                <div class="day_num"><a href="#">29</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="day_cell  weekend empty_day"><div class="inner">
+                <div class="day_num"><a href="#">30</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+          </tr>
+          <tr>
+            <td class="day_cell  weekend empty_day"><div class="inner">
+                <div class="day_num"><a href="#">31</a></div>
+                <div class="day_brief"> </div>
+                
+              </div></td>
+            <td class="nextMonth" colspan="6"></td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="#" class="actions"><img src="images/icons/16-cal.png" width="16" height="16" alt="iCal" /> iCalendar</a> <a href="#" class="actions"><img src="images/icons/16-rss.gif" width="16" height="16" alt="RSS" /> RSS Feed</a>
+
+      <div class="note">
+        <p>Private and Public</p>
+        <p>Style priority</p>
+        <p>add new event/tast      </p>
+      </div>
+    </div>
+    <!-- -->
+  </div>
+  <div class="span-32 append-1 prepend-1 last footer">&nbsp;</div>
+</div>
+</body>
+</html>

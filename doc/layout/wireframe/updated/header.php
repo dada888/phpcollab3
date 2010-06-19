@@ -8,6 +8,22 @@
 <link href="schematic/typography.css" rel="stylesheet" type="text/css" />
 <link href="schematic/forms.css" rel="stylesheet" type="text/css" />
 <link href="custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	$(function () {
+		var tabContainers = $('div.tabs > div');
+		tabContainers.hide().filter(':first').show();
+		
+		$('div.tabs ul.tabNavigation a').click(function () {
+			tabContainers.hide();
+			tabContainers.filter(this.hash).show();
+			$('div.tabs ul.tabNavigation a').removeClass('selected');
+			$(this).addClass('selected');
+			return false;
+		}).filter(':first').click();
+	});
+</script>
+
 </head>
 <body>
 <div class="site-bg">
@@ -15,11 +31,13 @@
     <!-- 950 + 30 -->
     <div id="utility" class="showgrid-off"> Hello, Adam Patterson <a href="#" class="login">Login</a> <a href="settings.html" class="settings">Settings</a> <a href="#" class="help">Help</a>
       <select>
+        <option selected="selected">Jump to a project!</option>
         <option>One</option>
+        <option>Two</option>
       </select>
     </div>
     <div id="header">
-      <div id="application-title">Application Title</div>
+      <div id="application-title">Application/Project Title</div>
       <div id="header-search" class="search-box utility-search right">
         <form id="main-search-form" action="index.php?page=list" method="post">
           <div class="search-button">
@@ -35,7 +53,7 @@
     <div id="navigation">
       <ul>
         <li class="<? if ($page == 'dashboard') { echo 'current_page'; } ?>"><a href="index.php?page=dashboard">Dashboard</a></li>
-        <li class="<? if ($page == 'projects' || 'projects-open') { echo 'current_page'; } ?>"><a href="index.php?page=projects">Projects</a></li>
+        <li class="<? if ($page == 'projects-open') { echo 'current_page'; } ?>"><a href="index.php?page=projects">Projects</a></li>
         <li class="<? if ($page == 'time') { echo 'current_page'; } ?>"><a href="index.php?page=time">Time</a></li>
         <li class="<? if ($page == 'calendar') { echo 'current_page'; } ?>"><a href="index.php?page=calendar">Calendar</a></li>
         <li class="<? if ($page == 'users') { echo 'current_page'; } ?>"><a href="index.php?page=users">Users</a></li>

@@ -186,11 +186,16 @@ class PluginProjectTable extends Doctrine_Table
     return $chart_data;
   }
 
-  public function getReportsOnProjectsWithEffortChart($projects)
+  public function getReportsOnProjectsWithEffortChart($projects, $limit = 3)
   {
     $reports = array();
-    foreach ($projects as $project)
+    foreach ($projects as $key => $project)
     {
+      if ($key >= $limit)
+      {
+        break;
+      }
+      
       $report = $this->getReportOnProject($project->id);
       $reports[$project->id] = $report;
       $reports[$project->id]['project_name'] = $project->name;

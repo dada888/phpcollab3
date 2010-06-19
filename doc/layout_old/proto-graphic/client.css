@@ -1,0 +1,134 @@
+/*
+     ---------------------------------------------
+     Client Stylesheet
+     Sean Mitchell, sean@involver.ca
+     01 / 06 / 09
+     ---------------------------------------------
+*/
+
+
+
+
+/* RESET
+-------------------------------------------------- */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	margin: 0px;
+	padding: 0px;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+fieldset, img {
+	border: 0px;
+}
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-style: normal;
+	font-weight: normal;
+}
+ul  {
+	list-style: none;
+}
+caption, th {
+	text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+q:before, q:after {
+	content:'';
+}
+abbr, acronym {
+	border: 0px;
+}
+
+
+
+
+/* BODY
+-------------------------------------------------- */
+body { background: #0A0C0E; font-family: "Lucida Grande", Lucida Sans Unicode, Arial, Sans-Serif; font-size: 12px; line-height: 18px; color: #5A5C5E; 
+}
+h1 {
+	color: #FAFCFE;
+}
+a {
+	color: #5A5C5E;
+	text-decoration: none;
+}
+a:hover {
+	color: #0A78F0;
+	border-bottom: 1px solid #0A223B;
+}
+
+
+
+
+/* WRAPPER
+-------------------------------------------------- */
+#wrapper {
+	padding: 0px 24px 0px 24px;
+}
+
+
+
+
+/* HEADER
+-------------------------------------------------- */
+#header {
+	padding: 19px 0px 19px 0px;
+	border-bottom: 2px solid #141618;
+}
+#header h1, #header h2 {
+	padding: 0px 8px 0px 8px;
+}
+
+
+
+
+/* MENU
+-------------------------------------------------- */
+#menu {
+	margin-bottom: 24px;
+	padding: 19px 0px 11px 0px;
+	border-bottom: 2px solid #141618;
+}
+#menu p { color: #666; padding: 0px 2px 8px 2px; 
+}
+#menu a {
+	margin: 0px 6px 0px 6px;
+}
+
+
+
+
+/* MENU > SELECTED
+-------------------------------------------------- */
+#menu .selected {
+	color: #FAFCFE;
+}
+#menu .selected:hover {
+	color: #FAFCFE;
+	border: none;
+}
+
+
+
+
+/* CONTENT
+-------------------------------------------------- */
+#content {
+	padding: 0px 8px 24px 8px;
+}
+#content img {
+	padding-right: 32px;
+}
+.notes { color: #E8E8E8; width: 450px; }
+.notes p { margin-bottom: 1.5em; }
+.notes ol { margin-left: 1.5em; }
+
+
+.notes strong { font-weight: bolder; }
+
+.left { float: left; }

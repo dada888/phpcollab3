@@ -20,20 +20,19 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('table.table tr th:contains("Logtime id")')->
-    checkElement('table.table tr th:contains("Issue")')->
-    checkElement('table.table tr th:contains("User")')->
-    checkElement('table.table tr th:contains("Date")')->
-    checkElement('table.table tr th:contains("Logtime")')->
-    checkElement('table.table tr th:contains("Actions")')->
+    checkElement('#content .menu:contains("Name")')->
+    checkElement('#content .menu:contains("Description")')->
+    checkElement('#content .menu:contains("Date")')->
+    checkElement('#content .menu:contains("Time")')->
+    checkElement('#content .menu:contains("Issue/Project")')->
 
-    checkElement('table.table tr td:contains("'.date('Y-m-d', strtotime('today')).'")')->
-    checkElement('table.table tr td a[href="/index.php/en/idLogtime/edit/1"]', '1')->
-    checkElement('table.table tr td a[href="/index.php/en/idProject/3/idIssue/show/1"]', '#1 new issue')->
-    checkElement('table.table tr td:contains("prog (puser) prog")')->
-    checkElement('table.table tr td:contains("12")')->
-    checkElement('table.table tr td:contains("Edit")')->
-    checkElement('table.table tr td:contains("Delete")')->
+    checkElement('li:contains("'.strftime('%B %e %Y', strtotime('today')).'")')->
+    checkElement('li a[href="/index.php/en/idLogtime/edit/1"]', 'Edit')->
+    checkElement('li a[href="/index.php/en/idProject/3/idIssue/show/1"]', '#1 new issue')->
+    checkElement('li:contains("prog (puser) prog")')->
+    checkElement('li:contains("12")')->
+    checkElement('li:contains("Edit")')->
+    checkElement('li:contains("Delete")')->
   end()
 
   ;

@@ -14,11 +14,13 @@ class idLogtimeActions extends sfActions
   {
     $this->forwardUnless($this->getUser()->hasCredential('idLogotime-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->pager = new sfDoctrinePager('LogTime',10);
-    $this->pager->setQuery(Doctrine::getTable('LogTime')->createQuery('a'));
+    $this->pager->setQuery(Doctrine::getTable('LogTime')->createQuery('a')->orderBy('created_at DESC'));
     $this->pager->setMaxPerPage(sfConfig::get('mod_maxperpage_logtime', 10));
     $this->pager->setPage($this->getRequestParameter('page',1));
     $this->pager->init();
-    
+
+    $this->form = new LogTimeForm();
+    $this->form->setDefault('created_at', date('Y-m-d H:i:s', time()));
   }
 
   public function executeAddToIssue(sfWebRequest $request)
@@ -129,7 +131,7 @@ class idLogtimeActions extends sfActions
     $this->dispatcher->notify(new sfEvent($log_time,
                                             'log_time.delete',
                                             array('log_message' => LogMessageGenerator::generate($this->getUser(), 'delete', $log_time),
-                                                  'project_id'  => $issue->project_id)));
+                                                  'project_id'  => $log_time->getIssue()->project_id)));
 
     $this->redirect('idLogtime/index');
   }
@@ -145,7 +147,7 @@ class idLogtimeActions extends sfActions
       $this->dispatcher->notify(new sfEvent($log_time,
                                             'log_time.'.$operation,
                                             array('log_message' => LogMessageGenerator::generate($this->getUser(), $operation, $log_time),
-                                                  'project_id'  => $issue->project_id)));
+                                                  'project_id'  => $log_time->getIssue()->project_id)));
 
       $this->redirect('idLogtime/edit?id='.$log_time->getId());
     }

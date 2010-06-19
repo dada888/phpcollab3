@@ -62,7 +62,7 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
   with('response')->begin()->
   isStatusCode(200)->
 
-  checkElement('.dashboard .menuStatus', 5)->
+  checkElement('#project h3', 20)->
   end();
 
 $browser->
@@ -76,7 +76,7 @@ $browser->
   followRedirect()->
 
   with('response')->begin()->
-    checkElement('.dashboard .menuStatus div:contains("Il mio primo progetto")', false)->
-    checkElement('.dashboard .menuStatus', 4)->
+    checkElement('#project h3:contains("Il mio primo progetto")', false)->
+    checkElement('#project h3', 16)->
   end()
 ;

@@ -60,9 +60,9 @@ $browser->info('Testing the right behaviour of the filters form')->
   )))->
 
   with('response')->begin()->
-    checkElement('.statusTitle a:contains("Il mio primo progetto")')->
-    checkElement('.statusTitle a:contains("Il mio secondo progetto")', false)->
-    checkElement('.statusTitle a:contains("Il mio terzo progetto")', false)->
+    checkElement('#project a:contains("Il mio primo progetto")')->
+    checkElement('#project a:contains("Il mio secondo progetto")', false)->
+    checkElement('#project a:contains("Il mio terzo progetto")', false)->
   end()->
 
   click('Reset')->
@@ -70,9 +70,9 @@ $browser->info('Testing the right behaviour of the filters form')->
   info('3) Returns the right list of projects based on the created_at parameter')->
   click('Filter', $project_filters)->
   with('response')->begin()->
-    checkElement('.statusTitle a:contains("Il mio primo progetto")', false)->
-    checkElement('.statusTitle a:contains("Il mio secondo progetto")', false)->
-    checkElement('.statusTitle a:contains("Il mio terzo progetto")', false)->
+    checkElement('#project a:contains("Il mio primo progetto")', false)->
+    checkElement('#project a:contains("Il mio secondo progetto")', false)->
+    checkElement('#project a:contains("Il mio terzo progetto")', false)->
   end()
 ;
 
@@ -87,9 +87,9 @@ $browser->
 click('Reset')->
 click('Filter', $project_filters)->
   with('response')->begin()->
-    checkElement('.statusTitle a:contains("Il mio primo progetto")', false)->
-    checkElement('.statusTitle a:contains("Il mio secondo progetto")')->
-    checkElement('.statusTitle a:contains("Il mio terzo progetto")', false)->
+    checkElement('#project a:contains("Il mio primo progetto")', false)->
+    checkElement('#project a:contains("Il mio secondo progetto")')->
+    checkElement('#project a:contains("Il mio terzo progetto")', false)->
   end()
 ;
 
@@ -106,9 +106,9 @@ $browser->
 click('Reset')->
 click('Filter', $project_filters)->
   with('response')->begin()->
-    checkElement('.statusTitle a:contains("Il mio primo progetto")')->
-    checkElement('.statusTitle a:contains("Il mio quarto progetto")',false)->
-    checkElement('.statusTitle a:contains("Il mio secondo progetto")')->
-    checkElement('.statusTitle a:contains("Il mio terzo progetto")')->
+    checkElement('#project a:contains("Il mio primo progetto")')->
+    checkElement('#project a:contains("Il mio quarto progetto")',false)->
+    checkElement('#project a:contains("Il mio secondo progetto")')->
+    checkElement('#project a:contains("Il mio terzo progetto")')->
   end()
 ;

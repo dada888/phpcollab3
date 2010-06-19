@@ -16,7 +16,7 @@ $browser->
   click('Last')->
 
   with('response')->begin()->
-    checkElement('table.table tr', 7)->
+    checkElement('ul.action > li', 5)->
   end()->
 
   click('Edit')->
@@ -37,6 +37,6 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('table.table tr', 6)->
+    checkElement('ul.action > li', 4)->
   end()
 ;

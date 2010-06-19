@@ -21,6 +21,45 @@
  * @see http://trac.symfony-project.org/wiki/sfDoctrinePager
  */
 
+
+function pager_navigation_log_time($pager, $uri)
+{
+  $navigation = '';
+
+  if ($pager->haveToPaginate())
+  {
+    $uri .= (preg_match('/\?/', $uri) ? '&' : '?').'page=';
+
+    // First and previous page
+    if ($pager->getPage() != 1)
+    {
+      $navigation .= '<li>'.link_to('<img title="First" alt="First" src="images/pagination-left.png">',$uri.'1').'</li>';
+      $navigation .= '<li>'.link_to('<img title="Previous" alt="Previous" src="images/pagination-left.png">',$uri.$pager->getPreviousPage()).'</li>';
+    }
+
+    // Pages one by one
+    $links = array();
+    foreach ($pager->getLinks() as $page)
+    {
+      $class = ($page == $pager->getPage()) ? 'current_page': '';
+
+      $links[] = '<li><a href="'.url_for($uri.$page).'" class="'.$class.'">'.$page.'</a></li>';
+    }
+    $navigation .= join('  ', $links);
+
+    // Next and last page
+    if ($pager->getPage() != $pager->getLastPage())
+    {
+      $navigation .= '<li>'.link_to('<img title="Next" alt="Next" src="images/pagination-left.png">',$uri.$pager->getNextPage()).'</li>';
+      $navigation .= '<li>'.link_to('<img title="Last" alt="Last" src="images/pagination-left.png">',$uri.$pager->getLastPage()).'</li>';
+    }
+
+  }
+
+  return $navigation;
+}
+
+
 function pager_navigation($pager, $uri)
 {
   $navigation = '';
