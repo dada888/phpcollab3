@@ -57,4 +57,14 @@ abstract class PluginIssue extends BaseIssue
     return $total_log_time;
   }
 
+  public function isLate()
+  {
+    return (bool)(!is_null($this->ending_date) && $this->ending_date < date('Y-m-d'));
+  }
+
+  public function isUpcoming($days = 7)
+  {
+    return (bool)(!is_null($this->starting_date) && $this->starting_date >= date('Y-m-d') && $this->starting_date <= date('Y-m-d', strtotime('+'.$days.' days')));
+  }
+
 }

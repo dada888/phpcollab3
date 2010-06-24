@@ -49,6 +49,7 @@ $browser->
     isParameter('id', '4')->
   end()->
 
+  click('Milestones')->
   click('first iteration')->
 
   click('Edit')->

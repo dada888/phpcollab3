@@ -163,6 +163,22 @@ class PluginIssueTable extends Doctrine_Table
     return $q;
   }
 
+  private function queryForIssuesAssignedToUserByProject($user_profile_id, $project_id)
+  {
+    return $this->getQueryForUserIssues($user_profile_id)
+             ->addWhere('i.project_id = ?', $project_id);
+  }
+
+  public function retrieveIssuesAssignedToUserByProject($user_profile_id, $project_id)
+  {
+    return $this->queryForIssuesAssignedToUserByProject($user_profile_id, $project_id)->execute();
+  }
+
+  public function countIssuesAssignedToUserByProject($user_profile_id, $project_id)
+  {
+    return $this->queryForIssuesAssignedToUserByProject($user_profile_id, $project_id)->count();
+  }
+
   public function countByProject($project_id)
   {
     if (!is_null($q = $this->getQueryForProjectIssues($project_id)))

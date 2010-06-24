@@ -138,7 +138,13 @@ class idLogtimeActions extends sfActions
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
-    $form->bind($request->getParameter($form->getName()));
+    $parameters = $request->getParameter($form->getName());
+    if (!$this->getUser()->isAdmin())
+    {
+      $parameters['profile_id'] = $this->getUser()->getProfile()->getId();
+    }
+
+    $form->bind($parameters);
     if ($form->isValid())
     {
       $operation = $form->getObject()->isNew() ? 'create' : 'update';

@@ -55,3 +55,16 @@ function calculate_proportion($portion, $total)
   
   return (float)($portion*100)/$total;
 }
+
+function get_color_for_issue(Issue $issue)
+{
+  if ($issue->isLate())
+  {
+    return 'red';
+  }
+
+  if ($issue->isUpcoming())
+  {
+    return 'green';
+  }
+}

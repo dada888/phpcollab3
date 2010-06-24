@@ -1,14 +1,11 @@
-<div class="span-24 last project-navigation">
+<div class="span-full last project-navigation">
   <ul>
-    <li class="current"><?php echo link_to($project->name, '@show_project?id='.$project->id) ?></li>
+    <li><span><?php echo $project->name; ?></span></li>
     <li><?php echo link_to( __('Issues'), '@index_issue?project_id='.$sf_request->getParameter('id')) ?></li>
-    <li><a href="<?php echo url_for('@index_milestone?project_id='.$project->id) ?>">Milestones</a></li>
+    <li><?php echo link_to(__('Milestones'), '@index_milestone?project_id='.$project->id) ?></li>
     <li><?php echo link_to( __('Discussions'), '@index_messages?project_id='.$project->getid()) ?></li>
-    <li><a href="project-files.html">Files</a></li>
     <li><?php echo link_to(__('Time report'), '@log_time_report_project_all_users?project_id='.$project->getid()); ?></li>
-    <li><a href="<?php echo url_for('@project_staff_list?id='.$project->id) ?>">Staff</a></li>
-    <?php if ($sf_user->isAdmin()): ?>
-      <li><a href="project-dashboard-admin-edit.html">Settings</a></li>
-    <?php endif; ?>
+    <li><?php echo link_to(__('Staff'), '@project_staff_list?id='.$project->id) ?></li>
+    <li><a href="#">Settings</a></li>
   </ul>
 </div>

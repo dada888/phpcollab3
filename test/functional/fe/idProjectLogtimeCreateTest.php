@@ -47,7 +47,7 @@ $browser->
     
     checkElement('li a[href~="en/idLogtime/edit/16"]', 'Edit')->
     checkElement('li a[href~="en/idProject/3/idIssue/show/2"]', '#2 new issue 2')->
-    checkElement('li:contains("prog (puser) prog")')->
+    checkElement('li:contains("Prog P.")')->
     checkElement('li:contains("14")')->
     checkElement('li:contains("Edit")')->
     checkElement('li:contains("Delete")')->

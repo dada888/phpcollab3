@@ -12,11 +12,13 @@
       <?php echo $form['issue_id']->renderError() ?>
       <?php echo $form['issue_id'] ?>
     </li>
+    <?php if ($sf_user->isAdmin()): ?>
     <li class="span-7">
       <?php echo $form['profile_id']->renderLabel(__('User')) ?>
       <?php echo $form['profile_id']->renderError() ?>
       <?php echo $form['profile_id'] ?>
     </li>
+    <?php endif; ?>
     <li class="span-7">
       <?php echo $form['log_time']->renderLabel(__('Log time')) ?>
       <?php echo $form['log_time']->renderError() ?>

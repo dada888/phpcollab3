@@ -1,13 +1,13 @@
-<?php slot('title', __('Create new Logtime')) ?>
+<?php slot('title', __('Manage time')) ?>
 
-<div class="block" id="block-forms">
-  <?php include_partial('create_logtime_menu'); ?>
-  <div class="content">
-    <h2 class="title"><?php echo !$form->getObject()->isNew() ? __('Edit tracker') : __('Create new logtime'); ?></h2>
-    <div class="inner">
-
+<div id="content" class="span-23">
+  <div class="span-full">
+    <div class="title">
+      <span>Time</span>
+      <a id="add-log-time"class="button block-green medium-round" href="<?php echo url_for('@new_logtime') ?>">Add</a>
+    </div>
+    <div id="log-time">
       <?php include_partial('idLogtime/form', array('form' => $form)) ?>
-
     </div>
   </div>
 </div>

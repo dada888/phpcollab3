@@ -84,6 +84,17 @@ class myUser extends sfGuardSecurityUser
   }
 
   /**
+   * TODO
+   *
+   * @param integer $project_id
+   * @return boolean
+   */
+  public function canEditProject($project_id)
+  {
+    return $this->isAdmin();
+  }
+
+  /**
    * Retunrs the projects where the actual user is set as a member
    *
    * @param Doctrine_Query $query
@@ -224,6 +235,16 @@ class myUser extends sfGuardSecurityUser
   public function canAddUsersToProject()
   {
     return ($this->isAdmin() || $this->hasPermission('CanAddUserToProject'));
+  }
+
+  public function retrieveMyIssuesForProject($project_id)
+  {
+    return Doctrine::getTable('Issue')->retrieveIssuesAssignedToUserByProject($this->getGuardUser()->Profile->id, $project_id);
+  }
+
+  public function countMyIssuesForProject($project_id)
+  {
+    return Doctrine::getTable('Issue')->countIssuesAssignedToUserByProject($this->getGuardUser()->Profile->id, $project_id);
   }
 
 }

@@ -1,3 +1,4 @@
+<?php use_helper('Dashboard') ?>
 <h3><?php echo link_project($project_report['project_name'], $project_id); ?></h3>
 <div class="span-full box">
   <div class="span-full">

@@ -22,7 +22,7 @@
   </div>
   <div class="span-one-quarter">
     <div class="square-<?php echo get_css_class_based_on_project_on_time($report['on_time']) ?>">On Time</div>
-    <div class="square-<?php echo get_css_class_based_on_project_on_budget($project->isOnBudget()) ?>">On Budget</div>
+    <!--div class="square-<?php echo get_css_class_based_on_project_on_budget($project->isOnBudget()) ?>">On Budget</div-->
   </div>
   <!--div class="right"><a class="button block-gray medium-round" href="#">Create a Task</a></div-->
 </div>

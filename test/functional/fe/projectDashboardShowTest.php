@@ -24,6 +24,6 @@ $browser->
   
   with('response')->begin()->
     checkElement('h3:contains("Overview")')->
-    checkElement('h1:contains("Il mio terzo progetto")')->
+    checkElement('#application-title:contains("Il mio terzo progetto")')->
     checkElement('div:contains("Il terzo progetto creato con il plugin idProjectManagementPlugin")')->
   end();

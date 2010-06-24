@@ -22,18 +22,11 @@
 class idDashboardActions extends sfActions
 {
 
-  public function preExecute()
+  public function executeIndex(sfWebRequest $request)
   {
     $project_ids = $this->getUser()->getMyProjectsIds();
     $this->recent_activities = Doctrine::getTable('EventLog')->retrieveLastEventsByProjectIds(10, $project_ids, 'LogDecorator');
-  }
-
-  public function executeIndex(sfWebRequest $request)
-  {
-    if ($this->getUser()->isDeveloper())
-    {
-      $this->late_issues = $this->getUser()->retrieveMyLateIssues();
-      $this->upcoming_issues = $this->getUser()->retrieveMyUpcomingIssues();
-    }
+    $this->late_issues = $this->getUser()->retrieveMyLateIssues();
+    $this->upcoming_issues = $this->getUser()->retrieveMyUpcomingIssues();
   }
 }
