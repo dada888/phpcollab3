@@ -1,0 +1,76 @@
+sfGuardUser:
+  sfGuardUser_1:
+    username: admin
+    algorithm: sha1
+    salt: cb7ddae023af5af0e091412bebe69e38
+    password: admin
+    is_active: true
+    is_super_admin: true
+    last_login: null
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+  sfGuardUser_2:
+    username: user
+    algorithm: sha1
+    salt: 7042a9a97aab3384e472d917ea493730
+    password: user
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+  sfGuardUser_3:
+    username: puser
+    algorithm: sha1
+    salt: 855a7d1f9b163e84ca2c4941d667f9dd
+    password: puser
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+  sfGuardUser_4:
+    username: nopuser
+    algorithm: sha1
+    salt: 5aa8032282daf8ba303e76cac1c87005
+    password: nopuser
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+  sfGuardUser_5:
+    username: userp2
+    algorithm: sha1
+    salt: 5aa8032282daf8ba303e76cac1c87005
+    password: userp2
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+  sfGuardUser_6:
+    username: sesto
+    algorithm: sha1
+    salt: 5aa8032282daf8ba303e76cac1c87005
+    password: sesto
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+  sfGuardUser_7:
+    username: pmanager
+    algorithm: sha1
+    salt: 2b20841d437ae8929904602c3c4ab1d2
+    password: pmanager
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
+  sfGuardUser_8:
+    username: customer
+    password: customer
+    is_active: true
+    is_super_admin: false

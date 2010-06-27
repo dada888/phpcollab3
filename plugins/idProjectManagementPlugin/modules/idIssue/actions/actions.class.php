@@ -29,6 +29,7 @@ class idIssueActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idIssue-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $this->forward404Unless($this->project = Doctrine::getTable('Project')->findOneBy('id', $request->getParameter('project_id')));
 
     $this->pager = new sfDoctrinePager('Issue',10);
     $this->pager->setQuery(Doctrine::getTable('Issue')->getQueryForProjectIssues($request->getParameter('project_id')));

@@ -1,0 +1,13 @@
+Message:
+  message_1:
+    title:       'Primo messaggio'
+    body:        'Body primo messaggio'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours")); ?>'
+    UserProfile: Profile_3
+    project:     Project_2
+  message_2:
+    title:       'Secondo messaggio'
+    body:        'Body secondo messaggio'
+    created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours")); ?>'
+    UserProfile: Profile_3
+    project:     Project_2

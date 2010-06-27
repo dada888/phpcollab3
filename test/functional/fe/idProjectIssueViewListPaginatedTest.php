@@ -31,21 +31,18 @@ $browser->
   with('response')->begin()->
     isStatusCode('200')->
 
-    checkElement('th:contains("Id")')->
-    checkElement('th:contains("Title")')->
-    checkElement('th:contains("Description")')->
-    checkElement('th:contains("Starting date")')->
-    checkElement('th:contains("Ending date")')->
-    checkElement('th:contains("Status")')->
-    checkElement('th:contains("Priority")')->
-    checkElement('th:contains("Milestone")')->
+    checkElement('.menu div:contains("Id")')->
+    checkElement('.menu div:contains("Name")')->
+    checkElement('.menu div:contains("Tracker")')->
+    checkElement('.menu div:contains("Status")')->
+    checkElement('.menu div:contains("Priority")')->
+    checkElement('.menu div:contains("Assigned To")')->
 
 
-    checkElement('tr td span', '1')->
-    checkElement('tr td a[href="/index.php/en/idProject/3/idIssues?page=2"]', '2')->
-    checkElement('tr td a[href="/index.php/en/idProject/3/idIssues?page=3"]', '3')->
-    checkElement('tr td a[href="/index.php/en/idProject/3/idIssues?page=4"]', '4')->
-    checkElement('tr td a[href="/index.php/en/idProject/3/idIssues?page=5"]', '5')->
+    checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=2"]', '2')->
+    checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=3"]', '3')->
+    checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=4"]', '4')->
+    checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=5"]', '5')->
   end()->
 
   get('/index.php/en/idProject/3/idIssues?page=2')->
@@ -59,27 +56,17 @@ $browser->
   with('response')->begin()->
     isStatusCode('200')->
 
-    checkElement('th:contains("Id")')->
-    checkElement('th:contains("Title")')->
-    checkElement('th:contains("Description")')->
-    checkElement('th:contains("Starting date")')->
-    checkElement('th:contains("Ending date")')->
-    checkElement('th:contains("Status")')->
-    checkElement('th:contains("Priority")')->
+    checkElement('.menu div:contains("Id")')->
+    checkElement('.menu div:contains("Name")')->
+    checkElement('.menu div:contains("Tracker")')->
+    checkElement('.menu div:contains("Status")')->
+    checkElement('.menu div:contains("Priority")')->
+    checkElement('.menu div:contains("Assigned To")')->
 
-    checkElement('tr td a[href="/index.php/en/idProject/3/idIssues?page=1"]', 3)->
-    checkElement('tr td span', '2')->
-    checkElement('tr td a[href="/index.php/en/idProject/3/idIssues?page=3"]', '3')->
-    checkElement('tr td a[href="/index.php/en/idProject/3/idIssues?page=4"]', '4')->
-    checkElement('tr td a[href="/index.php/en/idProject/3/idIssues?page=5"]', '5')->
-  end()->
-
-
-  get('/index.php/en/idProject/3/idIssues?page=7')->
-
-  with('response')->begin()->
-    checkElement('tr td:contains("third iteration")')->
+    checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=1"]', 3)->
+    checkElement('.pagenation ul li a.current_page', '2')->
+    checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=3"]', '3')->
+    checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=4"]', '4')->
+    checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=5"]', '5')->
   end()
-
-
 ;

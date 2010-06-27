@@ -1,0 +1,17 @@
+Status:
+  Status_1:
+    name: new
+    status_type: new
+    position: 0
+  Status_2:
+    name: invalid
+    status_type: invalid
+    position: 1
+  Status_3:
+    name: closed
+    status_type: closed
+    position: 2
+  Status_4:
+    name: assigned
+    status_type: assigned
+    position: 3

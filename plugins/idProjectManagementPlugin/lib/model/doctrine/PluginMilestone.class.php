@@ -37,4 +37,14 @@ abstract class PluginMilestone extends BaseMilestone
     parent::setUp();
     $this->addListener(new EventLogDoctrineListener());
   }
+
+  public function isClosed()
+  {
+    return (bool) $this->closed;
+  }
+
+  public function isLate()
+  {
+    return (bool)(!is_null($this->ending_date) && $this->ending_date < date('Y-m-d') && !$this->isClosed());
+  }
 }

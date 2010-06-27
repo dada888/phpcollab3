@@ -15,14 +15,16 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
   get('/en/idProject/show/3')->
 
   click('Issues')->
+  click('Last')->
+  with('response')->begin()->
+    checkElement('ul.action li.icon-green', 8)->
+  end()->
+  
+  click('Delete')->
+  followRedirect()->
+  click('Last')->
 
-  responseContains('new issue 2')->
-
-  click('Delete', array(), array('position' => 2))->
-
- followRedirect()->
-
- with('response')->begin()->
-    checkElement('tr:contains("new issue 2")', false)->
+  with('response')->begin()->
+    checkElement('ul.action li.icon-green', 7)->
   end()
 ;

@@ -1,0 +1,7 @@
+Tracker:
+  Tracker_1:
+    name: 'user story'
+  Tracker_2:
+    name: 'Task'
+  Tracker_3:
+    name: 'Bug'

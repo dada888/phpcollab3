@@ -1,0 +1,48 @@
+Project:
+  Project_1:
+    id: 1
+    name: 'Il mio primo progetto'
+    description: 'Il primo progetto creato con il plugin idProjectManagementPlugin'
+    is_public: false
+    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-10 day")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+  Project_2:
+    id: 2
+    name: 'Il mio secondo progetto'
+    description: 'Il secondo progetto creato con il plugin idProjectManagementPlugin'
+    is_public: false
+    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
+    end_date: '<?php echo date("Y-m-d H:i:s", strtotime("+10 days")); ?>'
+    budget: 100
+    costs:  50
+  Project_3:
+    id: 3
+    name: 'Il mio terzo progetto'
+    description: 'Il terzo progetto creato con il plugin idProjectManagementPlugin'
+    is_public: true
+    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
+  Project_4:
+    id: 4
+    name: 'Il mio quarto progetto'
+    description: 'Il quarto progetto creato con il plugin idProjectManagementPlugin'
+    is_public: false
+    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 day")); ?>'
+    end_date: '<?php echo date("Y-m-d H:i:s", strtotime("-3 days")); ?>'
+    budget: 100
+    costs:  150
+  Project_5:
+    id: 5
+    name: 'Gant chart project'
+    description: 'a prioject to test the gantt chart'
+    is_public: false
+    starting_date: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours")); ?>'
+    created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours")); ?>'
+    updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-4 hours")); ?>'
+    end_date: '<?php echo date("Y-m-d H:i:s", strtotime("+30 days")); ?>'

@@ -59,12 +59,17 @@ abstract class PluginIssue extends BaseIssue
 
   public function isLate()
   {
-    return (bool)(!is_null($this->ending_date) && $this->ending_date < date('Y-m-d'));
+    return (bool)(!is_null($this->ending_date) && $this->ending_date < date('Y-m-d') && !$this->isClosed());
   }
 
   public function isUpcoming($days = 7)
   {
     return (bool)(!is_null($this->starting_date) && $this->starting_date >= date('Y-m-d') && $this->starting_date <= date('Y-m-d', strtotime('+'.$days.' days')));
+  }
+
+  public function isClosed()
+  {
+    return (bool) ($this->status == 'closed');
   }
 
 }

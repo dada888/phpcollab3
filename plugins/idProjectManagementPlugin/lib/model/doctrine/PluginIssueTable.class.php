@@ -79,6 +79,8 @@ class PluginIssueTable extends Doctrine_Table
     $q = Doctrine_Query::create()
       ->from('Issue i')
       ->leftJoin('i.tracker t')
+      ->leftJoin('i.milestone m')
+      ->orderBy('i.id ASC')
       ->andWhere('i.project_id = ? ', $project_id);
 
     return $q;

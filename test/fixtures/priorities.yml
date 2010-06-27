@@ -1,0 +1,7 @@
+Priority:
+  Priority_1:
+    name: normal
+    position: 0
+  Priority_2:
+    name: high
+    position: 1

@@ -28,7 +28,7 @@ $browser->
 
   click('Issues')->
 
-  click('Create new issue')->
+  click('Add')->
 
   with('request')->begin()->
     isParameter('module', 'idIssue')->
@@ -37,7 +37,7 @@ $browser->
 
 
 $browser->click('Save', array('issue' => array(
-    'title'           => 'new ticket',
+    'title'           => 'new ticket with milestone',
     'description'     => 'new issue for this project',
     'status_id'       => 1,
     'priority_id'     => 1,
@@ -57,7 +57,8 @@ $browser->click('Save', array('issue' => array(
 
   click('Last')->
 
-  responseContains('new ticket')->
-  responseContains('new issue for this project')
-
+  with('response')->begin()->
+    checkElement('li:contains("new ticket with milestone")')->
+    checkElement('li:contains("new issue for this project")', false)->
+  end()
 ;

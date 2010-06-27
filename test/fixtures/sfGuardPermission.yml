@@ -1,0 +1,133 @@
+sfGuardPermission:
+  sfGuardPermission_pm:
+    name: 'project manager'
+    description: 'Project manager permission'
+  sfGuardPermission_c:
+    name: customer
+    description: 'Customer permission'
+  sfGuardPermission_1:
+    name: admin
+    description: 'Administrator permission'
+  sfGuardPermission_2:
+    name: user
+    description: 'Basic user permission'
+  sfGuardPermission_3:
+    name: idPriority-Read
+    description: 'Reading priorities permission'
+  sfGuardPermission_4:
+    name: idPriority-Create
+    description: 'Creating priorities permission'
+  sfGuardPermission_5:
+    name: idPriority-Edit
+    description: 'Editing priorities permission'
+  sfGuardPermission_6:
+    name: idPriority-Delete
+    description: 'Deleting priorities permission'
+  sfGuardPermission_11:
+    name: idMilestone-Read
+    description: 'Reading milestones permission'
+  sfGuardPermission_12:
+    name: idMilestone-Create
+    description: 'Creating milestones permission'
+  sfGuardPermission_13:
+    name: idMilestone-Edit
+    description: 'Editing milestones permission'
+  sfGuardPermission_14:
+    name: idMilestone-Delete
+    description: 'Deleting milestones permission'
+  sfGuardPermission_15:
+    name: idDashboard-Read
+    description: 'Reading dashboard permission'
+  sfGuardPermission_16:
+    name: idProject-Read
+    description: 'Reading projects permission'
+  sfGuardPermission_17:
+    name: idProject-Create
+    description: 'Creating projects permission'
+  sfGuardPermission_18:
+    name: idProject-Edit
+    description: 'Editing projects permission'
+  sfGuardPermission_19:
+    name: idProject-Delete
+    description: 'Deleting projects permission'
+  sfGuardPermission_20:
+    name: idProject-ViewRoadmap
+    description: 'View projects roadmap permission'
+  sfGuardPermission_21:
+    name: idIssue-Read
+    description: 'Reading issues permission'
+  sfGuardPermission_22:
+    name: idIssue-Create
+    description: 'Creating issues permission'
+  sfGuardPermission_23:
+    name: idIssue-Edit
+    description: 'Editing issues permission'
+  sfGuardPermission_24:
+    name: idIssue-Delete
+    description: 'Deleting issues permission'
+  sfGuardPermission_25:
+    name: idStatus-Read
+    description: 'Reading statuses permission'
+  sfGuardPermission_26:
+    name: idStatus-Create
+    description: 'Creating statuses permission'
+  sfGuardPermission_27:
+    name: idStatus-Edit
+    description: 'Editing statuses permission'
+  sfGuardPermission_28:
+    name: idStatus-Delete
+    description: 'Deleting statuses permission'
+  sfGuardPermission_29:
+    name: idRepository-Read
+    description: 'Reading repository permission'
+  sfGuardPermission_30:
+    name: idProfile-Read
+    description: 'Reading profile permission'
+  sfGuardPermission_31:
+    name: idProfile-Edit
+    description: 'Editing profile permission'
+  sfGuardPermission_32:
+    name: idTracker-Read
+    description: 'Reading trackers permission'
+  sfGuardPermission_33:
+    name: idTracker-Create
+    description: 'Creating trackers permission'
+  sfGuardPermission_34:
+    name: idTracker-Edit
+    description: 'Editing trackers permission'
+  sfGuardPermission_35:
+    name: idTracker-Delete
+    description: 'Deleting trackers permission'
+  sfGuardPermission_36:
+    name: idLogotime-Read
+    description: 'Reading logtime permission'
+  sfGuardPermission_37:
+    name: idLogotime-Create
+    description: 'Creating logtime permission'
+  sfGuardPermission_38:
+    name: idLogotime-Edit
+    description: 'Editing logtime permission'
+  sfGuardPermission_39:
+    name: idLogotime-Delete
+    description: 'Deleting logtime permission'
+  sfGuardPermission_40:
+    name: idLogotime-ReadReport
+    description: 'reading logtime report permission'
+  sfGuardPermission_41:
+    name: idLogotime-ReadReportForAllUsers
+    description: 'reading logtime report for all users permission'
+  sfGuardPermission_42:
+    name: idGantt-View
+    description: 'View gantt permission'
+  sfGuardPermission_43:
+    name: idMessage-Read
+    description: 'Reading message permission'
+  sfGuardPermission_44:
+    name: idMessage-Create
+    description: 'Creating message permission'
+  sfGuardPermission_45:
+    name: idMessage-Edit
+    description: 'Editing message permission'
+  sfGuardPermission_46:
+    name: idMessage-Delete
+    description: 'Deleting message permission'

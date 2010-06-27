@@ -1,0 +1,46 @@
+Milestone:
+  Milestone_1:
+    title: 'first iteration'
+    description: 'first iteration for project 1'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-15 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("-5 day")); ?>'
+    project: Project_1
+    closed: 0
+    estimated_time: 8
+    InCharge: sfGuardUser_7
+  Milestone_2:
+    title: 'second iteration'
+    description: 'second iteration for project one'
+    starting_date: '<?php echo date("Y-m-d", strtotime("+5 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+15 day")); ?>'
+    closed: 0
+    project: Project_1
+    InCharge: sfGuardUser_7
+  Milestone_3:
+    title: 'third iteration'
+    description: 'third iteration for project 3'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-15 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("-2 day")); ?>'
+    closed: 0
+    project: Project_3
+  Milestone_3_2:
+    title: 'another third iteration'
+    description: 'another third iteration for project 3'
+    starting_date: '<?php echo date("Y-m-d", strtotime("-15 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("-2 day")); ?>'
+    closed: 1
+    project: Project_3
+  Milestone_4:
+    title: 'first iteration'
+    description: 'first iteration for project 2'
+    starting_date: '<?php echo date("Y-m-d", strtotime("+2 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+12 day")); ?>'
+    closed: 0
+    project: Project_2
+  Milestone_5:
+    title: 'second iteration'
+    description: 'second iteration for project 2'
+    starting_date: '<?php echo date("Y-m-d", strtotime("+12 day")); ?>'
+    ending_date: '<?php echo date("Y-m-d", strtotime("+55 day")); ?>'
+    closed: 0
+    project: Project_2

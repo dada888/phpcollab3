@@ -1,3 +1,7 @@
+indexSuccess:
+  components:
+    sidebar:  [idIssue, sidebar]
+
 default:
   components:
     sidebar:  []

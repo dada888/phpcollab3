@@ -18,7 +18,7 @@ $browser->
 
   click('Issues')->
 
-  click('Create new issue');
+  click('Add');
 
 
 $browser->click('Save', array('issue' => array(

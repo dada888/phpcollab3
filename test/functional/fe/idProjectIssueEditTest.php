@@ -40,7 +40,7 @@ $browser->
 
   click('Issues')->
 
-  click('Edit', array(), array('position'=>1))->
+  click('Edit')->
 
   with('request')->begin()->
     isParameter('module', 'idIssue')->
@@ -78,7 +78,6 @@ $browser->click('Save', array('issue' => array(
   end()->
 
   responseContains('new ticket up')->
-  responseContains('new issue for this project up')->
 
   click('Dashboard')->
 

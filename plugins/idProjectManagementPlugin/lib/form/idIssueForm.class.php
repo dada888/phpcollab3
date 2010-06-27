@@ -161,6 +161,9 @@ class idIssueForm extends IssueForm
     $this->validatorSchema['related_issue_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Issue', 'required' => false, 'query' => $this->getQueryForRelatedIssue()));
     $this->validatorSchema['estimated_time'] = new sfValidatorNumber(array('min' => '0', 'required' => false), array('min' => 'You cannot set a negative estimated time'));
 
+    unset($this['created_at']);
+    unset($this['updated_at']);
+
     parent::configure();
   }
 }

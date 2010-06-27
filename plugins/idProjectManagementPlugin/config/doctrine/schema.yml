@@ -93,6 +93,13 @@ Milestone:
 
 Issue:
   actAs:
+    Timestampable:
+      created:
+        name: created_at
+        type: timestamp
+      updated:
+        name: updated_at
+        type: timestamp
     EstimateTime:
       estimatedtime:
         name: estimated_time

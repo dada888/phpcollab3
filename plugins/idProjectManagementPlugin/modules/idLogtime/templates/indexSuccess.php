@@ -12,7 +12,9 @@
     </div>
 
     <?php if (count($pager->getResults()) !== false && count($pager->getResults()) == 0): ?>
-      //no results//
+      <div class="span-full">
+        <p>No results.</p>
+      </div>
     <?php else: ?>
     <div class="span-full">
       <div class="menu">
@@ -37,7 +39,7 @@
             <li class="edit-delete">
               <?php if($sf_user->hasCredential('idLogtime-Edit')): ?>
                 <?php echo link_to(__('Edit'), '@edit_logtime?id='.$log_time->getId()) ?>&nbsp;&nbsp;
-                <?php echo link_to(__('Delete'), '@delete_logtime?id='.$log_time->getId(), array('confirm' => __('Do you really want to delete this tracker?'))) ?>
+                <?php echo link_to(__('Delete'), '@delete_logtime?id='.$log_time->getId(), array('confirm' => __('Do you really want to delete this log?'))) ?>
               <?php endif; ?>
             </li>
           </ul>

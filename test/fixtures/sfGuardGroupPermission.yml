@@ -1,0 +1,298 @@
+sfGuardGroupPermission:
+  sfGuardGroupPermission_1_1:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_1
+  sfGuardGroupPermission_1_3:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_3
+  sfGuardGroupPermission_1_4:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_4
+  sfGuardGroupPermission_1_5:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_5
+  sfGuardGroupPermission_1_6:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_6
+  sfGuardGroupPermission_1_11:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_11
+  sfGuardGroupPermission_1_12:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_12
+  sfGuardGroupPermission_1_13:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_13
+  sfGuardGroupPermission_1_14:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_14
+  sfGuardGroupPermission_1_15:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_15
+  sfGuardGroupPermission_1_16:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_16
+  sfGuardGroupPermission_1_17:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_17
+  sfGuardGroupPermission_1_18:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_18
+  sfGuardGroupPermission_1_19:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_19
+  sfGuardGroupPermission_1_20:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_20
+  sfGuardGroupPermission_1_21:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_21
+  sfGuardGroupPermission_1_22:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_22
+  sfGuardGroupPermission_1_23:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_23
+  sfGuardGroupPermission_1_24:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_24
+  sfGuardGroupPermission_1_25:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_25
+  sfGuardGroupPermission_1_26:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_26
+  sfGuardGroupPermission_1_27:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_27
+  sfGuardGroupPermission_1_28:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_28
+  sfGuardGroupPermission_1_29:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_29
+  sfGuardGroupPermission_1_30:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_30
+  sfGuardGroupPermission_1_31:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_31
+  sfGuardGroupPermission_1_32:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_32
+  sfGuardGroupPermission_1_33:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_33
+  sfGuardGroupPermission_1_34:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_34
+  sfGuardGroupPermission_1_35:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_35
+  sfGuardGroupPermission_1_36:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_36
+  sfGuardGroupPermission_1_37:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_37
+  sfGuardGroupPermission_1_38:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_38
+  sfGuardGroupPermission_1_39:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_39
+  sfGuardGroupPermission_1_40:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_40
+  sfGuardGroupPermission_1_41:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_41
+  sfGuardGroupPermission_1_42:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_42
+  sfGuardGroupPermission_1_43:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_43
+  sfGuardGroupPermission_1_44:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_44
+  sfGuardGroupPermission_1_45:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_45
+  sfGuardGroupPermission_1_46:
+    sfGuardGroup: sfGuardGroup_1
+    sfGuardPermission: sfGuardPermission_46
+  sfGuardGroupPermission_2_2:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_2
+  sfGuardGroupPermission_2_11:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_11
+  sfGuardGroupPermission_2_12:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_12
+  sfGuardGroupPermission_2_13:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_13
+  sfGuardGroupPermission_2_14:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_14
+  sfGuardGroupPermission_2_15:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_15
+  sfGuardGroupPermission_2_16:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_16
+  sfGuardGroupPermission_2_20:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_20
+  sfGuardGroupPermission_2_21:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_21
+  sfGuardGroupPermission_2_22:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_22
+  sfGuardGroupPermission_2_23:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_23
+  sfGuardGroupPermission_2_24:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_24
+  sfGuardGroupPermission_2_29:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_29
+  sfGuardGroupPermission_2_30:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_30
+  sfGuardGroupPermission_2_31:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_31
+  sfGuardGroupPermission_2_36:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_36
+  sfGuardGroupPermission_2_37:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_37
+  sfGuardGroupPermission_2_38:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_38
+  sfGuardGroupPermission_2_39:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_39
+  sfGuardGroupPermission_2_40:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_40
+  sfGuardGroupPermission_2_43:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_43
+  sfGuardGroupPermission_2_44:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_44
+  sfGuardGroupPermission_2_45:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_45
+  sfGuardGroupPermission_2_46:
+    sfGuardGroup: sfGuardGroup_2
+    sfGuardPermission: sfGuardPermission_46
+  sfGuardGroupPermission_3_pm:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_pm
+  sfGuardGroupPermission_3_11:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_11
+  sfGuardGroupPermission_3_12:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_12
+  sfGuardGroupPermission_3_13:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_13
+  sfGuardGroupPermission_3_14:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_14
+  sfGuardGroupPermission_3_15:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_15
+  sfGuardGroupPermission_3_16:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_16
+  sfGuardGroupPermission_3_17:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_17
+  sfGuardGroupPermission_3_18:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_18
+  sfGuardGroupPermission_3_19:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_19
+  sfGuardGroupPermission_3_20:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_20
+  sfGuardGroupPermission_3_21:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_21
+  sfGuardGroupPermission_3_22:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_22
+  sfGuardGroupPermission_3_23:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_23
+  sfGuardGroupPermission_3_24:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_24
+  sfGuardGroupPermission_3_29:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_29
+  sfGuardGroupPermission_3_30:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_30
+  sfGuardGroupPermission_3_31:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_31
+  sfGuardGroupPermission_3_32:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_32
+  sfGuardGroupPermission_3_33:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_33
+  sfGuardGroupPermission_3_34:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_34
+  sfGuardGroupPermission_3_35:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_35
+  sfGuardGroupPermission_3_36:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_36
+  sfGuardGroupPermission_3_37:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_37
+  sfGuardGroupPermission_3_38:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_38
+  sfGuardGroupPermission_3_39:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_39
+  sfGuardGroupPermission_3_40:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_40
+  sfGuardGroupPermission_3_41:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_41
+  sfGuardGroupPermission_3_42:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_42
+  sfGuardGroupPermission_3_43:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_43
+  sfGuardGroupPermission_3_44:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_44
+  sfGuardGroupPermission_3_45:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_45
+  sfGuardGroupPermission_3_46:
+    sfGuardGroup: sfGuardGroup_3
+    sfGuardPermission: sfGuardPermission_46
+  sfGuardGroupPermission_4_c:
+    sfGuardGroup: sfGuardGroup_4
+    sfGuardPermission: sfGuardPermission_c

@@ -1,0 +1,58 @@
+IssueReference:
+  RelatedIssue_1_2:
+    issue1: '1'
+    issue2: '2'
+  RelatedIssue_1_3:
+    issue1: '1'
+    issue2: '3'
+  RelatedIssue_1_4:
+    issue1: '1'
+    issue2: '4'
+  RelatedIssue_5_1:
+    issue1: '5'
+    issue2: '1'
+  RelatedIssue_1_11:
+    issue1: '1'
+    issue2: '11'
+  RelatedIssue_1_12:
+    issue1: '1'
+    issue2: '12'
+  RelatedIssue_1_13:
+    issue1: '1'
+    issue2: '13'
+  RelatedIssue_1_14:
+    issue1: '1'
+    issue2: '14'
+  RelatedIssue_1_25:
+    issue1: '1'
+    issue2: '15'
+  RelatedIssue_1_16:
+    issue1: '1'
+    issue2: '16'
+  RelatedIssue_1_17:
+    issue1: '1'
+    issue2: '17'
+  RelatedIssue_1_18:
+    issue1: '1'
+    issue2: '18'
+  RelatedIssue_1_19:
+    issue1: '1'
+    issue2: '19'
+  RelatedIssue_1_20:
+    issue1: '1'
+    issue2: '20'
+  RelatedIssue_1_21:
+    issue1: '1'
+    issue2: '21'
+  RelatedIssue_1_22:
+    issue1: '1'
+    issue2: '22'
+  RelatedIssue_1_23:
+    issue1: '1'
+    issue2: '23'
+  RelatedIssue_1_24:
+    issue1: '1'
+    issue2: '24'
+  RelatedIssue_1_25:
+    issue1: '1'
+    issue2: '25'

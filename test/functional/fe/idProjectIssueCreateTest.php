@@ -29,7 +29,7 @@ $browser->
 
   click('Issues')->
 
-  click('Create new issue')->
+  click('Add')->
 
   with('request')->begin()->
     isParameter('module', 'idIssue')->
@@ -79,11 +79,8 @@ $browser->click('Save', array('issue' => array(
     isParameter('module', 'idIssue')->
     isParameter('action', 'index')->
   end()->
-
   click('Last')->
-
   responseContains('new ticket')->
-  responseContains('new issue for this project')->
 
   get('/en/idProject/3/idIssue/edit/113')->
 
