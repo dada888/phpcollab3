@@ -68,5 +68,10 @@ $browser->
     checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=3"]', '3')->
     checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=4"]', '4')->
     checkElement('.pagenation ul li a[href="/index.php/en/idProject/3/idIssues?page=5"]', '5')->
-  end()
-;
+  end()->
+
+  get('/en/idProject/4/idIssues')->
+  with('response')->begin()->
+    isStatusCode('200')->
+    checkElement('li:contains("No results")')->
+  end();

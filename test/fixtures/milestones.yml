@@ -23,6 +23,7 @@ Milestone:
     ending_date: '<?php echo date("Y-m-d", strtotime("-2 day")); ?>'
     closed: 0
     project: Project_3
+    in_charge: 1
   Milestone_3_2:
     title: 'another third iteration'
     description: 'another third iteration for project 3'
@@ -30,6 +31,7 @@ Milestone:
     ending_date: '<?php echo date("Y-m-d", strtotime("-2 day")); ?>'
     closed: 1
     project: Project_3
+    in_charge: 1
   Milestone_4:
     title: 'first iteration'
     description: 'first iteration for project 2'
@@ -37,6 +39,7 @@ Milestone:
     ending_date: '<?php echo date("Y-m-d", strtotime("+12 day")); ?>'
     closed: 0
     project: Project_2
+    in_charge: 1
   Milestone_5:
     title: 'second iteration'
     description: 'second iteration for project 2'
@@ -44,3 +47,4 @@ Milestone:
     ending_date: '<?php echo date("Y-m-d", strtotime("+55 day")); ?>'
     closed: 0
     project: Project_2
+    in_charge: 1

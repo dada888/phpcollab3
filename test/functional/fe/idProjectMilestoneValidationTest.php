@@ -17,7 +17,7 @@ $browser->
   click('Il mio terzo progetto')->
   click('Milestones')->
 
-  click('Create a new milestone')->
+  click('Add')->
 
   click('Save', array('milestone' => array(
     'title'           => ''

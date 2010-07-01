@@ -2,22 +2,23 @@
 
 <div id="content" class="span-23">
   <?php include_partial('idProject/sub_menu', array('project' => $project))?>
-  
+
+  <div class="span-full">
+    <div class="title">
+      <span><?php echo __('Tickets'); ?></span>
+      <a id="add-log-time"class="button block-green medium-round" href="<?php echo url_for('@new_issue?project_id='.$project->id) ?>">Add</a>
+    </div>
+    <div class="menu">
+      <div class="span-3">Id</div>
+      <div class="span-5">Name</div>
+      <div class="span-3">Tracker</div>
+      <div class="span-3">Status</div>
+      <div class="span-3">Priority</div>
+      <div class="span-5 last">Assigned To</div>
+    </div>
+    <ul class="action time">
+
   <?php if($pager->getNbResults() > 0): ?>
-    <div class="span-full">
-      <div class="title">
-        <span><?php echo __('Tickets'); ?></span>
-        <a id="add-log-time"class="button block-green medium-round" href="<?php echo url_for('@new_issue?project_id='.$project->id) ?>">Add</a>
-      </div>
-      <div class="menu">
-        <div class="span-3">Id</div>
-        <div class="span-5">Name</div>
-        <div class="span-3">Tracker</div>
-        <div class="span-3">Status</div>
-        <div class="span-3">Priority</div>
-        <div class="span-5 last">Assigned To</div>
-      </div>
-      <ul class="action time">
       <?php foreach($pager->getResults() as $issue): ?>
         <li class="icon-<?php echo $issue->isLate()? 'red' : 'green'; ?>">
           <ul>
@@ -40,13 +41,17 @@
           </ul>
         </li>
       <?php endforeach; ?>
+  <?php else: ?>
+        <li class="span-22 last">No results</li>
+  <?php endif; ?>
       </ul>
     </div>
+    <?php if($pager->haveToPaginate()):?>
     <div class="span-full pagenation">
       <ul>
         <?php  echo pager_navigation_log_time($pager, '@index_issue?project_id='.$issue->project_id) ?>
       </ul>
     </div>
-  <?php endif; ?>
+    <?php endif; ?>
 </div>
 

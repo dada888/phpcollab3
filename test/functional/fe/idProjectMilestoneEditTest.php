@@ -17,8 +17,6 @@ $browser->
   click('Il mio terzo progetto')->
   click('Milestones')->
 
-  click('View all project milestones')->
-
   click('Edit')->
 
   with('response')->begin()->

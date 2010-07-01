@@ -18,9 +18,9 @@ $browser->
   click('Milestones')->
 
   with('response')->begin()->
-    checkElement('a[href*="en/idProject/4/idMilestone/new"]', 'Create a new milestone')->
+    checkElement('a[href*="en/idProject/4/idMilestone/new"]', 'Add')->
   end()->
-  click('Create a new milestone')->
+  click('Add')->
   
   with('request')->begin()->
     isParameter('module', 'idMilestone')->

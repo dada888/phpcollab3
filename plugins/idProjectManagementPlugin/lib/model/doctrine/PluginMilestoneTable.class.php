@@ -43,4 +43,9 @@ class PluginMilestoneTable extends Doctrine_Table
                 ->andWhere('starting_date >= ?', date('Y-m-d'))
                 ->execute();
   }
+
+  public function getQueryForActiveProjectMilestone($project_id)
+  {
+    return $this->getQueryForActiveMilestonesByProjectIds(array($project_id));
+  }
 }

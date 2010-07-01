@@ -18,11 +18,11 @@ $browser->
   click('Milestones')->
 
   with('response')->begin()->
-    checkElement('a[href="/index.php/en/idProject/4/idMilestone/new"]', 'Create a new milestone')->
-    checkElement('td:contains("No Results")')->
+    checkElement('a[href="/index.php/en/idProject/4/idMilestone/new"]', 'Add')->
+    checkElement('li:contains("No results")')->
   end()->
 
-  click('Create a new milestone')->
+  click('Add')->
 
   with('request')->begin()->
     isParameter('module', 'idMilestone')->

@@ -16,7 +16,6 @@ $browser->
 
   click('Il mio primo progetto')->
   click('Milestones')->
-  click('View all project milestones')->
 
   with('request')->begin()->
     isParameter('module', 'idMilestone')->
@@ -24,10 +23,6 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('table.table tr td a[href="/index.php/en/idProject/1/idMilestone/show/1"]', '/first iteration/')->
-    checkElement('table.table tr td:contains("first iteration for project 1")')->
-    checkElement('table.table tr td a[href="/index.php/en/idProject/1/idMilestone/show/2"]', '/second iteration/')->
-    checkElement('table.table tr td:contains("second iteration for project one")')->
-  end()
-
-  ;
+    checkElement('ul li a[href="/index.php/en/idProject/1/idMilestone/show/1"]', '/first iteration/', array('position' => 1))->
+    checkElement('ul li  a[href="/index.php/en/idProject/1/idMilestone/show/2"]', '/second iteration/', array('position' => 1))->
+  end();

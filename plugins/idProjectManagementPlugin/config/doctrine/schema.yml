@@ -90,6 +90,7 @@ Milestone:
       foreign: id
       type: one
       foreignType: many
+      onDelete: SET NULL
 
 Issue:
   actAs:
