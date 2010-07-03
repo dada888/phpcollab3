@@ -13,4 +13,12 @@ class PluginMessageTable extends Doctrine_Table
             ->where('m.project_id = '. $project_id)
             ->orderBy('m.created_at DESC');
   }
+
+  public function getLastComment($id)
+  {
+    return Doctrine::getTable('fdComment')->
+             getQueryForListByModelAndFieldAndValue('Message', 'id', $id)->
+             orderBy('created_at DESC')->
+             fetchOne();
+  }
 }

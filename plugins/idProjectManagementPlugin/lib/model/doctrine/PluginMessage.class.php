@@ -10,4 +10,13 @@ abstract class PluginMessage extends BaseMessage
     parent::setUp();
     $this->addListener(new EventLogDoctrineListener());
   }
+
+  public function getLastCommentDate()
+  {
+    if ($last_comment = Doctrine::getTable('Message')->getLastComment($this->id))
+    {
+      return $last_comment->created_at;
+    }
+    return $this->created_at;
+  }
 }

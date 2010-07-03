@@ -17,7 +17,7 @@ $browser->
   click('Discussions')->
 
   with('response')->begin()->
-    checkElement('table.table tr', 4)->
+    checkElement('ul li.icon-comment', 2)->
   end()->
 
   click('Delete')->
@@ -30,6 +30,6 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('table.table tr', 3)->
+    checkElement('ul li.icon-comment', 1)->
   end()
 ;

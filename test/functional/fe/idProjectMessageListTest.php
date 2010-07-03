@@ -23,18 +23,17 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('table.table tr th:contains("Title")')->
-    checkElement('table.table tr th:contains("Creation date")')->
-    checkElement('table.table tr th:contains("Created by")')->
+    checkElement('.menu div:contains("Title")')->
+    checkElement('.menu div:contains("Description")')->
+    checkElement('.menu div:contains("Last reply")')->
     
-    checkElement('table.table tr td:contains("Primo messaggio")')->
-    checkElement('table.table tr td a[href~="idProject/2/idMessage/show/1"]', 'Primo messaggio')->
-    checkElement('table.table tr td:contains("Secondo messaggio")')->
-    checkElement('table.table tr td a[href~="idProject/2/idMessage/show/2"]', 'Secondo messaggio')->
-    checkElement('table.table tr td:contains("prog (puser) prog")', 2)->
+    checkElement('ul li:contains("Primo messaggio")')->
+    checkElement('ul li a[href~="idProject/2/idMessage/show/1"]', 'Primo messaggio')->
+    checkElement('ul li:contains("Secondo messaggio")')->
+    checkElement('ul li a[href~="idProject/2/idMessage/show/2"]', 'Secondo messaggio')->
 
-    checkElement('table.table tr td:contains("Edit")', 2)->
-    checkElement('table.table tr td:contains("Delete")', 2)->
+    checkElement('ul li ul li:contains("Edit")', 2)->
+    checkElement('ul li ul li:contains("Delete")', 2)->
   end()
 
   ;

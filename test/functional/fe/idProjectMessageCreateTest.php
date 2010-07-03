@@ -15,7 +15,7 @@ $browser->
   click('Projects')->
   click('Il mio secondo progetto')->
   click('Discussions')->
-  click('Create a new message')->
+  click('Add')->
 
   with('request')->begin()->
     isParameter('module', 'idMessage')->
