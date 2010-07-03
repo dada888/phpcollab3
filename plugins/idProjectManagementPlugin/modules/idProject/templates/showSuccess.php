@@ -11,7 +11,7 @@
 
   <?php if($sf_user->countMyIssuesForProject($project->id) > 0): ?>
     <div class="span-full">
-      <div class="title"><span><?php echo __('My Tickets'); ?></span></div>
+      <div class="title"><span><?php echo __('My Issues'); ?></span></div>
       <div class="menu">
         <div class="span-3">Name</div>
         <div class="span-15">Description</div>

@@ -79,7 +79,7 @@ class idIssueActions extends sfActions
   {
     $this->forwardUnless($this->getUser()->hasCredential('idIssue-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
 
-    $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
+    $this->forward404Unless(!is_null($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
     $this->form = new idIssueForm($request->getParameter('project_id'));
     $this->form->setDefault('project_id', $request->getParameter('project_id'));
 
@@ -96,7 +96,7 @@ class idIssueActions extends sfActions
     $this->forwardUnless($this->getUser()->hasCredential('idIssue-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     
     $this->forward404Unless($request->isMethod('post'));
-    $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
+    $this->forward404Unless(!is_null($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
 
     $this->form = new idIssueForm($request->getParameter('project_id'));
 
@@ -114,7 +114,7 @@ class idIssueActions extends sfActions
   {
     $this->forwardUnless($this->getUser()->hasCredential('idIssue-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
 
-    $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
+    $this->forward404Unless(!is_null($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
     $this->forward404Unless($issue = Doctrine::getTable('Issue')->find(array($request->getParameter('issue_id'))), sprintf('Object issue does not exist (%s).', array($request->getParameter('issue_id'))));
 
     $this->forward404Unless($issue->project_id == $request->getParameter('project_id'));
@@ -132,7 +132,7 @@ class idIssueActions extends sfActions
     $this->forwardUnless($this->getUser()->hasCredential('idIssue-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
-    $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
+    $this->forward404Unless(!is_null($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
     $this->forward404Unless($issue = Doctrine::getTable('Issue')->find(array($request->getParameter('issue_id'))), sprintf('Object issue does not exist (%s).', array($request->getParameter('issue_id'))));
 
     $this->form = new idIssueForm($request->getParameter('project_id'), $issue);
@@ -151,7 +151,7 @@ class idIssueActions extends sfActions
   {
     $this->forwardUnless($this->getUser()->hasCredential('idIssue-Delete'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
 
-    $this->forward404Unless(!is_null(Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
+    $this->forward404Unless(!is_null($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('project_id')))));
     $this->forward404Unless($issue = Doctrine::getTable('Issue')->find(array($request->getParameter('issue_id'))), sprintf('Object issue does not exist (%s).', array($request->getParameter('issue_id'))));
     $request->checkCSRFProtection();
 
@@ -184,7 +184,7 @@ class idIssueActions extends sfActions
     $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
   }
 
-  protected function issueIsBeingCloding($parameters)
+  protected function issueIsBeingClosing($parameters)
   {
     return (empty($parameters['ending_date']['month']) &&
             empty($parameters['ending_date']['day']) &&
@@ -209,7 +209,7 @@ class idIssueActions extends sfActions
 
     if (is_array($parameters))
     {
-      if ($this->issueIsBeingCloding($parameters))
+      if ($this->issueIsBeingClosing($parameters))
       {
         list($parameters['ending_date']['year'], $parameters['ending_date']['month'], $parameters['ending_date']['day']) = explode('-',date('Y-m-d', time()));
       }

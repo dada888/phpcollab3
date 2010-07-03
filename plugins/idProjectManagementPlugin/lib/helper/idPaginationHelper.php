@@ -33,8 +33,8 @@ function pager_navigation_log_time($pager, $uri)
     // First and previous page
     if ($pager->getPage() != 1)
     {
-      $navigation .= '<li>'.link_to('<img title="First" alt="First" src="images/pagination-left.png">',$uri.'1').'</li>';
-      $navigation .= '<li>'.link_to('<img title="Previous" alt="Previous" src="images/pagination-left.png">',$uri.$pager->getPreviousPage()).'</li>';
+      $navigation .= '<li>'.link_to('First', $uri.'1').'</li>';
+      $navigation .= '<li>'.link_to('<img title="Previous" alt="Previous" src="/images/pagination-left.png">', $uri.$pager->getPreviousPage()).'</li>';
     }
 
     // Pages one by one
@@ -50,8 +50,8 @@ function pager_navigation_log_time($pager, $uri)
     // Next and last page
     if ($pager->getPage() != $pager->getLastPage())
     {
-      $navigation .= '<li>'.link_to('<img title="Next" alt="Next" src="images/pagination-left.png">',$uri.$pager->getNextPage()).'</li>';
-      $navigation .= '<li>'.link_to('<img title="Last" alt="Last" src="images/pagination-left.png">',$uri.$pager->getLastPage()).'</li>';
+      $navigation .= '<li>'.link_to('<img title="Next" alt="Next" src="/images/pagination-right.png">', $uri.$pager->getNextPage()).'</li>';
+      $navigation .= '<li>'.link_to('Last', $uri.$pager->getLastPage()).'</li>';
     }
 
   }

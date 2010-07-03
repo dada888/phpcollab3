@@ -143,11 +143,17 @@ class idIssueForm extends IssueForm
     $parameters = $this->isNew() ? array('default' => $today) : array();
     $this->widgetSchema['starting_date'] = new sfWidgetFormDate($parameters);
 
+    $this->widgetSchema['title'] = new sfWidgetFormInputText();
+    $this->widgetSchema['tracker_id']->setOption('add_empty', false);
+    $this->widgetSchema['description']->setAttribute('rows', 4);
+    $this->widgetSchema['users_list']->setAttribute('size', 5);
+    
     $this->widgetSchema['ending_date'] = new sfWidgetFormDate();
     $this->widgetSchema['project_id'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->getQueryForUsers()));
     $this->widgetSchema['milestone_id'] = new sfWidgetFormDoctrineSelect(array('model' => 'Milestone', 'add_empty' => true, 'query' => $this->getQueryForMilestones()));
     $this->widgetSchema['related_issue_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Issue', 'query' => $this->getQueryForRelatedIssue()));
+    $this->widgetSchema['related_issue_list']->setAttribute('size', 5);
 
 
     $this->validatorSchema['status_id'] = new sfValidatorDoctrineChoice(array('model' => 'Status', 'column' => 'id', 'required' => true));

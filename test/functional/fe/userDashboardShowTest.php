@@ -21,7 +21,7 @@ $browser->
 
   with('response')->begin()->
     checkElement('#content .title', '/Recent Activity/', array('position' => 0))->
-    checkElement('#content .title', '/Tickets/', array('position' => 1))->
+    checkElement('#content .title', '/Issues/', array('position' => 1))->
     checkElement('ul.action li.icon-green', 3)->
   end()->
 
@@ -41,7 +41,7 @@ $browser->
 
   with('response')->begin()->
     checkElement('#content .title', '/Recent Activity/', array('position' => 0))->
-    checkElement('#content .title', '/Tickets/', array('position' => 1))->
+    checkElement('#content .title', '/Issues/', array('position' => 1))->
 
     checkElement('ul.action li.icon-red', 2)->
     checkElement('ul.action li.icon-green', 11)->

@@ -6,7 +6,7 @@
   <?php include_partial('idDashboard/last_events', array('recent_activities' => $recent_activities ))?>
 
   <div class="span-full">
-    <div class="title"><span>Tickets</span></div>
+    <div class="title"><span>Issues</span></div>
     <div class="menu">
       <div class="span-3">Name</div>
       <div class="span-15">Description</div>

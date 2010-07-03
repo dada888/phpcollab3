@@ -10,8 +10,8 @@
   </div>
   <div class="padding">
     <ul>
-      <li class="span-half"><?php echo link_to($project_report['remaining_issues'], '@index_issue?project_id='.$project_id); ?> <small>Tickets Remain</small></li>
-      <li class="span-half"><?php echo link_to($project_report['closed_issues'], '@index_issue?project_id='.$project_id); ?> <small>Tickets Closed</small></li>
+      <li class="span-half"><?php echo link_to($project_report['remaining_issues'], '@index_issue?project_id='.$project_id); ?> <small>Issues Remain</small></li>
+      <li class="span-half"><?php echo link_to($project_report['closed_issues'], '@index_issue?project_id='.$project_id); ?> <small>Issues Closed</small></li>
       <li class="span-half"><?php echo link_to($project_report['messages'], '@index_messages?project_id='.$project_id); ?> <small>Discussions</small></li>
       <?php if (isset($project_report['commits'])): ?>
         <li class="span-half"><a href="#">999</a> <small>Commits</small></li>

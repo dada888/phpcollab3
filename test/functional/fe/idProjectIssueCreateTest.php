@@ -37,7 +37,7 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('textarea[id="issue_title"]')->
+    checkElement('input[id="issue_title"]')->
     checkElement('textarea[id="issue_description"]')->
     checkElement('select[id="issue_status_id"]')->
     checkElement('select[id="issue_priority_id"]')->

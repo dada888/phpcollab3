@@ -30,7 +30,7 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('h2', '/Project: Il mio quarto progetto/')->
+    checkElement('.title', '/New milestone/')->
   end();
 
   $some_day = explode('-',date('Y-n-d', strtotime('-67 days')));

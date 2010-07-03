@@ -58,3 +58,56 @@ form.new-log-time .confirm-box
   margin-bottom: 15px;
 }
 
+#new textarea
+{
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+#new input[type="text"]
+{
+  width: 100%;
+}
+
+#new .clear
+{
+  margin-bottom: 10px;
+}
+
+#new .menu
+{
+  margin-bottom: 6px;
+}
+
+.date select
+{
+  width: 30%;
+}
+
+.multiple-selection select
+{
+  height: 7em;
+}
+
+.description p
+{
+  margin-bottom: 10px;
+}
+
+.description ul
+{
+  list-style-type: none;
+}
+
+.description ul li
+{
+  padding-top: 5px;
+  margin-bottom: 5px;
+}
+
+.description ul li.actions
+{
+  margin: 10px 0 10px 0;
+}
+

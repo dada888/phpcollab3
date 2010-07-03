@@ -53,7 +53,6 @@ class idMilestoneActions extends sfActions
     $this->forwardUnless($this->getUser()->hasCredential('idMilestone-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     
     $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('project_id'))), sprintf('Object milestone does not exist (%s).', array($request->getParameter('project_id'))));
-    $this->milestone_list = $this->project->getMilestones();
 
     $this->pager = new sfDoctrinePager('Milestone',10);
     $this->pager->setQuery(Doctrine::getTable('Milestone')->getQueryForActiveProjectMilestone($request->getParameter('project_id')));

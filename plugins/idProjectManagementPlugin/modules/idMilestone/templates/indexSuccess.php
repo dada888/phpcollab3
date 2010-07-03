@@ -5,7 +5,7 @@
 
   <div class="span-full">
     <div class="title">
-      <span><?php echo __('Tickets'); ?></span>
+      <span><?php echo __('Milestones'); ?></span>
       <a id="add-log-time"class="button block-green medium-round" href="<?php echo url_for('@new_milestone?project_id='.$project->id) ?>">Add</a>
     </div>
     <div class="menu">
