@@ -31,7 +31,7 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('h3:contains("comment title")')->
+    checkElement('h4:contains("comment title")')->
     checkElement('p:contains("comment body: your message rocks!!")')->
   end()
 ;

@@ -58,14 +58,14 @@ form.new-log-time .confirm-box
   margin-bottom: 15px;
 }
 
-#new textarea
+textarea
 {
   height: auto;
   padding: 0;
   width: 100%;
 }
 
-#new input[type="text"]
+input[type="text"]
 {
   width: 100%;
 }
@@ -111,3 +111,65 @@ form.new-log-time .confirm-box
   margin: 10px 0 10px 0;
 }
 
+#issue-specifications div
+{
+  margin-bottom: 10px;
+}
+
+#issue-specifications .key
+{
+  font-weight: bold;
+}
+
+#issue-specifications ul
+{
+  list-style-type: none;
+}
+
+#issue-specifications .description
+{
+  margin-bottom: 10px;
+}
+#issue-specifications input
+{
+  margin: 0;
+}
+
+#issue-specifications form .time input
+{
+  width: 80%;
+  margin-top: 1px;
+}
+
+#issue-specifications .button
+{
+  padding: 1px;
+  border-width: 1px;
+}
+
+.title .actions
+{
+  font-size: small;
+  padding-top: 8px;
+  margin-bottom: 0px;
+}
+
+.title .actions a
+{
+  margin-left: 7px
+}
+
+#comments-list h4
+{
+  margin-bottom: 2px;
+}
+
+#fd_form
+{
+  margin-bottom: 10px;
+}
+
+#fd_form .button
+{
+  float: right;
+}

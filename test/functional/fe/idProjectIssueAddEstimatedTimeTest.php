@@ -26,8 +26,8 @@ $browser->
 
   with('response')->begin()->
     isStatusCode('200')->
-    checkElement('table.table tr td input[name="issue[estimated_time]"]')->
-    checkElement('table.table tr td input[type="submit"][value="Set"]')->
+    checkElement('input[name="issue[estimated_time]"]')->
+    checkElement('input[type="submit"][value="Set"]')->
   end()->
 
   click('Set', array('issue' => array('estimated_time' => '0.5')))->
@@ -46,7 +46,7 @@ $browser->
 
   with('response')->begin()->
     isStatusCode('200')->
-    checkElement('table.table tr td:contains("0.5")')->
+    checkElement('input[id="issue_estimated_time"][value="0.5"]')->
   end()->
 
   click('Set', array('issue' => array('estimated_time' => '1.3', 'id' => 1, 'project_id' => 3)))->
@@ -60,7 +60,7 @@ $browser->
 
   with('response')->begin()->
     isStatusCode('200')->
-    checkElement('table.table tr td:contains("1.3")')->
+    checkElement('input[id="issue_estimated_time"][value="1.3"]')->
   end()->
 
   click('Set', array('issue' => array('estimated_time' => '13', 'id' => 1, 'project_id' => 3)))->
@@ -74,7 +74,7 @@ $browser->
 
   with('response')->begin()->
     isStatusCode('200')->
-    checkElement('table.table tr td:contains("13")')->
+    checkElement('input[id="issue_estimated_time"][value="13"]')->
   end()->
 
   click('Set', array('issue' => array('estimated_time' => '-3', 'id' => 1, 'project_id' => 3)))->

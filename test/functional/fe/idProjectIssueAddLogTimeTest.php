@@ -25,8 +25,8 @@ $browser->
 
   with('response')->begin()->
     isStatusCode('200')->
-    checkElement('table.table tr td input[name="log_time[log_time]"]')->
-    checkElement('table.table tr td input[type="submit"][value="Add"]')->
+    checkElement('input[name="log_time[log_time]"]')->
+    checkElement('input[type="submit"][value="Add"]')->
   end()->
 
   click('Add', array('log_time' => array('log_time' => '0.5')))->
@@ -40,7 +40,7 @@ $browser->
 
   with('response')->begin()->
     isStatusCode('200')->
-    checkElement('p:contains("Log time added")')->
+    checkElement('.notice:contains("Log time added")')->
   end()->
 
   click('Add', array('log_time' => array('log_time' => '124.1')))->
@@ -48,7 +48,7 @@ $browser->
 
   with('response')->begin()->
     isStatusCode('200')->
-    checkElement('p:contains("Log time added")')->
+    checkElement('.notice:contains("Log time added")')->
   end()->
 
   click('Add', array('log_time' => array('log_time' => '-312')))->

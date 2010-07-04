@@ -49,11 +49,6 @@ class idIssueActions extends sfActions
     $this->issue = Doctrine::getTable('Issue')->getIssueById($request->getParameter('issue_id'));
     $this->forward404Unless($this->issue && $this->issue->project_id == $request->getParameter('project_id'));
 
-    $this->pager = new idPager('Issue',10);
-    $this->pager->setResultArray($this->issue->issues);
-    $this->pager->setPage($this->getRequestParameter('page',1));
-    $this->pager->init();
-
 //    $this->comment_form = new CommentForm();
 //    $this->comment_form->setDefault('issue_id', $request->getParameter('issue_id'));
 //    $this->comment_form->setDefault('profile_id', $this->getUser()->getProfile()->getId());
@@ -180,7 +175,7 @@ class idIssueActions extends sfActions
       $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
     }
 
-    $this->getUser()->setFlash('error', $form['estimated_time']->renderError());
+    $this->getUser()->setFlash('error', $form['estimated_time']->getError());
     $this->redirect('@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
   }
 

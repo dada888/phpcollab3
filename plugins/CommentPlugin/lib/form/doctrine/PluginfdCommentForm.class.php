@@ -49,6 +49,7 @@ abstract class PluginfdCommentForm extends BasefdCommentForm
     $this->widgetSchema['model_field'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['model_field_value'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
+    $this->widgetSchema['body']->setAttribute('rows', 2);
 
     $this->setDefaults(array('model' => $this->model, 
                              'model_field' => $this->model_field,

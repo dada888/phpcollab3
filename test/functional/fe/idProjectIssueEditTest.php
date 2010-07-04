@@ -209,7 +209,7 @@ $browser->
   get('en/idProject/3/idIssue/show/27')->
 
   with('response')->begin()->
-    checkElement('div#related-issue tr td a[href="/index.php/en/idProject/3/idIssue/show/28"]', '#28')->
+    checkElement('a[href*="en/idProject/3/idIssue/show/28"]', '#28')->
   end()
 ;
 
@@ -232,7 +232,7 @@ $browser->
   get('/en/idProject/3/idIssue/show/27')->
 
   with('response')->begin()->
-    checkElement('td:contains("0.78")')->
+    checkElement('input[value="0.78"]')->
   end()
 ;
 

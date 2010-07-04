@@ -1,126 +1,142 @@
 <?php slot('title', __('Issue details')) ?>
 
-<div class="block" id="issue-table">
+<div id="content" class="span-23">
+  <?php include_partial('idProject/sub_menu', array('project' => $issue->getProject()))?>
 
-  <?php include_partial('create_issue_menu', array('project_id' => $issue->project_id)); ?>
+  <div id="issue-specifications" class="span-full">
+    <div class="title">
+      <span><?php echo __('Issue').' #'.$issue->getId().': '.$issue->getTitle() ?> </span>
+      <span class="actions">
+        <?php echo link_to(__('Edit'), '@edit_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId()) ?>
+        <?php echo link_to(__('Delete'), '@delete_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId(), array('confirm' => __('Do you really want to delete this issue?'))) ?>
+      </span>
+    </div>
 
-  <div class="content">
-    <h2 class="title"><?php echo __('Issue').' #'.$issue->getId() ?></h2>
-    <div class="inner">
+    <div class="description"><?php echo $issue->getDescription() ?></div>
+    <hr/>
+    <div class="clear"></div>
+    <div class="span-11">
+      <div class="span-6 key">Tracker:</div>
+      <div class="span-5 last"><?php echo $issue->getTracker() ?></div>
+      <div class="span-6 key">Status:</div>
+      <div class="span-5 last"><?php echo $issue->getStatus() ?></div>
+      <div class="span-6 key">Priority:</div>
+      <div class="span-5 last"><?php echo $issue->getPriority() ?></div>
+      <div class="span-6 key">Milestone:</div>
+      <div class="span-5 last"><?php echo $issue->getMilestone() ?></div>
+    </div>
+    <div class="span-12 last">
+      <div class="span-6 key">Starging date:</div>
+      <div class="span-6 last"><?php echo $issue->getStartingDate() ?></div>
+      <div class="span-6 key">Ending date:</div>
+      <div class="span-6 last"><?php echo $issue->getEndingDate() ?></div>
+      <div class="span-6 key">Assigned to:</div>
+      <div class="span-6 last">
+        <?php if (count($issue->users) > 0): ?>
+          <ul>
+            <?php foreach ($issue->users as $user): ?>
+            <li><?php echo $user->getShortName(); ?></li>
+            <?php endforeach; ?>
+          </ul>
+        <?php endif; ?>
+      </div>
+    </div>
+    <div class="clear"></div>
 
-        <table class="table" id="issue-table">
+    <?php if ($sf_user->hasFlash('error')): ?>
+    <div class="error">
+      <?php echo $sf_user->getFlash('error') ?>
+    </div>
+    <?php endif; ?>
+    <?php if ($sf_user->hasFlash('success')): ?>
+    <div class="notice">
+      <?php echo $sf_user->getFlash('success') ?>
+    </div>
+    <?php endif; ?>
 
-          <tr>
-            <th class="first">&nbsp;</th>
-            <th><?php echo __('Id') ?></th>
-            <th><?php echo __('Title') ?></th>
-            <th><?php echo __('Status') ?></th>
-            <th><?php echo __('Priority') ?></th>
-            <th><?php echo __('Milestone') ?></th>
-            <th><?php echo __('Assigned to') ?></th>
-            <th><?php echo __('Description') ?></th>
-            <th><?php echo __('Starting date') ?></th>
-            <th><?php echo __('Ending date') ?></th>
-            <th><?php echo __('Estimated time') ?></th>
-            <th><?php echo __('Tracker') ?></th>
-            <th><?php echo __('Actions') ?></th>
-            <th class="last">&nbsp;</th>
-          </tr>
+    <div class="span-11">
+      <div class="span-5 key">Estimated time:</div>
+      <div class="span-6 last">
+        <form action="<?php echo url_for('@set_estimated_time_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">
+          <div class="span-3 time"><?php echo $estimated_time_form['estimated_time'] ?></div>
+          <div class="span-3 last"><input class="button" type="submit" value="<?php echo __('Set') ?>"/></div>
+          <?php echo $estimated_time_form->renderHiddenFields() ?>
+        </form>
+      </div>
+    </div>
+    <div class="span-12 last">
+      <div class="span-6 key">
+        Log time: <?php echo $issue->getTotalLogTime(); ?><br/>
+        <?php if ($sf_user->hasCredential('idLogotime-ReadReport')): ?>
+          <?php echo link_to(__('My log time report'), '@log_time_report_issue_actual_user?issue_id='.$issue->getId()) ?><br />
+        <?php endif; ?>
+        <?php if ($sf_user->hasCredential('idLogotime-ReadReport')): ?>
+          <?php echo link_to(__('All users log time report'), '@log_time_report_issue_all_users?issue_id='.$issue->getId()) ?>
+        <?php endif; ?>
+      </div>
+      <div class="span-6 last">
+        <form action="<?php echo url_for('@set_log_time_from_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">
+          <div class="span-3 time"><?php echo $logtime_form['log_time'] ?></div>
+          <div class="span-3 last"><input type="submit" value="<?php echo __('Add') ?>" class="button" /></div>
+          <?php echo $logtime_form->renderHiddenFields() ?>
+        </form>
+      </div>
+    </div>
+    <div class="clear"></div>
 
-          <tr>
-            <td class="first">&nbsp;</td>
-              <td>#<?php echo $issue->getId() ?></td>
-              <td><?php echo $issue->getTitle() ?></td>
-              <td><?php echo $issue->getStatus() ?></td>
-              <td><?php echo $issue->getPriority() ?></td>
-              <td><?php echo !is_null($issue->milestone_id) ? $issue->getMilestone() : '' ?></td>
-              <td>
-              <?php if (count($issue->users) > 0): ?>
-                <ul>
-                  <?php foreach ($issue->users as $user): ?>
-                  <li><?php echo $user; ?></li>
-                  <?php endforeach; ?>
-                </ul>
-              <?php endif; ?>
-              </td>
-              <td><?php echo $issue->getDescription() ?></td>
-              <td><?php echo $issue->getStartingDate() ?></td>
-              <td><?php echo $issue->getEndingDate() ?></td>
-              <td><?php echo $issue->getEstimatedTime() ?></td>
-              <td><?php echo $issue->getTracker() ?></td>
-              <td><?php echo link_to(__('Edit'), '@edit_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId()) ?> | <?php echo link_to(__('Delete'), '@delete_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId(), array('confirm' => __('Do you really want to delete this issue?'))) ?></td>
-              <td class="last">&nbsp;</td>
-          </tr>
+    <div class="span-full">
+      <?php if(count($issue->issues) > 0): ?>
+      <h3>Related issues</h3>
+      <ul>
+        <?php foreach($issue->issues as $related_isue):?>
+        <li>
+          <?php echo link_to('#'.$related_isue->id, '@show_issue?project_id='.$issue->project_id.'&issue_id='.$related_isue->getId())?>
+          <?php echo $related_isue->getTitle() ?>
+        </li>
+        <?php endforeach; ?>
+      </ul>
+      <?php endif; ?>
 
-          <tr>
-            <td colspan="14">
-              <?php if ($sf_user->hasFlash('error')): ?>
-                <div class="flash">
-                  <div class="message error">
-                    <p><?php echo $sf_user->getFlash('error') ?></p>
-                  </div>
-                </div>
-              <?php endif; ?>
-              <?php if ($sf_user->hasFlash('success')): ?>
-                <div class="flash">
-                  <div class="message notice">
-                    <p><?php echo $sf_user->getFlash('success') ?></p>
-                  </div>
-                </div>
-              <?php endif; ?>
-            </td>
-          </tr>
+    </div>
 
-          <tr>
-            <td></td>
-            <td colspan="4">
-              <?php echo $estimated_time_form['estimated_time']->renderLabel('Estimated time (hours)') ?>
-              <form action="<?php echo url_for('@set_estimated_time_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">
-                <?php echo $estimated_time_form['estimated_time'] ?>
-                <?php echo $estimated_time_form->renderHiddenFields() ?>
-                <input type="submit" value="<?php echo __('Set') ?>" class="button" />
-              </form>
-            </td>
-            <td colspan="4">
-              <strong><?php echo __('Report for this issue: ') ?></strong><br />
-              <?php if ($sf_user->hasCredential('idLogotime-ReadReport')): ?>
-                  <?php echo link_to(__('My log time report'), '@log_time_report_issue_actual_user?issue_id='.$issue->getId()) ?><br />
-              <?php endif; ?>
-              <?php if ($sf_user->hasCredential('idLogotime-ReadReport')): ?>
-                  <?php echo link_to(__('All users log time report'), '@log_time_report_issue_all_users?issue_id='.$issue->getId()) ?>
-              <?php endif; ?>
-            </td>
-            <td colspan="4">
-              <?php echo $logtime_form['log_time']->renderLabel('Log time (hours)') ?>
-              <form action="<?php echo url_for('@set_log_time_from_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">
-                <?php echo $logtime_form['log_time'] ?>
-                <?php echo $logtime_form->renderHiddenFields() ?>
-                <input type="submit" value="<?php echo __('Add') ?>" class="button" />
-              </form>
-            </td>
-            <td></td>
-          </tr>
+    <hr/>
+    <div class="span-full">
+      <h3>
+        Comments list
+        <a id="add-comment"class="button block-green medium-round" href="#">Add</a>
+      </h3>
 
-        </table>
+      <form id="fd_form" action="<?php echo url_for('@fd_comment_create?model='.$commentForm->getModel()
+                                                   .'&model_field='.$commentForm->getModelField()
+                                                   .'&model_field_value='.$commentForm->getModelFieldValue()) ?>" method="post" >
+        <div class="span-full">
+          <?php echo $commentForm['title']->renderError(); ?>
+          <?php echo $commentForm['title']->renderLabel(null, array('class' => 'label')); ?><br/>
+          <?php echo $commentForm['title']->render(array('class' => 'text_field')); ?>
+        </div>
+        <div class="span-full">
+          <?php echo $commentForm['body']->renderError(); ?>
+          <?php echo $commentForm['body']->renderLabel(null, array('class' => 'label')); ?><br/>
+          <?php echo $commentForm['body']->render(array('class' => 'text_area')); ?>
+        </div>
+        <?php echo $commentForm->renderHiddenFields(); ?>
+        <input class="button" type="submit" value="<?php echo __('Leave a comment') ?>" />
+        <div class="clear"></div>
+      </form>
 
-      <?php include_partial('fd_comment/comment_form', array('commentForm' => $commentForm)); ?>
       <?php include_component('fd_comment', 'listByModel', array('model' => $commentForm->getModel(), 'model_field' =>$commentForm->getModelField(), 'model_field_value' =>$issue->getId())) ?>
-
     </div>
+
   </div>
 </div>
 
-<div class="block" id="comment-form">
-  <?php /*include_partial('idComment/comment_form', array('comment_form' => $comment_form, 'issue' => $issue))*/ ?>
-</div>
+<script type="text/javascript">
+$('#fd_form').hide();
+$(function() {
+  $("#add-comment").click(function() {
+    $('#fd_form').show();
+    return false;
+  });
 
-<div class="block" id="related-issue">
-  <div class="content">
-    <h2 class="title"><?php echo __('Related issues') ?></h2>
-    <div class="inner">
-
-    <?php include_partial('idIssue/issues_list', array('pager' => $pager, 'url' => '@show_issue?project_id='.$sf_request->getParameter('project_id').'&issue_id='.$issue->getId())) ?>
-
-    </div>
-  </div>
-</div>
+});
+</script>
