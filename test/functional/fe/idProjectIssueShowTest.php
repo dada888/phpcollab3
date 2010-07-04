@@ -46,10 +46,10 @@ $browser->
     checkElement('h4:contains("pippo2")')->
     checkElement('p:contains("pippo2")')->
 
-    checkElement('li a[href*="en/idProject/3/idIssue/show/2"]', '#2')->
-    checkElement('li a[href*="en/idProject/3/idIssue/show/3"]', '#3')->
-    checkElement('li a[href*="en/idProject/3/idIssue/show/4"]', '#4')->
-    checkElement('li a[href*="en/idProject/3/idIssue/show/6"]', false)->
+    checkElement('a[href*="en/idProject/3/idIssue/show/2"]', '#2')->
+    checkElement('a[href*="en/idProject/3/idIssue/show/3"]', '#3')->
+    checkElement('a[href*="en/idProject/3/idIssue/show/4"]', '#4')->
+    checkElement('a[href*="en/idProject/3/idIssue/show/6"]', false)->
   end()->
 
   click('Issues')->
@@ -59,7 +59,7 @@ $browser->
    with('response')->begin()->
     isStatusCode('200')->
 
-    checkElement('li a[href="/index.php/en/idProject/3/idIssue/show/1"]', '#1')->
+    checkElement('a[href="/index.php/en/idProject/3/idIssue/show/1"]', '#1')->
     
   end()->
 

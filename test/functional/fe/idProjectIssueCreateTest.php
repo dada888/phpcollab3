@@ -70,9 +70,9 @@ $browser->click('Save', array('issue' => array(
     'starting_date'   => array('day' => $some_day[2], 'month' => $some_day[1], 'year' => $some_day[0]),
     'ending_date'     => array('day' => date('d', strtotime('+1 month')), 'month' => date('n', strtotime('+1 month')), 'year' => date('Y', strtotime('+1 month'))),
     'users_list'      => array('3'),
-    'related_issue_list'     => array('51')
+    'issues_list'     => array('51')
   )), array('methos'=>'post'))->
-
+  
   followRedirect()->
 
   with('request')->begin()->

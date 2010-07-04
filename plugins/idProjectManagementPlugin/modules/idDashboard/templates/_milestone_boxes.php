@@ -1,3 +1,4 @@
+<?php use_helper('Dashboard') ?>
 <?php if(count($milestones) > 0): ?>
   <?php foreach($milestones as $milestone): ?>
     <?php if (empty($color)): ?>

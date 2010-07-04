@@ -1,4 +1,4 @@
-<?php slot('title', __('Messages for project').' '.$project->getName()) ?>
+<?php slot('title', __('Messages for project')) ?>
 
 <div id="content" class="span-23">
   <?php include_partial('idProject/sub_menu', array('project' => $project))?>

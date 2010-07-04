@@ -23,5 +23,10 @@ class idIssueComponents extends sfComponents
     
     $this->project_report = (count($reports) > 0) ? $reports[$this->project->id] : null;
   }
+
+  public function executeShowSidebar()
+  {
+    $this->issue = Doctrine::getTable('Issue')->getIssueById($this->getRequest()->getParameter('issue_id'));
+  }
 }
 ?>

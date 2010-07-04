@@ -84,21 +84,6 @@
     </div>
     <div class="clear"></div>
 
-    <div class="span-full">
-      <?php if(count($issue->issues) > 0): ?>
-      <h3>Related issues</h3>
-      <ul>
-        <?php foreach($issue->issues as $related_isue):?>
-        <li>
-          <?php echo link_to('#'.$related_isue->id, '@show_issue?project_id='.$issue->project_id.'&issue_id='.$related_isue->getId())?>
-          <?php echo $related_isue->getTitle() ?>
-        </li>
-        <?php endforeach; ?>
-      </ul>
-      <?php endif; ?>
-
-    </div>
-
     <hr/>
     <div class="span-full">
       <h3>

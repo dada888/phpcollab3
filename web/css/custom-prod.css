@@ -173,3 +173,8 @@ input[type="text"]
 {
   float: right;
 }
+
+#form-login input[type="text"], #form-login input[type="password"]
+{
+  width: 20%;
+}

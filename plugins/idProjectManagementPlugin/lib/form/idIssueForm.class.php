@@ -152,8 +152,8 @@ class idIssueForm extends IssueForm
     $this->widgetSchema['project_id'] = new sfWidgetFormInputHidden();
     $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->getQueryForUsers()));
     $this->widgetSchema['milestone_id'] = new sfWidgetFormDoctrineSelect(array('model' => 'Milestone', 'add_empty' => true, 'query' => $this->getQueryForMilestones()));
-    $this->widgetSchema['related_issue_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Issue', 'query' => $this->getQueryForRelatedIssue()));
-    $this->widgetSchema['related_issue_list']->setAttribute('size', 5);
+    $this->widgetSchema['issues_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Issue', 'query' => $this->getQueryForRelatedIssue()));
+    $this->widgetSchema['issues_list']->setAttribute('size', 5);
 
 
     $this->validatorSchema['status_id'] = new sfValidatorDoctrineChoice(array('model' => 'Status', 'column' => 'id', 'required' => true));
@@ -164,7 +164,7 @@ class idIssueForm extends IssueForm
     $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->getQueryForUsers(), 'required' => false));
     $this->validatorSchema['milestone_id'] = new sfValidatorDoctrineChoice(array('model' => 'Milestone', 'query' => $this->getQueryForMilestones(), 'required' => false));
     $this->validatorSchema['title'] = new sfValidatorString(array('required' => true,'max_length' => 256), array('required' => 'Title is mandatory'));
-    $this->validatorSchema['related_issue_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Issue', 'required' => false, 'query' => $this->getQueryForRelatedIssue()));
+    $this->validatorSchema['issues_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Issue', 'required' => false, 'query' => $this->getQueryForRelatedIssue()));
     $this->validatorSchema['estimated_time'] = new sfValidatorNumber(array('min' => '0', 'required' => false), array('min' => 'You cannot set a negative estimated time'));
 
     unset($this['created_at']);

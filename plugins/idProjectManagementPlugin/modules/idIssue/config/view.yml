@@ -2,6 +2,10 @@ indexSuccess:
   components:
     sidebar:  [idIssue, sidebar]
 
+showSuccess:
+  components:
+    sidebar:  [idIssue, showSidebar]
+
 default:
   components:
     sidebar:  []
