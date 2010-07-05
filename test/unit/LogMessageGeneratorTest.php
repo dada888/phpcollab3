@@ -86,7 +86,7 @@ class EventMock
   }
 }
 
-class user
+class userMock
 {
   function getGuardUser()
   {
@@ -104,7 +104,7 @@ class user
   }
 }
 
-LogMessageGenerator::generateMessageAndStoreFromDoctrineEvent(new user, 'create', new EventMock);
+LogMessageGenerator::generateMessageAndStoreFromDoctrineEvent(new userMock, 'create', new EventMock);
 $logs = Doctrine::getTable('EventLog')->findAll(Doctrine::HYDRATE_ARRAY);
 
 $t->is($logs[0]['namespace'], 'issue', 'generateAndStore() ok');
