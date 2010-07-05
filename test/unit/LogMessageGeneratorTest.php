@@ -59,10 +59,10 @@ class Message
 $link = LogMessageGenerator::getLinkForObject(new Message);
 $t->like($link, '/<a href=".*en\/idProject\/33\/idMessage\/show\/33">message<\/a>/', 'getLinkForObject ok for message class');
 
-class MyClass {}
+class MyClass123456789 {}
 
-$link = LogMessageGenerator::getLinkForObject(new MyClass);
-$t->is($link, 'MyClass', 'getLinkForObject ok for generic class class');
+$link = LogMessageGenerator::getLinkForObject(new MyClass123456789);
+$t->is($link, 'MyClass123456789', 'getLinkForObject ok for generic class class');
 
 class MyClassToString
 {
