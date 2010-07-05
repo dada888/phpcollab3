@@ -33,8 +33,7 @@ class LogMessageGenerator
         return link_to($object->title, '@show_message?project_id='.$object->project_id.'&message_id='.$object->id);
         break;
       default:
-        $default = (string)$object;
-        return (empty($default)) ? get_class($object) : $default;
+        return (method_exists($object, '__toString')) ? (string)$object : get_class($object);
     }
   }
 
