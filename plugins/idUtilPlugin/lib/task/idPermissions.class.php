@@ -26,7 +26,7 @@ abstract class idPermissions extends sfBaseTask {
   {
     if (!is_null($folder))
     {
-      $file_name = is_null($file_name) ? $folder : $file_name;
+      $file_name = is_null($file_format) ? $folder : $file_format;
       $this->ignore_folders_and_files[$folder] = $file_name;
     }
   }
