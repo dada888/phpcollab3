@@ -2,6 +2,9 @@
 
 include(dirname(__FILE__).'/../bootstrap/unit.php');
 include(dirname(__FILE__).'/../../plugins/idProjectManagementPlugin/lib/generator/LogMessageGenerator.php');
+initializeDatabase();
+$configuration = ProjectConfiguration::getApplicationConfiguration( 'fe', 'unittest', true);
+new sfDatabaseManager($configuration);
 
 $t = new lime_test(11, new lime_output_color());
 
@@ -74,11 +77,6 @@ class MyClassToString
 
 $link = LogMessageGenerator::getLinkForObject(new MyClassToString);
 $t->is($link, 'my_class', 'getLinkForObject ok for generic class with to string method');
-
-initializeDatabase();
-
-$configuration = ProjectConfiguration::getApplicationConfiguration( 'fe', 'unittest', true);
-new sfDatabaseManager($configuration);
 
 class EventMock
 {
