@@ -78,7 +78,7 @@ class MyClassToString
 $link = LogMessageGenerator::getLinkForObject(new MyClassToString);
 $t->is($link, 'my_class', 'getLinkForObject ok for generic class with to string method');
 
-class EventMock
+class EventMock extends Doctrine_Event
 {
   public function getInvoker()
   {
