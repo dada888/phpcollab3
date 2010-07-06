@@ -10,11 +10,14 @@
  */
 class idMessageActions extends sfActions
 {
+  public function  preExecute()
+  {
+    $this->forward404Unless($this->project = Doctrine::getTable('Project')->findOneBy('id', $this->getRequest()->getParameter('project_id')));
+  }
+
   public function executeIndex(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idMessage-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-
-    $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('project_id'))));
 
     $this->pager = new sfDoctrinePager('Message',10);
     $this->pager->setQuery(Doctrine::getTable('Message')->getQueryForProjectMessages($request->getParameter('project_id')));
@@ -41,9 +44,8 @@ class idMessageActions extends sfActions
   public function executeNew(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idMessage-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-
     $this->form = new MessageForm();
-
+    
     $this->setTemplate('edit');
   }
 

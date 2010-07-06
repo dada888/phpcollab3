@@ -6,6 +6,10 @@ showSuccess:
   components:
     sidebar:  [idIssue, showSidebar]
 
+editSuccess:
+  components:
+    sidebar:  [idIssue, sidebar]
+
 default:
   components:
     sidebar:  []

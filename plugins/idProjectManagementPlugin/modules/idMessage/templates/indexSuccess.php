@@ -18,7 +18,10 @@
       <?php foreach($pager->getResults() as $message): ?>
         <li class="icon-comment">
           <ul>
-            <li class="span-5"><?php echo link_to($message->getTitle(), '@show_message?project_id='.$message->project_id.'&message_id='.$message->id); ?></li>
+            <li class="span-5">
+              <?php echo link_to($message->getTitle(), '@show_message?project_id='.$message->project_id.'&message_id='.$message->id); ?><br/>
+              by <?php echo $message->getUserProfile()->getShortName() ?>
+            </li>
             <li class="span-12"><?php echo $message->getBody() ?></li>
             <li class="span-5 last"><?php echo format_date($message->getLastCommentDate(), 'dd MMMM, HH:mm') ?>&nbsp;</li>
             <li class="edit-delete">

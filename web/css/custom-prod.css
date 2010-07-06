@@ -178,3 +178,14 @@ input[type="text"]
 {
   width: 20%;
 }
+
+.specification
+{
+  margin-top: 15px;
+}
+
+.error ul.error_list
+{
+  list-style-type: none;
+  margin: 0;
+}

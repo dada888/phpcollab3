@@ -31,9 +31,9 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('textarea::contains("Primo primo")')->
-    checkElement('textarea::contains("body primo primo")')->
-    checkElement('div::contains("Object updated successfully")')->
+    checkElement('input[value="Primo primo"]')->
+    checkElement('textarea:contains("body primo primo")')->
+    checkElement('.notice:contains("Object updated successfully")')->
   end()->
 
   click('Save', array('message' => array('title' => '', 'body' => '' )))->
@@ -44,8 +44,8 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('td::contains("Title cannot be empty")')->
-    checkElement('td::contains("Body cannot be empty")')->
+    checkElement('.error:contains("Title cannot be empty")')->
+    checkElement('.error:contains("Body cannot be empty")')->
   end()
 
   ;

@@ -17,6 +17,9 @@ abstract class PluginMessageForm extends BaseMessageForm
       $this['profile_id'], $this['project_id'], $this['created_at']
     );
 
+    $this->widgetSchema['title'] = new sfWidgetFormInputText();
+    $this->widgetSchema['body']->setAttribute('rows', 4);
+
     $this->validatorSchema['title'] = new sfValidatorString(array('max_length' => 512, 'required' => true), array('required' => 'Title cannot be empty'));
     $this->validatorSchema['body'] = new sfValidatorString(array('max_length' => 3000, 'required' => true), array('required' => 'Body cannot be empty'));
 

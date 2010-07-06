@@ -31,8 +31,8 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('textarea::contains("Terzo")')->
-    checkElement('textarea::contains("body terzo")')->
-    checkElement('.message .notice','/Object created successfully/')->
+    checkElement('input[value="Terzo"]')->
+    checkElement('textarea:contains("body terzo")')->
+    checkElement('.notice','/Object created successfully/')->
   end()
 ;

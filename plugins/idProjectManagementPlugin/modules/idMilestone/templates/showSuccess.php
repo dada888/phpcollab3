@@ -4,13 +4,13 @@
   <?php include_partial('idProject/sub_menu', array('project' => $project))?>
 
   <div class="span-full description">
-    <div class="title">
-      <span><?php echo __('Milestone').' "'.$milestone->getTitle().'"' ?></span>
-    </div>
     <div class="span-15">
+      <div class="title">
+        <span><?php echo __('Milestone').' "'.$milestone->getTitle().'"' ?></span>
+      </div>
       <p><?php echo $milestone->getDescription() ?></p>
     </div>
-    <div class="span-8 last">
+    <div class="span-8 last specification">
       <ul>
         <li>
           <strong><?php echo __('Starting date')?></strong>: <?php echo format_date($milestone->getStartingDate(), 'dd MMMM')?>

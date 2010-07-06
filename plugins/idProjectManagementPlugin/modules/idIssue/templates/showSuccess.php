@@ -87,7 +87,7 @@
     <hr/>
     <div class="span-full">
       <h3>
-        Comments list
+        Updates
         <a id="add-comment"class="button block-green medium-round" href="#">Add</a>
       </h3>
 
