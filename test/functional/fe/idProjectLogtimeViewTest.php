@@ -23,13 +23,12 @@ $browser->
   end()->
 
    with('response')->begin()->
-    checkElement('td:contains("pmanager")', 2)->
-    checkElement('td:contains("5.0 hours")')->
-    checkElement('td:contains("10.0 hours")')->
-    checkElement('td:contains("third user story")')->
-    checkElement('td:contains("first task")')->
-    checkElement('td:contains("'.date("Y-m-d", strtotime('-2 days')).'")', 1)->
-    checkElement('td:contains("'.date("Y-m-d", strtotime('-3 days')).'")', 1)->
+    checkElement('li:contains("Paul M.")', 4)->
+    checkElement('li:contains("5.0")')->
+    checkElement('li:contains("10.0")')->
+    checkElement('li:contains("third user story")')->
+    checkElement('li:contains("first task")')->
+    checkElement('li:contains("'.date("F d Y", strtotime('-2 days')).'")', 2)->
+    checkElement('li:contains("'.date("F d Y", strtotime('-3 days')).'")', 2)->
   end()
-
 ;

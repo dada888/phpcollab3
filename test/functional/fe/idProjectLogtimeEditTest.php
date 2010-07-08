@@ -25,7 +25,6 @@ $browser->
         'issue_id' => '1',
         'log_time' => '14'
       )), array('methos'=>'post'))->
-
   followRedirect()->
 
 

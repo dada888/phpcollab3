@@ -49,22 +49,12 @@
       <div class="notice clear">Time under projects is to be sorted by date, time under the users time sheet can be sorted by project.</div>
     </div>
     <?php endif; ?>
-    </div>
+  </div>
+  <?php if($pager->haveToPaginate()): ?>
   <div class="span-full pagenation">
     <ul>
       <?php  echo pager_navigation_log_time($pager, '@index_logtime') ?>
     </ul>
   </div>
+  <?php endif; ?>
 </div>
-
-<script type="text/javascript">
-  $('#log-time').hide();
-	$(function() {
-		$("#add-log-time").click(function() {
-			$('#log-time').show();
-			return false;
-		});
-
-	});
-	</script>
-

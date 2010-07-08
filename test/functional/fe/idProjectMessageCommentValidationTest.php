@@ -31,6 +31,6 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('li:contains("Title is mandatory")')->
+    checkElement('.error:contains("Title is mandatory")')->
   end()
 ;

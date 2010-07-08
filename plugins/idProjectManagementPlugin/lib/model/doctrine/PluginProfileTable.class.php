@@ -33,4 +33,13 @@ class PluginProfileTable extends Doctrine_Table
             ->leftJoin('p.User u')
             ->where('u.is_super_admin = 0');
   }
+
+  public function getQueryForProjectUsers($project_id)
+  {
+    return Doctrine_Query::create()
+            ->from('Profile p')
+            ->leftJoin('p.User u')
+            ->leftJoin('p.projects ps')
+            ->where('ps.id = ?', $project_id);
+  }
 }

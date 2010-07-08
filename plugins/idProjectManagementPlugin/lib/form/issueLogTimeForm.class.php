@@ -2,6 +2,8 @@
 
 class issueLogTimeForm extends LogTimeForm
 {
+  protected $form_type = 'issue';
+
   public function configure()
   {
     $this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();

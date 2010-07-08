@@ -23,8 +23,8 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('div.content h2:contains("Primo messaggio")')->
-    checkElement('div.message p:contains("Body primo messaggio")')->
+    checkElement('.title:contains("Primo messaggio")')->
+    checkElement('div:contains("Body primo messaggio")')->
 
     checkElement('form input[type="submit"][value="Leave a comment"]')->
     checkElement('form input[name="fd_comment[title]"]')->

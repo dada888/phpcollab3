@@ -19,18 +19,10 @@ $browser->
     checkElement('ul.action > li', 5)->
   end()->
 
-  click('Edit')->
-
-  with('request')->begin()->
-    isParameter('module', 'idLogtime')->
-    isParameter('action', 'edit')->
-  end()->
-
   click('Delete')->
 
   followRedirect()->
 
-  click('Last')->
   with('request')->begin()->
     isParameter('module', 'idLogtime')->
     isParameter('action', 'index')->

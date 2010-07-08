@@ -3,7 +3,7 @@
 <div id="content" class="span-23">
   <?php include_partial('idProject/sub_menu', array('project' => $issue->getProject()))?>
 
-  <div id="issue-specifications" class="span-full">
+  <div id="specifications" class="span-full">
     <div class="title">
       <span><?php echo __('Issue').' #'.$issue->getId().': '.$issue->getTitle() ?> </span>
       <span class="actions">
@@ -11,6 +11,17 @@
         <?php echo link_to(__('Delete'), '@delete_issue?project_id='.$issue->project_id.'&issue_id='.$issue->getId(), array('confirm' => __('Do you really want to delete this issue?'))) ?>
       </span>
     </div>
+
+    <?php if ($sf_user->hasFlash('error')): ?>
+    <div class="error">
+      <?php echo $sf_user->getFlash('error') ?>
+    </div>
+    <?php endif; ?>
+    <?php if ($sf_user->hasFlash('success')): ?>
+    <div class="notice">
+      <?php echo $sf_user->getFlash('success') ?>
+    </div>
+    <?php endif; ?>
 
     <div class="description"><?php echo $issue->getDescription() ?></div>
     <hr/>
@@ -42,17 +53,6 @@
       </div>
     </div>
     <div class="clear"></div>
-
-    <?php if ($sf_user->hasFlash('error')): ?>
-    <div class="error">
-      <?php echo $sf_user->getFlash('error') ?>
-    </div>
-    <?php endif; ?>
-    <?php if ($sf_user->hasFlash('success')): ?>
-    <div class="notice">
-      <?php echo $sf_user->getFlash('success') ?>
-    </div>
-    <?php endif; ?>
 
     <div class="span-11">
       <div class="span-5 key">Estimated time:</div>
@@ -90,6 +90,7 @@
         Updates
         <a id="add-comment"class="button block-green medium-round" href="#">Add</a>
       </h3>
+      
 
       <form id="fd_form" action="<?php echo url_for('@fd_comment_create?model='.$commentForm->getModel()
                                                    .'&model_field='.$commentForm->getModelField()
@@ -114,14 +115,3 @@
 
   </div>
 </div>
-
-<script type="text/javascript">
-$('#fd_form').hide();
-$(function() {
-  $("#add-comment").click(function() {
-    $('#fd_form').show();
-    return false;
-  });
-
-});
-</script>

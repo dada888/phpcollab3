@@ -111,40 +111,45 @@ input[type="text"]
   margin: 10px 0 10px 0;
 }
 
-#issue-specifications div
+#specifications div
 {
   margin-bottom: 10px;
 }
 
-#issue-specifications .key
+#specifications .key
 {
   font-weight: bold;
 }
 
-#issue-specifications ul
+#specifications ul
 {
   list-style-type: none;
 }
 
-#issue-specifications .description
+#specifications .description
 {
   margin-bottom: 10px;
 }
-#issue-specifications input
+#specifications input
 {
   margin: 0;
 }
 
-#issue-specifications form .time input
+#specifications form .time input
 {
   width: 80%;
   margin-top: 1px;
 }
 
-#issue-specifications .button
+#specifications .button
 {
   padding: 1px;
   border-width: 1px;
+}
+
+#specifications h3
+{
+  margin-bottom: 15px;
 }
 
 .title .actions

@@ -253,6 +253,12 @@ log_time_report_project_all_users:
   requirements:
     sf_culture: (?:en|it)
 
+log_time_add_to_project:
+  url:    /:sf_culture/idLogtime/add_to_project/:project_id
+  param:  { module: idLogtime, action: addLogtimeToProject }
+  requirements:
+    sf_culture: (?:en|it)
+
 update_profile:
   url:    /:sf_culture/idProfile/update
   param:  { module: idProfile, action: update }
