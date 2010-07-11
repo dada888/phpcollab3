@@ -206,4 +206,20 @@ class PluginProjectTable extends Doctrine_Table
     return $reports;
   }
 
+  public function getProjectFromIssueId($issue_id)
+  {
+    if(!is_null($issue_id))
+    {
+      return $this->createQuery()->
+                    from('Project as p')->
+                    leftJoin('p.Issues i')->
+                    leftJoin('p.users u')->
+                    leftJoin('p.trackers t')->
+                    leftJoin('p.Milestones mil')->
+                    leftJoin('p.Messages mes')->
+                    where('i.id = ?', $issue_id)->
+                    fetchOne();
+    }
+  }
+
 }

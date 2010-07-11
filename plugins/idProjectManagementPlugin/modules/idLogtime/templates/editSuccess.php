@@ -1,13 +1,16 @@
 <?php slot('title', __('Edit Logtime')) ?>
 
-<div class="block" id="block-forms">
-  <?php include_partial('create_logtime_menu'); ?>
-  <div class="content">
-    <h2 class="title"><?php echo !$form->getObject()->isNew() ? __('Edit tracker') : __('Create new tracker'); ?></h2>
-    <div class="inner">
+<div id="content" class="span-23">
+  <?php if(isset($project)): ?>
+    <?php include_partial('idProject/sub_menu', array('project' => $project))?>
+  <?php endif; ?>
+  <div class="span-full">
+    <div class="title">
+      <span>Edit logtime</span>
+    </div>
 
-      <?php include_partial('form', array('form' => $form)) ?>
-
+    <div id="log-time-form">
+      <?php include_partial('idLogtime/form', array('form' => $form, 'referer' => $referer)) ?>
     </div>
   </div>
 </div>

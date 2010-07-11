@@ -1,6 +1,10 @@
 <?php slot('title', __('Manage time')) ?>
 
 <div id="content" class="span-23">
+  <?php if(isset($issue)): ?>
+    <?php include_partial('idProject/sub_menu', array('project' => $issue->getProject()))?>
+  <?php endif; ?>
+
   <div class="span-full">
     <div class="title">
       <span>Time</span>
@@ -11,6 +15,12 @@
     <?php if(isset($form)): ?>
       <div id="log-time">
         <?php include_partial('idLogtime/form', array('form' => $form)) ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if(isset($issue)):?>
+      <div class="span-full" id="total_log_time">
+        Total log time for issue <?php echo link_to('#'.$issue->id, '@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id) ?>: <?php echo $total_time ?>
       </div>
     <?php endif; ?>
 

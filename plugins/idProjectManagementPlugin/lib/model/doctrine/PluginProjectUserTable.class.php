@@ -21,8 +21,7 @@
  */
 class PluginProjectUserTable extends Doctrine_Table
 {
-
-  public function getRoleByProfileIdAndRojectId($profile_id, $project_id)
+  public function getRoleByProfileIdAndProjectId($profile_id, $project_id)
   {
     $result = $this->createQuery()->where('project_id = '. $project_id)->addWhere('profile_id = '. $profile_id)->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
     if (is_array($result))

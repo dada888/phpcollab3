@@ -247,4 +247,15 @@ class myUser extends sfGuardSecurityUser
     return Doctrine::getTable('Issue')->countIssuesAssignedToUserByProject($this->getGuardUser()->Profile->id, $project_id);
   }
 
+  public function getRoleByProject($project_id)
+  {
+    $this->getProfile()->getRoleByProject($project_id);
+  }
+
+  public function getMyTotalLogtimeForIssue($issue_id)
+  {
+    $logtime = Doctrine::getTable('LogTime')->getLogTimeForIssueByUser($issue_id, $this->getGuardUser()->getProfile()->getId());
+    return $logtime[0]['logtimes'];
+  }
+
 }

@@ -6,40 +6,30 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * idProjectComponents
+ * idLogtimeComponents
  *
  * @package    phpCollab3
  * @subpackage idProjectManagementPlugin Modules
  */
 
 /**
- * idProjectComponents class for components in idProject modules templates
+ * idLogtimeComponents class for components in idLogtime modules templates
  *
  * @package    phpCollab3
  * @subpackage idProjectManagementPlugin Modules
  * @author     Filippo (p16) De Santis <fd@ideato.it>
  */
-class idProjectComponents extends phpCollabComponents
+class idLogtimeComponents extends phpCollabComponents
 {
   public function executeSidebar()
   {
-    if($this->isRequestFieldEmpty('id'))
+    if($this->isRequestFieldEmpty('issue_id'))
     {
       return sfView::NONE;
     }
 
-    $this->project = $this->retrieveProject('id');
+    $this->project = $this->retrieveProjectByIssue();
     $this->project_report = $this->retrieveProjectReport($this->project);
-  }
-
-  public function executeIndexSidebar()
-  {
-    $this->form = new ProjectFormFilter();
-    if ($this->getRequest()->hasParameter('project_filters'))
-    {
-      $project_filters = $this->getRequest()->getParameter('project_filters');
-      $this->form->bind($project_filters);
-    }
   }
 }
 ?>

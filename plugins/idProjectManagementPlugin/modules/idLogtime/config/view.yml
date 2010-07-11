@@ -1,5 +1,21 @@
-default:
+reportSuccess:
+  components:
+    sidebar:  [idLogtime, sidebar]
+
+newSuccess:
   components:
     sidebar:  []
+
+editSuccess:
+  components:
+    sidebar:  []
+
+indexSuccess:
+  components:
+    sidebar:  []
+
+default:
+  components:
+    sidebar:  [idMessage, sidebar]
 
   javascripts:    [jquery-1.4.2.min.js, log_time_form_show.js]

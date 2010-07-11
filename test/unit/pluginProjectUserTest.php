@@ -13,10 +13,10 @@ $role = ProjectUser::getRoleByProfileIdAndProjectId(1, 1);
 $t->is($role, false);
 
 $role = ProjectUser::getRoleByProfileIdAndProjectId(8, 3);
-$t->is($role, ProjectUser::$roles['customer']);
+$t->is($role, 'customer');
 
 $role = ProjectUser::getRoleByProfileIdAndProjectId(7, 1);
-$t->is($role, ProjectUser::$roles['project manager']);
+$t->is($role, 'project manager');
 
 $role = ProjectUser::getRoleByProfileIdAndProjectId(3, 3);
-$t->is($role, ProjectUser::$roles['developer']);
+$t->is($role, 'developer');

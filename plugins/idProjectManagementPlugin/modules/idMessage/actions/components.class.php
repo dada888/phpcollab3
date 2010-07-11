@@ -19,19 +19,17 @@
  * @subpackage idProjectManagementPlugin Modules
  * @author     Filippo (p16) De Santis <fd@ideato.it>
  */
-class idMessageComponents extends sfComponents
+class idMessageComponents extends phpCollabComponents
 {
   public function executeSidebar()
   {
-    $this->project = Doctrine::getTable('Project')->findOneById($this->getRequest()->getParameter('project_id'));
-    $reports = Doctrine::getTable('Project')->getReportsOnProjectsWithEffortChart(array($this->project));
-
-    if (!isset($reports[$this->project->id]))
+    if($this->isRequestFieldEmpty('project_id'))
     {
       return sfView::NONE;
     }
-    
-    $this->project_report = $reports[$this->project->id];
+
+    $this->project = $this->retrieveProject();
+    $this->project_report = $this->retrieveProjectReport($this->project);
   }
 }
 ?>

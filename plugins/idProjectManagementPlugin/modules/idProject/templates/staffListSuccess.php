@@ -29,7 +29,7 @@
             <?php echo mail_to($member->email) ?>
           </span>
         </div>
-        <div class="span-4 last"> Role for this project??? </div>
+        <div class="span-4 last"><?php echo $member->getRoleByProject($project->id)?></div>
       </div>
     <?php endforeach; ?>
   </div>

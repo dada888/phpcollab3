@@ -4,15 +4,27 @@
  */
 class PluginLogTimeTable extends Doctrine_Table
 {
-  public function getLogTimeByIssueAndProfile($issue_id, $profile_id)
+  public function getLogTimeForIssueByUser($issue_id, $profile_id)
+  {
+    return $this->getQueryForLogtimesForIssueByUser($issue_id, $profile_id)->
+                  select('SUM(lt.log_time) as logtimes')->
+                  execute(array(), Doctrine::HYDRATE_ARRAY);
+  }
+
+  protected function getQueryForLogtimesForIssueByUser($issue_id, $profile_id)
   {
     return Doctrine_Query::create()
             ->from('LogTime lt')
             ->leftJoin('lt.issue i')
             ->leftJoin('lt.profile p')
             ->addWhere('lt.profile_id = ? ',$profile_id)
-            ->addWhere('lt.issue_id = ? ',$issue_id)
-            ->execute();
+            ->addWhere('lt.issue_id = ? ',$issue_id);
+  }
+
+  public function getLogTimeByIssueAndProfile($issue_id, $profile_id)
+  {
+    return $this->getQueryForLogtimesForIssueByUser($issue_id, $profile_id)
+                ->execute();
   }
 
   public function getQueryForAllLogTimes()
@@ -24,15 +36,28 @@ class PluginLogTimeTable extends Doctrine_Table
             ->orderBy('lt.created_at DESC');
   }
 
-  public function getQueryForAllLogTimeFronProject($project_id)
+  public function getQueryForAllLogTimeFromProject($project_id)
   {
     return $this->getQueryForAllLogTimes()
             ->where('i.project_id = ? ', $project_id);
   }
 
+  public function getQueryForAllLogTimeFromProjectAndIssue($project_id, $issue_id)
+  {
+    return $this->getQueryForAllLogTimes()
+            ->where('i.project_id = ? ', $project_id)
+            ->andWhere('i.id = ? ', $issue_id);
+  }
+
+  public function getQueryForUserLogTimeFromProjectAndIssue($profile_id, $project_id, $issue_id)
+  {
+    return $this->getQueryForAllLogTimeFromProjectAndIssue($project_id, $issue_id)
+            ->andWhere('p.id = ? ', $profile_id);
+  }
+
   public function getLogtimeForProjectByUser($project_id)
   {
-    return $this->getQueryForAllLogTimeFronProject($project_id)
+    return $this->getQueryForAllLogTimeFromProject($project_id)
             ->execute();
   }
 }

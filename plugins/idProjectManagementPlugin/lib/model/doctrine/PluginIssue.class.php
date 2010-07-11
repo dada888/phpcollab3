@@ -49,6 +49,8 @@ abstract class PluginIssue extends BaseIssue
 
   public function getTotalLogTime()
   {
+    $this->refreshRelated('logtimes');
+    
     $total_log_time = 0;
     foreach ($this->logtimes as $logtime_entry)
     {

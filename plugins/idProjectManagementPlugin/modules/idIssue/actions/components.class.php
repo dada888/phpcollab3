@@ -14,18 +14,26 @@
 /**
  * idDashboardComponents components
  */
-class idIssueComponents extends sfComponents
+class idIssueComponents extends phpCollabComponents
 {
   public function executeSidebar()
   {
-    $this->project = Doctrine::getTable('Project')->findOneBy('id', $this->getRequestParameter('project_id'));
-    $reports = Doctrine::getTable('Project')->getReportsOnProjectsWithEffortChart(array($this->project));
-    
-    $this->project_report = (count($reports) > 0) ? $reports[$this->project->id] : null;
+    if($this->isRequestFieldEmpty('project_id'))
+    {
+      return sfView::NONE;
+    }
+
+    $this->project = $this->retrieveProject();
+    $this->project_report = $this->retrieveProjectReport($this->project);
   }
 
   public function executeShowSidebar()
   {
+    if($this->isRequestFieldEmpty('issue_id'))
+    {
+      return sfView::NONE;
+    }
+    
     $this->issue = Doctrine::getTable('Issue')->getIssueById($this->getRequest()->getParameter('issue_id'));
   }
 }

@@ -14,8 +14,8 @@ $browser->
   click('My log time report')->
 
   with('response')->begin()->
-    checkElement('td:contains("'.date('Y-m-d', strtotime("-2 days")).'")')->
-    checkElement('td:contains("12.0 hours")')->
+    checkElement('ul li:contains("'.date('F d Y', strtotime("-2 days")).'")')->
+    checkElement('ul li:contains("12.0")')->
   end()
 
 ;

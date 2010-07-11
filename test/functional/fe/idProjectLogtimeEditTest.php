@@ -33,7 +33,7 @@ $browser->
     isParameter('action', 'edit')->
   end()->
 
-  click('Cancel')->
+  get('/en/idLogtime')->
 
   with('request')->begin()->
     isParameter('module', 'idLogtime')->

@@ -26,12 +26,16 @@
     </li>
   </ul>
   <div class="clear"></div>
-  <div class="span-7 prepend-1 confirm-box">
-    <?php if (!$form->getObject()->isNew()): ?>
-      &nbsp;<?php echo link_to('Delete', 'idLogtime/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
-    <?php endif; ?>
-    <?php echo link_to('Cancel', '@index_logtime'); ?>
-    <input type="submit" value="Save" />
+  <div class="confirm-box">
+    <div class="span-7 prepend-1">
+      <input type="submit" value="Save" class="button block-green medium-round"/>
+    </div>
+    <div class="span-8">&nbsp;
+      <?php echo $form->renderHiddenFields() ?>
+    </div>
+    <div class="span-6 right last append-1">
+      <?php echo link_to('Cancel', (isset($referer) && !empty($referer)) ? $referer : '@index_logtime', array('class' => 'button block-red medium-round')); ?>
+    </div>
+    <div class="clear"></div>
   </div>
-  <?php echo $form->renderHiddenFields() ?>
 </form>

@@ -1,6 +1,6 @@
 showSuccess:
   components:
-    sidebar:  [idProject, showSidebar]
+    sidebar:  [idProject, sidebar]
 
 indexSuccess:
   components:

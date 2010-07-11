@@ -26,6 +26,8 @@ class idLogtimeActions extends sfActions
 
     $this->form = new LogTimeForm();
     $this->form->setDefault('created_at', date('Y-m-d H:i:s', time()));
+
+    $this->setTemplate('report');
   }
 
   public function executeAddToIssue(sfWebRequest $request)
@@ -67,21 +69,53 @@ class idLogtimeActions extends sfActions
     return $issue;
   }
 
+  /**
+   * report for single issue and sigle user
+   * 
+   * @param sfWebRequest $request
+   */
   public function executeReportForActualUser(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idLogotime-ReadReport'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->issue = $this->checkUserAgainstIssueAndProject($request);
-    
-    $this->logtime_report = Doctrine::getTable('LogTime')->getLogTimeByIssueAndProfile($this->issue->id, $this->getUser()->getGuardUser()->Profile->id);
+
+    $this->pager = new sfDoctrinePager('LogTime',10);
+    $this->pager->setQuery(Doctrine::getTable('LogTime')->getQueryForUserLogTimeFromProjectAndIssue($this->getUser()->getGuardUser()->getProfile()->getId(), $this->issue->project_id, $this->issue->id));
+    $this->pager->setMaxPerPage(sfConfig::get('mod_maxperpage_logtime', 10));
+    $this->pager->setPage($this->getRequestParameter('page',1));
+    $this->pager->init();
+
+    $this->total_time = $this->getUser()->getMyTotalLogtimeForIssue($this->issue->id);
+
+    $this->setTemplate('report');
   }
 
+  /**
+   * report for single issue and multiple users
+   * 
+   * @param sfWebRequest $request 
+   */
   public function executeReportForAllUsers(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idLogotime-ReadReportForAllUsers'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->issue = $this->checkUserAgainstIssueAndProject($request);
-    $this->logtime_report = $this->issue->logtimes;
+    
+    $this->pager = new sfDoctrinePager('LogTime',10);
+    $this->pager->setQuery(Doctrine::getTable('LogTime')->getQueryForAllLogTimeFromProjectAndIssue($this->issue->project_id, $this->issue->id));
+    $this->pager->setMaxPerPage(sfConfig::get('mod_maxperpage_logtime', 10));
+    $this->pager->setPage($this->getRequestParameter('page',1));
+    $this->pager->init();
+
+    $this->total_time = $this->issue->getTotalLogTime();
+
+    $this->setTemplate('report');
   }
-  
+
+  /**
+   * list of all the logtimes of a project
+   * 
+   * @param sfWebRequest $request
+   */
   public function executeReportAllUsersForProject(sfWebRequest $request)
   {
     $this->forwardUnless($this->getUser()->hasCredential('idLogotime-ReadReportForAllUsers'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
@@ -92,7 +126,7 @@ class idLogtimeActions extends sfActions
     $this->form->setDefault('created_at', date('Y-m-d H:i:s', time()));
 
     $this->pager = new sfDoctrinePager('LogTime',10);
-    $this->pager->setQuery(Doctrine::getTable('LogTime')->getQueryForAllLogTimeFronProject($this->project->id));
+    $this->pager->setQuery(Doctrine::getTable('LogTime')->getQueryForAllLogTimeFromProject($this->project->id));
     $this->pager->setMaxPerPage(sfConfig::get('mod_maxperpage_logtime', 10));
     $this->pager->setPage($this->getRequestParameter('page',1));
     $this->pager->init();
@@ -128,6 +162,8 @@ class idLogtimeActions extends sfActions
     $this->forward404Unless($log_time = Doctrine::getTable('LogTime')->
                                         findOneBy('id', $request->getParameter('id')),
                             sprintf('Object log_time does not exist (%s).', array($request->getParameter('id'))));
+
+    $this->project = $log_time->getIssue()->getProject();
     $this->form = new LogTimeForm($log_time);
   }
 

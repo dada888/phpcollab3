@@ -61,17 +61,12 @@ $browser->
   end()->
 
    with('response')->begin()->
-   //debug()->
     isStatusCode('200')->
-    checkElement('table.table tr th:contains("Date")')->
-    checkElement('table.table tr th:contains("Logtime")')->
-
-    checkElement('table.table tr.odd td', '/'.date('Y-m-d', strtotime('-2 days')).'/', array('position' => 1))->
-    checkElement('table.table tr.odd td', '/12/', array('position' => 2))->
-    checkElement('table.table tr.even td', '/'.date('Y-m-d', strtotime('today')).'/', array('position' => 1))->
-    checkElement('table.table tr.even td', '/0.5/', array('position' => 2))->
-    checkElement('table.table tr.odd td', '/'.date('Y-m-d', strtotime('today')).'/', array('position' => 5))->
-    checkElement('table.table tr.odd td', '/1.1/', array('position' => 6))->
+    checkElement('ul li.icon-time ul li:contains("'.date('F d Y', strtotime('today')).'")')->
+    checkElement('ul li.icon-time ul li:contains("'.date('F d Y', strtotime('-2 days')).'")')->
+    checkElement('ul li.icon-time ul li:contains("1.1")')->
+    checkElement('ul li.icon-time ul li:contains("0.5")')->
+    checkElement('ul li.icon-time ul li:contains("12")')->
 
     checkElement('#total_log_time', '/13.6/')->
 
@@ -103,16 +98,13 @@ $browser->
 
    with('response')->begin()->
     isStatusCode('200')->
-    checkElement('table.table tr th:contains("Date")')->
-    checkElement('table.table tr th:contains("Logtime")')->
-
-    checkElement('table.table tr.odd td', '/'.date('Y-m', strtotime('today')).'/', array('position' => 1))->
-    checkElement('table.table tr.odd td', '/1.2/', array('position' => 2))->
-
+    checkElement('ul li.icon-time ul li:contains("'.date('F d Y', strtotime('today')).'")')->
+    checkElement('ul li.icon-time ul li:contains("1.2")')->
+    
     checkElement('#total_log_time', '/1.2/')->
   end()->
 
-  click('Go back to issue')->
+  click('#69')->
 
   click('All users log time report')->
 
@@ -124,16 +116,13 @@ $browser->
 
    with('response')->begin()->
     isStatusCode('200')->
-    checkElement('table.table tr th:contains("User")')->
-    checkElement('table.table tr th:contains("Date")')->
-    checkElement('table.table tr th:contains("Logtime")')->
 
-    checkElement('table.table tr.odd td', '/paul/', array('position' => 1))->
-    checkElement('table.table tr.odd td', '/'.date('Y-m', strtotime('today')).'/', array('position' => 2))->
-    checkElement('table.table tr.odd td', '/1.2/', array('position' => 3))->
-    checkElement('table.table tr.even td', '/prog/', array('position' => 1))->
-    checkElement('table.table tr.even td', '/'.date('Y-m-d', strtotime('-1 days')).'/', array('position' => 2))->
-    checkElement('table.table tr.even td', '/1.3/', array('position' => 3))->
+    checkElement('ul li.icon-time ul li:contains("'.date('F d Y', strtotime('today')).'")')->
+    checkElement('ul li.icon-time ul li:contains("Prog P.")')->
+    checkElement('ul li.icon-time ul li:contains("1.2")')->
+    checkElement('ul li.icon-time ul li:contains("'.date('F d Y', strtotime('-1 day')).'")')->
+    checkElement('ul li.icon-time ul li:contains("1.3")')->
+    checkElement('ul li.icon-time ul li:contains("Paul M.")')->
 
     checkElement('#total_log_time', '/2.5/')->
 

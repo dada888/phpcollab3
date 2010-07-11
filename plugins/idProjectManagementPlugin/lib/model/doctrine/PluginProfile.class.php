@@ -38,4 +38,9 @@ abstract class PluginProfile extends BaseProfile
     $user = $this->getUser();
     return ucfirst($this->getFirstName()).' '. ucfirst(substr($this->getLastName(),0,1)).'.';
   }
+
+  public function getRoleByProject($project_id)
+  {
+    return ProjectUser::getRoleByProfileIdAndProjectId($this->getId(), $project_id);
+  }
 }
