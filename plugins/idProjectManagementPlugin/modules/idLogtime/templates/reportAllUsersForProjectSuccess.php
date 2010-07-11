@@ -48,7 +48,7 @@
         </li>
         <?php endforeach; ?>
       </ul>
-      <div class="notice clear">Time under projects is to be sorted by date, time under the users time sheet can be sorted by project.</div>
+      <div class="clear"></div>
     </div>
     <?php endif; ?>
   </div>
