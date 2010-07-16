@@ -21,6 +21,21 @@
  */
 class idProjectActions extends sfActions
 {
+  private function validateStaffForm(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
+    $form = new ProjectFormOnlyMembers($this->project);
+
+    $form->bind($request->getParameter($form->getName()));
+    if ($form->isValid())
+    {
+      $this->getUser()->setFlash('notice', 'Project staff updated successfully');
+      $form->save();
+    }
+
+    return $form;
+  }
+
   /**
    * Executes show action
    *
@@ -91,7 +106,6 @@ class idProjectActions extends sfActions
   {
     $this->forwardUnless($this->getUser()->hasCredential('idProject-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->form = new idProjectForm();
-    $this->form->setDefault('created_at', date('Y-m-d H:i:s', time()));
     $this->form->setDefault('starting_date', date('Y-m-d H:i:s', time()));
   }
 
@@ -106,7 +120,6 @@ class idProjectActions extends sfActions
     $this->forward404Unless($request->isMethod('post'));
 
     $this->form = new idProjectForm();
-    $this->form->setDefault('created_at', date('Y-m-d H:i:s', time()));
     
     $this->processForm($request, $this->form);
 
@@ -167,19 +180,69 @@ class idProjectActions extends sfActions
   {
     $this->forwardUnless($this->getUser()->hasCredential('idProject-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
+
+    $this->form = new ProjectFormOnlyMembers($this->project);
   }
 
-  /**
-   * sets the update date
-   *
-   * @param array $form_parameters
-   * @return array
-   */
-  private function setUpdatedAt($form_parameters)
+  public function executeUpdateStaffList(sfWebRequest $request)
   {
-    $date = array('year' => date('Y'), 'month' => date('m'), 'day' => date('d'), 'hour' => date('H'), 'minute' => date('i'));
-    $form_parameters['updated_at'] = $date;
-    return $form_parameters;
+    $this->form = $this->validateStaffForm($request);
+    $this->setTemplate('staffList');
+  }
+
+  public function executeSettings(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->project = Doctrine::getTable('Project')
+                                               ->find($request->getParameter('id')));
+
+    $this->form_overview = new ProjectFormOnlyTitleAndDescription($this->project);
+    $this->form_staff = new ProjectFormOnlyMembers($this->project);
+    $this->form_tracker = new ProjectFormOnlyTrackers($this->project);
+  }
+
+  public function executeUpdateTitleAndDescription(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
+
+    $this->form_staff = new ProjectFormOnlyMembers($this->project);
+    $this->form_tracker = new ProjectFormOnlyTrackers($this->project);
+    
+    $this->form_overview = new ProjectFormOnlyTitleAndDescription($this->project);
+    $this->form_overview->bind($request->getParameter($this->form_overview->getName()));
+    if ($this->form_overview->isValid())
+    {
+      $this->form_overview->save();
+      $this->getUser()->setFlash('notice', 'Project overview updated successfully');
+    }
+    
+    $this->setTemplate('settings');
+  }
+
+  public function executeUpdateTrackers(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
+
+    $this->form_staff = new ProjectFormOnlyMembers($this->project);
+    $this->form_overview = new ProjectFormOnlyTitleAndDescription($this->project);
+    $this->form_tracker = new ProjectFormOnlyTrackers($this->project);
+
+    $this->form_tracker->bind($request->getParameter($this->form_tracker->getName()));
+    if ($this->form_tracker->isValid())
+    {
+      $this->form_tracker->save();
+      $this->getUser()->setFlash('notice', 'Project trackers updated successfully');
+    }
+
+    $this->setTemplate('settings');
+  }
+
+  public function executeUpdateSettingsStaffList(sfWebRequest $request)
+  {
+    $this->form_staff = $this->validateStaffForm($request);
+    $this->form_overview = new ProjectFormOnlyTitleAndDescription($this->project);
+    $this->form_tracker = new ProjectFormOnlyTrackers($this->project);
+
+    $this->setTemplate('settings');
   }
 
   /**
@@ -191,8 +254,7 @@ class idProjectActions extends sfActions
    */
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
-    $form_parameters = $this->setUpdatedAt($request->getParameter($form->getName()));
-    $form->bind($form_parameters);
+    $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
       $project = $form->save();

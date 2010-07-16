@@ -194,3 +194,19 @@ input[type="text"]
   list-style-type: none;
   margin: 0;
 }
+
+#total_log_time
+{
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+}
+
+.settings
+{
+  margin-bottom: 1.2em;
+}
+
+.settings textarea, .settings select
+{
+  margin-bottom: 1.2em;
+}

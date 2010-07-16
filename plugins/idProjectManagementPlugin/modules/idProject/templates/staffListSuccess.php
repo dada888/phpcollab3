@@ -1,36 +1,38 @@
 <?php slot('title', __('Staff')) ?>
 
-<?php include_partial('idProject/sub_menu', array('project' => $project))?>
+<div id="content" class="span-23">
+  <?php include_partial('idProject/sub_menu', array('project' => $project)); ?>
 
-<div class="span-17 dashboard">
-  <h3 class="left">Staff</h3>
-  <?php if ($sf_user->canAddUsersToProject()):?>
-    <span class="actionsAdd">
-      <a href="<?php echo url_for('@edit_project?id='.$project->id)?>">Add Members</a>
-    </span>
-  <?php endif; ?>
-  <hr />
-  <div class="span-17 recent last">
-    <div class="span-17 menu last">
-      <div class="colum span-6"><span class="padding-3"><strong>Project Members</strong></span></div>
-      <div class="colum span-7"><span class="padding-3"><strong>email</strong></span></div>
-      <div class="span-4 last"><span class="padding-3"><strong>Role</strong></span></div>
+  <div class="span-full">
+    <div class="title">
+      <span><?php echo __('Staff'); ?></span>
+      <a id="add"class="button block-green medium-round" href="#">Edit</a>
     </div>
+
+    <div id="add-form" >
+      <?php include_partial('idProject/staff_form', array('form' => $form)); ?>
+    </div>
+
+    <div class="menu">
+      <div class="span-7">Name</div>
+      <div class="span-8">Email</div>
+      <div class="span-7 last">Project role</div>
+    </div>
+    <ul class="action">
     <?php foreach ($project->getUsers() as $member):?>
-      <div class="span-17 last dashboard-row">
-        <div class="span-1">
-          <?php echo image_tag('icons/20-group.png', array('width' => "20", 'height' => "20", 'alt' => "Group")) ?>
-        </div>
-        <div class="span-5">
-          <strong><?php echo $member->getShortName() ?></strong>
-        </div>
-        <div class="colum span-7">
-          <span class="padding-3">
+      <li class="icon-group">
+        <ul>
+          <li class="span-7">
+            <?php echo $member->getShortName() ?>
+          </li>
+          <li class="span-8">
             <?php echo mail_to($member->email) ?>
-          </span>
-        </div>
-        <div class="span-4 last"><?php echo $member->getRoleByProject($project->id)?></div>
-      </div>
+          </li>
+          <li class="span-7 last">
+            <?php echo $member->getRoleByProject($project->id)?>
+          </li>
+        </ul>
     <?php endforeach; ?>
+    </ul>
   </div>
 </div>

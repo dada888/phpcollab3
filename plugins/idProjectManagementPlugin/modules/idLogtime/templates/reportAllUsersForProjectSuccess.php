@@ -6,10 +6,10 @@
     <div class="span-full">
     <div class="title">
       <span>Time</span>
-      <a id="add-log-time"class="button block-green medium-round" href="<?php echo url_for('@new_logtime') ?>">Add</a>
+      <a id="add" class="button block-green medium-round" href="<?php echo url_for('@new_logtime') ?>">Add</a>
     </div>
 
-    <div id="log-time">
+    <div id="add-form">
       <?php include_partial('idLogtime/form', array('form' => $form)) ?>
     </div>
 

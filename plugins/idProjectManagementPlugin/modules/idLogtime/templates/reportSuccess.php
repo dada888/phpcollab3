@@ -9,16 +9,16 @@
     <div class="title">
       <span>Time</span>
       <?php if(isset($form)): ?>
-        <a id="add-log-time"class="button block-green medium-round" href="<?php echo url_for('@new_logtime') ?>">Add</a>
+        <a id="add" class="button block-green medium-round" href="<?php echo url_for('@new_logtime') ?>">Add</a>
       <?php endif; ?>
     </div>
     <?php if(isset($form)): ?>
-      <div id="log-time">
+      <div id="add-form">
         <?php include_partial('idLogtime/form', array('form' => $form)) ?>
       </div>
     <?php endif; ?>
 
-    <?php if(isset($issue)):?>
+    <?php if(isset($issue) && $total_time > 0):?>
       <div class="span-full" id="total_log_time">
         Total log time for issue <?php echo link_to('#'.$issue->id, '@show_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id) ?>: <?php echo $total_time ?>
       </div>

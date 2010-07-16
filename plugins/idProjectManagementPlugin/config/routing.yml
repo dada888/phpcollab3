@@ -127,6 +127,12 @@ project_staff_list:
   requirements:
     sf_culture: (?:en|it)
 
+update_project_staff_list:
+  url:   /:sf_culture/idProject/:id/staff_list/update
+  param: { module: idProject, action: updateStaffList}
+  requirements:
+    sf_culture: (?:en|it)
+
 index_messages:
   url:   /:sf_culture/idProject/:project_id/idMessages
   param: { module: idMessage, action: index}
@@ -433,6 +439,12 @@ update_issue:
   requirements:
     sf_culture: (?:en|it)
 
+project_settings:
+  url:    /:sf_culture/idProject/:id/settings
+  param:  { module: idProject, action: settings }
+  requirements:
+    sf_culture: (?:en|it)
+
 roadmap_project:
   url:    /:sf_culture/idProject/show/:id/roadmap
   param:  { module: idProject, action: roadmap }
@@ -448,6 +460,24 @@ show_project:
 new_project:
   url:    /:sf_culture/idProject/new
   param:  { module: idProject, action: new }
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_project_trackers:
+  url:    /:sf_culture/idProject/edit_trackers/:id
+  param:  { module: idProject, action: updateTrackers }
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_project_overview:
+  url:    /:sf_culture/idProject/edit_overview/:id
+  param:  { module: idProject, action: updateTitleAndDescription }
+  requirements:
+    sf_culture: (?:en|it)
+
+edit_project_staff:
+  url:    /:sf_culture/idProject/edit_staff/:id
+  param:  { module: idProject, action: updateSettingsStaffList }
   requirements:
     sf_culture: (?:en|it)
 

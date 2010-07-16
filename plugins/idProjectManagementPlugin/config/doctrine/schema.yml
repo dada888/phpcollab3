@@ -20,7 +20,7 @@ Project:
       type: string(64)
       notnull: true
     description:
-      type: string(512)
+      type: string
     starting_date:
       type: timestamp
     is_public:

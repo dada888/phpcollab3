@@ -12,16 +12,6 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enableAllPluginsExcept(array('sfPropelPlugin',
                                         'sfCompat10Plugin'));
 
-//    $this->enablePlugins(array('sfDoctrinePlugin',
-//                               'idRepositoryPlugin',
-//                               'idProjectManagmentPlugin',
-//                               'fdEventsListenersPlugin',
-//                               'idEstimatedTimePlugin',
-//                               'CommentPlugin',
-//                               'idTimestampablePlugin',
-//                               'idUtilPlugin'));
-//    #$this->disablePlugins(array('sfPropelPlugin'));
-//    $this->enablePlugins('sfDoctrineGuardPlugin');
   }
 
   public function setupPlugins()

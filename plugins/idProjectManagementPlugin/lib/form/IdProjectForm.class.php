@@ -37,8 +37,7 @@ class idProjectForm extends ProjectForm
   public function configure()
   {
     $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->retriveAllButSuperAdmin()));
-    $this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
-
+    
     $this->validatorSchema['name'] = new sfValidatorString(
                                             array('max_length' => 64, 'min_length' => 3,'required' => true),
                                             array('max_length' => 'Project name %value% is too long (max %max_length% chars).',
@@ -59,5 +58,7 @@ class idProjectForm extends ProjectForm
     parent::configure();
 
     unset($this['costs']);
+    unset($this['created_at']);
+    unset($this['updated_at']);
   }
 }

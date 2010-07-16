@@ -24,29 +24,18 @@ $browser->
   click('Staff')->
 
   with('response')->begin()->
-    checkElement('h3', '/Staff/')->
-    checkElement('a[href*="idProject/edit"]', '/Add Members/')->
-    checkElement('.recent .menu', 1)->
-    checkElement('.recent .dashboard-row', 3)->
+    checkElement('.title', '/Staff/')->
+    checkElement('.title a', '/Edit/')->
   end()->
 
-
-  click('Add Members')->
+  click('Save', array('project' => array('users_list' => array('3' => 'Mario (user) Wage <mario@example.com>'))))->
 
   with('request')->begin()->
     isParameter('module', 'idProject')->
-    isParameter('action', 'edit')->
+    isParameter('action', 'updateStaffList')->
     isParameter('id', '1')->
   end()->
 
-click('Update the project', array('project' => array('users_list' => array('3' => 'Mario (user) Wage <mario@example.com>'))))->
-
-  with('request')->begin()->
-    isParameter('module', 'idProject')->
-    isParameter('action', 'update')->
-    isParameter('id', '1')->
-  end()->
-
-  responseContains('Project users')->
+  responseContains('Mario W.')->
   responseContains('mario@example.com')->
-  responseContains('user');
+  responseContains('developer');

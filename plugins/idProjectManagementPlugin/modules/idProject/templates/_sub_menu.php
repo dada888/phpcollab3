@@ -6,6 +6,6 @@
     <li><?php echo link_to( __('Discussions'), '@index_messages?project_id='.$project->id) ?></li>
     <li><?php echo link_to(__('Time report'), '@log_time_report_project_all_users?project_id='.$project->id); ?></li>
     <li><?php echo link_to(__('Staff'), '@project_staff_list?id='.$project->id) ?></li>
-    <li><a href="#">Settings</a></li>
+    <li><?php echo link_to(__('Settings'), '@project_settings?id='.$project->id) ?></li>
   </ul>
 </div>

@@ -6,7 +6,9 @@ indexSuccess:
   components:
     sidebar:  [idProject, indexSidebar]
 
+settingsSuccess:
+  javascripts:    [tab_navigations.js]
+
 default:
   components:
     sidebar:  []
-
