@@ -5,5 +5,9 @@
  */
 abstract class PluginLogTime extends BaseLogTime
 {
-
+  public function setUp()
+  {
+    parent::setUp();
+    $this->addListener(new EventLogDoctrineListener());
+  }
 }

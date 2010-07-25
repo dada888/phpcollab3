@@ -7,9 +7,6 @@ $configuration = ProjectConfiguration::getApplicationConfiguration( 'fe', 'unitt
 new sfDatabaseManager($configuration);
 Doctrine::loadData(sfConfig::get('sf_test_dir').'/fixtures/fixtures.yml');
 
-//1) Generazione evento
-//2) Catch dell'evento da parte dell'EventListener
-//3) Salvataggio dell'evento sul database
 
 class stub {}
 
@@ -21,7 +18,7 @@ $namespace = EventListener::extracNamespace($event);
 $t->is('stub_namespace', $namespace, '::extracNamespace() extract the right value');
 
 $action = EventListener::extracAction($event);
-$t->is('creation', $action, '::extracNamespace() extract the right value');
+$t->is('creation', $action, '::extracAction() extract the right value');
 
 $event = new sfEvent(new stub, 'stub_namespace.creation', array('project_id' => '1000'));
 $message = EventListener::processParameters($event);

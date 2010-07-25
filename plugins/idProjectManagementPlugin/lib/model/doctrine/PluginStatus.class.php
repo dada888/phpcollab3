@@ -21,5 +21,9 @@
  */
 abstract class PluginStatus extends BaseStatus
 {
-
+  public function setUp()
+  {
+    parent::setUp();
+    $this->addListener(new EventLogDoctrineListener());
+  }
 }

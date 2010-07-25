@@ -28,8 +28,6 @@ class idMilestoneActions extends sfActions
    */
   public function executeShow(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMilestone-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-
     $this->forward404Unless($this->milestone = Doctrine::getTable('Milestone')->find(array($request->getParameter('milestone_id'))), sprintf('Object milestone does not exist (%s).', array($request->getParameter('milestone_id'))));
     $this->forward404Unless($this->milestone->getProjectId() == $request->getParameter('project_id'));
 
@@ -50,8 +48,6 @@ class idMilestoneActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMilestone-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-    
     $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('project_id'))), sprintf('Object milestone does not exist (%s).', array($request->getParameter('project_id'))));
 
     $this->pager = new sfDoctrinePager('Milestone',10);
@@ -67,8 +63,6 @@ class idMilestoneActions extends sfActions
    */
   public function executeNew(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMilestone-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-
     $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('project_id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('project_id'))));
 
     $this->form = new MilestoneForm();
@@ -84,8 +78,6 @@ class idMilestoneActions extends sfActions
    */
   public function executeCreate(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMilestone-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-
     $this->forward404Unless($request->isMethod('post'));
     $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('project_id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('project_id'))));
 
@@ -103,8 +95,6 @@ class idMilestoneActions extends sfActions
    */
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMilestone-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-
     $this->forward404Unless($milestone = Doctrine::getTable('Milestone')->find(array($request->getParameter('milestone_id'))), sprintf('Object milestone does not exist (%s).', array($request->getParameter('milestone_id'))));
 
     $this->project = $milestone->getProject();
@@ -119,8 +109,6 @@ class idMilestoneActions extends sfActions
    */
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMilestone-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-    
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless($milestone = Doctrine::getTable('Milestone')->find(array($request->getParameter('milestone_id'))), sprintf('Object milestone does not exist (%s).', array($request->getParameter('milestone_id'))));
 
@@ -140,8 +128,6 @@ class idMilestoneActions extends sfActions
    */
   public function executeDelete(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMilestone-Delete'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-
     $request->checkCSRFProtection();
 
     $this->forward404Unless($milestone = Doctrine::getTable('Milestone')->find(array($request->getParameter('milestone_id'))), sprintf('Object milestone does not exist (%s).', array($request->getParameter('milestone_id'))));

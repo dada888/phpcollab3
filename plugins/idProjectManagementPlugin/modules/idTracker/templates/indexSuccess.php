@@ -10,9 +10,7 @@
             <th class="first">&nbsp;</th>
             <th><?php echo __('Name'); ?></th>
             <th class="last">
-            <?php if($sf_user->hasCredential('idTracker-Edit')): ?>
-              <?php echo __('Actions'); ?>
-            <?php endif; ?>
+            <?php echo __('Actions'); ?>
             </th>
           </tr>
 
@@ -24,10 +22,8 @@
                 <td>&nbsp;</td>
                 <td><?php echo $tracker->getName() ?></td>
                 <td>
-                <?php if($sf_user->hasCredential('idTracker-Edit')): ?>
-                  <?php echo link_to(__('Edit'), '@edit_tracker?id='.$tracker->getId()) ?> | 
-                  <?php echo link_to(__('Delete'), '@delete_tracker?id='.$tracker->getId(), array('confirm' => __('Do you really want to delete this tracker?'))) ?>
-                <?php endif; ?>
+                <?php echo link_to(__('Edit'), '@edit_tracker?id='.$tracker->getId()) ?> |
+                <?php echo link_to(__('Delete'), '@delete_tracker?id='.$tracker->getId(), array('confirm' => __('Do you really want to delete this tracker?'))) ?>
                 </td>
 
               </tr>

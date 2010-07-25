@@ -17,8 +17,6 @@ class idMessageActions extends sfActions
 
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMessage-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-
     $this->pager = new sfDoctrinePager('Message',10);
     $this->pager->setQuery(Doctrine::getTable('Message')->getQueryForProjectMessages($request->getParameter('project_id')));
     $this->pager->setMaxPerPage(sfConfig::get('mod_maxperpage_logtime', 10));
@@ -33,7 +31,6 @@ class idMessageActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMessage-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($this->message = Doctrine::getTable('Message')->find(array($request->getParameter('message_id'))));
     $this->forward404Unless($this->message->project_id == $request->getParameter('project_id'));
 
@@ -43,7 +40,6 @@ class idMessageActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMessage-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->form = new MessageForm();
     
     $this->setTemplate('edit');
@@ -51,7 +47,6 @@ class idMessageActions extends sfActions
 
   public function executeCreate(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMessage-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post'));
 
     $this->form = new MessageForm();
@@ -63,7 +58,6 @@ class idMessageActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMessage-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($message = Doctrine::getTable('Message')->find(array($request->getParameter('message_id'))), sprintf('Object message does not exist (%s).', array($request->getParameter('message_id'))));
     $this->forward404Unless($message->project_id == $request->getParameter('project_id'));
     $this->form = new MessageForm($message);
@@ -71,7 +65,6 @@ class idMessageActions extends sfActions
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMessage-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless($message = Doctrine::getTable('Message')->find(array($request->getParameter('message_id'))), sprintf('Object message does not exist (%s).', array($request->getParameter('message_id'))));
     $this->forward404Unless($message->project_id == $request->getParameter('project_id'));
@@ -85,7 +78,6 @@ class idMessageActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idMessage-Delete'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $request->checkCSRFProtection();
 
     $this->forward404Unless($message = Doctrine::getTable('Message')->find(array($request->getParameter('message_id'))), sprintf('Object message does not exist (%s).', array($request->getParameter('message_id'))));

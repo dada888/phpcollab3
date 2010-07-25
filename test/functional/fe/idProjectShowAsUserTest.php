@@ -12,8 +12,9 @@ get('/en/idProject/show/3')->
 click('Login', array('signin' => array('username' => 'nopuser', 'password' => 'nopuser')))->
   followRedirect()->
   with('response')->begin()->
-    isStatusCode('403')->
+    isStatusCode('404')->
   end()->
+get('/')->
 click('Logout')->
 
 

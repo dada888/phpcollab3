@@ -17,7 +17,6 @@ class idLogtimeActions extends sfActions
 
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idLogotime-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->pager = new sfDoctrinePager('LogTime',10);
     $this->pager->setQuery(Doctrine::getTable('LogTime')->createQuery('a')->orderBy('created_at DESC'));
     $this->pager->setMaxPerPage(sfConfig::get('mod_maxperpage_logtime', 10));
@@ -32,7 +31,6 @@ class idLogtimeActions extends sfActions
 
   public function executeAddToIssue(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idLogotime-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($issue = Doctrine::getTable('Issue')->find(array($request->getParameter('issue_id'))), sprintf('Object issue does not exist (%s).', array($request->getParameter('issue_id'))));
     $this->forward404Unless($request->isMethod('post'));
 
@@ -47,11 +45,6 @@ class idLogtimeActions extends sfActions
       $log_time = $form->save();
 
       $this->getUser()->setFlash('success', 'Log time added');
-
-      $this->dispatcher->notify(new sfEvent($log_time,
-                                            'log_time.add_to_issue',
-                                            array('log_message' => LogMessageGenerator::generate($this->getUser(), 'add', $log_time),
-                                                  'project_id'  => $issue->project_id)));
 
       $this->redirect($this->referer);
     }
@@ -76,7 +69,6 @@ class idLogtimeActions extends sfActions
    */
   public function executeReportForActualUser(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idLogotime-ReadReport'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->issue = $this->checkUserAgainstIssueAndProject($request);
 
     $this->pager = new sfDoctrinePager('LogTime',10);
@@ -97,7 +89,6 @@ class idLogtimeActions extends sfActions
    */
   public function executeReportForAllUsers(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idLogotime-ReadReportForAllUsers'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->issue = $this->checkUserAgainstIssueAndProject($request);
     
     $this->pager = new sfDoctrinePager('LogTime',10);
@@ -118,7 +109,6 @@ class idLogtimeActions extends sfActions
    */
   public function executeReportAllUsersForProject(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idLogotime-ReadReportForAllUsers'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($this->getUser()->isMyProject($request->getParameter('project_id')));
 
     $this->project = Doctrine::getTable('Project')->findOneBy('id', $request->getParameter('project_id'));
@@ -136,14 +126,12 @@ class idLogtimeActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idLogotime-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->form = new LogTimeForm();
     $this->form->setDefault('created_at', date('Y-m-d H:i:s', time()));
   }
 
   public function executeCreate(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idLogotime-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post'));
 
     $form_factory = new LogTimeFormFactory();
@@ -158,7 +146,6 @@ class idLogtimeActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idLogotime-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($log_time = Doctrine::getTable('LogTime')->
                                         findOneBy('id', $request->getParameter('id')),
                             sprintf('Object log_time does not exist (%s).', array($request->getParameter('id'))));
@@ -169,7 +156,6 @@ class idLogtimeActions extends sfActions
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idLogotime-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless($log_time = Doctrine::getTable('LogTime')->find(array($request->getParameter('id'))), sprintf('Object log_time does not exist (%s).', array($request->getParameter('id'))));
 
@@ -183,16 +169,10 @@ class idLogtimeActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idLogotime-Delete'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $request->checkCSRFProtection();
 
     $this->forward404Unless($log_time = Doctrine::getTable('LogTime')->find(array($request->getParameter('id'))), sprintf('Object log_time does not exist (%s).', array($request->getParameter('id'))));
     $log_time->delete();
-
-    $this->dispatcher->notify(new sfEvent($log_time,
-                                            'log_time.delete',
-                                            array('log_message' => LogMessageGenerator::generate($this->getUser(), 'delete', $log_time),
-                                                  'project_id'  => $log_time->getIssue()->project_id)));
 
     $this->redirect($this->referer);
   }
@@ -214,11 +194,6 @@ class idLogtimeActions extends sfActions
       $log_time = $form->save();
       
       $this->getUser()->setFlash('success', 'Log time added');
-
-      $this->dispatcher->notify(new sfEvent($log_time,
-                                            'log_time.'.$operation,
-                                            array('log_message' => LogMessageGenerator::generate($this->getUser(), $operation, $log_time),
-                                                  'project_id'  => $log_time->getIssue()->project_id)));
 
       $this->redirect($this->referer);
     }

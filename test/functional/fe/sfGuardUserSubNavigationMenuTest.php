@@ -11,12 +11,10 @@ $browser->
   click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
+  click('Settings')->
   click('Users')->
   
   with('response')->begin()->
     isStatusCode(200)->
-
-    checkElement('.secondary-navigation ul li a[href="/index.php/en/sfGuardUser/new"]', 'Create new user')->
-    checkElement('.secondary-navigation ul li a[href*="/idUsers"]', 'Users list')->
-
+    checkElement('a[href="/index.php/en/sfGuardUser/new"]', 'Add')->
   end();

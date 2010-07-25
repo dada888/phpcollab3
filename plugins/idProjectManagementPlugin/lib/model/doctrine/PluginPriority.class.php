@@ -21,5 +21,9 @@
  */
 abstract class PluginPriority extends BasePriority
 {
-
+  public function setUp()
+  {
+    parent::setUp();
+    $this->addListener(new EventLogDoctrineListener());
+  }
 }

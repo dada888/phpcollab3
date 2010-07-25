@@ -12,8 +12,6 @@ class idTrackerActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idTracker-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-
     $this->pager = new sfDoctrinePager('Tracker',10);
     $this->pager->setQuery(Doctrine::getTable('Tracker')->createQuery('a'));
     $this->pager->setMaxPerPage(sfConfig::get('mod_maxperpage_trakers', 10));
@@ -24,13 +22,11 @@ class idTrackerActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idTracker-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->form = new TrackerForm();
   }
 
   public function executeCreate(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idTracker-Create'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post'));
 
     $this->form = new TrackerForm();
@@ -42,14 +38,12 @@ class idTrackerActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idTracker-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($tracker = Doctrine::getTable('Tracker')->find(array($request->getParameter('id'))), sprintf('Object tracker does not exist (%s).', array($request->getParameter('id'))));
     $this->form = new TrackerForm($tracker);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idTracker-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
     $this->forward404Unless($tracker = Doctrine::getTable('Tracker')->find(array($request->getParameter('id'))), sprintf('Object tracker does not exist (%s).', array($request->getParameter('id'))));
     $this->form = new TrackerForm($tracker);
@@ -61,7 +55,6 @@ class idTrackerActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idTracker-Delete'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $request->checkCSRFProtection();
 
     $this->forward404Unless($tracker = Doctrine::getTable('Tracker')->find(array($request->getParameter('id'))), sprintf('Object tracker does not exist (%s).', array($request->getParameter('id'))));

@@ -15,7 +15,12 @@
       <div class="container">
         <?php if ($sf_user->isAuthenticated()) : ?>
         <div id="utility" class="showgrid-off">
-          Hello, <?php echo link_to($sf_user->getUsername(), '@edit_profile') ?> <a href="<?php echo url_for('@sf_guard_signout') ?>" class="login">Logout</a> <a href="#" class="settings">Settings</a> <a href="#" class="help">Help</a>
+          Hello, <?php echo link_to($sf_user->getUsername(), '@edit_profile') ?> 
+          <a href="<?php echo url_for('@sf_guard_signout') ?>" class="login">Logout</a>
+          <?php if ($sf_user->isAdmin()):?>
+            <a href="<?php echo url_for('@collab_settings')?>" class="settings">Settings</a>
+          <?php endif; ?>
+          <a href="#" class="help">Help</a>
           <select>
           <?php foreach($sf_user->getMyProjects() as $project): ?>
             <option><?php echo $project->name ?></option>

@@ -12,7 +12,6 @@ class idProfileActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idProfile-Read'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($this->getUser()->isMyProfile($this->getUser()->getGuardUser()->getid()));
   }
 
@@ -28,15 +27,12 @@ class idProfileActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idProfile-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-    
     $this->form = new idProfileForm($this->getUser()->getGuardUser());
     $this->form->setDefault('username', $this->getUser()->getGuardUser()->getUsername());
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forwardUnless($this->getUser()->hasCredential('idProfile-Edit'), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
 
     $this->form = new idProfileForm($this->getUser()->getGuardUser());

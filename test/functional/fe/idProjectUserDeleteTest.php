@@ -13,19 +13,19 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
 
   followRedirect()->
 
-  click('Users')->
-
+  click('Settings')->
+  click('Last')->
   with('response')->begin()->
-    checkElement('tr', 9)->
+    checkElement('ul.action li.icon-group', 3)->
   end()->
 
-  click('Delete', array(), array('position' => 3))->
+  click('Delete', array(), array('position' => 2))->
 
  followRedirect()->
 
  click('Last')->
 
   with('response')->begin()->
-    checkElement('tr', 6)->
+    checkElement('ul.action li.icon-group', 2)->
   end()
 ;

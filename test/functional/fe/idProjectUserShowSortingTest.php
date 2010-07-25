@@ -13,128 +13,41 @@ $browser->initializeDatabase();
   click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  click('Users')->
+  click('Settings')->
   click('Username')->
   with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("Username")')->
-    checkElement('div#block-tables .table tr th img[title="asc"]')->
-    
-    checkElement('#block-tables .table tr.odd td', '/admin/', array('position' => 1))->
-    checkElement('#block-tables .table tr.even td', '/customer/', array('position' => 1))->
-    checkElement('#block-tables .table tr.odd td', '/nopuser/', array('position' => 8))->
-    checkElement('#block-tables .table tr.even td', '/pmanager/', array('position' => 8))->
-    checkElement('#block-tables .table tr.odd td', '/puser/', array('position' => 15))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/admin/', array('position' => 0))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/customer/', array('position' => 3))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/nopuser/', array('position' => 6))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/pmanager/', array('position' => 9))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/puser/', array('position' => 12))->
   end()->
 
   click('Next')->
   with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("Username")')->
-    checkElement('div#block-tables .table tr th img[title="asc"]')->
-
-    checkElement('#block-tables .table tr td', '/sesto/', array('position' => 1))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/sesto/', array('position' => 0))->
   end()->
 
   click('First')->
   click('Username')->
   with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("Username")')->
-    checkElement('div#block-tables .table tr th img[title="desc"]')->
-
-    checkElement('#block-tables .table tr.odd td', '/userp2/', array('position' => 1))->
-    checkElement('#block-tables .table tr.even td', '/user/', array('position' => 1))->
-    checkElement('#block-tables .table tr.odd td', '/sesto/', array('position' => 8))->
-    checkElement('#block-tables .table tr.even td', '/puser/', array('position' => 8))->
-    checkElement('#block-tables .table tr.odd td', '/pmanager/', array('position' => 15))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/userp2/', array('position' => 0))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/user/', array('position' => 3))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/sesto/', array('position' => 6))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/puser/', array('position' => 9))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/pmanager/', array('position' => 12))->
   end()->
 
-  click('First name')->
+  click('First Name')->
   with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("First name")')->
-    checkElement('div#block-tables .table tr th img[title="asc"]')->
-
-    checkElement('#block-tables .table tr.odd td', '/Amministro/', array('position' => 9))->
-    checkElement('#block-tables .table tr.even td', '/Mario/', array('position' => 9))->
-    checkElement('#block-tables .table tr.odd td', '/customer/', array('position' => 16))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/Amministro/', array('position' => 7))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/Mario/', array('position' => 10))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/customer/', array('position' => 13))->
   end()->
 
-  click('First name')->
+  click('Last Name')->
   with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("First name")')->
-    checkElement('div#block-tables .table tr th img[title="desc"]')->
-
-    checkElement('#block-tables .table tr.odd td', '/project2user/', array('position' => 2))->
-    checkElement('#block-tables .table tr.even td', '/prog/', array('position' => 2))->
-    checkElement('#block-tables .table tr.odd td', '/paul/', array('position' => 9))->
-    checkElement('#block-tables .table tr.even td', '/customer/', array('position' => 9))->
-  end()->
-
-  click('Last name')->
-  with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("Last name")')->
-    checkElement('div#block-tables .table tr th img[title="asc"]')->
-
-    checkElement('#block-tables .table tr.odd td', '/Amministro/', array('position' => 10))->
-    checkElement('#block-tables .table tr.even td', '/Wage/', array('position' => 10))->
-    checkElement('#block-tables .table tr.odd td', '/customer/', array('position' => 17))->
-  end()->
-
-  click('Last name')->
-  with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("Last name")')->
-    checkElement('div#block-tables .table tr th img[title="desc"]')->
-
-    checkElement('#block-tables .table tr.odd td', '/project2user/', array('position' => 3))->
-    checkElement('#block-tables .table tr.even td', '/prog/', array('position' => 3))->
-    checkElement('#block-tables .table tr.odd td', '/mange/', array('position' => 10))->
-    checkElement('#block-tables .table tr.even td', '/customer/', array('position' => 10))->
-  end()->
-
-  click('Email')->
-  with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("Email")')->
-    checkElement('div#block-tables .table tr th img[title="asc"]')->
-
-    checkElement('#block-tables .table tr.odd td', 'amministro@example.com', array('position' => 4))->
-    checkElement('#block-tables .table tr.even td', '/customer@example.com/', array('position' => 4))->
-    checkElement('#block-tables .table tr.odd td', '/mario@example.com/', array('position' => 11))->
-    checkElement('#block-tables .table tr.even td', '/pmanager@example.com/', array('position' => 11))->
-    checkElement('#block-tables .table tr.odd td', '/project2user@example.com/', array('position' => 18))->
-  end()->
-
-  click('Email')->
-  with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("Last name")')->
-    checkElement('div#block-tables .table tr th img[title="desc"]')->
-
-    checkElement('#block-tables .table tr.odd td', '/sesto@example.com/', array('position' => 4))->
-    checkElement('#block-tables .table tr.even td', '/quarto@example.com/', array('position' => 4))->
-    checkElement('#block-tables .table tr.odd td', '/puser@example.com/', array('position' => 11))->
-    checkElement('#block-tables .table tr.even td', '/project2user@example.com/', array('position' => 11))->
-    checkElement('#block-tables .table tr.odd td', '/pmanager@example.com/', array('position' => 18))->
-  end()->
-
-  click('Created at')->
-  with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("Email")')->
-    checkElement('div#block-tables .table tr th img[title="asc"]')->
-
-    checkElement('#block-tables .table tr.odd td', '/amministro@example.com/', array('position' => 4))->
-    checkElement('#block-tables .table tr.even td', '/mario@example.com/', array('position' => 4))->
-    checkElement('#block-tables .table tr.odd td', '/puser@example.com/', array('position' => 11))->
-    checkElement('#block-tables .table tr.even td', '/quarto@example.com/', array('position' => 11))->
-    checkElement('#block-tables .table tr.odd td', '/project2user@example.com/', array('position' => 18))->
-  end()->
-
-  click('Created at')->
-  with('response')->begin()->
-    checkElement('div#block-tables .table tr th a:contains("Last name")')->
-    checkElement('div#block-tables .table tr th img[title="desc"]')->
-
-    checkElement('#block-tables .table tr.odd td', '/customer@example.com/', array('position' => 4))->
-    checkElement('#block-tables .table tr.even td', '/mario@example.com/', array('position' => 4))->
-    checkElement('#block-tables .table tr.odd td', '/puser@example.com/', array('position' => 11))->
-    checkElement('#block-tables .table tr.even td', '/quarto@example.com/', array('position' => 11))->
-    checkElement('#block-tables .table tr.odd td', '/project2user@example.com/', array('position' => 18))->
-  end()
-
-;
+    checkElement('ul.action li.icon-group ul li.span-5', '/Amministro/', array('position' => 7))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/Mario/', array('position' => 10))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/customer/', array('position' => 13))->
+  end();

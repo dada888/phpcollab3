@@ -5,72 +5,64 @@
                                                   'configuration' => $configuration,
                                                   'module_name' => 'user',
                                                   'fields' => array('username',
-                                                                    'is_active',
-                                                                    'groups_list',
-                                                                    'permissions_list'),
+                                                                    'groups_list'),
                                                   )); ?>
 
-<div class="block" id="block-tables">
-  <?php include_partial('idProject/sf_guard_create_menu', array('module_name' => 'user')); ?>
-  <div class="content">
-  <h2 class="title"><?php echo __('Users list') ?></h2>
-    <div class="inner">
+<div class="span-23" id="content">
+  <div class="span-full last project-navigation">
+    <ul>
+      <li><?php echo link_to('Users', '@sf_guard_user'); ?></li>
+      <li><?php echo link_to('Groups', '@sf_guard_group'); ?></li>
+      <li><?php echo link_to('Permissions', '@sf_guard_permission'); ?></li>
+    </ul>
+  </div>
 
-        <?php if ($pager->getNbResults() > 0): ?>
-          
-        <table class="table">
-          <tr>
-            <th class="first">&nbsp;</th>
-            <?php include_partial('sfGuardUser/sf_guard_th_as_ordering_links', array(
-                                                                            'sort' => $sort,
-                                                                            'module_name' => 'user',
-                                                                            'fields' => array(
-                                                                                          $prefix_for_sf_guard_user_field.'.username',
-                                                                                          $prefix_for_profile.'.first_name',
-                                                                                          $prefix_for_profile.'.last_name',
-                                                                                          $prefix_for_profile.'.email',
-                                                                                          $prefix_for_sf_guard_user_field.'.created_at'
-                                                                            )
-              )); ?>
-
-            <th class="last"><?php echo __('Actions') ?></th>
-          </tr>
-
-          <?php foreach ($pager->getResults() as $i => $sf_guard_user): $odd = fmod(++$i, 2) ? 'odd' : 'even' ?>
-            <tr class="<?php echo $odd ?>">
-              <td class="first">&nbsp;</td>
-              <td>
-                <?php echo link_to($sf_guard_user['username'], 'sf_guard_user_edit', $sf_guard_user) ?>
-              </td>
-              <td><?php echo $sf_guard_user->Profile->first_name ?></td>
-              <td><?php echo $sf_guard_user->Profile->last_name ?></td>
-              <td><?php echo $sf_guard_user->Profile->email ?></td>
-              <td>
-                <?php echo $sf_guard_user['created_at'] ? format_date($sf_guard_user['created_at'], "f") : '&nbsp;' ?>
-              </td>
-              
-              <td>
-                <?php include_partial('idProject/sf_guard_actions', array('sf_guard_object' => $sf_guard_user, 'module_name' => 'user')); ?>
-              </td>
-              
-            </tr>
-          <?php endforeach; ?>
-
-            <?php if ($pager->haveToPaginate()): ?>
-            <tr class="even">
-              <td colspan="7">
-                <?php include_partial('sfGuardUser/pagination', array('pager' => $pager)) ?>
-                <br/>
-                <?php echo __('(page %%page%%/%%nb_pages%%)', array('%%page%%' => $pager->getPage(), '%%nb_pages%%' => $pager->getLastPage()), 'sf_admin') ?>
-              </td>
-            </tr>
-            <?php endif; ?>
-            
-
-        </table>
-        
-      <?php endif; ?>
-
+  <div class="span-full">
+    <div class="title">
+      <span>Users</span>
+      <a id="add-user"class="button block-green medium-round" href="<?php echo url_for('@sf_guard_user_new') ?>">Add</a>
     </div>
+    <div class="menu">
+      <div class="span-5"><?php echo link_to(__('Username'), 'sfGuardUser/index?sort=s.username&sort_type='.('s.username' == $sort[0] && $sort[1] == 'asc' ? 'desc' : 'asc')) ?></div>
+      <div class="span-5"><?php echo link_to(__('First Name'), 'sfGuardUser/index?sort=p.first_name&sort_type='.('p.first_name' == $sort[0] && $sort[1] == 'asc' ? 'desc' : 'asc')) ?></div>
+      <div class="span-5"><?php echo link_to(__('Last Name'), 'sfGuardUser/index?sort=p.last_name&sort_type='.('p.last_name' == $sort[0] && $sort[1] == 'asc' ? 'desc' : 'asc')) ?></div>
+      <div class="span-6 right last append-1">E-mail</div>
+    </div>
+
+    <ul class="action">
+      <?php if ($pager->getNbResults() > 0): ?>
+        <?php foreach ($pager->getResults() as $user): ?>
+          <li class="icon-group">
+            <ul>
+              <li class="span-5"><?php echo link_to($user['username'], 'sf_guard_user_edit', $user) ?>&nbsp;</li>
+              <li class="span-5"><?php echo $user->Profile->first_name ?>&nbsp;</li>
+              <li class="span-5"><?php echo $user->Profile->last_name ?>&nbsp;</li>
+              <li class="span-7 right last append-1"><?php echo $user->Profile->email ?>&nbsp;</li>
+              <li class="edit-delete">
+                <?php echo link_to(__('Edit'), '@sf_guard_user_edit?id='.$user->getId()) ?>
+                <?php echo link_to(__('Delete'), '@sf_guard_user_delete?id='.$user->getId(), array('confirm' => __('Do you really want to delete this user?'))) ?>
+              </li>
+            </ul>
+          </li>
+          <?php endforeach; ?>
+        <?php else: ?>
+        <li>
+          <ul>
+            <li class="span-3"></li>
+            <li class="span-15">No users</li>
+            <li class="span-4 right last"></li>
+          </ul>
+        </li>
+        <?php endif; ?>
+    </ul>
+
+    <?php if($pager->haveToPaginate()):?>
+    <div class="span-full pagenation">
+      <ul>
+        <?php  echo pager_navigation_log_time($pager, '@collab_settings') ?>
+      </ul>
+    </div>
+    <?php endif; ?>
+    
   </div>
 </div>

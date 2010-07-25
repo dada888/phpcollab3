@@ -9,7 +9,7 @@ $browser->initializeDatabase();
 
 $browser->
 
-  get('/sfGuardUser')->
+  get('/settings')->
   with('response')->begin()->
       isStatusCode(404)->
   end()->
@@ -19,9 +19,10 @@ $browser->
 
   followRedirect()->
   
+  click('Settings')->
   click('Users')->
 
-  click('Create new user')->
+  click('Add')->
 
   with('request')->begin()->
     isParameter('module', 'sfGuardUser')->
@@ -41,8 +42,6 @@ $browser->
     checkElement('select[id="sf_guard_user_groups_list"]')->
     checkElement('select[id="sf_guard_user_permissions_list"]')->
   end();
-
-
 
 $browser->click('Save', array('sf_guard_user' => array(
                                                           'username' => 'brigido',
@@ -69,6 +68,4 @@ $browser->click('Save', array('sf_guard_user' => array(
     isParameter('action', 'edit')->
   end()->
 
-  responseContains('The item was created successfully.')
-  
-;
+  responseContains('The item was created successfully.');

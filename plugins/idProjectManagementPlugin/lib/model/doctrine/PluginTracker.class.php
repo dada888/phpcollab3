@@ -5,4 +5,9 @@
  */
 abstract class PluginTracker extends BaseTracker
 {
+  public function setUp()
+  {
+    parent::setUp();
+    $this->addListener(new EventLogDoctrineListener());
+  }
 }

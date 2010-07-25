@@ -24,7 +24,8 @@ $browser->
     checkElement('#navigationRight a:contains("Quick Add")', 0)->
 
     checkElement('#utility a[href*="/logout"]', 'Logout')->
-    checkElement('#utility a[href="#"]', 'Settings')->
+    checkElement('#utility a[href*="settings"]', 'Settings')->
+    checkElement('#utility a[href="#"]', 'Help')->
     checkElement('#utility a[class="help"][href="#"]', 'Help')->
 
   end();

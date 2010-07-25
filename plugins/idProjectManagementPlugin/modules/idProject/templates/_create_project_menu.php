@@ -1,8 +1,8 @@
 <div class="secondary-navigation">
   <ul>
-    <?php if($sf_user->hasCredential('idProject-Create')): ?>
+    <?php if($sf_user->isAdmin() || $sf_user->isProjectManager()): ?>
       <li class="first active"><?php echo link_to( __('Create new project'), '@new_project') ?></li>
-      <?php if($action == 'show' && $sf_user->isAdmin()): ?>
+      <?php if($action == 'show'): ?>
         <li><?php echo link_to( __('Add user(s)'), '@edit_project?id='.$sf_request->getParameter('id')) ?></li>
       <?php endif; ?>
     <?php else: ?>
@@ -19,10 +19,7 @@
       <li><?php echo link_to(__('Create issue'), '@new_issue?project_id='.$sf_request->getParameter('id')) ?></li>
       <li><?php echo link_to( __('View all issues'), '@index_issue?project_id='.$sf_request->getParameter('id')) ?></li>
       <li><?php echo link_to( __('View all milestones'), '@index_milestone?project_id='.$sf_request->getParameter('id')) ?></li>
-
-      <?php if($sf_user->hasCredential('idMessage-Read')): ?>
-        <li><?php echo link_to( __('Messages'), '@index_messages?project_id='.$sf_request->getParameter('id')) ?></li>
-      <?php endif; ?>
+      <li><?php echo link_to( __('Messages'), '@index_messages?project_id='.$sf_request->getParameter('id')) ?></li>
     <?php endif; ?>
   </ul>
   <div class="clear"></div>

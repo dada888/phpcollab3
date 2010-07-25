@@ -67,12 +67,8 @@
     <div class="span-12 last">
       <div class="span-6 key">
         Log time: <?php echo $issue->getTotalLogTime(); ?><br/>
-        <?php if ($sf_user->hasCredential('idLogotime-ReadReport')): ?>
-          <?php echo link_to(__('My log time report'), '@log_time_report_issue_actual_user?issue_id='.$issue->getId()) ?><br />
-        <?php endif; ?>
-        <?php if ($sf_user->hasCredential('idLogotime-ReadReport')): ?>
-          <?php echo link_to(__('All users log time report'), '@log_time_report_issue_all_users?issue_id='.$issue->getId()) ?>
-        <?php endif; ?>
+        <?php echo link_to(__('My log time report'), '@log_time_report_issue_actual_user?issue_id='.$issue->getId()) ?><br />
+        <?php echo link_to(__('All users log time report'), '@log_time_report_issue_all_users?issue_id='.$issue->getId()) ?>
       </div>
       <div class="span-6 last">
         <form action="<?php echo url_for('@set_log_time_from_issue?issue_id='.$issue->getId()); ?>" method="post" class="form">

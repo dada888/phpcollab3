@@ -50,10 +50,9 @@
               (<?php echo $log_time->getIssue()->getProject()->getName(); ?> )
             </li>
             <li class="edit-delete">
-              <?php if($sf_user->hasCredential('idLogtime-Edit')): ?>
                 <?php echo link_to(__('Edit'), '@edit_logtime?id='.$log_time->getId()) ?>&nbsp;&nbsp;
                 <?php echo link_to(__('Delete'), '@delete_logtime?id='.$log_time->getId(), array('confirm' => __('Do you really want to delete this log?'))) ?>
-              <?php endif; ?>
+              
             </li>
           </ul>
         </li>

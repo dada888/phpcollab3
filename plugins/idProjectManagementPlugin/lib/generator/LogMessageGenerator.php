@@ -51,6 +51,24 @@ class LogMessageGenerator
     return $user_ref.ucfirst($action).$suffix.' '. ucfirst(get_class($object)) .' '.$link_to_object;
   }
 
+  private static function getProjectId(Doctrine_Event $event)
+  {
+    $object = $event->getInvoker();
+    switch (get_class($object))
+    {
+      case 'Priority':
+      case 'Status':
+      case 'Tracker':
+        return null;
+      case 'LogTime':
+        return $object->issue->project_id;
+      case 'Project':
+        return $event->getInvoker()->id;
+      default :
+        return $event->getInvoker()->project_id;
+    }
+  }
+
   public static function storeFromDoctrineEvent($message, $action, Doctrine_Event $event)
   {
     $event_log = new self::$log_class;
@@ -58,7 +76,7 @@ class LogMessageGenerator
     $event_log->setAction($action);
     $event_log->setMessage($message);
     $event_log->setCreatedAt(date('Y-m-d H:i:s'));
-    $project_id = ($event->getInvoker() instanceof Project) ? $event->getInvoker()->id : $event->getInvoker()->project_id;
+    $project_id = self::getProjectId($event);
     $event_log->setProjectId($project_id);
 
     $event_log->save();
