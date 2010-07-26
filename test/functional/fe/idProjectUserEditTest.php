@@ -23,22 +23,15 @@ $browser->initializeDatabase();
     isParameter('action', 'edit')->
   end()->
 
-  click('Save modification', array('sf_guard_user' => array(
-                                                          'username' => 'nopuser',
-                                                          'password' => 'mario',
-                                                          'password_again' => 'mario',
-                                                          'Profile' => array(
-                                                                              'first_name' => 'mario',
-                                                                              'last_name' => 'mariotti',
-                                                                              'email' => 'mariotti@examople.com',
-                                                                            ),
-                                                          'is_active' => 'on',
-                                                          'groups_list' => array('2'),
-                                                          'permissions_list' => array('2')
-                                                        )
-                        )
-       , array('method' => 'post'))->
-
+  setField('sf_guard_user[username]', 'nopuser')->
+  setField('sf_guard_user[password]', 'mario')->
+  setField('sf_guard_user[password_again]', 'mario')->
+  setField('sf_guard_user[Profile][first_name]', 'mario')->
+  setField('sf_guard_user[Profile][last_name]', 'mariotti')->
+  setField('sf_guard_user[Profile][email]', 'mariotti@example.com')->
+  setField('sf_guard_user[is_active]', 'on')->
+  click('Save')->
+  
   with('form')->begin()->
     hasErrors(false)->
   end()->
@@ -49,7 +42,11 @@ $browser->initializeDatabase();
     isParameter('module', 'sfGuardUser')->
     isParameter('action', 'edit')->
   end()->
-
-  responseContains('The item was updated successfully.')
+  click('Users')->
+  with('response')->begin()->
+    checkElement('ul li:contains("mariotti@example.com")')->
+    checkElement('ul li:contains("mariotti")')->
+    checkElement('ul li:contains("mario")')->
+  end();
   
 ;

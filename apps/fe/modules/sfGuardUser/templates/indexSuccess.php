@@ -1,13 +1,5 @@
 <?php slot('title', __('Manage users')) ?>
 
-<?php include_partial('idProject/sf_guard_filters', array(
-                                                  'form' => $filters,
-                                                  'configuration' => $configuration,
-                                                  'module_name' => 'user',
-                                                  'fields' => array('username',
-                                                                    'groups_list'),
-                                                  )); ?>
-
 <div class="span-23" id="content">
   <div class="span-full last project-navigation">
     <ul>
@@ -17,10 +9,33 @@
     </ul>
   </div>
 
+  <div id="block-filters" class="span-full">
+    <h2 class="title"><?php echo __('User filters') ?></h2>
+    <?php if ($filters->hasGlobalErrors()): ?>
+      <div class="error">
+        <?php echo $filters->renderGlobalErrors() ?>
+      </div>
+    <?php endif; ?>
+    <form action="<?php echo url_for('sf_guard_user_collection', array('action' => 'filter')) ?>" method="post">
+      <div class="span-10">
+        <?php echo $filters['username']->renderError() ?>
+        <?php echo $filters['username']->renderLabel() ?> :
+        <?php echo $filters['username'] ?>
+      </div>
+      <div class="span-10 last prepend-2">
+        <?php echo $filters->renderHiddenFields() ?>
+        <input type="submit" value="<?php echo __('Filter') ?>"  class="button" />
+        <?php echo link_to(__('Reset'), 'sf_guard_user_collection', array('action' => 'filter'), array('query_string' => '_reset', 'method' => 'post')) ?>
+      </div>
+      <div class="clear"></div>
+    </form>
+  </div>
+
   <div class="span-full">
     <div class="title">
       <span>Users</span>
       <a id="add-user"class="button block-green medium-round" href="<?php echo url_for('@sf_guard_user_new') ?>">Add</a>
+      <a class="button block-orange medium-round" href="#" id="filters">Filters</a>
     </div>
     <div class="menu">
       <div class="span-5"><?php echo link_to(__('Username'), 'sfGuardUser/index?sort=s.username&sort_type='.('s.username' == $sort[0] && $sort[1] == 'asc' ? 'desc' : 'asc')) ?></div>
@@ -29,7 +44,7 @@
       <div class="span-6 right last append-1">E-mail</div>
     </div>
 
-    <ul class="action">
+    <ul class="action time">
       <?php if ($pager->getNbResults() > 0): ?>
         <?php foreach ($pager->getResults() as $user): ?>
           <li class="icon-group">
@@ -66,3 +81,14 @@
     
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#block-filters').hide();
+    $('#filters').toggle(function() {
+      $('#block-filters').show();
+    }, function() {
+      $('#block-filters').hide();
+    });
+  });
+</script>

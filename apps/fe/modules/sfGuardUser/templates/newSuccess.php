@@ -1,25 +1,104 @@
-<?php slot('title', __('Create a new user')) ?>
+<?php slot('title', __('Edit user')) ?>
 
-<div class="block" id="block-tables">
+<div class="span-23" id="content">
+  <div class="span-full last project-navigation">
+    <ul>
+      <li><?php echo link_to('Users', '@sf_guard_user'); ?></li>
+      <li><?php echo link_to('Groups', '@sf_guard_group'); ?></li>
+      <li><?php echo link_to('Permissions', '@sf_guard_permission'); ?></li>
+    </ul>
+  </div>
 
-  <?php include_partial('idProject/sf_guard_create_menu', array('module_name' => 'user')); ?>
+  <div class="span-full">
+    <div class="title"><?php echo __('New user') ?></div>
+    <?php echo form_tag_for($form, '@sf_guard_user', array('class' =>'form')) ?>
+      <?php if ($sf_user->hasFlash('notice')): ?>
+        <div class="notice">
+          <?php echo __($sf_user->getFlash('notice')) ?></p>
+        </div>
+      <?php endif; ?>
+      <?php if ($sf_user->hasFlash('error')): ?>
+        <div class="message error">
+          <?php echo __($sf_user->getFlash('error')) ?>
+        </div>
+      <?php endif; ?>
+      <?php if ($form->hasGlobalErrors()): ?>
+        <div class="message error">
+          <?php echo $form->renderGlobalErrors() ?>
+        </div>
+      <?php endif; ?>
 
-  <div class="content">
-    <h2 class="title"><?php echo __('New user creation') ?></h2>
-    <div class="inner">
-      <?php echo form_tag_for($form, '@sf_guard_user', array('class' =>'form')) ?>
-
-        <?php include_partial('idProject/sf_guard_form_header', array('form' => $form, 'module_name' => 'user')); ?>
-        
-        <table class="table">
-
-         <?php include_partial('idProject/content_table', array('configuration' => $configuration, 'form' => $form)); ?>
-
-        </table>
-
-        <?php include_partial('idProject/sf_guard_form_footer', array('form' => $form, 'module_name' => 'user')); ?>
-        
-      </form>
-    </div>
+      <div class="span-10">
+        <?php echo $form['Profile']['first_name']->renderLabel() ?>
+        <?php echo $form['Profile']['first_name']->renderError() ?>
+        <?php echo $form['Profile']['first_name']->render() ?>
+      </div>
+      <div class="span-3">
+        &nbsp;
+      </div>
+      <div class="span-10 last">
+        <?php echo $form['password']->renderLabel() ?>
+        <?php echo $form['password']->renderError() ?>
+        <br/><?php echo $form['password']->render() ?>
+      </div>
+      <div class="clear"></div>
+      <div class="span-10">
+        <?php echo $form['Profile']['last_name']->renderLabel() ?>
+        <?php echo $form['Profile']['last_name']->renderError() ?>
+        <?php echo $form['Profile']['last_name']->render() ?>
+      </div>
+      <div class="span-3">
+        &nbsp;
+      </div>
+      <div class="span-10 last">
+        <?php echo $form['password_again']->renderLabel() ?>
+        <?php echo $form['password_again']->renderError() ?>
+        <br/><?php echo $form['password_again']->render() ?>
+      </div>
+      <div class="clear"></div>
+      <div class="span-10">
+        <?php echo $form['username']->renderLabel() ?>
+        <?php echo $form['username']->renderError() ?>
+        <?php echo $form['username']->render() ?>
+      </div>
+      <div class="span-3">
+        &nbsp;
+      </div>
+      <div class="span-10 last">
+        <?php echo $form['Profile']['email']->renderLabel() ?>
+        <?php echo $form['Profile']['email']->renderError() ?>
+        <?php echo $form['Profile']['email']->render() ?>
+      </div>
+      <div class="clear"></div>
+      <div class="span-10">
+        <?php echo $form['is_active']->render() ?>
+        <?php echo $form['is_active']->renderLabel() ?>
+        <?php echo $form['is_active']->renderError() ?>
+      </div>
+      <div class="span-3">
+        &nbsp;
+      </div>
+      <div class="span-10">
+        &nbsp;
+      </div>
+      <div class="clear"></div>
+      <div class="span-10">
+        <?php echo $form['is_super_admin']->render() ?>
+        <?php echo $form['is_super_admin']->renderLabel() ?>
+        <?php echo $form['is_super_admin']->renderError() ?>
+      </div>
+      <div class="span-3">
+        &nbsp;
+      </div>
+      <div class="span-10">
+        &nbsp;
+      </div>
+      <div class="clear"></div>
+      <div class="span-7">
+        <?php echo input_tag('Submit', __('Save'), array('class' => 'button', 'type' => 'submit'))?>
+        <?php echo link_to(__('Cancel'), 'sf_guard_user'); ?>
+      </div>
+      <?php echo $form->renderHiddenFields() ?>
+    </form>
   </div>
 </div>
