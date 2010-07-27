@@ -2,12 +2,3 @@ sfGuardGroup:
   sfGuardGroup_1:
     name: admin
     description: 'Administrator group'
-  sfGuardGroup_2:
-    name: user
-    description: 'User group'
-  sfGuardGroup_3:
-    name: 'project managers'
-    description: 'Project managers group'
-  sfGuardGroup_4:
-    name: customer
-    description: 'Customer managers group'

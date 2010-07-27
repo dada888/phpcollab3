@@ -31,18 +31,13 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
 
     checkElement('label:contains("Name")')->
     checkElement('label:contains("Description")')->
-    checkElement('label:contains("Public")')->
 
     checkElement('select[id="project_trackers_list"]')->
-    checkElement('label:contains("Project trackers")')->
-
    info('Update a project')->
 
     click('Update the project', array('project' => array(
       'name'      => 'Il mio primo progetto updatato',
-      'description'      => 'Il primo 222 progetto creato con il plugin idProjectManagementPlugin',
-      'is_public'      => 0,
-    )))->
+      'description'      => 'Il primo 222 progetto creato con il plugin idProjectManagementPlugin')))->
 
   end();
 

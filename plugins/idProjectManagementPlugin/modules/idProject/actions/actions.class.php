@@ -99,7 +99,7 @@ class idProjectActions extends sfActions
    */
   public function executeNew(sfWebRequest $request)
   {
-    $this->forwardUnless(($this->getUser()->isAdmin() || $this->getUser()->isProjectManager()), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $this->forwardUnless(($this->getUser()->isAdmin()), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->form = new idProjectForm();
     $this->form->setDefault('starting_date', date('Y-m-d H:i:s', time()));
   }
@@ -127,7 +127,7 @@ class idProjectActions extends sfActions
    */
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forwardUnless(($this->getUser()->isAdmin() || $this->getUser()->isProjectManager()), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $this->forwardUnless(($this->getUser()->isAdmin()), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
 
     $this->form = new idProjectForm($this->project);
@@ -157,7 +157,7 @@ class idProjectActions extends sfActions
    */
   public function executeDelete(sfWebRequest $request)
   {
-    $this->forwardUnless(($this->getUser()->isAdmin() || $this->getUser()->isProjectManager()), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $this->forwardUnless(($this->getUser()->isAdmin()), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
 
     $request->checkCSRFProtection();
 

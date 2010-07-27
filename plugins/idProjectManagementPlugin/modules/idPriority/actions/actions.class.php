@@ -45,7 +45,7 @@ class idPriorityActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forwardUnless(($this->getUser()->isAdmin() || $this->getUser()->isProjectManager()), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
+    $this->forwardUnless(($this->getUser()->isAdmin()), sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
     $this->priority_list = $this->retrievePrioritiesList();
   }
 

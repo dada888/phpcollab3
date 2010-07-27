@@ -1,22 +1,4 @@
 sfGuardUserGroup:
-  sfGuardUserGroup_8_4:
-    sfGuardUser: sfGuardUser_8
-    sfGuardGroup: sfGuardGroup_4
   sfGuardUserGroup_1_1:
     sfGuardUser: sfGuardUser_1
     sfGuardGroup: sfGuardGroup_1
-  sfGuardUserGroup_2_2:
-    sfGuardUser: sfGuardUser_2
-    sfGuardGroup: sfGuardGroup_2
-  sfGuardUserGroup_3_2:
-    sfGuardUser: sfGuardUser_3
-    sfGuardGroup: sfGuardGroup_2
-  sfGuardUserGroup_5_2:
-    sfGuardUser: sfGuardUser_5
-    sfGuardGroup: sfGuardGroup_2
-  sfGuardUserGroup_6_2:
-    sfGuardUser: sfGuardUser_6
-    sfGuardGroup: sfGuardGroup_2
-  sfGuardUserGroup_7_3:
-    sfGuardUser: sfGuardUser_7
-    sfGuardGroup: sfGuardGroup_3

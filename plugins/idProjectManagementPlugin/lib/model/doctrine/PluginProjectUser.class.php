@@ -35,4 +35,9 @@ abstract class PluginProjectUser extends BaseProjectUser
       return $roles[$code];
     }
   }
+
+  public static function getCodesAndRoles()
+  {
+    return array_flip(self::$roles);
+  }
 }
