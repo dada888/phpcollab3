@@ -36,8 +36,25 @@ abstract class PluginProjectUser extends BaseProjectUser
     }
   }
 
+  public static function getCodesAndRolesNoAdmin()
+  {
+    $roles = self::$roles;
+    unset($roles['admin']);
+    return array_flip($roles);
+  }
+
   public static function getCodesAndRoles()
   {
     return array_flip(self::$roles);
+  }
+
+  public function preSave($event)
+  {
+    parent::preSave($event);
+
+    if (!in_array($this->get('role'), self::$roles))
+    {
+      $this->set('role', self::$roles['developer']);
+    }
   }
 }

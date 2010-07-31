@@ -188,6 +188,7 @@ class idProjectActions extends sfActions
     $this->form_overview = new ProjectFormOnlyTitleAndDescription($this->project);
     $this->form_staff = new ProjectFormOnlyMembers($this->project);
     $this->form_tracker = new ProjectFormOnlyTrackers($this->project);
+    $this->forms_projectuser = ProjectUserForm::generateFormsForProject($this->project);
   }
 
   public function executeUpdateTitleAndDescription(sfWebRequest $request)
@@ -196,6 +197,7 @@ class idProjectActions extends sfActions
 
     $this->form_staff = new ProjectFormOnlyMembers($this->project);
     $this->form_tracker = new ProjectFormOnlyTrackers($this->project);
+    $this->forms_projectuser = ProjectUserForm::generateFormsForProject($this->project);
     
     $this->form_overview = new ProjectFormOnlyTitleAndDescription($this->project);
     $this->form_overview->bind($request->getParameter($this->form_overview->getName()));
@@ -215,6 +217,7 @@ class idProjectActions extends sfActions
     $this->form_staff = new ProjectFormOnlyMembers($this->project);
     $this->form_overview = new ProjectFormOnlyTitleAndDescription($this->project);
     $this->form_tracker = new ProjectFormOnlyTrackers($this->project);
+    $this->forms_projectuser = ProjectUserForm::generateFormsForProject($this->project);
 
     $this->form_tracker->bind($request->getParameter($this->form_tracker->getName()));
     if ($this->form_tracker->isValid())
@@ -229,10 +232,37 @@ class idProjectActions extends sfActions
   public function executeUpdateSettingsStaffList(sfWebRequest $request)
   {
     $this->form_staff = $this->validateStaffForm($request);
+    
     $this->form_overview = new ProjectFormOnlyTitleAndDescription($this->project);
     $this->form_tracker = new ProjectFormOnlyTrackers($this->project);
+    $this->forms_projectuser = ProjectUserForm::generateFormsForProject($this->project);
 
     $this->setTemplate('settings');
+  }
+
+  public function executeUpdateSettingsProjectUserRoleList(sfWebRequest $request)
+  {
+    $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
+    if(!$request->hasParameter('profile_id') ||
+       !($project_user = Doctrine::getTable('ProjectUser')->findOneByProjectIdAndProfileId($this->project->id, $request->getParameter('profile_id'))))
+    {
+      $this->getUser()->setFlash('error', 'Error submitting the project user role form.');
+      $this->redirect('@project_settings?id='.$this->project->id);
+    }
+
+    $form = new ProjectUserForm($project_user);
+    $form->bind($request->getParameter($form->getName()));
+    if ($form->isValid())
+    {
+      $form->save();
+      $this->getUser()->setFlash('notice', 'Modification applied with success');
+    }
+    else
+    {
+      $this->getUser()->setFlash('error', 'There are errors in the form submitted');
+    }
+    
+    $this->redirect('@project_settings?id='.$this->project->id);
   }
 
   /**

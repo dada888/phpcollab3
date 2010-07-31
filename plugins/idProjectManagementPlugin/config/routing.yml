@@ -65,13 +65,19 @@ sf_guard_user_show:
 
 project_staff_list:
   url:   /:sf_culture/idProject/:id/staff_list
-  param: { module: idProject, action: staffList}
+  param: { module: idProject, action: staffList }
   requirements:
     sf_culture: (?:en|it)
 
 update_project_staff_list:
   url:   /:sf_culture/idProject/:id/staff_list/update
-  param: { module: idProject, action: updateStaffList}
+  param: { module: idProject, action: updateStaffList }
+  requirements:
+    sf_culture: (?:en|it)
+
+update_project_user_role:
+  url:   /:sf_culture/idProject/:id/projectuser/update/:profile_id
+  param: { module: idProject, action: updateSettingsProjectUserRoleList }
   requirements:
     sf_culture: (?:en|it)
 

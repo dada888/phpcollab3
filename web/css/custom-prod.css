@@ -210,3 +210,22 @@ input[type="text"]
 {
   margin-bottom: 1.2em;
 }
+
+.project-user h4
+{
+  margin-bottom: 0px;
+}
+
+.project-user label
+{
+  float:left;
+  margin-top: 3px;
+  font-size: 1em;
+  width: 20%;
+}
+
+.project-user select
+{
+  float:right;
+  width: 80%;
+}
