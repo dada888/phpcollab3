@@ -12,25 +12,8 @@ $browser->
   click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  //click('Statuses')->
-  get('/en/idStatus')->
-
-  with('request')->begin()->
-    isParameter('module', 'idStatus')->
-    isParameter('action', 'index')->
-  end()->
-
-  with('response')->begin()->
-    isStatusCode(200)->
-    checkElement('div#block-tables div.secondary-navigation ul li a[href="/index.php/en/idStatus/new"]', 'Create new status')->
-
-    checkElement('#block-tables table.table th:contains("Id")')->
-    checkElement('#block-tables table.table th:contains("Name")')->
-    checkElement('#block-tables table.table th:contains("Status type")')->
-
-    checkElement('#block-tables table.table td a[href="/index.php/en/idStatus/edit/1"]')->
-    checkElement('#block-tables table.table td:contains("new")', 2)->
-  end()->
+  click('Settings')->
+  click('Statuses')->
 
   get('/en/idStatus/order', array('status' => array('casa'=>'2','1')), array('method' => 'POST'))->
 

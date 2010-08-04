@@ -12,6 +12,7 @@ get('/')->
 click('Login', array('signin' => array('username' => 'user', 'password' => 'user')))->
 followRedirect()->
 get('/en/idPriority')->
+
   with('response')->begin()->
     isStatusCode(403)->
   end()->
@@ -27,8 +28,8 @@ click('Logout')->
   click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  //click('Priorities')->
-  get('/en/idPriority')->
+  click('Settings')->
+  click('Priorities')->
 
   with('request')->begin()->
     isParameter('module', 'idPriority')->
@@ -38,11 +39,11 @@ click('Logout')->
   with('response')->begin()->
     isStatusCode(200)->
     
-    checkElement('div#block-tables div.secondary-navigation ul li a[href="/index.php/en/idPriority/new"]', 'Create new priority')->
+    checkElement('a[href="/index.php/en/idPriority/new"]', 'Add')->
 
-    checkElement('#block-tables table.table th:contains("Id")')->
-    checkElement('#block-tables table.table th:contains("Name")')->
+    checkElement('table.table th:contains("Id")')->
+    checkElement('table.table th:contains("Name")')->
 
-    checkElement('#block-tables table.table td a[href="/index.php/en/idPriority/edit/1"]')->
-    checkElement('#block-tables table.table td:contains("normal")')->
+    checkElement('table.table td a[href="/index.php/en/idPriority/edit/1"]')->
+    checkElement('table.table td:contains("normal")')->
 end();

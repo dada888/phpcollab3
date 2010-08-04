@@ -13,8 +13,8 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
 
   followRedirect()->
 
-  //click('Trackers')->
-  get('/en/idTrackers')->
+  click('Settings')->
+  click('Trackers')->
 
   with('response')->begin()->
     checkElement('td:contains("user story")')->

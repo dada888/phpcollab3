@@ -13,8 +13,8 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
 
   followRedirect()->
 
-  //click('Statuses')->
-  get('/en/idStatus')->
+  click('Settings')->
+  click('Statuses')->
 
   with('response')->begin()->
     checkElement('tr', 5)->
@@ -32,7 +32,7 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
     checkElement('td:contains("invalid")', 2)->
   end()->
 
-  click('Create new status')->
+  click('Add')->
 
   click('Save', array(
                       'status' => array(
@@ -44,7 +44,7 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
 
   followRedirect()->
 
-  click('Create new status')->
+  click('Add')->
 
   click('Save', array(
                       'status' => array(
@@ -64,10 +64,10 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
   followRedirect()->
 
   with('response')->begin()->
-    checkElement('#block-tables table.table td:contains("new")', false)->
-    checkElement('#block-tables table.table td:contains("invalid")', false)->
-    checkElement('#block-tables table.table td:contains("chichirichi")')->
-    checkElement('#block-tables table.table td:contains("pipponia")')->
+    checkElement('table.table td:contains("new")', false)->
+    checkElement('table.table td:contains("invalid")', false)->
+    checkElement('table.table td:contains("chichirichi")')->
+    checkElement('table.table td:contains("pipponia")')->
   end()
 
 ;

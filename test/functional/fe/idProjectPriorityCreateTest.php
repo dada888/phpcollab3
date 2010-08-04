@@ -11,10 +11,10 @@ get('/')->
 click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  //click('Priorities')->
-  get('/en/idPriority')->
+  click('Settings')->
+  click('Priorities')->
 
-  click('Create new priority')->
+  click('Add')->
 
   with('request')->begin()->
     isParameter('module', 'idPriority')->
@@ -37,6 +37,6 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
   with('response')->begin()->
     isStatusCode(200)->
 
-    checkElement('#block-tables table.table td a[href="/index.php/en/idPriority/edit/2"]')->
-    checkElement('#block-tables table.table td:contains("high")')->
+    checkElement('table.table td a[href="/index.php/en/idPriority/edit/2"]')->
+    checkElement('table.table td:contains("high")')->
 end();

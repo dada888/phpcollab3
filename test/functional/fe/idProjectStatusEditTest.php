@@ -11,8 +11,8 @@ get('/')->
 click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  //click('Statuses')->
-  get('/en/idStatus')->
+  click('Settings')->
+  click('Statuses')->
 
   click('Edit')->
 
@@ -46,8 +46,8 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
 
   with('response')->begin()->
     isStatusCode(200)->
-    checkElement('#block-tables table.table td:contains("invalid")')->
+    checkElement('table.table td:contains("invalid")')->
 
-    checkElement('#block-tables table.table td a[href="/index.php/en/idStatus/edit/1"]')->
-    checkElement('#block-tables table.table td:contains("closed")')->
+    checkElement('table.table td a[href="/index.php/en/idStatus/edit/1"]')->
+    checkElement('table.table td:contains("closed")')->
 end();

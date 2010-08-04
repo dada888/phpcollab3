@@ -1,11 +1,7 @@
 <?php slot('title', __('Edit user')) ?>
 
 <div class="span-23" id="content">
-  <div class="span-full last project-navigation">
-    <ul>
-      <li><?php echo link_to('Users', '@sf_guard_user'); ?></li>
-    </ul>
-  </div>
+  <?php include_partial('idProject/sub_menu_settings')?>
 
   <div class="span-full">
     <div class="title"><?php echo __('New user') ?></div>

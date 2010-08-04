@@ -11,10 +11,10 @@ get('/')->
 click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  //click('Trackers')->
-  get('/en/idTrackers')->
+  click('Settings')->
+  click('Trackers')->
 
-  click('Create new tracker')->
+  click('Add')->
 
   with('request')->begin()->
     isParameter('module', 'idTracker')->
@@ -37,6 +37,6 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
   with('response')->begin()->
     isStatusCode(200)->
 
-    checkElement('#block-tables table.table td a[href="/index.php/en/idTracker/edit/1"]')->
-    checkElement('#block-tables table.table td:contains("bug")')->
+    checkElement('table.table td a[href="/index.php/en/idTracker/edit/1"]')->
+    checkElement('table.table td:contains("bug")')->
 end();

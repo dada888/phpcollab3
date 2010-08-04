@@ -11,10 +11,10 @@ get('/')->
 click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  //click('Statuses')->
-  get('/en/idStatus')->
+  click('Settings')->
+  click('Statuses')->
 
-  click('Create new status')->
+  click('Add')->
   
 
   with('request')->begin()->
@@ -47,9 +47,9 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
   with('response')->begin()->
     isStatusCode(200)->
 
-    checkElement('#block-tables table.table th:contains("Status type")')->
-    checkElement('#block-tables table.table td:contains("rejected")')->
+    checkElement('table.table th:contains("Status type")')->
+    checkElement('table.table td:contains("rejected")')->
 
-    checkElement('#block-tables table.table td a[href="/index.php/en/idStatus/edit/2"]')->
-    checkElement('#block-tables table.table td:contains("rejected")')->
+    checkElement('table.table td a[href="/index.php/en/idStatus/edit/2"]')->
+    checkElement('table.table td:contains("rejected")')->
 end();

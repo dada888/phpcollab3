@@ -11,8 +11,8 @@ get('/')->
 click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  //click('Priorities')->
-  get('/en/idPriority')->
+  click('Settings')->
+  click('Priorities')->
 
   click('Edit')->
 
@@ -37,6 +37,6 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
   with('response')->begin()->
     isStatusCode(200)->
 
-    checkElement('#block-tables table.table td a[href="/index.php/en/idPriority/edit/1"]')->
-    checkElement('#block-tables table.table td:contains("high up")')->
+    checkElement('table.table td a[href="/index.php/en/idPriority/edit/1"]')->
+    checkElement('table.table td:contains("high up")')->
 end();

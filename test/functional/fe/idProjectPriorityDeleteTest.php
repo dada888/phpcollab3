@@ -13,13 +13,13 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
 
   followRedirect()->
 
-  //click('Priorities')->
-  get('/en/idPriority')->
+  click('Settings')->
+  click('Priorities')->
 
   with('response')->begin()->
     checkElement('tr', 3)->
-    checkElement('#block-tables table.table td:contains("normal")')->
-    checkElement('#block-tables table.table td:contains("high")')->
+    checkElement('table.table td:contains("normal")')->
+    checkElement('table.table td:contains("high")')->
   end()->
 
   click('Delete')->
@@ -28,11 +28,11 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
 
   with('response')->begin()->
     checkElement('tr', 2)->
-    checkElement('#block-tables table.table td:contains("normal")', false)->
-    checkElement('#block-tables table.table td:contains("high")')->
+    checkElement('table.table td:contains("normal")', false)->
+    checkElement('table.table td:contains("high")')->
   end()->
 
-  click('Create new priority')->
+  click('Add')->
 
   click('Save', array(
                       'priority' => array(
@@ -42,7 +42,7 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
 
   followRedirect()->
 
-  click('Create new priority')->
+  click('Add')->
 
   click('Save', array(
                       'priority' => array(
@@ -60,10 +60,10 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
   followRedirect()->
 
   with('response')->begin()->
-    checkElement('#block-tables table.table td:contains("normal")', false)->
-    checkElement('#block-tables table.table td:contains("high")', false)->
-    checkElement('#block-tables table.table td:contains("cesena")')->
-    checkElement('#block-tables table.table td:contains("micamale")')->
+    checkElement('table.table td:contains("normal")', false)->
+    checkElement('table.table td:contains("high")', false)->
+    checkElement('table.table td:contains("cesena")')->
+    checkElement('table.table td:contains("micamale")')->
   end()
 
 ;

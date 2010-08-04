@@ -12,8 +12,8 @@ $browser->
   click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  //click('Priorities')->
-  get('/en/idPriority')->
+  click('Settings')->
+  click('Priorities')->
 
   with('request')->begin()->
     isParameter('module', 'idPriority')->
@@ -22,14 +22,14 @@ $browser->
 
   with('response')->begin()->
     isStatusCode(200)->
-    checkElement('div#block-tables div.secondary-navigation ul li a[href="/index.php/en/idPriority/new"]', 'Create new priority')->
+    checkElement('a[href="/index.php/en/idPriority/new"]', 'Add')->
 
-    checkElement('#block-tables table.table th:contains("Id")')->
-    checkElement('#block-tables table.table th:contains("Name")')->
+    checkElement('table.table th:contains("Id")')->
+    checkElement('table.table th:contains("Name")')->
 
-    checkElement('#block-tables table.table td a[href="/index.php/en/idPriority/edit/1"]')->
-    checkElement('#block-tables table.table td:contains("normal")')->
-    checkElement('#block-tables table.table td:contains("high")')->
+    checkElement('table.table td a[href="/index.php/en/idPriority/edit/1"]')->
+    checkElement('table.table td:contains("normal")')->
+    checkElement('table.table td:contains("high")')->
   end()->
 
   get('/en/idPriority/order', array('priority' => array('2','1')), array('method' => 'POST'))->
@@ -38,8 +38,8 @@ $browser->
 
   with('response')->begin()->
     isStatusCode(200)->
-    checkElement('#block-tables table.table td', '2', array('position' => 1))->
-    checkElement('#block-tables table.table td', '1', array('position' => 8))->
+    checkElement('table.table td', '2', array('position' => 1))->
+    checkElement('table.table td', '1', array('position' => 8))->
   end()->
 
   click('Up')->
@@ -52,8 +52,8 @@ $browser->
 
   with('response')->begin()->
     isStatusCode(200)->
-    checkElement('#block-tables table.table td', '1', array('position' => 1))->
-    checkElement('#block-tables table.table td', '2', array('position' => 8))->
+    checkElement('table.table td', '1', array('position' => 1))->
+    checkElement('table.table td', '2', array('position' => 8))->
   end()->
 
   click('Down')->
@@ -66,8 +66,8 @@ $browser->
 
   with('response')->begin()->
     isStatusCode(200)->
-    checkElement('#block-tables table.table td', '2', array('position' => 1))->
-    checkElement('#block-tables table.table td', '1', array('position' => 8))->
+    checkElement('table.table td', '2', array('position' => 1))->
+    checkElement('table.table td', '1', array('position' => 8))->
   end()
 
 ;

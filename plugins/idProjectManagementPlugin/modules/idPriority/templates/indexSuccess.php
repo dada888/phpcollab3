@@ -1,28 +1,29 @@
 <?php slot('title', __('Manage priorities')) ?>
 
-<div class="block" id="block-tables">
-  <?php include_partial('create_priority_menu'); ?>
-  <div class="content">
-    <div class="inner">
-      <h2 class="title"><?php echo __('Priorities list') ?></h2>
+<div class="span-23" id="content">
+  <?php include_partial('idProject/sub_menu_settings')?>
+  <div class="title">
+    <span><?php echo __('Priorities'); ?></span>
+    <a id="add-log-time"class="button block-green medium-round" href="<?php echo url_for('@new_priority') ?>">Add</a>
+  </div>
+  
+  <div class="flash" id="feedback2">
+    <?php if ($sf_user->hasFlash('notice')): ?>
+        <div class="message notice">
+          <?php echo __($sf_user->getFlash('notice')); ?>
+        </div>
+    <?php endif;?>
 
-      <div class="flash" id="feedback2">
-        <?php if ($sf_user->hasFlash('notice')): ?>
-            <div class="message notice">
-              <?php echo __($sf_user->getFlash('notice')); ?>
-            </div>
-        <?php endif;?>
-
-        <?php if ($sf_user->hasFlash('error')): ?>
-            <div class="message error">
-              <?php echo __($sf_user->getFlash('error')); ?>
-            </div>
-        <?php endif;?>
-      </div>
+    <?php if ($sf_user->hasFlash('error')): ?>
+        <div class="message error">
+          <?php echo __($sf_user->getFlash('error')); ?>
+        </div>
+    <?php endif;?>
+  </div>
 
         <table class="table" id="priorities-list-table">
 
-          <tr>
+          <tr class="menu">
             <th class="first">&nbsp;</th>
             <th><?php echo __('Id') ?></th>
             <th><?php echo __('Name') ?></th>
@@ -74,7 +75,6 @@
           <?php endif; ?>
           </tbody>
         </table>
-
         
 
 <script type="text/javascript">
@@ -103,9 +103,5 @@ $(document).ready(
   });
 //]]>
 </script>
-
-
-    </div>
-  </div>
 </div>
 

@@ -27,8 +27,8 @@ click('Logout')->
   click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  //click('Statuses')->
-  get('/en/idStatus')->
+  click('Settings')->
+  click('Statuses')->
 
   with('request')->begin()->
     isParameter('module', 'idStatus')->
@@ -38,12 +38,12 @@ click('Logout')->
   with('response')->begin()->
     isStatusCode(200)->
     
-    checkElement('div#block-tables div.secondary-navigation ul li a[href="/index.php/en/idStatus/new"]', 'Create new status')->
+    checkElement('a[href="/index.php/en/idStatus/new"]', 'Add')->
 
-    checkElement('#block-tables table.table th:contains("Id")')->
-    checkElement('#block-tables table.table th:contains("Name")')->
-    checkElement('#block-tables table.table th:contains("Status type")')->
+    checkElement('table.table th:contains("Id")')->
+    checkElement('table.table th:contains("Name")')->
+    checkElement('table.table th:contains("Status type")')->
 
-    checkElement('#block-tables table.table td a[href="/index.php/en/idStatus/edit/1"]')->
-    checkElement('#block-tables table.table td:contains("new")', 2)->
+    checkElement('table.table td a[href="/index.php/en/idStatus/edit/1"]')->
+    checkElement('table.table td:contains("new")', 2)->
 end();

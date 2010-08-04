@@ -17,10 +17,7 @@ prod:
   doctrine:
     class: sfDoctrineDatabase
     param:
-#      dsn: 'sqlite:%SF_DATA_DIR%/phpcollab.db'
-      dsn: 'mysql:host=localhost;dbname=phpcollab'
-      username: phpcollab
-      password: p4pCollab
+      dsn: 'sqlite:%SF_DATA_DIR%/phpcollab_demo.db'
 
 test:
   doctrine:

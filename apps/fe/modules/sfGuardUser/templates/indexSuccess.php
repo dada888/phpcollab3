@@ -1,11 +1,7 @@
 <?php slot('title', __('Manage users')) ?>
 
 <div class="span-23" id="content">
-  <div class="span-full last project-navigation">
-    <ul>
-      <li><?php echo link_to('Users', '@sf_guard_user'); ?></li>
-    </ul>
-  </div>
+  <?php include_partial('idProject/sub_menu_settings')?>
 
   <div id="block-filters" class="span-full">
     <h2 class="title"><?php echo __('User filters') ?></h2>

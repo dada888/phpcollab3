@@ -11,8 +11,8 @@ get('/')->
 click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   followRedirect()->
 
-  //click('Trackers')->
-  get('/en/idTrackers')->
+  click('Settings')->
+  click('Trackers')->
 
   click('Edit')->
 
@@ -41,7 +41,7 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
 
   with('response')->begin()->
     isStatusCode(200)->
-    checkElement('#block-tables table.table td:contains("user story the best")')->
+    checkElement('table.table td:contains("user story the best")')->
   end()->
 
   click('Edit')->
