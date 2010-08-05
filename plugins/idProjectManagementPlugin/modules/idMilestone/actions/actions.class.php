@@ -134,6 +134,7 @@ class idMilestoneActions extends sfActions
     $this->forward404Unless($milestone->getProjectId() == $request->getParameter('project_id'));
 
     $milestone->delete();
+    $this->getUser()->setFlash('notice', 'Milestone deleted successfully');
 
     $this->redirect('@show_project?id='.$milestone->getProjectId());
   }
@@ -150,7 +151,7 @@ class idMilestoneActions extends sfActions
     if ($form->isValid())
     {
       $milestone = $form->save();
-      $this->redirect('@show_project?id='.$milestone->getProjectId());
+      $this->redirect('@edit_milestone?project_id='.$milestone->getProjectId().'&milestone_id='.$milestone->getId());
     }
   }
 }

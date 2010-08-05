@@ -74,7 +74,7 @@ $browser->click('Save', array('issue' => array(
 
   with('request')->begin()->
     isParameter('module', 'idIssue')->
-    isParameter('action', 'index')->
+    isParameter('action', 'edit')->
   end()->
 
   responseContains('new ticket up')->
@@ -100,7 +100,7 @@ $browser->click('Save', array('issue' => array(
 
   with('request')->begin()->
     isParameter('module', 'idIssue')->
-    isParameter('action', 'index')->
+    isParameter('action', 'edit')->
   end()->
 
   click('Dashboard')->
@@ -171,8 +171,10 @@ $browser->click('Save', array('issue' => array(
 
   with('request')->begin()->
     isParameter('module', 'idIssue')->
-    isParameter('action', 'index')->
+    isParameter('action', 'edit')->
   end()->
+
+  click('Issues')->
 
   click('#1')->
 

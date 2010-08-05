@@ -190,11 +190,8 @@ class idLogtimeActions extends sfActions
     $form->bind($parameters);
     if ($form->isValid())
     {
-      $operation = $form->getObject()->isNew() ? 'create' : 'update';
       $log_time = $form->save();
-      
       $this->getUser()->setFlash('success', 'Log time added');
-
       $this->redirect($this->referer);
     }
   }

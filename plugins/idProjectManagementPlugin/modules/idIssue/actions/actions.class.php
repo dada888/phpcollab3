@@ -140,6 +140,8 @@ class idIssueActions extends sfActions
     $project_id = $request->getParameter('project_id');
 
     $issue->delete();
+    $this->getUser()->setFlash('notice', 'Issue deleted succesfully');
+    
     $this->redirect('@index_issue?project_id='.$project_id);
   }
 
@@ -213,25 +215,9 @@ class idIssueActions extends sfActions
     $form->bind($this->fixParameterForOpenOrClosedIssue($request->getParameter($form->getName()), $form->getObject()));
     if ($form->isValid())
     {
-      $operation = $form->getObject()->isNew() ? 'create' : 'update';
       $issue = $form->save();
-      
-//      the operation of saving this issue again cannot be done cause of a bug on the embedded for that we thought was solved during the phpday2009
-//      $issue->save();
-//
-//      if ($issue->hasBeenClosed())
-//      {
-//        $issue->setEndingDate(date('Y-m-d H:i:s', time()));
-//      }
-//
-//      if ($issue->hasBeenReopen())
-//      {
-//        $issue->setEndingDate(null);
-//      }
-
-      
-
-      $this->redirect('@index_issue?project_id='.$issue->project_id);
+      $this->getUser()->setFlash('notice', 'Issue saved');
+      $this->redirect('@edit_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
     }
   }
 }

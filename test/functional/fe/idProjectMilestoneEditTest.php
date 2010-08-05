@@ -35,9 +35,8 @@ $browser->
   followRedirect()->
 
   with('request')->begin()->
-    isParameter('module', 'idProject')->
-    isParameter('action', 'show')->
-    isParameter('id', '3')->
+    isParameter('module', 'idMilestone')->
+    isParameter('action', 'edit')->
   end()->
 
   click('Milestones')->

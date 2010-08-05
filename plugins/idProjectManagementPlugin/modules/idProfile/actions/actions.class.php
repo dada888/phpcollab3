@@ -15,16 +15,6 @@ class idProfileActions extends sfActions
     $this->forward404Unless($this->getUser()->isMyProfile($this->getUser()->getGuardUser()->getid()));
   }
 
-  public function executeNew(sfWebRequest $request)
-  {
-    $this->forward404();
-  }
-
-  public function executeCreate(sfWebRequest $request)
-  {
-    $this->forward404();
-  }
-
   public function executeEdit(sfWebRequest $request)
   {
     $this->form = new idProfileForm($this->getUser()->getGuardUser());
@@ -41,11 +31,6 @@ class idProfileActions extends sfActions
     $this->processForm($request, $this->form);
     
     $this->setTemplate('edit');
-  }
-
-  public function executeDelete(sfWebRequest $request)
-  {
-    $this->forward404();
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)

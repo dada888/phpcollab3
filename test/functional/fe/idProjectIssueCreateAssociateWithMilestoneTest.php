@@ -52,8 +52,10 @@ $browser->click('Save', array('issue' => array(
 
   with('request')->begin()->
     isParameter('module', 'idIssue')->
-    isParameter('action', 'index')->
+    isParameter('action', 'edit')->
   end()->
+
+  click('Issues')->
 
   click('Last')->
 

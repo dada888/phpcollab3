@@ -163,6 +163,7 @@ class idProjectActions extends sfActions
 
     $this->forward404Unless($project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
     $project->delete();
+    $this->getUser()->setFlash('notice', 'Project dleted successfully');
 
     $this->redirect('idProject/index');
   }

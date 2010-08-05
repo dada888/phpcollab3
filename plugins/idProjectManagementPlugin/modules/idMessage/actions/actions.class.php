@@ -22,11 +22,6 @@ class idMessageActions extends sfActions
     $this->pager->setMaxPerPage(sfConfig::get('mod_maxperpage_logtime', 10));
     $this->pager->setPage($this->getRequestParameter('page',1));
     $this->pager->init();
-
-/*
-    $this->message_list = Doctrine::getTable('Message')
-      ->createQuery('a')
-      ->execute();*/
   }
 
   public function executeShow(sfWebRequest $request)
@@ -41,7 +36,6 @@ class idMessageActions extends sfActions
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new MessageForm();
-    
     $this->setTemplate('edit');
   }
 
@@ -82,7 +76,9 @@ class idMessageActions extends sfActions
 
     $this->forward404Unless($message = Doctrine::getTable('Message')->find(array($request->getParameter('message_id'))), sprintf('Object message does not exist (%s).', array($request->getParameter('message_id'))));
     $this->forward404Unless($message->project_id == $request->getParameter('project_id'));
+
     $message->delete();
+    $this->getUser()->setFlash('notice', 'Message deleted successfully');
 
     $this->redirect('@index_messages?project_id='.$request->getParameter('project_id'));
   }
