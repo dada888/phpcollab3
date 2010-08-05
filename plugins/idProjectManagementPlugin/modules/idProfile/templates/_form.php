@@ -66,7 +66,7 @@
       <tr class="odd">
         <td colspan="2">
           <?php echo $form->renderHiddenFields() ?>
-          &nbsp;<a href="<?php echo url_for('@index_profile') ?>"><?php echo __('Cancel'); ?></a>
+          &nbsp;<a href="<?php echo url_for('@index_profile') ?>"><?php echo __('Back to list'); ?></a>
           <input type="submit" value="<?php echo __('Save') ?>" class="button" />
         </td>
       </tr>

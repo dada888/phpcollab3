@@ -28,7 +28,7 @@
         <?php echo $form->renderHiddenFields() ?>
       </div>
       <div class="span-3">
-        <?php echo link_to(__('Cancel'), '@index_status', array('class' => 'button block-yellow medium-round')) ?>
+        <?php echo link_to(__('Back to list'), '@index_status', array('class' => 'button block-yellow medium-round')) ?>
       </div>
       <div class="span-4 last">&nbsp;
         <?php if (!$form->getObject()->isNew()): ?>

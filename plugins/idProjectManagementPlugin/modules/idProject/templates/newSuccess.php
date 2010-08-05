@@ -67,7 +67,7 @@
         <?php echo $form->renderHiddenFields() ?>
       </div>
       <div class="span-3 last">
-        <a href="<?php echo url_for('@index_project') ?>" class="button block-red medium-round"><?php echo __('Cancel'); ?></a>
+        <a href="<?php echo url_for('@index_project') ?>" class="button block-red medium-round"><?php echo __('Back to list'); ?></a>
       </div>
       <div class="clear"></div>
     </form>

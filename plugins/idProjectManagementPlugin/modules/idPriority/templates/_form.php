@@ -32,7 +32,7 @@
     <tr>
       <td colspan="2">
         <?php echo $form->renderHiddenFields() ?>
-        &nbsp;<?php echo link_to(__('Cancel'), '@index_priority') ?>
+        &nbsp;<?php echo link_to(__('Back to list'), '@index_priority') ?>
         <?php if (!$form->getObject()->isNew()): ?>
           &nbsp;<?php echo link_to(__('Delete'), '@delete_priority?id='.$form->getObject()->getid(), array('method' => 'delete', 'confirm' => __('Do you really want to delete this priority?'))) ?>
         <?php endif; ?>

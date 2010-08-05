@@ -37,7 +37,7 @@
     <tr>
       <td colspan="2">
         <?php echo $form->renderHiddenFields() ?>
-        &nbsp;<?php echo link_to(__('Cancel'), '@index_status') ?>
+        &nbsp;<?php echo link_to(__('Back to list'), '@index_status') ?>
         <?php if (!$form->getObject()->isNew()): ?>
           &nbsp;<?php echo link_to(__('Delete'), '@delete_status?id='.$form->getObject()->getid(), array('method' => 'delete', 'confirm' => __('Do you really want to delete this status?'))) ?>
         <?php endif; ?>

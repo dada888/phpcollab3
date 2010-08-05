@@ -34,7 +34,7 @@
       <?php echo $form->renderHiddenFields() ?>
     </div>
     <div class="span-6 right last append-1">
-      <?php echo link_to('Cancel', (isset($referer) && !empty($referer)) ? $referer : '@index_logtime', array('class' => 'button block-red medium-round')); ?>
+      <?php echo link_to('Back to list', (isset($referer) && !empty($referer)) ? $referer : '@index_logtime', array('class' => 'button block-red medium-round')); ?>
     </div>
     <div class="clear"></div>
   </div>

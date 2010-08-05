@@ -34,7 +34,7 @@ $browser->
     isParameter('action', 'new')->
   end()->
 
-  click('Cancel')->
+  click('Back to list')->
   with('request')->begin()->
     isParameter('module', 'idLogtime')->
     isParameter('action', 'index')->
