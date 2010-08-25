@@ -27,7 +27,7 @@ sfGuardPermission:
     name: user
     description: 'Basic user permission'
   sfGuardPermission_3:
-    name: 'project manager
+    name: 'project manager'
     description: 'Project Manager'
   sfGuardPermission_4:
     name: customer
