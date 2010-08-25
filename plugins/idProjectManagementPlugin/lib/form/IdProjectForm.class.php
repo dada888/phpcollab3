@@ -36,7 +36,7 @@ class idProjectForm extends ProjectForm
    */
   public function configure()
   {
-    $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->retriveAllButSuperAdmin()));
+    $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoice(array('model' => 'Profile', 'multiple' => true, 'query' => $this->retriveAllButSuperAdmin()));
     
     $this->validatorSchema['name'] = new sfValidatorString(
                                             array('max_length' => 64, 'min_length' => 3,'required' => true),
@@ -53,7 +53,7 @@ class idProjectForm extends ProjectForm
                                             array('invalid' => 'invalid'
                                                   )
                                                 );
-    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Profile', 'required' => false, 'query' => $this->retriveAllButSuperAdmin()));
+    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoice(array('model' => 'Profile', 'multiple' => true, 'required' => false, 'query' => $this->retriveAllButSuperAdmin()));
     
     parent::configure();
 

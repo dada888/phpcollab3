@@ -9,8 +9,7 @@ class ProjectConfiguration extends sfProjectConfiguration
   {
     sfYaml::setSpecVersion('1.1');
 
-    $this->enableAllPluginsExcept(array('sfPropelPlugin',
-                                        'sfCompat10Plugin'));
+    $this->enableAllPluginsExcept(array('sfPropelPlugin'));
 
   }
 

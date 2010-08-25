@@ -52,19 +52,19 @@
               <td>
                 <p style="display: none;" class="drag-me"><?php echo __('Drag me up and down'); ?></p>
                 <?php if ($index > 1): ?>
-                  <?php echo form_tag('idStatus/orderStatus') ?>
-                    <?php echo input_hidden_tag('position', $status->position) ?>
-                    <?php echo input_hidden_tag('move', 'up') ?>
-                    <?php echo submit_tag('Up', 'class=button') ?>
+                  <form action="<?php echo url_for("idStatus/orderStatus") ?>" method="post">
+                    <input type="hidden" name="position" value="<?php echo $status->position ?>" />
+                    <input type="hidden" name="move" value="up" />
+                    <input type="submit" value="Up" class="button" />
                   </form>
                 <?php endif; ?>
               </td>
               <td>
                 <?php if ($index < $count): ?>
-                  <?php echo form_tag('idStatus/orderStatus') ?>
-                    <?php echo input_hidden_tag('position', $status->position) ?>
-                    <?php echo input_hidden_tag('move', 'down') ?>
-                    <?php echo submit_tag('Down', 'class=button') ?>
+                  <form action="<?php echo url_for("idStatus/orderStatus") ?>" method="post">
+                    <input type="hidden" name="position" value="<?php echo $status->position ?>" />
+                    <input type="hidden" name="move" value="down" />
+                    <input type="submit" value="Down" class="button" />
                   </form>
                 <?php endif; ?>
               </td>

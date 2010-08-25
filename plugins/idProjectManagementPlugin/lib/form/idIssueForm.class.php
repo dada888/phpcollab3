@@ -150,9 +150,9 @@ class idIssueForm extends IssueForm
     
     $this->widgetSchema['ending_date'] = new sfWidgetFormDate();
     $this->widgetSchema['project_id'] = new sfWidgetFormInputHidden();
-    $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->getQueryForUsers()));
-    $this->widgetSchema['milestone_id'] = new sfWidgetFormDoctrineSelect(array('model' => 'Milestone', 'add_empty' => true, 'query' => $this->getQueryForMilestones()));
-    $this->widgetSchema['issues_list'] = new sfWidgetFormDoctrineChoiceMany(array('model' => 'Issue', 'query' => $this->getQueryForRelatedIssue()));
+    $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoice(array('model' => 'Profile', 'multiple' => true, 'query' => $this->getQueryForUsers()));
+    $this->widgetSchema['milestone_id'] = new sfWidgetFormDoctrineChoice(array('model' => 'Milestone', 'add_empty' => true, 'query' => $this->getQueryForMilestones()));
+    $this->widgetSchema['issues_list'] = new sfWidgetFormDoctrineChoice(array('model' => 'Issue', 'multiple' => true, 'query' => $this->getQueryForRelatedIssue()));
     $this->widgetSchema['issues_list']->setAttribute('size', 5);
 
 
@@ -161,10 +161,10 @@ class idIssueForm extends IssueForm
     $this->validatorSchema['starting_date'] = new sfValidatorDate(array('required' => false));
     $this->validatorSchema['ending_date'] = new sfValidatorDate(array('required' => false));
     $this->validatorSchema['project_id'] = new sfValidatorDoctrineChoice(array('model' => 'Project', 'column' => 'id', 'required' => true));
-    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Profile', 'query' => $this->getQueryForUsers(), 'required' => false));
+    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoice(array('model' => 'Profile', 'multiple' => true, 'query' => $this->getQueryForUsers(), 'required' => false));
     $this->validatorSchema['milestone_id'] = new sfValidatorDoctrineChoice(array('model' => 'Milestone', 'query' => $this->getQueryForMilestones(), 'required' => false));
     $this->validatorSchema['title'] = new sfValidatorString(array('required' => true,'max_length' => 256), array('required' => 'Title is mandatory'));
-    $this->validatorSchema['issues_list'] = new sfValidatorDoctrineChoiceMany(array('model' => 'Issue', 'required' => false, 'query' => $this->getQueryForRelatedIssue()));
+    $this->validatorSchema['issues_list'] = new sfValidatorDoctrineChoice(array('model' => 'Issue', 'multiple' => true, 'required' => false, 'query' => $this->getQueryForRelatedIssue()));
     $this->validatorSchema['estimated_time'] = new sfValidatorNumber(array('min' => '0', 'required' => false), array('min' => 'You cannot set a negative estimated time'));
 
     unset($this['created_at']);

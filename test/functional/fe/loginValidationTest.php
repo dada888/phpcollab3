@@ -8,24 +8,37 @@ $browser->
   get('/')->
 
   click('Login', array('signin' => array('username' => '', 'password' => '')))->
-  responseContains('The username and/or password is invalid.')->
+  with('response')->begin()->
+    checkElement('body:contains("The username and/or password is invalid.")')->
+  end()->
 
   click('Login', array('signin' => array('username' => 'nouser', 'password' => 'nouser')))->
-  responseContains('The username and/or password is invalid.')->
+  with('response')->begin()->
+    checkElement('body:contains("The username and/or password is invalid.")')->
+  end()->
 
   click('Login', array('signin' => array('username' => 'nouser', 'password' => '')))->
-  responseContains('The username and/or password is invalid.')->
-
+  with('response')->begin()->
+    checkElement('body:contains("The username and/or password is invalid.")')->
+  end()->
+  
   click('Login', array('signin' => array('username' => '', 'password' => 'nouser')))->
-  responseContains('The username and/or password is invalid.')->
+  with('response')->begin()->
+    checkElement('body:contains("The username and/or password is invalid.")')->
+  end()->
   
   click('Login', array('signin' => array('username' => '', 'password' => 'nouser', 'remember' => '12')))->
-  responseContains('Invalid.')->
+  with('response')->begin()->
+    checkElement('body:contains("Invalid.")')->
+  end()->
 
   click('Login', array('signin' => array('username' => '', 'password' => 'nouser', 'remember' => '-1')))->
-  responseContains('Invalid.')->
+  with('response')->begin()->
+    checkElement('body:contains("Invalid.")')->
+  end()->
 
   click('Login', array('signin' => array('username' => 'my', 'password' => 'nouser', 'extra_field' => 'extra')))->
-  responseContains('Unexpected extra form field named "extra_field".')
-
+  with('response')->begin()->
+    checkElement('body:contains("Unexpected extra form field")')->
+  end()
 ;

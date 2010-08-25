@@ -32,4 +32,6 @@ $browser->click('Save', array('issue' => array(
     'milestone_id'       => 1
   )), array('methos'=>'post'))->
 
-  responseContains('Invalid.');
+  with('response')->begin()->
+    checkElement('body:contains("Invalid.")')->
+  end();

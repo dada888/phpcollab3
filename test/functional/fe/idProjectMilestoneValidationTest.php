@@ -23,11 +23,15 @@ $browser->
     'title'           => ''
   )), array('methos'=>'post'))->
 
-  responseContains('Title is mandatory')->
+  with('response')->begin()->
+    checkElement('body:contains("Title is mandatory")')->
+  end()->
 
   click('Save', array('milestone' => array(
     'title'           => 'titolo',
     'project_id'      => -1
   )), array('methos'=>'post'))->
 
-  responseContains('Invalid');
+  with('response')->begin()->
+    checkElement('body:contains("Invalid")')->
+  end();

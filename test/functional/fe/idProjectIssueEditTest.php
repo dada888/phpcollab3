@@ -48,8 +48,9 @@ $browser->
     isParameter('issue_id', '1')->
     isParameter('project_id', '3')->
   end()->
-
-  responseContains('Tracker')->
+  with('response')->begin()->
+    checkElement('body:contains("Tracker")')->
+  end()->
 
   with('response')->begin()->
     checkElement('select[id="issue_tracker_id"]')->
@@ -76,8 +77,9 @@ $browser->click('Save', array('issue' => array(
     isParameter('module', 'idIssue')->
     isParameter('action', 'edit')->
   end()->
-
-  responseContains('new ticket up')->
+  with('response')->begin()->
+    checkElement('input[value="new ticket up"]')->
+  end()->
 
   click('Dashboard')->
 

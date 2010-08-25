@@ -24,10 +24,11 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
     isParameter('module', 'idProject')->
     isParameter('action', 'index')->
   end()->
-
-  responseContains('Il mio primo progetto')->
-  responseContains('Il mio secondo progetto')->
-  responseContains('Il mio terzo progetto')->
+  with('response')->begin()->
+    checkElement('body:contains("Il mio primo progetto")')->
+    checkElement('body:contains("Il mio secondo progetto")')->
+    checkElement('body:contains("Il mio terzo progetto")')->
+  end()->
 
 
   with('response')->begin()->
@@ -51,8 +52,9 @@ $browser->info('Testing the right behaviour of the filters form')->
   click('Filter', array('project_filters' => array(
     'name'      => '12345678901234567890123456789012345678901234567890123456789012345',
   )))->
-
-  responseContains('Project name 12345678901234567890123456789012345678901234567890123456789012345 is too long (max 64 chars).')->
+  with('response')->begin()->
+    checkElement('body:contains("Project name 12345678901234567890123456789012345678901234567890123456789012345 is too long (max 64 chars).")')->
+  end()->
 
   info('2) Returns the right list of projects containg the word "primo" in ther names')->
   click('Filter', array('project_filters' => array(

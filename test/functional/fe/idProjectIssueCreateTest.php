@@ -82,7 +82,9 @@ $browser->click('Save', array('issue' => array(
 
   click('Issues')->
   click('Last')->
-  responseContains('new ticket')->
+  with('response')->begin()->
+    checkElement('body:contains("new ticket")')->
+  end()->
 
   get('/en/idProject/3/idIssue/edit/113')->
 

@@ -31,8 +31,9 @@ $browser->initializeDatabase();
                                                         )
                         )
        , array('method' => 'post'))->
-
-  responseContains('Username: Required.')->
+  with('response')->begin()->
+    checkElement('body:contains("Username: Required.")')->
+  end()->
 
   click('Save', array('sf_guard_user' => array(
                                                           'username' => 'pippo',
@@ -46,8 +47,9 @@ $browser->initializeDatabase();
                                                         )
                         )
        , array('method' => 'post'))->
-
-  responseContains('Username: Invalid.')->
+  with('response')->begin()->
+    checkElement('body:contains("Username: Invalid.")')->
+  end()->
 
   click('Save', array('sf_guard_user' => array(
                                                           'username' => 'puser',
@@ -61,8 +63,9 @@ $browser->initializeDatabase();
                                                         )
                         )
        , array('method' => 'post'))->
-
-  responseContains('The two passwords must be the same.')->
+  with('response')->begin()->
+    checkElement('body:contains("The two passwords must be the same.")')->
+  end()->
 
   click('Save', array('sf_guard_user' => array(
                                                           'username' => 'puser',
@@ -76,6 +79,7 @@ $browser->initializeDatabase();
                                                         )
                         )
        , array('method' => 'post'))->
-
-  responseContains('Invalid email address')
+  with('response')->begin()->
+    checkElement('body:contains("Invalid email address")')->
+  end()
 ;

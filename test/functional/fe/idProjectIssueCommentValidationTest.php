@@ -23,8 +23,10 @@ $browser->
   )), array('method'=>'post'))->
   followRedirect()->
 
-responseContains('Body is mandatory')->
-responseContains('Title is mandatory')->
+  with('response')->begin()->
+    checkElement('body:contains("Body is mandatory")')->
+    checkElement('body:contains("Title is mandatory")')->
+  end()->
 
 click('Leave a comment', array('fd_comment' => array(
     'title'          => '',
@@ -61,7 +63,9 @@ click('Leave a comment', array('fd_comment' => array(
   )), array('method'=>'post'))->
 followRedirect()->
 
-responseContains('is too long (3000 characters max)')->
+with('response')->begin()->
+  checkElement('body:contains("is too long (3000 characters max)")')->
+end()->
 
 click('Leave a comment', array('fd_comment' => array(
     'body'           => '1234567890',
@@ -69,8 +73,9 @@ click('Leave a comment', array('fd_comment' => array(
   )), array('method'=>'post'))->
 
 followRedirect()->
-
-responseContains('Unexpected extra form field named "issue_id"')->
+with('response')->begin()->
+  checkElement('body:contains("Unexpected extra form field")')->
+end()->
 
 get('/')->
 click('Projects')->
@@ -84,7 +89,8 @@ click('Leave a comment', array('fd_comment' => array(
   )), array('method'=>'post'))->
 
 followRedirect()->
-
-responseContains('Unexpected extra form field named "issue_id"')->
-responseContains('Title is mandatory')
+with('response')->begin()->
+  checkElement('body:contains("Unexpected extra form field")')->
+  checkElement('body:contains("Title is mandatory")')->
+end()
 ;

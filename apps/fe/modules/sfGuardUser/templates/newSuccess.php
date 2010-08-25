@@ -89,7 +89,7 @@
       </div>
       <div class="clear"></div>
       <div class="span-7">
-        <?php echo input_tag('Submit', __('Save'), array('class' => 'button', 'type' => 'submit'))?>
+        <input type="submit" class="button" value="Save"/>
         <?php echo link_to(__('Cancel'), 'sf_guard_user'); ?>
       </div>
       <?php echo $form->renderHiddenFields() ?>

@@ -43,6 +43,6 @@ $browser->initializeDatabase();
     isParameter('module', 'idProfile')->
     isParameter('action', 'index')->
   end()->
-  responseContains('mariotto')
-  
-;
+  with('response')->begin()->
+    checkElement('body:contains("mariotto")')->
+  end();

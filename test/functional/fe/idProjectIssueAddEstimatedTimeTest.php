@@ -86,6 +86,6 @@ $browser->
     isParameter('issue_id', '1')->
   end()->
 
-  responseContains('You cannot set a negative estimated time')
-
-;
+  with('response')->begin()->
+    checkElement('body:contains("You cannot set a negative estimated time")')->
+  end();

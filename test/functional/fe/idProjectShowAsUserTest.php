@@ -34,8 +34,9 @@ click('Login', array('signin' => array('username' => 'puser', 'password' => 'pus
   with('response')->begin()->
     isStatusCode('200')->
   end()->
-
-  responseContains('Il terzo progetto creato')->
+  with('response')->begin()->
+    checkElement('body:contains("Il terzo progetto creato")')->
+  end()->
 
   with('response')->begin()->
     checkElement('a[href="/index.php/en/idProject/edit/3"]', false)->

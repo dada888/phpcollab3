@@ -31,14 +31,18 @@ $browser->click('Save', array('issue' => array(
     'users_list'       => array('1')
   )), array('methos'=>'post'))->
 
-  responseContains('Invalid.');
+  with('response')->begin()->
+    checkElement('body:contains("Invalid.")')->
+  end();
 
 
   $browser->click('Save', array('issue' => array(
     'title'           => ''
   )), array('methos'=>'post'))->
 
-  responseContains('Title is mandatory');
+  with('response')->begin()->
+    checkElement('body:contains("Title is mandatory")')->
+  end();
 
   $browser->click('Save', array('issue' => array(
     'title'           => 'new ticket',
@@ -50,7 +54,9 @@ $browser->click('Save', array('issue' => array(
     'issues_list'     => array('11111111111')
   )), array('methos'=>'post'))->
 
-  responseContains('Invalid.');
+  with('response')->begin()->
+    checkElement('body:contains("Invalid.")')->
+  end();
 
   $browser->click('Save', array('issue' => array(
     'title'           => 'new ticket',
@@ -62,4 +68,6 @@ $browser->click('Save', array('issue' => array(
     'issues_list'     => array('-20')
   )), array('methos'=>'post'))->
 
-  responseContains('Invalid.');
+  with('response')->begin()->
+    checkElement('body:contains("Invalid.")')->
+  end();

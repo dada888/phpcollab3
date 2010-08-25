@@ -16,31 +16,41 @@ $browser->
   click('Statuses')->
 
   get('/en/idStatus/order', array('status' => array('casa'=>'2','1')), array('method' => 'POST'))->
-
-  responseContains('Some error occurred processing your request.')->
+  with('response')->begin()->
+    checkElement('body:contains("Some error occurred processing your request.")')->
+  end()->
 
   get('/en/idStatus/order', array('status' => array('38'=>'2','1')), array('method' => 'POST'))->
 
-  responseContains('Some error occurred processing your request.')->
+  with('response')->begin()->
+    checkElement('body:contains("Some error occurred processing your request.")')->
+  end()->
 
   get('/en/idStatus/order', array('status' => array()), array('method' => 'POST'))->
-
-  responseContains('Invalid request')->
+  with('response')->begin()->
+    checkElement('body:contains("Invalid request")')->
+  end()->
 
   get('/en/idStatus')->
 
   post('/en/idStatus/orderStatus', array('casa'=>'2','1'))->
   followRedirect()->
 
-  responseContains('Some error occurred processing your request.')->
+  with('response')->begin()->
+    checkElement('body:contains("Some error occurred processing your request.")')->
+  end()->
 
   post('/en/idStatus/orderStatus', array('move'=>'pippi','position' => '33'))->
   followRedirect()->
 
-  responseContains('Some error occurred processing your request.')->
+  with('response')->begin()->
+    checkElement('body:contains("Some error occurred processing your request.")')->
+  end()->
 
   post('/en/idStatus/orderStatus', array())->
   followRedirect()->
-  responseContains('Some error occurred processing your request.')
+  with('response')->begin()->
+    checkElement('body:contains("Some error occurred processing your request.")')->
+  end()
 
 ;

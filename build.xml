@@ -1,0 +1,25 @@
+<project name="phpCollab" default="runtest" basedir="." >
+
+<property file='default.properties' />
+
+ <target name="clear-cache">
+   <exec dir="."
+         executable="php"
+         failonerror="true">
+     <arg line=" ./symfony cc"/>
+   </exec>
+ </target>
+
+ <target  name="runtest"
+          description="lancia tutti i test dell'applicazione">
+
+  <exec executable="php"
+        failonerror="true">
+   <arg line="	./symfony
+                test:${test.group}
+                ${test.app}
+                ${test.filter}" />
+  </exec>
+ </target>
+ 
+</project>

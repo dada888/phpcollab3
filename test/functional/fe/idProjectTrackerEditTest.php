@@ -59,6 +59,7 @@ click('Login', array('signin' => array('username' => 'admin', 'password' => 'adm
                                        )
                      )
        )->
-
-  responseContains('is too long (128 characters max)');
+  with('response')->begin()->
+    checkElement('body:contains("is too long (128 characters max)")')->
+  end();
 

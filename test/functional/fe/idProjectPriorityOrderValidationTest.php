@@ -16,31 +16,40 @@ $browser->
   click('Priorities')->
 
   get('/en/idPriority/order', array('priority' => array('casa'=>'2','1')), array('method' => 'POST'))->
-
-  responseContains('Some error occurred processing your request.')->
-
+  with('response')->begin()->
+    checkElement('body:contains("Some error occurred processing your request.")')->
+  end()->
+  
   get('/en/idPriority/order', array('priority' => array('38'=>'2','1')), array('method' => 'POST'))->
-
-  responseContains('Some error occurred processing your request.')->
+  with('response')->begin()->
+    checkElement('body:contains("Some error occurred processing your request.")')->
+  end()->
 
   get('/en/idPriority/order', array('priority' => array()), array('method' => 'POST'))->
-
-  responseContains('Invalid request')->
+  with('response')->begin()->
+    checkElement('body:contains("Invalid request")')->
+  end()->
 
   get('/en/idPriority')->
 
   post('/en/idPriority/orderPriority', array('casa'=>'2','1'))->
   followRedirect()->
 
-  responseContains('Some error occurred processing your request.')->
+  with('response')->begin()->
+    checkElement('body:contains("Some error occurred processing your request.")')->
+  end()->
 
   post('/en/idPriority/orderPriority', array('move'=>'pippi','position' => '33'))->
   followRedirect()->
 
-  responseContains('Some error occurred processing your request.')->
+  with('response')->begin()->
+    checkElement('body:contains("Some error occurred processing your request.")')->
+  end()->
 
   post('/en/idPriority/orderPriority', array())->
   followRedirect()->
-  responseContains('Some error occurred processing your request.')
+  with('response')->begin()->
+    checkElement('body:contains("Some error occurred processing your request.")')->
+  end()
 
 ;

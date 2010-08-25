@@ -36,6 +36,8 @@ $browser->
     isParameter('id', '1')->
   end()->
 
-  responseContains('Mario W.')->
-  responseContains('mario@example.com')->
-  responseContains('developer');
+  with('response')->begin()->
+    checkElement('body:contains("Mario W.")')->
+    checkElement('body:contains("mario@example.com")')->
+    checkElement('body:contains("developer")')->
+  end();

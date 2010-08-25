@@ -68,8 +68,10 @@ $browser->info('Creation of a new project')->
     isParameter('action', 'show')->
   end()->
 
-  responseContains('NewProject')->
-  responseContains('what a beautiful new project!!')->
+  with('response')->begin()->
+    checkElement('body:contains("NewProject")')->
+    checkElement('body:contains("what a beautiful new project!!")')->
+  end()->
 
   get('/')->
   click('Logout')->
