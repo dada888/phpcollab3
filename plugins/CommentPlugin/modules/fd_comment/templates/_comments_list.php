@@ -4,7 +4,7 @@
       <p><?php echo __('No Results') ?></p>
     </div>
   <?php else: ?>
-    <?php echo include_partial('fd_comment/comments', array('pager' => $pager, 'profile_enabled' => $profile_enabled)); ?>
+    <?php echo include_partial('fd_comment/comments', array('pager' => $pager, 'user_enabled' => $user_enabled)); ?>
   <?php endif; ?>
   <div id="pager_navigation">
     <?php echo ajax_pager_navigation($pager, url_for('@fd_ajax_comment_list'.$url_parameter)); ?>

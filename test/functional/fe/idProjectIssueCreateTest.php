@@ -52,8 +52,10 @@ $browser->
     checkElement('select[id="issue_milestone_id"]')->
 
     checkElement('select[id="issue_related_issue_list"] option[value="74"]', false)->
-    checkElement('select[id="issue_users_list"] option[value="1"]', false)->
-    checkElement('select[id="issue_users_list"] option[value="4"]', false)->
+    checkElement('select[id="issue_users_list"] option[value="3"]', 1)->
+    checkElement('select[id="issue_users_list"] option[value="2"]', 1)->
+    checkElement('select[id="issue_users_list"] option[value="8"]', 1)->
+    checkElement('select[id="issue_users_list"] option', 3)->
 
     checkElement('select[id="issue_starting_date_month"] option[value="'.$today[1].'"][selected="selected"]')->
     checkElement('select[id="issue_starting_date_day"] option[value="'.$today[2].'"][selected="selected"]')->

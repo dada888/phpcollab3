@@ -72,7 +72,7 @@ class idLogtimeActions extends sfActions
     $this->issue = $this->checkUserAgainstIssueAndProject($request);
 
     $this->pager = new sfDoctrinePager('LogTime',10);
-    $this->pager->setQuery(Doctrine::getTable('LogTime')->getQueryForUserLogTimeFromProjectAndIssue($this->getUser()->getGuardUser()->getProfile()->getId(), $this->issue->project_id, $this->issue->id));
+    $this->pager->setQuery(Doctrine::getTable('LogTime')->getQueryForUserLogTimeFromProjectAndIssue($this->getUser()->getGuardUser()->getId(), $this->issue->project_id, $this->issue->id));
     $this->pager->setMaxPerPage(sfConfig::get('mod_maxperpage_logtime', 10));
     $this->pager->setPage($this->getRequestParameter('page',1));
     $this->pager->init();
@@ -184,7 +184,7 @@ class idLogtimeActions extends sfActions
     
     if (!$this->getUser()->isAdmin())
     {
-      $parameters['profile_id'] = $this->getUser()->getProfile()->getId();
+      $parameters['user_id'] = $this->getUser()->getId();
     }
 
     $form->bind($parameters);

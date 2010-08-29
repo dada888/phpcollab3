@@ -244,8 +244,8 @@ class idProjectActions extends sfActions
   public function executeUpdateSettingsProjectUserRoleList(sfWebRequest $request)
   {
     $this->forward404Unless($this->project = Doctrine::getTable('Project')->find(array($request->getParameter('id'))), sprintf('Object project does not exist (%s).', array($request->getParameter('id'))));
-    if(!$request->hasParameter('profile_id') ||
-       !($project_user = Doctrine::getTable('ProjectUser')->findOneByProjectIdAndProfileId($this->project->id, $request->getParameter('profile_id'))))
+    if(!$request->hasParameter('user_id') ||
+       !($project_user = Doctrine::getTable('ProjectUser')->findOneByProjectIdAndUserId($this->project->id, $request->getParameter('user_id'))))
     {
       $this->getUser()->setFlash('error', 'Error submitting the project user role form.');
       $this->redirect('@project_settings?id='.$this->project->id);
@@ -281,10 +281,8 @@ class idProjectActions extends sfActions
       $project = $form->save();
       if (!$this->getUser()->isAdmin())
       {
-        $user_profile = $this->getUser()->getGuardUser()->getProfile();
-        $project->users[0] = $user_profile;
+        $project->users[0] = $this->getUser()->getGuardUser();
         $project->save();
-        $user_profile->refreshRelated();
       }
 
       $this->redirect('@show_project?id='.$project->getId());

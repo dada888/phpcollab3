@@ -30,7 +30,7 @@
         <?php foreach ($pager->getResults() as $log_time): ?>
         <li class="icon-time span-22 last">
           <ul>
-            <li class="span-3"><?php echo $log_time->getProfile()->getShortName() ?></li>
+            <li class="span-3"><?php echo short_name($log_time->getSfGuardUser()) ?></li>
             <li class="span-9"><strong>&nbsp;<?php echo $log_time->getComment() ?></strong></li>
             <li class="span-3"><?php echo format_date($log_time->getCreatedAt(), 'MMMM dd yyyy', $sf_user->getCulture()) ?></li>
             <li class="span-2"><?php echo $log_time->getLogTime() ?></li>

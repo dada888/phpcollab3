@@ -4,6 +4,7 @@ sfGuardUser:
     password: admin
     is_active: true
     is_super_admin: true
+    email_address: example1@example.com
 
 sfGuardGroup:
   sfGuardGroup_1:
@@ -35,21 +36,21 @@ sfGuardPermission:
 
 sfGuardGroupPermission:
   sfGuardGroupPermission_1_1:
-    sfGuardGroup: sfGuardGroup_1
-    sfGuardPermission: sfGuardPermission_1
+    Group: sfGuardGroup_1
+    Permission: sfGuardPermission_1
   sfGuardGroupPermission_2_2:
-    sfGuardGroup: sfGuardGroup_2
-    sfGuardPermission: sfGuardPermission_2
+    Group: sfGuardGroup_2
+    Permission: sfGuardPermission_2
   sfGuardGroupPermission_3_3:
-    sfGuardGroup: sfGuardGroup_3
-    sfGuardPermission: sfGuardPermission_3
+    Group: sfGuardGroup_3
+    Permission: sfGuardPermission_3
   sfGuardGroupPermission_4_4:
-    sfGuardGroup: sfGuardGroup_4
-    sfGuardPermission: sfGuardPermission_4
+    Group: sfGuardGroup_4
+    Permission: sfGuardPermission_4
 
 sfGuardUserGroup:
   sfGuardUserGroup_1_1:
-    sfGuardUser: sfGuardUser_1
-    sfGuardGroup: sfGuardGroup_1
+    User: sfGuardUser_1
+    Group: sfGuardGroup_1
 
 

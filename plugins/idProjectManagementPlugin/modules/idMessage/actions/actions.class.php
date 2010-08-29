@@ -30,7 +30,7 @@ class idMessageActions extends sfActions
     $this->forward404Unless($this->message->project_id == $request->getParameter('project_id'));
 
     $this->commentForm = new fdCommentForm($this->message, 'id', $request->getParameter('message_id'));
-    $this->commentForm->setDefault('profile_id', $this->getUser()->getGuardUser()->getProfile()->getId());
+    $this->commentForm->setDefault('user_id', $this->getUser()->getGuardUser()->getId());
   }
 
   public function executeNew(sfWebRequest $request)
@@ -94,7 +94,7 @@ class idMessageActions extends sfActions
 
       if ($is_new)
       {
-        $message->setProfileId($this->getUser()->getGuardUser()->getProfile()->getId());
+        $message->setUserId($this->getUser()->getGuardUser()->getId());
         $message->setProjectId($request->getParameter('project_id'));
         $message->setCreatedAt(date('Y-m-d', time()));
         $message->save();

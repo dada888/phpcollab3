@@ -70,8 +70,8 @@ $browser->
   with('response')->begin()->
     isStatusCode('200')->
 
-    checkElement('ul li:contains("Prog P.")')->
-    checkElement('ul li:contains("Mario W.")')->
+    checkElement('ul li:contains("User U.")')->
+    checkElement('ul li:contains("Puser P.")')->
 
   end()
 

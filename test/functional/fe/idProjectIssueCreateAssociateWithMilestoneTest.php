@@ -47,7 +47,6 @@ $browser->click('Save', array('issue' => array(
     'milestone_id'       => 3
   )), array('methos'=>'post'))->
 
-
   followRedirect()->
 
   with('request')->begin()->

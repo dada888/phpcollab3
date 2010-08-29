@@ -1,4 +1,4 @@
 sfGuardGroupPermission:
   sfGuardGroupPermission_1_1:
-    sfGuardGroup: sfGuardGroup_1
-    sfGuardPermission: sfGuardPermission_1
+    Group: sfGuardGroup_1
+    Permission: sfGuardPermission_1

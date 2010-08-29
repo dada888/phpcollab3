@@ -266,7 +266,7 @@ class ReturnValuesManager{
   {
       $this->returnValues($methodName, $at, new ReturnValuesManager($ChildClass));
       $this->methodSet($methodName);
-      $this->setClassDeclaration($ChildClass, $class_extends, $implements);
+      $this->setClassDeclaration($ChildClass, $extends, $implements);
       return $this;
   }
 

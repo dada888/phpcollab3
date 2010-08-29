@@ -28,7 +28,9 @@ class idProjectForm extends ProjectForm
    */
   private function retriveAllButSuperAdmin()
   {
-    return Doctrine::getTable('Profile')->retrieveQueryForAllButSuperAdmin();
+    return Doctrine_Query::create()
+            ->from('sfGuardUser u')
+            ->where('u.is_super_admin = 0');
   }
 
   /**
@@ -36,7 +38,7 @@ class idProjectForm extends ProjectForm
    */
   public function configure()
   {
-    $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoice(array('model' => 'Profile', 'multiple' => true, 'query' => $this->retriveAllButSuperAdmin()));
+    $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoice(array('model' => 'sfGuardUser', 'multiple' => true, 'query' => $this->retriveAllButSuperAdmin()));
     
     $this->validatorSchema['name'] = new sfValidatorString(
                                             array('max_length' => 64, 'min_length' => 3,'required' => true),
@@ -53,7 +55,7 @@ class idProjectForm extends ProjectForm
                                             array('invalid' => 'invalid'
                                                   )
                                                 );
-    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoice(array('model' => 'Profile', 'multiple' => true, 'required' => false, 'query' => $this->retriveAllButSuperAdmin()));
+    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoice(array('model' => 'sfGuardUser', 'multiple' => true, 'required' => false, 'query' => $this->retriveAllButSuperAdmin()));
     
     parent::configure();
 

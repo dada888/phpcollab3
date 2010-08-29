@@ -64,8 +64,8 @@ class idIssueForm extends IssueForm
   private function getQueryForUsers()
   {
     $q = Doctrine_Query::create()
-      ->from('Profile p')
-      ->leftJoin('p.projects pj')
+      ->from('sfGuardUser u')
+      ->leftJoin('u.Projects pj')
       ->where('pj.id = '.$this->project_id);
 
     return $q;
@@ -150,7 +150,7 @@ class idIssueForm extends IssueForm
     
     $this->widgetSchema['ending_date'] = new sfWidgetFormDate();
     $this->widgetSchema['project_id'] = new sfWidgetFormInputHidden();
-    $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoice(array('model' => 'Profile', 'multiple' => true, 'query' => $this->getQueryForUsers()));
+    $this->widgetSchema['users_list'] = new sfWidgetFormDoctrineChoice(array('model' => 'sfGuardUser', 'multiple' => true, 'query' => $this->getQueryForUsers()));
     $this->widgetSchema['milestone_id'] = new sfWidgetFormDoctrineChoice(array('model' => 'Milestone', 'add_empty' => true, 'query' => $this->getQueryForMilestones()));
     $this->widgetSchema['issues_list'] = new sfWidgetFormDoctrineChoice(array('model' => 'Issue', 'multiple' => true, 'query' => $this->getQueryForRelatedIssue()));
     $this->widgetSchema['issues_list']->setAttribute('size', 5);
@@ -161,7 +161,7 @@ class idIssueForm extends IssueForm
     $this->validatorSchema['starting_date'] = new sfValidatorDate(array('required' => false));
     $this->validatorSchema['ending_date'] = new sfValidatorDate(array('required' => false));
     $this->validatorSchema['project_id'] = new sfValidatorDoctrineChoice(array('model' => 'Project', 'column' => 'id', 'required' => true));
-    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoice(array('model' => 'Profile', 'multiple' => true, 'query' => $this->getQueryForUsers(), 'required' => false));
+    $this->validatorSchema['users_list'] = new sfValidatorDoctrineChoice(array('model' => 'sfGuardUser', 'multiple' => true, 'query' => $this->getQueryForUsers(), 'required' => false));
     $this->validatorSchema['milestone_id'] = new sfValidatorDoctrineChoice(array('model' => 'Milestone', 'query' => $this->getQueryForMilestones(), 'required' => false));
     $this->validatorSchema['title'] = new sfValidatorString(array('required' => true,'max_length' => 256), array('required' => 'Title is mandatory'));
     $this->validatorSchema['issues_list'] = new sfValidatorDoctrineChoice(array('model' => 'Issue', 'multiple' => true, 'required' => false, 'query' => $this->getQueryForRelatedIssue()));

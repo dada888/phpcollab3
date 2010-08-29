@@ -43,7 +43,7 @@ $browser->info('Edit prject overview')->
   end();
 
 $browser->info('Edit prject staff')->
-  setField('project[users_list]', array(2, 3, 4))->
+  setField('project[users_list]', array(3, 4, 5))->
   click('input[id="update-staff"]')->
 
   with('form')->begin()->
@@ -53,7 +53,7 @@ $browser->info('Edit prject staff')->
   with('response')->begin()->
     isStatusCode(200)->
     checkElement('.notice', '/Project staff updated successfully/')->
-    checkElement('select option[selected="selected"][value="2"]')->
+    checkElement('select option[selected="selected"][value="5"]')->
     checkElement('select option[selected="selected"][value="3"]')->
     checkElement('select option[selected="selected"][value="4"]')->
   end();

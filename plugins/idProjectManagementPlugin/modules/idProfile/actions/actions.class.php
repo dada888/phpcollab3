@@ -12,12 +12,12 @@ class idProfileActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forward404Unless($this->getUser()->isMyProfile($this->getUser()->getGuardUser()->getid()));
+    $this->forward404Unless($this->getUser()->isMyProfile($this->getUser()->getGuardUser()->getId()));
   }
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->form = new idProfileForm($this->getUser()->getGuardUser());
+    $this->form = new collabUserForm($this->getUser()->getGuardUser());
     $this->form->setDefault('username', $this->getUser()->getGuardUser()->getUsername());
   }
 
@@ -25,7 +25,7 @@ class idProfileActions extends sfActions
   {
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
 
-    $this->form = new idProfileForm($this->getUser()->getGuardUser());
+    $this->form = new collabUserForm($this->getUser()->getGuardUser());
     $this->form->setDefault('username', $this->getUser()->getGuardUser()->getUsername());
     
     $this->processForm($request, $this->form);
@@ -38,7 +38,7 @@ class idProfileActions extends sfActions
     $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
-      $profile = $form->save();
+      $form->save();
       $this->redirect('@index_profile');
     }
   }

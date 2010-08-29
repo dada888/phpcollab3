@@ -4,26 +4,26 @@
  */
 class PluginLogTimeTable extends Doctrine_Table
 {
-  public function getLogTimeForIssueByUser($issue_id, $profile_id)
+  public function getLogTimeForIssueByUser($issue_id, $user_id)
   {
-    return $this->getQueryForLogtimesForIssueByUser($issue_id, $profile_id)->
+    return $this->getQueryForLogtimesForIssueByUser($issue_id, $user_id)->
                   select('SUM(lt.log_time) as logtimes')->
                   execute(array(), Doctrine::HYDRATE_ARRAY);
   }
 
-  protected function getQueryForLogtimesForIssueByUser($issue_id, $profile_id)
+  protected function getQueryForLogtimesForIssueByUser($issue_id, $user_id)
   {
     return Doctrine_Query::create()
             ->from('LogTime lt')
             ->leftJoin('lt.issue i')
-            ->leftJoin('lt.profile p')
-            ->addWhere('lt.profile_id = ? ',$profile_id)
+            ->leftJoin('lt.sfGuardUser p')
+            ->addWhere('lt.user_id = ? ',$user_id)
             ->addWhere('lt.issue_id = ? ',$issue_id);
   }
 
-  public function getLogTimeByIssueAndProfile($issue_id, $profile_id)
+  public function getLogTimeByIssueAndUser($issue_id, $user_id)
   {
-    return $this->getQueryForLogtimesForIssueByUser($issue_id, $profile_id)
+    return $this->getQueryForLogtimesForIssueByUser($issue_id, $user_id)
                 ->execute();
   }
 
@@ -32,7 +32,7 @@ class PluginLogTimeTable extends Doctrine_Table
     return Doctrine_Query::create()
             ->from('LogTime lt')
             ->leftJoin('lt.issue i')
-            ->leftJoin('lt.profile p')
+            ->leftJoin('lt.sfGuardUser p')
             ->orderBy('lt.created_at DESC');
   }
 
@@ -49,10 +49,10 @@ class PluginLogTimeTable extends Doctrine_Table
             ->andWhere('i.id = ? ', $issue_id);
   }
 
-  public function getQueryForUserLogTimeFromProjectAndIssue($profile_id, $project_id, $issue_id)
+  public function getQueryForUserLogTimeFromProjectAndIssue($user_id, $project_id, $issue_id)
   {
     return $this->getQueryForAllLogTimeFromProjectAndIssue($project_id, $issue_id)
-            ->andWhere('p.id = ? ', $profile_id);
+            ->andWhere('p.id = ? ', $user_id);
   }
 
   public function getLogtimeForProjectByUser($project_id)

@@ -14,7 +14,7 @@ abstract class PluginMessageForm extends BaseMessageForm
     parent::setup();
     
     unset(
-      $this['profile_id'], $this['project_id'], $this['created_at']
+      $this['user_id'], $this['project_id'], $this['created_at']
     );
 
     $this->widgetSchema['title'] = new sfWidgetFormInputText();

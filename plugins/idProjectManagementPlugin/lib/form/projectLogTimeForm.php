@@ -20,10 +20,16 @@ class projectLogTimeForm extends PluginLogTimeForm
     }
     
     parent::configure();
+
+    $q = Doctrine_Query::create()
+            ->leftJoin('sfGuardUser u')
+            ->leftJoin('u.Projects ps')
+            ->where('ps.id = ?', $this->project_id);
+
     $this->widgetSchema['issue_id']->setOption('query', Doctrine::getTable('Issue')->getQueryForProjectIssues($this->project_id));
-    $this->widgetSchema['profile_id']->setOption('query', Doctrine::getTable('Profile')->getQueryForProjectUsers($this->project_id));
+    $this->widgetSchema['user_id']->setOption('query', $q);
     
     $this->validatorSchema['issue_id']->setOption('query', Doctrine::getTable('Issue')->getQueryForProjectIssues($this->project_id));
-    $this->validatorSchema['profile_id']->setOption('query', Doctrine::getTable('Profile')->getQueryForProjectUsers($this->project_id));
+    $this->validatorSchema['user_id']->setOption('query', $q);
   }
 }

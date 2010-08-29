@@ -49,12 +49,11 @@
                                                             'url' => '@edit_project_staff?id='.$project->id)); ?>
       </div>
       <div id="usersroles" class="settings">
-        <?php //include_partial('idProject/projectuser_form', array('form' => $form_projectuser)); ?>
         <?php foreach($forms_projectuser as $key => $form_projectuser): ?>
-          <form id="project_user_<?php echo $key ?>" class="project-user" action="<?php echo url_for('@update_project_user_role?id='.$project->id.'&profile_id='.$form_projectuser->getObject()->getProfile()->getId())?>" method="post">
+          <form id="project_user_<?php echo $key ?>" class="project-user" action="<?php echo url_for('@update_project_user_role?id='.$project->id.'&user_id='.$form_projectuser->getObject()->getUserId())?>" method="post">
             <div class="span-7" >
-              <h4><?php echo $form_projectuser->getObject()->getProfile()->getUser()->getUsername();?></h4>
-              <?php echo $form_projectuser->getObject()->getProfile()->getEmail();?>
+              <h4><?php echo $form_projectuser->getObject()->getSfGuardUser()->getUsername();?></h4>
+              <?php echo $form_projectuser->getObject()->getSfGuardUser()->getEmailAddress();?>
             </div>
             <div class="span-12" >
               <?php echo $form_projectuser ?>

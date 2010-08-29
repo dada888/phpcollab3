@@ -13,6 +13,7 @@ class LogMessageGenerator
 //TO DO: can we get the right "url" from routing? (=> without using sfContext)
     sfContext::getInstance()->getConfiguration()->loadHelpers(array('Url'));
     sfContext::getInstance()->getConfiguration()->loadHelpers(array('Tag'));
+    
     $object_class = strtolower(get_class($object));
 
     switch ($object_class)
@@ -39,8 +40,10 @@ class LogMessageGenerator
 
   public static function generate($user, $action, $object)
   {
+    sfContext::getInstance()->getConfiguration()->loadHelpers(array('collabUser'));
+
     $suffix = 'd';
-    $user_ref = is_null($user) ? 'user_name#"Mr. CLI"' : 'user_name#"'.$user->getProfile()->getShortName().'" ';
+    $user_ref = is_null($user) ? 'user_name#"Mr. CLI"' : 'user_name#"'.short_name($user->getGuardUser()).'" ';
     $link_to_object = self::getLinkForObject($object);
     
     if ($action == "add")

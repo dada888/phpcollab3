@@ -23,7 +23,7 @@ $browser->
 
     checkElement('#usersroles form', 2)->
     checkElement('#usersroles form:contains("puser")')->
-    checkElement('#usersroles form:contains("puser@example.com")')->
+    checkElement('#usersroles form:contains("example7@example.com")')->
     checkElement('#usersroles form[id="project_user_1"] select option', 3)->
     checkElement('#usersroles form[id="project_user_1"] select option[selected="selected"][value="2"]', 'developer')->
     checkElement('#usersroles form[id="project_user_1"] select option[value="3"]', 'project manager')->

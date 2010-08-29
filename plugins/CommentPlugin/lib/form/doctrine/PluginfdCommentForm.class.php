@@ -5,7 +5,7 @@ abstract class PluginfdCommentForm extends BasefdCommentForm
   protected $model = '';
   protected $model_field = '';
   protected $model_field_value;
-  protected $profile_configuration;
+  protected $user_configuration;
 
   public function __construct($model_object, $model_field,  $model_field_value, $object = null, $options = array(), $CSRFSecret = null)
   {
@@ -20,7 +20,7 @@ abstract class PluginfdCommentForm extends BasefdCommentForm
     $this->model = get_class($model_object);
     $this->model_field = $model_field;
     $this->model_field_value = $model_field_value;
-    $this->profile_configuration = sfConfig::get('sf_confing_comments_plugin_Profile', array());
+    $this->user_configuration = sfConfig::get('sf_confing_comments_plugin_Profile', array());
     
     parent::__construct($object, $options, $CSRFSecret);
   }
@@ -57,7 +57,7 @@ abstract class PluginfdCommentForm extends BasefdCommentForm
                              'created_at' => date('Y-m-d H:i:s', time()),
                            ));
     
-    $this->widgetSchema['profile_id'] = new sfWidgetFormInputHidden();
+    $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
 
     $this->validatorSchema['model'] = new sfValidatorChoice(array('choices' => array($this->model)));
     $this->validatorSchema['model_field'] = new sfValidatorChoice(array('choices' => array($this->model_field)));
@@ -66,9 +66,9 @@ abstract class PluginfdCommentForm extends BasefdCommentForm
     $this->validatorSchema['body']->setOption('required', true);
     $this->validatorSchema['body']->setMessage('required', 'Body is mandatory');
 
-    if (isset($this->profile_configuration['enabled']) && $this->profile_configuration['enabled'])
+    if (isset($this->user_configuration['enabled']) && $this->user_configuration['enabled'])
     {
-      $this->validatorSchema['profile_id'] = new sfValidatorDoctrineChoice(array('model' => $this->profile_configuration['class_name'], 'required' => true));
+      $this->validatorSchema['user_id'] = new sfValidatorDoctrineChoice(array('model' => $this->user_configuration['class_name'], 'required' => true));
     }
   }
 }

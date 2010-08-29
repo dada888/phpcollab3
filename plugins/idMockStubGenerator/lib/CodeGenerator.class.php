@@ -155,6 +155,9 @@ class CodeGenerator{
      * @return string
      */
     public function generateMethodCode($actual_value, $method){
+
+        $code = '';
+
         //controllo che cosa devo restituire
         if($actual_value instanceof ReturnValuesManager){
             try

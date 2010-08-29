@@ -8,7 +8,7 @@ class PluginMessageTable extends Doctrine_Table
   {
     return Doctrine_Query::create()
             ->from('Message m')
-            ->leftJoin('m.UserProfile up')
+            ->leftJoin('m.sfGuardUser up')
             ->leftJoin('m.project p')
             ->where('m.project_id = '. $project_id)
             ->orderBy('m.created_at DESC');

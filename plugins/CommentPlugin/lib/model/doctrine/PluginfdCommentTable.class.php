@@ -29,46 +29,46 @@ class PluginfdCommentTable extends Doctrine_Table
             ->orderBy('fdc.created_at DESC');
   }
 
-  public function getQueryForCommentsByProfileId($profile_id)
+  public function getQueryForCommentsByUserId($user_id)
   {
     return $this->getQueryForComments()
-            ->andWhere('fdc.profile_id = ?', $profile_id);
+            ->andWhere('fdc.user_id = ?', $user_id);
   }
 
-  public function getQueryForCommentsByProfileIdAndModel($profile_id, $model_name)
+  public function getQueryForCommentsByUserIdAndModel($user_id, $model_name)
   {
     return $this->getQueryForCommentsByModel($model_name)
-            ->andWhere('fdc.profile_id = ?', $profile_id);
+            ->andWhere('fdc.user_id = ?', $user_id);
   }
 
-  public function getQueryForCommentsByProfileIdAndModelAndModelFieldValue($profile_id, $model_name, $model_name_value)
+  public function getQueryForCommentsByUserIdAndModelAndModelFieldValue($user_id, $model_name, $model_name_value)
   {
-    return $this->getQueryForCommentsByProfileIdAndModel($profile_id, $model_name)
+    return $this->getQueryForCommentsByUserIdAndModel($user_id, $model_name)
             ->andWhere('fdc.model_field_value = ?', $model_name_value);
   }
 
-  public function getQueryForProfilesByModelAndModelFieldValue($model_name, $model_name_value)
+  public function getQueryForUsersByModelAndModelFieldValue($model_name, $model_name_value)
   {
     $config = sfConfig::get('sf_confing_comments_plugin_Profile', array());
     $q = new Doctrine_RawSql();
     $q->select('{p.*}')
-      ->from($config['class_name'].' as p LEFT JOIN fd_comment as fd ON p.'.$config['class_id'].' = fd.profile_id')
+      ->from(sfInflector::underscore($config['class_name']).' as p LEFT JOIN fd_comment as fd ON p.'.$config['class_id'].' = fd.user_id')
       ->addComponent('p', $config['class_name'].' p')
       ->where('fd.model = ?', $model_name)
-      ->andWhere('fd.profile_id = p.'.$config['class_id'])
+      ->andWhere('fd.user_id = p.'.$config['class_id'])
       ->andWhere('fd.model_field_value = ?', $model_name_value)
-      ->groupBy('fd.profile_id');
+      ->groupBy('fd.user_id');
 
     return $q;
   }
 
-  public function getProfileForComment($profile_id)
+  public function getUserForComment($user_id)
   {
     $config = sfConfig::get('sf_confing_comments_plugin_Profile', array());
     
     return Doctrine_Query::create()
             ->from($config['class_name'].' as p')
-            ->where('p.'.$config['class_id'].' = ? ', $profile_id)
+            ->where('p.'.$config['class_id'].' = ? ', $user_id)
             ->fetchOne();
   }
 }

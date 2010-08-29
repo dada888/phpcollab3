@@ -16,9 +16,9 @@
 
           <tr class="odd">
             <td><?php echo link_to($sf_user->getGuardUser()->getUsername(), '@edit_profile'); ?></td>
-            <td><?php echo $sf_user->getGuardUser()->Profile->getFirstName() ?></td>
-            <td><?php echo $sf_user->getGuardUser()->Profile->getLastName() ?></td>
-            <td><?php echo $sf_user->getGuardUser()->Profile->getEmail() ?></td>
+            <td><?php echo $sf_user->getGuardUser()->getFirstName() ?></td>
+            <td><?php echo $sf_user->getGuardUser()->getLastName() ?></td>
+            <td><?php echo $sf_user->getGuardUser()->getEmailAddress() ?></td>
             <td>&nbsp;</td>
           </tr>
         </table>

@@ -1,76 +1,108 @@
 sfGuardUser:
   sfGuardUser_1:
+    id: 1
     username: admin
+    first_name: amministro
+    last_name: amministro
     algorithm: sha1
     salt: cb7ddae023af5af0e091412bebe69e38
     password: admin
     is_active: true
     is_super_admin: true
     last_login: null
+    email_address: example1@example.com
     created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
     updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-3 day")); ?>'
   sfGuardUser_2:
+    id: 2
     username: user
+    first_name: User
+    last_name: Userone
     algorithm: sha1
     salt: 7042a9a97aab3384e472d917ea493730
     password: user
     is_active: true
     is_super_admin: false
     last_login: null
+    email_address: example2@example.com
     created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
     updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_3:
+    id: 3
     username: puser
     algorithm: sha1
+    first_name: Puser
+    last_name: PUserone
     salt: 855a7d1f9b163e84ca2c4941d667f9dd
     password: puser
     is_active: true
     is_super_admin: false
     last_login: null
+    email_address: example3@example.com
     created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
     updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_4:
+    id: 4
     username: nopuser
+    first_name: NOuser
+    last_name: NOUserone
     algorithm: sha1
     salt: 5aa8032282daf8ba303e76cac1c87005
     password: nopuser
     is_active: true
     is_super_admin: false
     last_login: null
+    email_address: example4@example.com
     created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
     updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_5:
+    id: 5
     username: userp2
+    first_name: Fifth
+    last_name: Userone
     algorithm: sha1
     salt: 5aa8032282daf8ba303e76cac1c87005
     password: userp2
     is_active: true
     is_super_admin: false
     last_login: null
+    email_address: example5@example.com
     created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
     updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_6:
+    id: 6
     username: sesto
+    first_name: Sixth
+    last_name: Userone
     algorithm: sha1
     salt: 5aa8032282daf8ba303e76cac1c87005
     password: sesto
     is_active: true
     is_super_admin: false
     last_login: null
+    email_address: example6@example.com
     created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
     updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_7:
+    id: 7
     username: pmanager
+    first_name: Manager
+    last_name: Project
     algorithm: sha1
     salt: 2b20841d437ae8929904602c3c4ab1d2
     password: pmanager
     is_active: true
     is_super_admin: false
     last_login: null
+    email_address: example7@example.com
     created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
     updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_8:
+    id: 8
     username: customer
     password: customer
+    first_name: Customer
+    last_name: Project
     is_active: true
     is_super_admin: false
+    email_address: example8@example.com

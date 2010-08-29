@@ -25,7 +25,7 @@
             <li class="span-5"><?php echo link_to($milestone->title, '@show_milestone?project_id='.$milestone->project_id.'&milestone_id='.$milestone->id) ?></li>
             <li class="span-4"><?php echo format_date($milestone->starting_date, 'dd MMMM', $sf_user->getCulture()) ?>&nbsp;</li>
             <li class="span-4"><?php echo format_date($milestone->ending_date, 'dd MMMM', $sf_user->getCulture()) ?>&nbsp;</li>
-            <li class="span-5 last"><?php echo !is_null($milestone->InCharge) ? $milestone->InCharge->getProfile()->getShortName() : 'Not defined'; ?>&nbsp;</li>
+            <li class="span-5 last"><?php echo !is_null($milestone->InCharge) ? short_name($milestone->InCharge) : 'Not defined'; ?>&nbsp;</li>
             <li class="edit-delete">
               <?php echo link_to(__('Edit'), '@edit_milestone?project_id='.$milestone->project_id.'&milestone_id='.$milestone->id) ?>&nbsp;&nbsp;
               <?php echo link_to(__('Delete'), '@delete_milestone?project_id='.$milestone->project_id.'&milestone_id='.$milestone->id, array('confirm' => __('Do you really want to delete this milestone??'))) ?>

@@ -20,7 +20,7 @@
           <ul>
             <li class="span-5">
               <?php echo link_to($message->getTitle(), '@show_message?project_id='.$message->project_id.'&message_id='.$message->id); ?><br/>
-              by <?php echo $message->getUserProfile()->getShortName() ?>
+              by <?php echo short_name($message->getSfGuardUser()) ?>
             </li>
             <li class="span-12"><?php echo $message->getBody() ?></li>
             <li class="span-5 last"><?php echo format_date($message->getLastCommentDate(), 'dd MMMM, HH:mm') ?>&nbsp;</li>

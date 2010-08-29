@@ -63,8 +63,7 @@ class PluginProjectTable extends Doctrine_Table
     $q = Doctrine_Query::create()
       ->from('Project p')
       ->leftJoin('p.Milestones m')
-      ->leftJoin('p.users pr')
-      ->leftJoin('pr.User u')
+      ->leftJoin('p.ProjectUsers pr')
       ->where('p.id = ?', $id);
 
     return $q->fetchOne();

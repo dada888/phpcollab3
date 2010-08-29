@@ -28,10 +28,11 @@ $browser->initializeDatabase();
 
   click('Save', array('sf_guard_user' => array('password' => 'mario2',
                                                'password_again' => 'mario2',
-                                               'Profile' => array('first_name' => 'mariotto',
-                                                                  'last_name' => 'mariotti',
-                                                                  'email' => 'mariotti@examople.com'
-  ))))->
+                                               'username' => 'mariotto',
+                                               'first_name' => 'mariotto',
+                                               'last_name' => 'mariotti',
+                                               'email_address' => 'mariotti@examople.com'
+  )))->
 
   with('form')->begin()->
     hasErrors(false)->

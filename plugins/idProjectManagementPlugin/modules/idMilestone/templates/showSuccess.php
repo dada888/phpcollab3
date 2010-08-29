@@ -59,7 +59,7 @@
             <li class="span-5 last">
             <?php if (count($issue->users) > 0): ?>
               <?php foreach ($issue->users as $user): ?>
-                <?php echo $user->getShortName(); ?><br/>
+                <?php echo short_name($user); ?><br/>
               <?php endforeach; ?>
             <?php endif; ?>
             </li>

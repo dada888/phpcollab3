@@ -18,7 +18,7 @@
       <div class="span-5">
         For <?php echo link_to($milestone->project->name, '@show_project?id='.$milestone->project_id); ?><br/>
         <?php if (isset($milestone->in_charge) && !is_null($milestone->in_charge)): ?>
-          Assgned to <strong><?php echo $milestone->getInCharge()->getProfile()->getShortName() ?></strong><br/>
+        Assgned to <strong><?php echo short_name($milestone->getInCharge()) ?></strong><br/>
         <?php endif; ?>
       </div>
       <div class="span-2 last">

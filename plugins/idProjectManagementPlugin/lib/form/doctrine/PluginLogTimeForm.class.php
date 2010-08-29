@@ -15,13 +15,15 @@ abstract class PluginLogTimeForm extends BaseLogTimeForm
   {
     parent::setup();
 
-    $q = Doctrine::getTable('Profile')->retrieveQueryForAllButSuperAdmin();
+    $q = Doctrine_Query::create()
+            ->from('sfGuardUser u')
+            ->where('u.is_super_admin = 0');
 
     $this->widgetSchema['issue_id'] = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('issue')));
     $this->validatorSchema['issue_id'] = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('issue'), 'required' => true));
 
-    $this->widgetSchema['profile_id'] = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('profile'), 'query' => $q, 'method' => 'getShortName'));
-    $this->validatorSchema['profile_id'] = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('profile'), 'required' => true));
+    $this->widgetSchema['user_id'] = new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('sfGuardUser'), 'query' => $q, 'method' => 'getUsername'));
+    $this->validatorSchema['user_id'] = new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('sfGuardUser'), 'required' => true));
 
     $this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
     

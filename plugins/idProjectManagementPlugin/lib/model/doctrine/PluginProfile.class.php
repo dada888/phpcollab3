@@ -20,27 +20,27 @@
  * @author Filippo (p16) De Santis <fd@ideato.it>
  * @subpackage idProjectManagmentPlugin Model
  */
-abstract class PluginProfile extends BaseProfile
-{
-  /**
-   * Returns the name of a user as [first_name] (username) [last_name] <email>
-   *
-   * @return string
-   */
-  public function getName()
-  {
-    $user = $this->getUser();
-    return $this->getFirstName().' ('.$user->getUsername().') '.$this->getLastName().' ['.$this->getEmail().']';
-  }
-
-  public function getShortName()
-  {
-    $user = $this->getUser();
-    return ucfirst($this->getFirstName()).' '. ucfirst(substr($this->getLastName(),0,1)).'.';
-  }
-
-  public function getRoleByProject($project_id)
-  {
-    return ProjectUser::getRoleByProfileIdAndProjectId($this->getId(), $project_id);
-  }
-}
+//abstract class PluginProfile extends BaseProfile
+//{
+//  /**
+//   * Returns the name of a user as [first_name] (username) [last_name] <email>
+//   *
+//   * @return string
+//   */
+//  public function getName()
+//  {
+//    $user = $this->getUser();
+//    return $this->getFirstName().' ('.$user->getUsername().') '.$this->getLastName().' ['.$this->getEmail().']';
+//  }
+//
+//  public function getShortName()
+//  {
+//    $user = $this->getUser();
+//    return ucfirst($this->getFirstName()).' '. ucfirst(substr($this->getLastName(),0,1)).'.';
+//  }
+//
+//  public function getRoleByProject($project_id)
+//  {
+//    return ProjectUser::getRoleByProfileIdAndProjectId($this->getId(), $project_id);
+//  }
+//}

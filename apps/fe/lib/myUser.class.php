@@ -47,7 +47,8 @@ class myUser extends sfGuardSecurityUser
    */
   private function isMemberOfProject($project_id)
   {
-    foreach ($this->getGuardUser()->Profile->projects as $project)
+    $projects = is_null($this->getGuardUser()->getProjects()) ? array() : $this->getGuardUser()->getProjects();
+    foreach ( $projects as $project)
     {
       if ($project->getId() == $project_id)
       {
@@ -113,7 +114,7 @@ class myUser extends sfGuardSecurityUser
     }
 
     $sf_guard_user = $this->getGuardUser();
-    return $sf_guard_user->Profile->projects;
+    return $sf_guard_user->Projects;
   }
 
   /**
@@ -129,7 +130,7 @@ class myUser extends sfGuardSecurityUser
 
     if (!$this->isAdmin())
     {
-      $q->addWhere('p.id IN (SELECT pu.project_id FROM ProjectUser pu WHERE pu.profile_id = ?)', $this->getGuardUser()->Profile->id);
+      $q->addWhere('p.id IN (SELECT pu.project_id FROM ProjectUser pu WHERE pu.user_id = ?)', $this->getGuardUser()->id);
     }
     
     return $q;
@@ -182,7 +183,7 @@ class myUser extends sfGuardSecurityUser
   public function getProjectsIdsAndNamesWhereIhaveAssignedIssues()
   {
     return Doctrine::getTable('Project')
-            ->getQueryToRetrieveProjectWhereUserHaveAssignedIssues($this->getProfile()->getId())
+            ->getQueryToRetrieveProjectWhereUserHaveAssignedIssues($this->getGuardUser()->getId())
             ->select('p.name as name, p.id as id')
             ->groupBy('p.name AND p.id')
             ->execute(array(), Doctrine::HYDRATE_ARRAY);
@@ -201,7 +202,7 @@ class myUser extends sfGuardSecurityUser
 
   public function retrieveNumberOfMyOpenIssueByProject($project_id)
   {
-    $query = Doctrine::getTable('Issue')->getQueryForUserIssues($this->getProfile()->getId());
+    $query = Doctrine::getTable('Issue')->getQueryForUserIssues($this->getGuardUser()->getId());
     return $query->
               addWhere('(s.status_type = ? OR s.status_type = ? )', array('new', 'assigned'))->
               addWhere('(i.project_id = ?)', array($project_id))->
@@ -210,7 +211,7 @@ class myUser extends sfGuardSecurityUser
 
   public function retrieveMyClosedIssueByProject($project_id)
   {
-    $query = Doctrine::getTable('Issue')->getQueryForUserIssues($this->getProfile()->getId());
+    $query = Doctrine::getTable('Issue')->getQueryForUserIssues($this->getGuardUser()->getId());
     return $query->
               addWhere('(s.status_type = ? OR s.status_type = ? )', array('closed', 'invalid'))->
               addWhere('(i.project_id = ?)', array($project_id))->
@@ -219,12 +220,12 @@ class myUser extends sfGuardSecurityUser
 
   public function retrieveMyLateIssues()
   {
-    return Doctrine::getTable('Issue')->getLateIssuesForUserByProfileId($this->getProfile()->getId());
+    return Doctrine::getTable('Issue')->getLateIssuesForUserByUserId($this->getGuardUser()->getId());
   }
 
   public function retrieveMyUpcomingIssues($days = 7)
   {
-    return Doctrine::getTable('Issue')->getUpcomingIssuesForUserByProfileId($this->getProfile()->getId(), $days);
+    return Doctrine::getTable('Issue')->getUpcomingIssuesForUserByUserId($this->getGuardUser()->getId(), $days);
   }
 
   public function canSeeBudget()
@@ -239,22 +240,22 @@ class myUser extends sfGuardSecurityUser
 
   public function retrieveMyIssuesForProject($project_id)
   {
-    return Doctrine::getTable('Issue')->retrieveIssuesAssignedToUserByProject($this->getGuardUser()->Profile->id, $project_id);
+    return Doctrine::getTable('Issue')->retrieveIssuesAssignedToUserByProject($this->getGuardUser()->id, $project_id);
   }
 
   public function countMyIssuesForProject($project_id)
   {
-    return Doctrine::getTable('Issue')->countIssuesAssignedToUserByProject($this->getGuardUser()->Profile->id, $project_id);
+    return Doctrine::getTable('Issue')->countIssuesAssignedToUserByProject($this->getGuardUser()->id, $project_id);
   }
 
   public function getRoleByProject($project_id)
   {
-    $this->getProfile()->getRoleByProject($project_id);
+    $this->getRoleByProject($project_id);
   }
 
   public function getMyTotalLogtimeForIssue($issue_id)
   {
-    $logtime = Doctrine::getTable('LogTime')->getLogTimeForIssueByUser($issue_id, $this->getGuardUser()->getProfile()->getId());
+    $logtime = Doctrine::getTable('LogTime')->getLogTimeForIssueByUser($issue_id, $this->getGuardUser()->getId());
     return $logtime[0]['logtimes'];
   }
 

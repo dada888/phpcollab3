@@ -26,9 +26,9 @@ $browser->initializeDatabase();
   setField('sf_guard_user[username]', 'nopuser')->
   setField('sf_guard_user[password]', 'mario')->
   setField('sf_guard_user[password_again]', 'mario')->
-  setField('sf_guard_user[Profile][first_name]', 'mario')->
-  setField('sf_guard_user[Profile][last_name]', 'mariotti')->
-  setField('sf_guard_user[Profile][email]', 'mariotti@example.com')->
+  setField('sf_guard_user[first_name]', 'mario')->
+  setField('sf_guard_user[last_name]', 'mariotti')->
+  setField('sf_guard_user[email_address]', 'mariotti@example.com')->
   setField('sf_guard_user[is_active]', 'on')->
   click('Save')->
   

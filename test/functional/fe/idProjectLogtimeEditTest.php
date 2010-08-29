@@ -44,10 +44,10 @@ $browser->
     checkElement('li:contains("Issue")')->
     checkElement('li:contains("User")')->
     checkElement('li:contains("Log time")')->
-    
+
     checkElement('li a[href="/index.php/en/idLogtime/edit/1"]', 'Edit')->
     checkElement('li a[href="/index.php/en/idProject/3/idIssue/show/1"]', '#1 new issue')->
-    checkElement('li:contains("Prog P.")')->
+    checkElement('li:contains("Manager P.")')->
     checkElement('li:contains("14")')->
     checkElement('li:contains("Edit")')->
     checkElement('li:contains("Delete")')->

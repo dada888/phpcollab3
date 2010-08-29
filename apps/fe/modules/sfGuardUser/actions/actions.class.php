@@ -37,11 +37,9 @@ class sfGuardUserActions extends autoSfGuardUserActions
     {
       $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
     }
-
+    
     $this->setPage($request->getParameter('page', 1));
-
     $this->prefix_for_sf_guard_user_field = 's';
-    $this->prefix_for_profile = 'p';
 
     $this->pager = $this->getPager();
     $this->sort = $this->getSort();
@@ -59,8 +57,7 @@ class sfGuardUserActions extends autoSfGuardUserActions
     $this->filters->setTableMethod($tableMethod);
     $query = $this->filters->buildQuery($this->getFilters());
 
-    $query->from('sfGuardUser '.$this->prefix_for_sf_guard_user_field)
-          ->leftJoin('s.Profile '.$this->prefix_for_profile);
+    $query->from('sfGuardUser '.$this->prefix_for_sf_guard_user_field);
     $this->addSortQuery($query);
     $event = $this->dispatcher->filter(new sfEvent($this, 'admin.build_query'), $query);
     $query = $event->getReturnValue();

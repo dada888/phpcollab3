@@ -31,12 +31,12 @@ $browser->
     checkElement('form textarea[name="fd_comment[body]"]')->
     checkElement('form input[name="fd_comment[model]"][type="hidden"]')->
     checkElement('form input[name="fd_comment[model_field]"][type="hidden"]')->
-    checkElement('form input[name="fd_comment[profile_id]"][type="hidden"]')->
+    checkElement('form input[name="fd_comment[user_id]"][type="hidden"]')->
 
     checkElement('h4:contains("pippo")')->
     checkElement('p:contains("pippo pippo poivnonjoifwe ijewjpfjpw ....")')->
-    checkElement('div:contains("by prog (puser) prog")')->
-    checkElement('div:contains("by Mario (user) Wage")')->
+    checkElement('div:contains("by Puser PUserone (puser)")')->
+    checkElement('div:contains("by User Userone (user)")')->
 
     checkElement('.pagenation a[href~="idProject/2/idMessage/show/1?page=2"]', 3)->
   end()

@@ -98,9 +98,14 @@ class userMock
     return $this;
   }
 
-  function getShortName()
+  function getFirstName()
   {
-    return "Lastname F.";
+    return "Fibus";
+  }
+
+  function getLastName()
+  {
+    return "Lastname";
   }
 }
 

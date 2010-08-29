@@ -33,8 +33,8 @@
     </div>
     <div class="menu">
       <div class="span-5"><?php echo link_to(__('Username'), 'sfGuardUser/index?sort=s.username&sort_type='.('s.username' == $sort[0] && $sort[1] == 'asc' ? 'desc' : 'asc')) ?></div>
-      <div class="span-5"><?php echo link_to(__('First Name'), 'sfGuardUser/index?sort=p.first_name&sort_type='.('p.first_name' == $sort[0] && $sort[1] == 'asc' ? 'desc' : 'asc')) ?></div>
-      <div class="span-5"><?php echo link_to(__('Last Name'), 'sfGuardUser/index?sort=p.last_name&sort_type='.('p.last_name' == $sort[0] && $sort[1] == 'asc' ? 'desc' : 'asc')) ?></div>
+      <div class="span-5"><?php echo link_to(__('First Name'), 'sfGuardUser/index?sort=s.first_name&sort_type='.('s.first_name' == $sort[0] && $sort[1] == 'asc' ? 'desc' : 'asc')) ?></div>
+      <div class="span-5"><?php echo link_to(__('Last Name'), 'sfGuardUser/index?sort=s.last_name&sort_type='.('s.last_name' == $sort[0] && $sort[1] == 'asc' ? 'desc' : 'asc')) ?></div>
       <div class="span-6 right last append-1">E-mail</div>
     </div>
 
@@ -44,9 +44,9 @@
           <li class="icon-group">
             <ul>
               <li class="span-5"><?php echo link_to($user['username'], 'sf_guard_user_edit', $user) ?>&nbsp;</li>
-              <li class="span-5"><?php echo $user->Profile->first_name ?>&nbsp;</li>
-              <li class="span-5"><?php echo $user->Profile->last_name ?>&nbsp;</li>
-              <li class="span-7 right last append-1"><?php echo $user->Profile->email ?>&nbsp;</li>
+              <li class="span-5"><?php echo $user->first_name ?>&nbsp;</li>
+              <li class="span-5"><?php echo $user->last_name ?>&nbsp;</li>
+              <li class="span-7 right last append-1"><?php echo $user->email_address ?>&nbsp;</li>
               <li class="edit-delete">
                 <?php echo link_to(__('Edit'), '@sf_guard_user_edit?id='.$user->getId()) ?>
                 <?php echo link_to(__('Delete'), '@sf_guard_user_delete?id='.$user->getId(), array('confirm' => __('Do you really want to delete this user?'))) ?>

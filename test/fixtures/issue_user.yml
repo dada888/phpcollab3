@@ -1,49 +1,49 @@
 IssueUser:
   IssueUser_1:
     Issue: Issue_1
-    Profile: Profile_3
+    sfGuardUser: sfGuardUser_3
   IssueUser_2:
     Issue: Issue_2
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_2_1:
     Issue: Issue_2
-    Profile: Profile_3
+    sfGuardUser: sfGuardUser_3
   IssueUser_3:
     Issue: Issue_3
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_4:
     Issue: Issue_4
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_5:
     Issue: Issue_5
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_6:
     Issue: Issue_6
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_7:
     Issue: Issue_7
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_8:
     Issue: Issue_8
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_9:
     Issue: Issue_9
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_10:
     Issue: Issue_10
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_11:
     Issue: Issue_11
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_12:
     Issue: Issue_12
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_72:
     Issue: Issue_72
-    Profile: Profile_3
+    sfGuardUser: sfGuardUser_3
   IssueUser_late_1:
     Issue: Issue_93
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2
   IssueUser_late_2:
     Issue: Issue_94
-    Profile: Profile_2
+    sfGuardUser: sfGuardUser_2

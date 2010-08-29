@@ -5,7 +5,7 @@ fdComment:
     model:              Message
     model_field:        id
     model_field_value:  1
-    profile_id:  3
+    user_id:  3
     created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 hours")); ?>'
   fdcomment_2:
     title:              pippo2
@@ -13,7 +13,7 @@ fdComment:
     model:              Message
     model_field:        id
     model_field_value:  1
-    profile_id:  3
+    user_id:  3
     created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_3:
     title:              pippo2
@@ -21,7 +21,7 @@ fdComment:
     model:              Message
     model_field:        id
     model_field_value:  2
-    profile_id:  3
+    user_id:  3
     created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_4:
     title:              pippo2
@@ -29,7 +29,7 @@ fdComment:
     model:              Message
     model_field:        id
     model_field_value:  2
-    profile_id:  3
+    user_id:  3
     created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_5:
     title:              pippo2
@@ -37,7 +37,7 @@ fdComment:
     model:              Issue
     model_field:        id
     model_field_value:  1
-    profile_id:  3
+    user_id:  3
     created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_6:
     title:              pippo2
@@ -45,7 +45,7 @@ fdComment:
     model:              Issue
     model_field:        id
     model_field_value:  1
-    profile_id:  3
+    user_id:  3
     created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_7:
     title:              pippo2
@@ -53,7 +53,7 @@ fdComment:
     model:              Message
     model_field:        id
     model_field_value:  1
-    profile_id:  2
+    user_id:  2
     created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_8:
     title:              pippo2
@@ -61,7 +61,7 @@ fdComment:
     model:              Message
     model_field:        id
     model_field_value:  1
-    profile_id:  1
+    user_id:  1
     created_at:  '<?php echo date("Y-m-d H:i:s", strtotime("-1 days")); ?>'
   fdcomment_9:
     title:              pippo2

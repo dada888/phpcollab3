@@ -1,4 +1,4 @@
 sfGuardUserGroup:
   sfGuardUserGroup_1_1:
-    sfGuardUser: sfGuardUser_1
-    sfGuardGroup: sfGuardGroup_1
+    User: sfGuardUser_1
+    Group: sfGuardGroup_1

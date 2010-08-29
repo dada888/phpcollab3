@@ -11,7 +11,6 @@ $browser->
   click('Login', array('signin' => array('username' => 'admin', 'password' => 'admin')))->
   
   followRedirect()->
-  
   click('Projects')->
   
   click('Il mio primo progetto')->
@@ -28,7 +27,11 @@ $browser->
     checkElement('.title a', '/Edit/')->
   end()->
 
-  click('Save', array('project' => array('users_list' => array('3' => 'Mario (user) Wage <mario@example.com>'))))->
+  click('Save', array('project' => array('users_list' => array('4'))))->
+
+  with('form')->begin()->
+    hasErrors(false)->
+  end()->
 
   with('request')->begin()->
     isParameter('module', 'idProject')->
@@ -37,7 +40,7 @@ $browser->
   end()->
 
   with('response')->begin()->
-    checkElement('body:contains("Mario W.")')->
-    checkElement('body:contains("mario@example.com")')->
+    checkElement('body:contains("NOuser N.")')->
+    checkElement('body:contains("example4@example.com")')->
     checkElement('body:contains("developer")')->
   end();

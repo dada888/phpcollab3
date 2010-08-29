@@ -14,9 +14,9 @@
     </li>
     <?php if ($sf_user->isAdmin()): ?>
     <li class="span-7">
-      <?php echo $form['profile_id']->renderLabel(__('User')) ?>
-      <?php echo $form['profile_id']->renderError() ?>
-      <?php echo $form['profile_id'] ?>
+      <?php echo $form['user_id']->renderLabel(__('User')) ?>
+      <?php echo $form['user_id']->renderError() ?>
+      <?php echo $form['user_id'] ?>
     </li>
     <?php endif; ?>
     <li class="span-7">

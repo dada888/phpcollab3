@@ -22,7 +22,7 @@ class fd_commentActions extends sfActions
     $this->forward404Unless($request->getParameter('model_field_value'));
     
     $config = sfConfig::get('sf_confing_comments_plugin_Profile', array());
-    $profile_enabled = $config['enabled'];
+    $user_enabled = $config['enabled'];
 
     $pager = new sfDoctrinePager('fdComment', sfConfig::get('sf_confing_comments_plugin_pager_max_per_page', 10));
     $pager->setQuery(Doctrine::getTable('fdComment')->getQueryForListByModelAndFieldAndValue($request->getParameter('model'),
@@ -37,7 +37,7 @@ class fd_commentActions extends sfActions
                            '&model_field_value='.$request->getParameter('model_field_value');
 
     return $this->renderPartial('fd_comment/comments_list', array('pager' => $pager,
-                                                                    'profile_enabled' => $profile_enabled,
+                                                                    'user_enabled' => $user_enabled,
                                                                     'url_parameter' => $url_parameter));
   }
 
@@ -58,7 +58,7 @@ class fd_commentActions extends sfActions
     $object_model_class = $request->getParameter('model');
 
     $this->form = new fdCommentForm(new $object_model_class, $request->getParameter('model_field'), $request->getParameter('model_field_value'));
-    $this->form->setDefault('profile_id', $this->getUser()->getGuardUser()->getProfile()->getId());
+    $this->form->setDefault('user_id', $this->getUser()->getGuardUser()->getId());
     
     if ($request->isXmlHttpRequest())
     {

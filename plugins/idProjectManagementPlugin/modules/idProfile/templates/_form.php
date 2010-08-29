@@ -37,28 +37,28 @@
       </tr>
       <tr class="even">
         <td>&nbsp;</td>
-        <td><?php echo $form['Profile']['first_name']->renderLabel() ?></td>
+        <td><?php echo $form['first_name']->renderLabel() ?></td>
         <td>
-          <?php echo $form['Profile']['first_name']->renderError() ?>
-          <?php echo $form['Profile']['first_name'] ?>
+          <?php echo $form['first_name']->renderError() ?>
+          <?php echo $form['first_name'] ?>
         </td>
         <td>&nbsp;</td>
       </tr>
       <tr class="odd">
         <td>&nbsp;</td>
-        <td><?php echo $form['Profile']['last_name']->renderLabel() ?></td>
+        <td><?php echo $form['last_name']->renderLabel() ?></td>
         <td>
-          <?php echo $form['Profile']['last_name']->renderError() ?>
-          <?php echo $form['Profile']['last_name'] ?>
+          <?php echo $form['last_name']->renderError() ?>
+          <?php echo $form['last_name'] ?>
         </td>
         <td>&nbsp;</td>
       </tr>
       <tr class="even">
         <td>&nbsp;</td>
-        <td><?php echo $form['Profile']['email']->renderLabel() ?></td>
+        <td><?php echo $form['email_address']->renderLabel() ?></td>
         <td>
-          <?php echo $form['Profile']['email']->renderError() ?>
-          <?php echo $form['Profile']['email'] ?>
+          <?php echo $form['email_address']->renderError() ?>
+          <?php echo $form['email_address'] ?>
         </td>
         <td>&nbsp;</td>
       </tr>

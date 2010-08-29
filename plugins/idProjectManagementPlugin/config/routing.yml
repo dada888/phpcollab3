@@ -76,7 +76,7 @@ update_project_staff_list:
     sf_culture: (?:en|it)
 
 update_project_user_role:
-  url:   /:sf_culture/idProject/:id/projectuser/update/:profile_id
+  url:   /:sf_culture/idProject/:id/projectuser/update/:user_id
   param: { module: idProject, action: updateSettingsProjectUserRoleList }
   requirements:
     sf_culture: (?:en|it)

@@ -23,13 +23,13 @@
       <li class="icon-group">
         <ul>
           <li class="span-7">
-            <?php echo $member->getShortName() ?>
+            <?php echo short_name($member) ?>
           </li>
           <li class="span-8">
-            <?php echo mail_to($member->email) ?>
+            <?php echo mail_to($member->email_address) ?>
           </li>
           <li class="span-7 last">
-            <?php echo $member->getRoleByProject($project->id)?>
+            <?php echo get_role($member, $project->id)?>
           </li>
         </ul>
     <?php endforeach; ?>

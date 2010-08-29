@@ -46,7 +46,7 @@
         <?php if (count($issue->users) > 0): ?>
           <ul>
             <?php foreach ($issue->users as $user): ?>
-            <li><?php echo $user->getShortName(); ?></li>
+            <li><?php echo short_name($user); ?></li>
             <?php endforeach; ?>
           </ul>
         <?php endif; ?>

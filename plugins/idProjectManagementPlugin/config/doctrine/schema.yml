@@ -34,13 +34,17 @@ Project:
       type: float
   relations:
     users:
-      class: Profile
+      class: sfGuardUser
       refClass: ProjectUser
       foreignAlias: Projects
+      local: project_id
+      foreign: user_id
     trackers:
       class: Tracker
       refClass: ProjectsTrackers
       foreignAlias: projects
+      local: project_id
+      foreign: tracker_id
 
 Milestone:
   actAs:
@@ -73,7 +77,7 @@ Milestone:
       type: integer
       notnull: true
     in_charge:
-      type: integer(4)
+      type: integer
   relations:
     project:
       class: Project
@@ -151,9 +155,11 @@ Issue:
       foreignType: many
       onDelete: SET NULL
     users:
-      class: Profile
+      class: sfGuardUser
       refClass: IssueUser
       foreignAlias: Issues
+      local: issue_id
+      foreign: user_id
     issues:
       class: Issue
       local: issue1
@@ -215,39 +221,6 @@ Priority:
     position:
       type: integer
 
-Profile:
-  options:
-    charset: utf8
-  columns:
-    id:
-      type: integer
-      notnull: true
-      primary: true
-      autoincrement: true
-    sf_guard_user_id:
-      type: integer(4)
-    first_name:
-      type: string(64)
-    last_name:
-      type: string(64)
-    email:
-      type: string(255)
-      notnull: true
-      unique: true
-  relations:
-    User:
-      class: sfGuardUser
-      foreignType: one
-      foreignAlias: Profile
-    projects:
-      class: Project
-      refClass: ProjectUser
-      foreignAlias: Profiles
-    issues:
-      class: Issue
-      refClass: IssueUser
-      foreignAlias: Profiles
-
 LogTime:
   actAs:
     Timestampable:
@@ -266,7 +239,7 @@ LogTime:
       autoincrement: true
     issue_id:
       type: integer
-    profile_id:
+    user_id:
       type: integer
     log_time:
       type: float
@@ -281,10 +254,10 @@ LogTime:
       type: one
       foreignType: many
       onDelete: CASCADE
-    profile:
-      class: Profile
+    sfGuardUser:
+      class: sfGuardUser
       foreignAlias: logtimes
-      local: profile_id
+      local: user_id
       foreign: id
       type: one
       foreignType: many
@@ -297,7 +270,7 @@ ProjectUser:
     project_id:
       type: integer
       primary: true
-    profile_id:
+    user_id:
       type: integer
       primary: true
     role:
@@ -306,9 +279,13 @@ ProjectUser:
     Project:
       foreignAlias: ProjectUsers
       onDelete: CASCADE
-    Profile:
+      local: project_id
+      foreign: id
+    sfGuardUser:
       foreignAlias: UserProjects
       onDelete: CASCADE
+      local: user_id
+      foreign: id
 
 IssueUser:
   options:
@@ -316,14 +293,18 @@ IssueUser:
   columns:
     issue_id:
       type: integer
-    profile_id:
+    user_id:
       type: integer
   relations:
     Issue:
       foreignAlias: IssueUsers
+      local: issue_id
+      foreign: id
       onDelete: CASCADE
-    Profile:
+    sfGuardUser:
       foreignAlias: IssueUsers
+      local: user_id
+      foreign: id
       onDelete: CASCADE
 
 IssueReference:
@@ -356,6 +337,8 @@ Tracker:
       class: Project
       refClass: ProjectsTrackers
       foreignAlias: trackers
+      local: tracker_id
+      foreign: project_id
 
 ProjectsTrackers:
   options:
@@ -393,15 +376,15 @@ Message:
       type: string(512)
     body:
       type: string(3000)
-    profile_id:
+    user_id:
       type: integer
     project_id:
       type: integer
   relations:
-    UserProfile:
-      class: Profile
+    sfGuardUser:
+      class: sfGuardUser
       foreignAlias: Messages
-      local: profile_id
+      local: user_id
       foreign: id
       type: one
       foreignType: many

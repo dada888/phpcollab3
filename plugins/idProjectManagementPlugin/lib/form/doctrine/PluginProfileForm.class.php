@@ -19,12 +19,12 @@
  * @subpackage idProjectManagmentPlugin Forms
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 6174 2007-11-27 06:22:40Z fabien $
  */
-abstract class PluginProfileForm extends BaseProfileForm
-{
-  public function setup()
-  {
-    parent::setup();
-
-    $this->validatorSchema['email'] = new sfValidatorEmail(array(), array('invalid' => 'Invalid email address'));
-  }
-}
+//abstract class PluginProfileForm extends BaseProfileForm
+//{
+//  public function setup()
+//  {
+//    parent::setup();
+//
+//    unset($this['email']);
+//  }
+//}

@@ -23,9 +23,9 @@
       <?php endif; ?>
 
       <div class="span-10">
-        <?php echo $form['Profile']['first_name']->renderLabel() ?>
-        <?php echo $form['Profile']['first_name']->renderError() ?>
-        <?php echo $form['Profile']['first_name']->render() ?>
+        <?php echo $form['first_name']->renderLabel() ?>
+        <?php echo $form['first_name']->renderError() ?>
+        <?php echo $form['first_name']->render() ?>
       </div>
       <div class="span-3">
         &nbsp;
@@ -37,9 +37,9 @@
       </div>
       <div class="clear"></div>
       <div class="span-10">
-        <?php echo $form['Profile']['last_name']->renderLabel() ?>
-        <?php echo $form['Profile']['last_name']->renderError() ?>
-        <?php echo $form['Profile']['last_name']->render() ?>
+        <?php echo $form['last_name']->renderLabel() ?>
+        <?php echo $form['last_name']->renderError() ?>
+        <?php echo $form['last_name']->render() ?>
       </div>
       <div class="span-3">
         &nbsp;
@@ -59,9 +59,9 @@
         &nbsp;
       </div>
       <div class="span-10 last">
-        <?php echo $form['Profile']['email']->renderLabel() ?>
-        <?php echo $form['Profile']['email']->renderError() ?>
-        <?php echo $form['Profile']['email']->render() ?>
+        <?php echo $form['email_address']->renderLabel() ?>
+        <?php echo $form['email_address']->renderError() ?>
+        <?php echo $form['email_address']->render() ?>
       </div>
       <div class="clear"></div>
       <div class="span-10">

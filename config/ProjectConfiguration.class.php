@@ -11,6 +11,7 @@ class ProjectConfiguration extends sfProjectConfiguration
 
     $this->enableAllPluginsExcept(array('sfPropelPlugin'));
 
+    $this->enablePlugins('sfDoctrineGuardPlugin');
   }
 
   public function setupPlugins()

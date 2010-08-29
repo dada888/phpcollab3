@@ -44,7 +44,7 @@ followRedirect()->
     checkElement('input:contains("Create")', false)->
     checkElement('a[href="/index.php/en/idProject"]')->
 
-    checkElement('select[id="project_users_list"] option[value="1"]', false)->
+    checkElement('select[id="project_users_list"] option:contains("amministro")', false)->
 
     checkElement('input[type="checkbox"][id="project_is_public"][checked="checked"]', false)->
     

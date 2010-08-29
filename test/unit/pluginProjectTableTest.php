@@ -15,10 +15,10 @@ $t->is(Doctrine::getTable('Project')->getProjectRelatedMilestonesAndIssues(12137
 $t->ok(Doctrine::getTable('Project')->getProjectMilestonesAndUsers(1) instanceof Project, 'getProjectMilestonesAndUsers(1) returns a propject object');
 $t->is(Doctrine::getTable('Project')->getProjectMilestonesAndUsers(1213782), null, 'getProjectMilestonesAndUsers(1213782) returns null if the project is not found');
 
-$projects = Doctrine::getTable('Project')->getQueryToRetrieveProjectWhereUserHaveAssignedIssues(3)->execute();
+$projects = Doctrine::getTable('Project')->getQueryToRetrieveProjectWhereUserHaveAssignedIssues(2)->execute();
 
-$t->is(count($projects), 1, 'getQueryToRetrieveProjectWhereUserHaveAssignTickets(user) returns one project');
-$t->is($projects['0']['id'], 3, 'getQueryToRetrieveProjectWhereUserHaveAssignTickets(user) returns the right project');
+$t->is(count($projects), 2, 'getQueryToRetrieveProjectWhereUserHaveAssignTickets(user) returns one project');
+$t->is($projects['0']['id'], 1, 'getQueryToRetrieveProjectWhereUserHaveAssignTickets(user) returns the right project');
 
 $t->is(Doctrine::getTable('Project')->projectExists(1), true, 'projectExists() return true for project 1');
 $t->is(Doctrine::getTable('Project')->projectExists(5), true, 'projectExists() return true for project 5');
@@ -68,7 +68,7 @@ $issue->save();
 $log_time = new LogTime();
 $log_time->issue_id = $issue->id;
 $log_time->log_time = 15;
-$log_time->profile_id = 1;
+$log_time->user_id = 1;
 $log_time->save();
 
 $has_exceeded_estimated_hours = Doctrine::getTable('Project')->hasExceededEstimatedHours(2);

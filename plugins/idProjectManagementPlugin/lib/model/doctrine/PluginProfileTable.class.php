@@ -19,27 +19,27 @@
  * @package    phpCollab3
  * @subpackage idProjectManagmentPlugin Model
  */
-class PluginProfileTable extends Doctrine_Table
-{
-  /**
-   * Returns the Doctrine_Query object that contains the query for retriving all the user of the system but those having is_duper_admin flag at true.
-   *
-   * @return Doctrine_Query
-   */
-  public function retrieveQueryForAllButSuperAdmin()
-  {
-    return Doctrine_Query::create()
-            ->from('Profile p')
-            ->leftJoin('p.User u')
-            ->where('u.is_super_admin = 0');
-  }
-
-  public function getQueryForProjectUsers($project_id)
-  {
-    return Doctrine_Query::create()
-            ->from('Profile p')
-            ->leftJoin('p.User u')
-            ->leftJoin('p.projects ps')
-            ->where('ps.id = ?', $project_id);
-  }
-}
+//class PluginProfileTable extends Doctrine_Table
+//{
+//  /**
+//   * Returns the Doctrine_Query object that contains the query for retriving all the user of the system but those having is_duper_admin flag at true.
+//   *
+//   * @return Doctrine_Query
+//   */
+//  public function retrieveQueryForAllButSuperAdmin()
+//  {
+//    return Doctrine_Query::create()
+//            ->from('Profile p')
+//            ->leftJoin('p.User u')
+//            ->where('u.is_super_admin = 0');
+//  }
+//
+//  public function getQueryForProjectUsers($project_id)
+//  {
+//    return Doctrine_Query::create()
+//            ->from('Profile p')
+//            ->leftJoin('p.User u')
+//            ->leftJoin('p.projects ps')
+//            ->where('ps.id = ?', $project_id);
+//  }
+//}

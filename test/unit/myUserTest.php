@@ -68,16 +68,16 @@ $t->is($user->isAdmin(), false, '->isAdmin() returns the right boolean');
 $t->is($user->getMyProjects(new Query()), null, '->getMyProject() returns null for not authenticated users');
 $t->ok($user->getQueryForMyProjects() instanceof Doctrine_Query, '->getQueryForMyProjects() returns a Doctrine_Query object');
 
-$t->is($user->isMyProject(2), true, '->isMyProject() returns true for admin users');
-$t->is($user->isMyProject(2), false, '->isMyProject() returns false for unauthenticated users');
+$t->is($user->isMyProject(2), true, '->isMyProject(2) returns true for admin users');
+$t->is($user->isMyProject(2), false, '->isMyProject(2) returns false for unauthenticated users');
 
-$t->is($user->isMyProjectByIssue(null), false, '->isMyProjectByIssue() returns false if no issue is passed ads input parameter');
-$t->is($user->isMyProjectByIssue(new Issue()), false, '->isMyProjectByIssue() returns false if the issue is not one of my projects issues');
+$t->is($user->isMyProjectByIssue(null), false, '->isMyProjectByIssue(null) returns false if no issue is passed ads input parameter');
+$t->is($user->isMyProjectByIssue(new Issue()), false, '->isMyProjectByIssue(Issue) returns false if the issue is not one of my projects issues');
 
-$t->is($user->isMyProject(1), true, '->isMyProject() returns true with the right project id');
-$t->is($user->isMyProjectByIssue(new Issue()), true, '->isMyProjectByIssue() returns true if the right issue and project id');
+$t->is($user->isMyProject(1), false, '->isMyProject(1) returns true with the right project id');
+$t->is($user->isMyProjectByIssue(new Issue()), false, '->isMyProjectByIssue(Issue) returns true if the right issue and project id');
 
-$t->is($user->isMyProfile(1), true, '->isMyProject() returns true with the right project id');
-$t->is($user->isMyProfile(2), false, '->isMyProject() returns false with the wrong project id');
+$t->is($user->isMyProfile(1), true, '->isMyProject(1) returns true with the right project id');
+$t->is($user->isMyProfile(2), false, '->isMyProject(2) returns false with the wrong project id');
 
 $t->ok($user->getQueryForMyProjects() instanceof Doctrine_Query, '->getQueryForMyProjects() returns a Doctrine_Query object');

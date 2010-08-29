@@ -5,9 +5,9 @@
  */
 abstract class PluginfdComment extends BasefdComment
 {
-  public function getProfile()
+  public function getUser()
   {
-    return Doctrine::getTable('fdComment')->getProfileForComment($this->profile_id);
+    return Doctrine::getTable('fdComment')->getUserForComment($this->user_id);
   }
 
 }

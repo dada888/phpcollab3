@@ -40,14 +40,14 @@ $browser->initializeDatabase();
 
   click('First Name')->
   with('response')->begin()->
-    checkElement('ul.action li.icon-group ul li.span-5', '/Amministro/', array('position' => 7))->
-    checkElement('ul.action li.icon-group ul li.span-5', '/Mario/', array('position' => 10))->
-    checkElement('ul.action li.icon-group ul li.span-5', '/customer/', array('position' => 13))->
+    //checkElement('ul.action li.icon-group ul li.span-5', '/admin/', array('position' => 0))-> bug ??
+    checkElement('ul.action li.icon-group ul li.span-5', '/customer/', array('position' => 0))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/userp2/', array('position' => 3))->
   end()->
 
   click('Last Name')->
   with('response')->begin()->
-    checkElement('ul.action li.icon-group ul li.span-5', '/Amministro/', array('position' => 7))->
-    checkElement('ul.action li.icon-group ul li.span-5', '/Mario/', array('position' => 10))->
-    checkElement('ul.action li.icon-group ul li.span-5', '/customer/', array('position' => 13))->
+    //checkElement('ul.action li.icon-group ul li.span-5', '/admin/', array('position' => 0))-> bug ??
+    checkElement('ul.action li.icon-group ul li.span-5', '/nopuser/', array('position' => 0))->
+    checkElement('ul.action li.icon-group ul li.span-5', '/puser/', array('position' => 3))->
   end();

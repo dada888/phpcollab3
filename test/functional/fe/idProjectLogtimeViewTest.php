@@ -23,7 +23,7 @@ $browser->
   end()->
 
    with('response')->begin()->
-    checkElement('li:contains("Paul M.")', 4)->
+    checkElement('li:contains("Manager P.")', 4)->
     checkElement('li:contains("5.0")')->
     checkElement('li:contains("10.0")')->
     checkElement('li:contains("third user story")')->

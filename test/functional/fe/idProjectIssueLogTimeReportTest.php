@@ -118,11 +118,11 @@ $browser->
     isStatusCode('200')->
 
     checkElement('ul li.icon-time ul li:contains("'.date('F d Y', strtotime('today')).'")')->
-    checkElement('ul li.icon-time ul li:contains("Prog P.")')->
+    checkElement('ul li.icon-time ul li:contains("Puser P.")')->
     checkElement('ul li.icon-time ul li:contains("1.2")')->
     checkElement('ul li.icon-time ul li:contains("'.date('F d Y', strtotime('-1 day')).'")')->
     checkElement('ul li.icon-time ul li:contains("1.3")')->
-    checkElement('ul li.icon-time ul li:contains("Paul M.")')->
+    checkElement('ul li.icon-time ul li:contains("Manager P.")')->
 
     checkElement('#total_log_time', '/2.5/')->
 

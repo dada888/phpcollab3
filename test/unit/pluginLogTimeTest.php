@@ -9,12 +9,12 @@ Doctrine::loadData(sfConfig::get('sf_test_dir').'/fixtures/fixtures.yml');
 
 $t = new lime_test(6, new lime_output_color());
 
-$logTimes = Doctrine::getTable('LogTime')->getLogTimeByIssueAndProfile(69, 7);
+$logTimes = Doctrine::getTable('LogTime')->getLogTimeByIssueAndUser(69, 7);
 
 $t->is($logTimes->count(), 1, 'returns 1 log time');
 $log_time = $logTimes->getFirst();
 $t->is($log_time->issue->getId(), '69', 'return the right issue');
-$t->is($log_time->profile->getId(), '7', 'return the right profile');
+$t->is($log_time->sfGuardUser->getId(), '7', 'return the right sfGuardUser');
 $t->like($log_time->created_at, '/'.date('Y-m-d', strtotime('today')).'/', 'return the right date');
 $t->is($log_time->log_time, '1.2', 'return the right time');
 

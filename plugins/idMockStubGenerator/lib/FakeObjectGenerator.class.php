@@ -110,7 +110,7 @@ class FakeObjectGenerator{
         }
 
         //inserisco i metodi e cosa devono restituire
-        $methods = self::$classesMethods[self::$className]['methods'];
+        $methods = isset(self::$classesMethods[self::$className]['methods']) ? self::$classesMethods[self::$className]['methods'] : array();
         if (!is_null(self::$returnValuesManager) && !empty($methods))
         {
           foreach (self::$returnValuesManager->getMethodsSet() as $method)

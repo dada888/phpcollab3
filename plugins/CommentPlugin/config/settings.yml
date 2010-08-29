@@ -8,5 +8,5 @@ all:
       max_per_page: 10
     Profile:
       enabled: true
-      class_name: Profile
+      class_name: sfGuardUser
       class_id:   id

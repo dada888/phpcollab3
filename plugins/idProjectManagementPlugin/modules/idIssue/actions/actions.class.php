@@ -48,18 +48,18 @@ class idIssueActions extends sfActions
 
 //    $this->comment_form = new CommentForm();
 //    $this->comment_form->setDefault('issue_id', $request->getParameter('issue_id'));
-//    $this->comment_form->setDefault('profile_id', $this->getUser()->getProfile()->getId());
+//    $this->comment_form->setDefault('user_id', $this->getUser()->getId());
 //    $this->comment_form->setDefault('created_at', date('Y-m-d H:i:s', time()));
 
     $this->estimated_time_form = new idEstimatedTimeForm($this->issue->getProjectId(), $this->issue);
 
     $this->logtime_form = new issueLogTimeForm();
     $this->logtime_form->setDefault('issue_id', $request->getParameter('issue_id'));
-    $this->logtime_form->setDefault('profile_id', $this->getUser()->getGuardUser()->getProfile()->getId());
+    $this->logtime_form->setDefault('user_id', $this->getUser()->getGuardUser()->getId());
     $this->logtime_form->setDefault('created_at', date('Y-m-d H:i:s', time()));
 
     $this->commentForm = new fdCommentForm($this->issue, 'id', $request->getParameter('issue_id'));
-    $this->commentForm->setDefault('profile_id', $this->getUser()->getGuardUser()->getProfile()->getId());
+    $this->commentForm->setDefault('user_id', $this->getUser()->getGuardUser()->getId());
   }
 
   /**

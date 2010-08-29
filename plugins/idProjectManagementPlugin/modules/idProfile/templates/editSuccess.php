@@ -5,6 +5,8 @@
 
       <?php include_partial('form', array('form' => $form)) ?>
 
+      <?php //echo $form ?>
+
     </div>
   </div>
 </div>

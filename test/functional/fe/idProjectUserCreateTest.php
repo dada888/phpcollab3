@@ -34,9 +34,9 @@ $browser->
     checkElement('input[type="password"][id="sf_guard_user_password"]')->
     checkElement('input[type="password"][id="sf_guard_user_password_again"]')->
 
-    checkElement('input[type="text"][id="sf_guard_user_Profile_first_name"]')->
-    checkElement('input[type="text"][id="sf_guard_user_Profile_last_name"]')->
-    checkElement('input[type="text"][id="sf_guard_user_Profile_email"]')->
+    checkElement('input[type="text"][id="sf_guard_user_first_name"]')->
+    checkElement('input[type="text"][id="sf_guard_user_last_name"]')->
+    checkElement('input[type="text"][id="sf_guard_user_email_address"]')->
     checkElement('input[type="checkbox"][id="sf_guard_user_is_active"]')->
     checkElement('input[type="checkbox"][id="sf_guard_user_is_super_admin"]')->
     checkElement('select[id="sf_guard_user_groups_list"]', false)->
@@ -46,9 +46,9 @@ $browser->
   setField('sf_guard_user[username]', 'brigdo')->
   setField('sf_guard_user[password]', 'brigdo')->
   setField('sf_guard_user[password_again]', 'brigdo')->
-  setField('sf_guard_user[Profile][first_name]', 'blablu')->
-  setField('sf_guard_user[Profile][last_name]', 'bubbo')->
-  setField('sf_guard_user[Profile][email]', 'bri@example.com')->
+  setField('sf_guard_user[first_name]', 'blablu')->
+  setField('sf_guard_user[last_name]', 'bubbo')->
+  setField('sf_guard_user[email_address]', 'bri@example.com')->
   setField('sf_guard_user[is_active]', 'on')->
   click('Save')->
   with('form')->begin()->

@@ -29,7 +29,7 @@ class fd_commentComponents extends sfComponents
     }
 
     $config = sfConfig::get('sf_confing_comments_plugin_Profile', array());
-    $this->profile_enabled = $config['enabled'];
+    $this->user_enabled = $config['enabled'];
   }
 
 }

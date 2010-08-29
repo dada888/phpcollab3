@@ -20,11 +20,17 @@ abstract class PluginProjectUserForm extends BaseProjectUserForm
   public static function generateFormsForProject(Project $project)
   {
     $forms = array();
-    foreach ($project->getUsers() as $profile)
+    foreach ($project->getUsers() as $user)
     {
-      $project_user = Doctrine::getTable('ProjectUser')->findOneByProjectIdAndProfileId($project->id, $profile->id);
+      $project_user = Doctrine::getTable('ProjectUser')
+                                ->createQuery()
+                                ->where('project_id = ? ', $project->id)
+                                ->addWhere('user_id = ? ', $user->id)
+                                ->fetchOne();
+
       $forms[] = new ProjectUserForm($project_user);
     }
+
     return $forms;
   }
 }

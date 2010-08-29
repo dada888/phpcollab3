@@ -40,8 +40,8 @@ with('response')->begin()->
   isStatusCode(200)->
 
   checkElement('a[href*="sort=s.username&sort_type=asc"]', '/Username/')->
-  checkElement('a[href*="sort=p.first_name&sort_type=asc"]',"/First Name/")->
-  checkElement('a[href*="sort=p.last_name&sort_type=asc"]', "/Last Name/")->
+  checkElement('a[href*="sort=s.first_name&sort_type=asc"]',"/First Name/")->
+  checkElement('a[href*="sort=s.last_name&sort_type=asc"]', "/Last Name/")->
 
   checkElement('input[type="text"][id="sf_guard_user_filters_username"]')->
   checkElement('input[type="submit"][value="Filter"]')->

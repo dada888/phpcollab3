@@ -141,14 +141,15 @@ class PluginIssueTable extends Doctrine_Table
   }
 
   /**
-   * Returns a Doctrine_Query ibject configured to contain the query to retrive all the issue of a user given the user profile id
+   * Returns a Doctrine_Query object configured to contain the query
+   *  to retrive all the issue of a user given the user id
    *
-   * @param int $user_profile_id
+   * @param int $user_id
    * @return Doctrine_Query
    */
-  public function getQueryForUserIssues($user_profile_id)
+  public function getQueryForUserIssues($user_id)
   {
-    if (is_null($user_profile_id))
+    if (is_null($user_id))
     {
       return null;
     }
@@ -160,25 +161,25 @@ class PluginIssueTable extends Doctrine_Table
       ->leftJoin('i.priority pr')
       ->leftJoin('i.milestone m')
       ->leftJoin('i.tracker t')
-      ->where('iu.profile_id = ? ', $user_profile_id);
+      ->where('iu.user_id = ? ', $user_id);
 
     return $q;
   }
 
-  private function queryForIssuesAssignedToUserByProject($user_profile_id, $project_id)
+  private function queryForIssuesAssignedToUserByProject($user_id, $project_id)
   {
-    return $this->getQueryForUserIssues($user_profile_id)
+    return $this->getQueryForUserIssues($user_id)
              ->addWhere('i.project_id = ?', $project_id);
   }
 
-  public function retrieveIssuesAssignedToUserByProject($user_profile_id, $project_id)
+  public function retrieveIssuesAssignedToUserByProject($user_id, $project_id)
   {
-    return $this->queryForIssuesAssignedToUserByProject($user_profile_id, $project_id)->execute();
+    return $this->queryForIssuesAssignedToUserByProject($user_id, $project_id)->execute();
   }
 
-  public function countIssuesAssignedToUserByProject($user_profile_id, $project_id)
+  public function countIssuesAssignedToUserByProject($user_id, $project_id)
   {
-    return $this->queryForIssuesAssignedToUserByProject($user_profile_id, $project_id)->count();
+    return $this->queryForIssuesAssignedToUserByProject($user_id, $project_id)->count();
   }
 
   public function countByProject($project_id)
@@ -316,17 +317,17 @@ class PluginIssueTable extends Doctrine_Table
     }
   }
 
-  public function getLateIssuesForUserByProfileId($profile_id)
+  public function getLateIssuesForUserByUserId($user_id)
   {
-    $query = $this->getQueryForUserIssues($profile_id);
+    $query = $this->getQueryForUserIssues($user_id);
     return $query->andWhere('i.ending_date < ? ', date('Y-m-d'))
                  ->andWhere('(s.status_type <> ? OR s.status_type <> ? )', array('closed', 'invalid'))
                  ->execute();
   }
 
-  public function getUpcomingIssuesForUserByProfileId($profile_id, $days = 7)
+  public function getUpcomingIssuesForUserByUserId($user_id, $days = 7)
   {
-    $query = $this->getQueryForUserIssues($profile_id);
+    $query = $this->getQueryForUserIssues($user_id);
     return $query->andWhere('i.starting_date >= ? ', date('Y-m-d'))
                  ->andWhere('i.starting_date <= ? ', date('Y-m-d', strtotime('+'.$days.' days')))
                  ->andWhere('(s.status_type <> ? OR s.status_type <> ? )', array('closed', 'invalid'))

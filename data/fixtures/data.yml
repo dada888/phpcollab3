@@ -7,6 +7,7 @@ sfGuardUser:
     is_active: true
     is_super_admin: true
     last_login: null
+    email_address: example1@example.com
     created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
     updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
   sfGuardUser_2:
@@ -17,6 +18,7 @@ sfGuardUser:
     is_active: true
     is_super_admin: false
     last_login: null
+    email_address: example1@example.com
     created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
     updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-1 day")); ?>'
 sfGuardGroup:
@@ -63,14 +65,3 @@ sfGuardUserGroup:
     sfGuardGroup: sfGuardGroup_2
     created_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
     updated_at: '<?php echo date("Y-m-d H:i:s", strtotime("-2 day")); ?>'
-Profile:
-  Profile_1:
-    User: sfGuardUser_1
-    first_name: Amministro
-    last_name: Amministroni
-    email: amministro@example.com
-  Profile_2:
-    User: sfGuardUser_2
-    first_name: Mario
-    last_name: Wage
-    email: mario@example.com

@@ -21,8 +21,6 @@
 
 <?php include(dirname(__FILE__).'/issues.yml') ?>
 
-<?php include(dirname(__FILE__).'/profiles.yml') ?>
-
 <?php include(dirname(__FILE__).'/issue_user.yml') ?>
 
 <?php include(dirname(__FILE__).'/project_user.yml') ?>

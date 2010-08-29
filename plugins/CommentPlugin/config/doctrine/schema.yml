@@ -20,7 +20,7 @@ fdComment:
     body:
       type: string(3000)
       notnull: true
-    profile_id:
+    user_id:
       type: integer
     model:
       type: string(255)
@@ -32,6 +32,6 @@ fdComment:
       type: integer
       notnull: true
   indexes:
-    profileidindex:
-      fields: [profile_id]
+    useridindex:
+      fields: [user_id]
 

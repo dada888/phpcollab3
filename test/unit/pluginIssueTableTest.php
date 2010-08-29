@@ -91,20 +91,19 @@ $t->is($result['estimated_time'], 0, 'retrieveEstimatedTimeForProjectMilestone(2
 
 /* late and upcoming issue for user*/
 
-
-$late = Doctrine::getTable('Issue')->getLateIssuesForUserByProfileId(2);
-$t->is(count($late), 2, '->getLateIssuesForUserByProfileId(2) retireves the right number of issues');
+$late = Doctrine::getTable('Issue')->getLateIssuesForUserByUserId(2);
+$t->is(count($late), 2, '->getLateIssuesForUserByUserId(2) retireves the right number of issues');
 $t->is($late[0]->id, 91, 'retrieved right issue');
 $t->is($late[1]->id, 92, 'retrieved right issue');
-$upcoming = Doctrine::getTable('Issue')->getUpcomingIssuesForUserByProfileId(2);
-$t->is(count($upcoming), 11, '->getUpcomingIssuesForUserByProfileId(2) retireves the right number of issues');
+$upcoming = Doctrine::getTable('Issue')->getUpcomingIssuesForUserByUserId(2);
+$t->is(count($upcoming), 11, '->getUpcomingIssuesForUserByUserId(2) retireves the right number of issues');
 $t->is($upcoming[4]->id, 6, 'retrieved right issue');
 $t->is($upcoming[10]->id, 12, 'retrieved right issue');
 
-$late = Doctrine::getTable('Issue')->getLateIssuesForUserByProfileId(3);
-$t->is(count($late), 0, '->getLateIssuesForUserByProfileId(3) retireves the right number of issues');
-$upcoming = Doctrine::getTable('Issue')->getUpcomingIssuesForUserByProfileId(3);
-$t->is(count($upcoming), 3, '->getUpcomingIssuesForUserByProfileId(3) retireves the right number of issues');
+$late = Doctrine::getTable('Issue')->getLateIssuesForUserByUserId(3);
+$t->is(count($late), 0, '->getLateIssuesForUserByUserId(3) retireves the right number of issues');
+$upcoming = Doctrine::getTable('Issue')->getUpcomingIssuesForUserByUserId(3);
+$t->is(count($upcoming), 3, '->getUpcomingIssuesForUserByUserId(4) retireves the right number of issues');
 $t->is($upcoming[0]->id, 1, 'retrieved right issue');
 $t->is($upcoming[1]->id, 2, 'retrieved right issue');
 $t->is($upcoming[2]->id, 70, 'retrieved right issue');

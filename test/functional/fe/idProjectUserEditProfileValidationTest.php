@@ -20,47 +20,43 @@ $browser->initializeDatabase();
   end()->
 
   click('Save', array('sf_guard_user' => array(
-                                                          'username' => '',
-                                                          'password' => 'mario2',
-                                                          'password_again' => 'mario2',
-                                                          'Profile' => array(
-                                                                              'first_name' => 'mariotto',
-                                                                              'last_name' => 'mariotti',
-                                                                              'email' => 'mariotti@examople.com',
-                                                                            )
-                                                        )
-                        )
-       , array('method' => 'post'))->
+                                               'username' => '',
+                                               'password' => 'mario2',
+                                               'password_again' => 'mario2',
+                                               'first_name' => 'mariotto',
+                                               'last_name' => 'mariotti',
+                                               'email_address' => 'mariotti@examople.com')),
+                                         array('method' => 'post'))->
   with('response')->begin()->
     checkElement('body:contains("Username: Required.")')->
   end()->
 
   click('Save', array('sf_guard_user' => array(
-                                                          'username' => 'pippo',
-                                                          'password' => 'mario2',
-                                                          'password_again' => 'mario2',
-                                                          'Profile' => array(
-                                                                              'first_name' => 'mariotto',
-                                                                              'last_name' => 'mariotti',
-                                                                              'email' => 'mariotti@examople.com',
-                                                                            )
-                                                        )
+                                                'username' => 'admin',
+                                                'password' => 'mario2',
+                                                'password_again' => 'mario2',
+                                                'first_name' => 'mariotto',
+                                                'email_address' => 'mariotti@examople.com'
+                                              )
                         )
        , array('method' => 'post'))->
+
+  with('form')->begin()->
+    hasErrors(true)->
+  end()->
+
   with('response')->begin()->
-    checkElement('body:contains("Username: Invalid.")')->
+    checkElement('body:contains("Username: An object with the same "username" already exist.")')->
   end()->
 
   click('Save', array('sf_guard_user' => array(
-                                                          'username' => 'puser',
-                                                          'password' => 'jfcqweo',
-                                                          'password_again' => 'hhhhhhh',
-                                                          'Profile' => array(
-                                                                              'first_name' => 'mariotto',
-                                                                              'last_name' => 'mariotti',
-                                                                              'email' => 'mariotti@examople.com',
-                                                                            )
-                                                        )
+                                                'username' => 'puser',
+                                                'password' => 'jfcqweo',
+                                                'password_again' => 'hhhhhhh',
+                                                'first_name' => 'mariotto',
+                                                'last_name' => 'mariotti',
+                                                'email_address' => 'mariotti@examople.com',
+                                              )
                         )
        , array('method' => 'post'))->
   with('response')->begin()->
@@ -68,18 +64,16 @@ $browser->initializeDatabase();
   end()->
 
   click('Save', array('sf_guard_user' => array(
-                                                          'username' => 'puser',
-                                                          'password' => 'pippo',
-                                                          'password_again' => 'pippo',
-                                                          'Profile' => array(
-                                                                              'first_name' => 'mariotto',
-                                                                              'last_name' => 'mariotti',
-                                                                              'email' => 'mariotti__ncjuenooewc@',
-                                                                            )
-                                                        )
+                                                'username' => 'puser',
+                                                'password' => 'pippo',
+                                                'password_again' => 'pippo',
+                                                'first_name' => 'mariotto',
+                                                'last_name' => 'mariotti',
+                                                'email_address' => 'mariotti__ncjuen@',
+                                              )
                         )
        , array('method' => 'post'))->
   with('response')->begin()->
-    checkElement('body:contains("Invalid email address")')->
+    checkElement('body:contains("Email Address is invalid")')->
   end()
 ;
