@@ -42,7 +42,7 @@ test:
 all:
   .settings:
     # enabling repository plugin module
-    enabled_modules:  			[default, fd_comment, idMessage, idLogtime, idTracker, idProfile, idDashboard, idProject, idIssue, sfGuardAuth, sfGuardGroup, sfGuardUser, sfGuardPermission, idStatus, idPriority, idMilestone]
+    enabled_modules:  			[default, sfGuardForgotPassword, fd_comment, idMessage, idLogtime, idTracker, idProfile, idDashboard, idProject, idIssue, sfGuardAuth, sfGuardGroup, sfGuardUser, sfGuardPermission, idStatus, idPriority, idMilestone]
     # Form security secret (CSRF protection)
     csrf_secret:       false     # Unique secret to enable CSRF protection or false to disable
 
