@@ -10,3 +10,5 @@ all:
   sf_guard_plugin:
     remember_key_expiration_age:  2592000   # 30 days in seconds
     remember_cookie_name:         phpcollabRememberMe
+  mail:
+    from: no_reply@example.com

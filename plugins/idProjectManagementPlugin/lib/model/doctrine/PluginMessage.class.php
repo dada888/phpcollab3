@@ -19,4 +19,9 @@ abstract class PluginMessage extends BaseMessage
     }
     return $this->created_at;
   }
+
+  public function getRelatedUsers()
+  {
+    return $this->getProject()->getUsers();
+  }
 }

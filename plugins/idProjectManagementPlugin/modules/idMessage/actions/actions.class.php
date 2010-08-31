@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 12474 2008-10-31 10:41:27Z fabien $
  */
-class idMessageActions extends sfActions
+class idMessageActions extends collabActions
 {
   public function  preExecute()
   {
@@ -78,6 +78,12 @@ class idMessageActions extends sfActions
     $this->forward404Unless($message->project_id == $request->getParameter('project_id'));
 
     $message->delete();
+    $this->sendEmail($message,
+                     $this->getPartial('idProject/mail', array('object' => $message,
+                                                     'action' => 'deleted',
+                                                     'user' =>  $this->getUser()->getGuardUser())),
+                     'deleted'
+                    );
     $this->getUser()->setFlash('notice', 'Message deleted successfully');
 
     $this->redirect('@index_messages?project_id='.$request->getParameter('project_id'));
@@ -100,6 +106,14 @@ class idMessageActions extends sfActions
         $message->save();
         $operation = 'create';
       }
+
+      $this->sendEmail($message,
+                       $this->getPartial('idProject/mail', array('object' => $message,
+                                                       'action' => $operation.'d',
+                                                       'user' =>  $this->getUser()->getGuardUser(),
+                                                       'show' => true)),
+                        $operation.'d'
+                      );
 
       $this->getUser()->setFlash('notice', 'Object '.$operation.'d successfully');
       $this->redirect('@edit_message?project_id='.$request->getParameter('project_id').'&message_id='.$message->getId());

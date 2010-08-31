@@ -10,4 +10,16 @@ abstract class PluginfdComment extends BasefdComment
     return Doctrine::getTable('fdComment')->getUserForComment($this->user_id);
   }
 
+  public function getRelatedUsers()
+  {
+    $method = 'findOneby'.$this->getModelField();
+    $object = Doctrine::getTable($this->getModel())->$method($this->getModelFieldValue());
+
+    if (method_exists($object, 'getRelatedUsers'))
+    {
+      return $object->getRelatedUsers();
+    }
+
+    return array();
+  }
 }

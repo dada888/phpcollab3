@@ -23,6 +23,15 @@ $browser->
   end()->
 
   click('Save', array('message' => array('title' => 'Terzo', 'body' => 'body terzo' )))->
+
+  with('mailer')->begin()->
+    checkHeader('Subject', '/Message .* created/')->
+    checkHeader('To', '/example3@example.com/')->
+    checkHeader('To', '/example5@example.com/')->
+    checkBody('/A message has been created/')->
+    checkBody('/Terzo/')->
+    checkBody('/body terzo/')->
+  end()->
   followRedirect()->
 
   with('request')->begin()->

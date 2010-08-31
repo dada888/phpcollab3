@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 12474 2008-10-31 10:41:27Z fabien $
  */
-class fd_commentActions extends sfActions
+class fd_commentActions extends collabActions
 {
   public function preExecute()
   {
@@ -77,10 +77,10 @@ class fd_commentActions extends sfActions
 
     $this->form = new fdCommentForm(new $object_model_class, $request->getParameter('model_field'), $request->getParameter('model_field_value'));
 
-    if ($request->isXmlHttpRequest())
-    {
-      return $this->processAjaxForm($request, $this->form);
-    }
+//    if ($request->isXmlHttpRequest())
+//    {
+//      return $this->processAjaxForm($request, $this->form);
+//    }
 
     $this->processForm($request, $this->form);
   }
@@ -138,6 +138,13 @@ class fd_commentActions extends sfActions
     if ($form->isValid())
     {
       $fd_comment = $form->save();
+      $this->sendEmail($fd_comment,
+                       $this->getPartial('idProject/mail', array('object' => $fd_comment,
+                                                                 'action' => 'created',
+                                                                 'user' =>  $this->getUser()->getGuardUser(),
+                                                                 'show' => true)),
+                        'created'
+                      );
       
       $this->redirect($this->redirect_to);
     }

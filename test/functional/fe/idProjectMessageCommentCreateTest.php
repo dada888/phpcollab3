@@ -23,6 +23,13 @@ $browser->
   end()->
 
   click('Leave a comment', array('fd_comment' => array('title' => 'comment title', 'body' => 'comment body: your message rocks!!' )))->
+  with('mailer')->begin()->
+    checkHeader('Subject', '/fdComment .* created/')->
+    checkHeader('To', '/example3@example.com/')->
+    checkHeader('To', '/example5@example.com/')->
+    checkBody('/comment title/')->
+    checkBody('/comment body: your message rocks/')->
+  end()->
   followRedirect()->
 
   with('request')->begin()->
