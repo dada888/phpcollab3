@@ -27,7 +27,7 @@ $browser->
     checkHeader('To', '/example3@example.com/')->
     checkHeader('To', '/example5@example.com/')->
     checkBody('/Hi, this is your collab installation mail system/')->
-    checkBody('/A message has been deleted/')->
+    checkBody('/Log: message has been deleted/')->
     checkBody('/has been deleted by puser on/')->
   end()->
   followRedirect()->

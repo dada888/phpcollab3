@@ -71,6 +71,14 @@ $browser->click('Save', array('issue' => array(
     'users_list'      => array('3')
   )), array('methos'=>'post'))->
 
+  with('mailer')->begin()->
+    checkHeader('Subject', '/Issue .* edited/')->
+    checkHeader('To', '/example3@example.com/')->
+    checkBody('/Issue new ticket up has been edited by puser on/')->
+    checkBody('~http://~')->
+    checkBody('~en/idProject/3/idIssue/show/1~')->
+  end()->
+
   followRedirect()->
 
   with('request')->begin()->

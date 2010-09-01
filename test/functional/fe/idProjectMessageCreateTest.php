@@ -28,7 +28,7 @@ $browser->
     checkHeader('Subject', '/Message .* created/')->
     checkHeader('To', '/example3@example.com/')->
     checkHeader('To', '/example5@example.com/')->
-    checkBody('/A message has been created/')->
+    checkBody('/Log: message has been created/')->
     checkBody('/Terzo/')->
     checkBody('/body terzo/')->
   end()->

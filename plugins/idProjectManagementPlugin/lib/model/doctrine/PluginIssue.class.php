@@ -74,4 +74,9 @@ abstract class PluginIssue extends BaseIssue
     return (bool) ($this->status == 'closed');
   }
 
+  public function getRelatedUsers()
+  {
+    return $this->getUsers();
+  }
+
 }

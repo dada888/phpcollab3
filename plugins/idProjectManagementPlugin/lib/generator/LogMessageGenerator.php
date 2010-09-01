@@ -19,22 +19,22 @@ class LogMessageGenerator
     switch ($object_class)
     {
       case 'project':
-        return link_to($object->name, '@show_project?id='.$object->id);
+        return link_to($object->name, '@show_project?id='.$object->id, array('absolute' => true));
         break;
       case 'milestone':
-        return link_to($object->title, '@show_milestone?project_id='.$object->project_id.'&milestone_id='.$object->id);
+        return link_to($object->title, '@show_milestone?project_id='.$object->project_id.'&milestone_id='.$object->id, array('absolute' => true));
         break;
       case 'issue':
-        return link_to('#'.$object->id.' '.$object->title, '@show_issue?project_id='.$object->project_id.'&issue_id='.$object->id);
+        return link_to('#'.$object->id.' '.$object->title, '@show_issue?project_id='.$object->project_id.'&issue_id='.$object->id, array('absolute' => true));
         break;
       case 'logtime':
-        return "time (".$object->log_time." hours) for ".link_to('#'.$object->issue->id.' '.$object->issue->title, '@show_issue?project_id='.$object->issue->project_id.'&issue_id='.$object->issue->id);
+        return "time (".$object->log_time." hours) for ".link_to('#'.$object->issue->id.' '.$object->issue->title, '@show_issue?project_id='.$object->issue->project_id.'&issue_id='.$object->issue->id, array('absolute' => true));
         break;
       case 'message':
-        return link_to($object->title, '@show_message?project_id='.$object->project_id.'&message_id='.$object->id);
+        return link_to($object->title, '@show_message?project_id='.$object->project_id.'&message_id='.$object->id, array('absolute' => true));
         break;
       default:
-        return (method_exists($object, '__toString')) ? (string)$object : get_class($object);
+        return link_to((method_exists($object, '__toString')) ? (string)$object : get_class($object), '@homepage', array('absolute' => true));
     }
   }
 

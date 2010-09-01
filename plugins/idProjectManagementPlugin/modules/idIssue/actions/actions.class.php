@@ -19,7 +19,7 @@
  * @subpackage idProjectManagementPlugin Modules
  * @author     Filippo (p16) De Santis <fd@ideato.it>
  */
-class idIssueActions extends sfActions
+class idIssueActions extends collabActions
 {
   /**
    * Executes index action
@@ -216,6 +216,17 @@ class idIssueActions extends sfActions
     if ($form->isValid())
     {
       $issue = $form->save();
+
+      $this->sendEmail($issue,
+                       $this->getPartial('idProject/mail', array('object' => $issue,
+                                                       'action' => 'edited',
+                                                       'user' =>  $this->getUser()->getGuardUser(),
+                                                       'show' => true,
+                                                       'body_field' => 'description'
+                           )),
+                        'edited'
+                      );
+
       $this->getUser()->setFlash('notice', 'Issue saved');
       $this->redirect('@edit_issue?project_id='.$issue->project_id.'&issue_id='.$issue->id);
     }

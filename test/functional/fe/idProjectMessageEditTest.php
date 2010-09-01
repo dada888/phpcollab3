@@ -27,7 +27,7 @@ $browser->
     checkHeader('Subject', '/Message .* updated/')->
     checkHeader('To', '/example3@example.com/')->
     checkHeader('To', '/example5@example.com/')->
-    checkBody('/A message has been updated/')->
+    checkBody('/Log: message has been updated/')->
     checkBody('/Primo primo/')->
     checkBody('/body primo primo/')->
   end()->

@@ -5,11 +5,9 @@ include(dirname(__FILE__).'/../../plugins/idProjectManagementPlugin/lib/generato
 initializeDatabase();
 $configuration = ProjectConfiguration::getApplicationConfiguration( 'fe', 'unittest', true);
 new sfDatabaseManager($configuration);
-
-$t = new lime_test(11, new lime_output_color());
-
-$configuration = ProjectConfiguration::getApplicationConfiguration( 'fe', 'unittest', true);
 sfContext::createInstance($configuration);
+
+$t = new lime_test(12, new lime_output_color());
 
 class Project
 {
@@ -65,7 +63,8 @@ $t->like($link, '/<a href=".*en\/idProject\/33\/idMessage\/show\/33">message<\/a
 class MyClass123456789 {}
 
 $link = LogMessageGenerator::getLinkForObject(new MyClass123456789);
-$t->is($link, 'MyClass123456789', 'getLinkForObject ok for generic class class');
+$t->like($link, '/<a href=/', 'getLinkForObject ok for generic class class');
+$t->like($link, '/MyClass123456789<\/a>/', 'getLinkForObject ok for generic class class');
 
 class MyClassToString
 {
@@ -76,7 +75,7 @@ class MyClassToString
 }
 
 $link = LogMessageGenerator::getLinkForObject(new MyClassToString);
-$t->is($link, 'my_class', 'getLinkForObject ok for generic class with to string method');
+$t->like($link, '/<a href=.*my_class<\/a>/', 'getLinkForObject ok for generic class with to string method');
 
 class EventMock extends Doctrine_Event
 {
